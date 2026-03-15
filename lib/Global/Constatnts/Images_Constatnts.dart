@@ -1,0 +1,29 @@
+class Images {
+  static const String bannerride = "assets/images/bannerride.png";
+  static const String loginInfographic = 'assets/images/login_infographic.png';
+  static const String image = 'assets/images/image.jpg';
+  static const String house = 'assets/images/house.jpg';
+  static const String backGround = "assets/images/backGround.png";
+  static const String onboard1 = "assets/images/picOnboard1.png";
+  static const String onboard2 = "assets/images/picOnboard2.png";
+  static const String onboard3 = "assets/images/picOnboard3.png";
+  static const String filter = "assets/images/filter.png";
+  static const String apple_pay = "assets/images/apple_pay.png";
+  static const String banner_1 = "assets/images/banner_1.jpg";
+  static const String banner_2 = "assets/images/banner_2.jpg";
+  static const String banner_3 = "assets/images/banner_3.jpg";
+  static const String aboutus = "assets/images/aboutus.png";
+  static const String guest = "assets/images/guest.jpg";
+  static const String placeholder = "assets/images/placeholder.jpeg";
+  static const String no_data = "assets/images/no_data.png";
+  static const String splash = "assets/images/splash.png";
+  static const String logo = "assets/images/logo.png";
+  static const String pattern = "assets/images/pattern.jpg";
+  static const String login_image = "assets/images/login_image.png";
+  static const String background_light = "assets/images/background_light.png";
+  static const String face_id = "assets/images/face_id.png";
+  static const String auth_face_pattern = "assets/images/auth_face_pattern.png";
+  static const String home_pattern = "assets/images/home_pattern.png";
+  static const String anb = "assets/images/anb.png";
+  static const String banks = "assets/images/banks.png";
+}
