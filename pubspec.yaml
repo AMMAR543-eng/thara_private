@@ -1,0 +1,139 @@
+name: thara
+description: "phentic app"
+publish_to: 'none'
+
+version: 13.0.0+3
+
+environment:
+  sdk: ^3.8.0-278.2.beta
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Core
+  cupertino_icons: ^1.0.8
+  get: ^4.6.1
+  dartz: ^0.10.1
+  equatable: ^2.0.3
+  http: ^1.0.0
+  crypto: ^3.0.2
+  uuid: ^4.1.0
+  path: any
+  intl: any
+  shared_preferences: any
+
+  # UI / Design
+  google_fonts: ^6.2.1
+  flutter_svg: any
+  flutter_screenutil: ^5.9.3
+  shimmer: ^3.0.0
+  font_awesome_flutter: ^10.7.0
+  flutter_easyloading: ^3.0.5
+  lottie: ^3.1.0
+  dotted_border: ^2.0.0
+  visibility_detector: ^0.4.0+2
+  get_storage: ^2.1.1
+
+
+  # Media & Files
+  image_picker: ^0.8.5+3
+  file_picker: any
+  open_file: any
+  video_player: ^2.10.0
+  cached_network_image: ^3.3.1
+  share_plus: any
+  path_provider: any
+
+  # Permissions & Security
+  permission_handler: ^11.3.0
+  flutter_secure_storage: ^9.2.4
+  local_auth: ^2.3.0
+
+  # UI Widgets / Inputs
+  smooth_page_indicator: ^1.2.1
+  pin_code_fields: ^8.0.1
+  expansion_tile_card: ^3.0.0
+  sms_autofill: ^2.3.0
+  intl_phone_field: ^3.2.0
+
+  # ✅ Fixed Git version (editable) of keyboard_actions
+  keyboard_actions:
+    git:
+      url: https://github.com/diegoveloper/flutter_keyboard_actions.git
+      ref: master
+
+  # PDF / Web / HTML
+  syncfusion_flutter_pdfviewer: any
+  webview_flutter: any
+  flutter_html: ^3.0.0-alpha.6
+
+  # Time / Date
+  hijri: ^3.0.0
+  hijriyah_indonesia:
+
+  # Encryption
+  encrypt: ^5.0.1
+
+  # Charts
+  syncfusion_flutter_charts: ^31.1.19
+
+  # System / Device
+  device_info_plus:
+  flutter_plugin_android_lifecycle: ^2.0.20
+  win32: ^5.5.0
+
+  # Launchers
+  url_launcher: ^6.3.1
+  moyasar: ^2.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.8
+  json_serializable: any
+  flutter_native_splash: ^2.3.10
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/animations/
+    - assets/register_basic_info.pdf
+    - assets/RiskStatement_AutomatedInvesting.pdf
+    - assets/sharia.pdf
+
+  fonts:
+    - family: MyriadArabic
+      fonts:
+        - asset: assets/fonts/MyriadArabicBold.otf
+          weight: 700
+        - asset: assets/fonts/MyriadArabicRegular.otf
+          weight: 400
+        - asset: assets/fonts/MyriadArabicSemibold.otf
+          weight: 600
+        - asset: assets/fonts/MyriadArabicIt.otf
+          weight: 500
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/splash.png
+
+  android: true
+  ios: true
+
+  # ✅ Android 12+
+  android_12:
+    color: "#FFFFFF"
+    image: assets/images/splash.png
+    icon_background_color: "#FFFFFF"
+
+  # ✅ iOS settings
+  ios_content_mode: scaleAspectFit
+
