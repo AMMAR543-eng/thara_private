@@ -26,8 +26,6 @@
 //     String packageName = packageInfo.packageName;
 //     version = packageInfo.version;
 //     buildNumber = packageInfo.buildNumber;
-//     print("version ${version}");
-//     print("buildNumber ${buildNumber}");
 //   }
 //
 //   Future<void> initialize() async {

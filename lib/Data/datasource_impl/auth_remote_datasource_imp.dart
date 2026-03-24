@@ -19,11 +19,9 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSourceRepo {
       loginRes.saveTokenLocal(
         saveCallback: () {
           loginRes.account?.saveAccountLocal(
-            onSaved: () => print("account saved from singingWithSirar"),
           );
 
           loginRes.user?.saveUserLocal(
-            saveCallback: () => print("account save success from otp"),
           );
         },
       );
@@ -65,11 +63,9 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSourceRepo {
       );
       final verifyRes = OtpModel.fromJson(response);
       verifyRes.account?.saveAccountLocal(
-        onSaved: () => print("account saved from singingWithSirar"),
       );
 
       verifyRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
       return Success(verifyRes);
     } catch (error) {

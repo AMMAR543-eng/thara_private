@@ -8,9 +8,6 @@ class BiometricService {
     final localAuth = LocalAuthentication();
     final bool isSupported = await localAuth.isDeviceSupported();
     final bool canCheckBiometrics = await localAuth.canCheckBiometrics;
-    print(await localAuth.isDeviceSupported());
-    print(await localAuth.canCheckBiometrics);
-    print(await localAuth.getAvailableBiometrics());
 
     if (isSupported && canCheckBiometrics) {
       try {
@@ -25,7 +22,6 @@ class BiometricService {
         );
 
         final availableBiometrics = await localAuth.getAvailableBiometrics();
-        print("Available biometrics: $availableBiometrics");
 
 
         if (didAuthenticate) {
@@ -37,7 +33,6 @@ class BiometricService {
           return token; // 🔑 You can now send this to your use case
         }
       } on PlatformException catch (e) {
-        print("Biometric auth error: $e");
       }
     }
     return null;

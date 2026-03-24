@@ -93,7 +93,6 @@ extension SaveProductsData on UserModel {
   Future<void> saveUserLocal({Function? saveCallback}) async {
     final isSaved = await StorageService().setData(Strings.user, toJson());
     if (isSaved) {
-      print("Saving data: ${toJson()}");
       saveCallback?.call();
     } else {
       Loader.showError("Not saved locally");
@@ -107,7 +106,6 @@ extension SaveProductsData on UserModel {
       try {
         return UserModel.fromJson(productJson);
       } catch (e) {
-        print("Error parsing user data: $e");
         return null;
       }
     } else {
@@ -119,7 +117,6 @@ extension SaveProductsData on UserModel {
   Future<void> deleteUserLocal({Function? deleteCallback}) async {
     final isDeleted = await StorageService().remove(Strings.user);
     if (isDeleted) {
-      print("User data deleted successfully");
       deleteCallback?.call();
     } else {
       Loader.showError("Failed to delete user data");

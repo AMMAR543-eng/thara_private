@@ -44,16 +44,18 @@ class _BuildSuccessWidgetState extends State<BuildSuccessWidget> {
                   (isEdit
                       ? "auto_invest_updated_success".tr
                       : "auto_invest_created_success".tr),
-              style: context.typography.headerLarge,
+              style: context.typography.headerLarge.copyWith(
+                color: AppColors.content_secondary,
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 8.h),
 
             Text(
-              isEdit
-                  ? "redirecting_now".tr
-                  : "auto_invest_edit_anytime".tr,
-              style: context.typography.bodyMedium,
+              isEdit ? "redirecting_now".tr : "auto_invest_edit_anytime".tr,
+              style: context.typography.bodyMedium.copyWith(
+                color: AppColors.content_secondary,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

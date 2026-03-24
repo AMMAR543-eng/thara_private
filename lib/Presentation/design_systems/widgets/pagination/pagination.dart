@@ -48,11 +48,9 @@ class PaginationController<T, R> extends GetxController {
         if (!isLoadMore) items.clear(); // Ensure items are cleared if no data
       } else {
         items.addAll(newData);
-        print("total lenght is ${items.length}");
       }
     } catch (e) {
       hasMoreData = false;
-      print('Error fetching data: $e');
     }
 
     isLoading = false;

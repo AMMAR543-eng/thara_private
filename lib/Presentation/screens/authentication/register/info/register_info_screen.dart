@@ -18,7 +18,6 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
     String account_type = const AccountModel().getAccountLocal()?.type ?? "";
     bool is_local_account_company = account_type == "company" ?true:false;
     widget.isCompany = is_local_account_company;
-    print("account type is $is_local_account_company");
     registerController = initUseCase(() => RegisterController());
     super.initState();
   }

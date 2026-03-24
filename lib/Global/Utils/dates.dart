@@ -5,7 +5,6 @@ class DatesUtilis {
     try {
       return DateFormat('yyyy-MM-dd').parse(date);
     } catch (e) {
-      print("Error parsing date: $e");
       return null;
     }
   }

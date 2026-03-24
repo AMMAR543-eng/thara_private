@@ -90,7 +90,6 @@ class ArticleItemModel {
   });
 
   factory ArticleItemModel.fromJson(Map<String, dynamic>? json) {
-    print("jsssson is ${json}");
     if (json == null) return const ArticleItemModel();
     return ArticleItemModel(
       id: json['id'] as String?,

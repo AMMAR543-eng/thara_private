@@ -25,7 +25,6 @@ class ArticlesViewModel extends GetxController {
       id: key,
       voidCallBack: (data) {
         article_details = data.data?.article;
-        print("article_details is ${article_details?.toJson()}");
         update();
       },
     );

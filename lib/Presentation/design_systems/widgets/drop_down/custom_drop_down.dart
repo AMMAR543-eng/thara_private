@@ -38,7 +38,6 @@ class GenericDropdownState<T> extends State<GenericDropdown<T>>
   @override
   void initState() {
     super.initState();
-    print("inital value in drop down is ${widget.initialValue}");
     selectedValue = widget.initialValue;
     WidgetsBinding.instance.addObserver(this); // Add observer for lifecycle
   }

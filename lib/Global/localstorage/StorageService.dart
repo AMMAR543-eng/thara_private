@@ -21,7 +21,6 @@ class StorageService {
       String jsonData = json.encode(data);
       return await _preferences.setString(key, jsonData);
     } catch (e) {
-      print('Error setting data: $e');
       return false;
     }
   }
@@ -33,7 +32,6 @@ class StorageService {
         return json.decode(jsonData) as T;
       }
     } catch (e) {
-      print('Error getting data: $e');
     }
     return null;
   }
@@ -60,7 +58,6 @@ class SecureStorageService {
       await _secureStorage.write(key: key, value: jsonData);
       return true;
     } catch (e) {
-      print('Error setting secure data: $e');
       return false;
     }
   }
@@ -72,7 +69,6 @@ class SecureStorageService {
         return json.decode(jsonData) as T;
       }
     } catch (e) {
-      print('Error getting secure data: $e');
     }
     return null;
   }
@@ -82,7 +78,6 @@ class SecureStorageService {
       await _secureStorage.delete(key: key);
       return true;
     } catch (e) {
-      print('Error removing secure data: $e');
       return false;
     }
   }

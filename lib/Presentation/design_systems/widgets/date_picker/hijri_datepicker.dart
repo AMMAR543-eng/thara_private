@@ -42,7 +42,6 @@ class _HijriDatePickerState extends State<HijriDatePicker> {
   void initState() {
     super.initState();
     final today = HijriCalendar.now();
-    print("today is ${today}");
     selectedDay = today.hDay;
     selectedMonth = today.hMonth;
     selectedYear = today.hYear;

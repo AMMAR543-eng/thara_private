@@ -47,7 +47,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             onTap: () async {
               final controller = initUseCase(() => AppLanguage());
               final currentLang = LocalStorage_language().read();
-              print("currentLang is ${currentLang}");
 
               if (currentLang == 'ar') {
                 controller.changeLanguage('en');

@@ -39,7 +39,6 @@ class ForseItemWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (from_details == true) {
-          print("donnne");
           opportunityDetailsController?.reloadWithNewId(
             scrollController ?? ScrollController(),
             opportunity?.id ?? "",

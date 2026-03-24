@@ -50,7 +50,6 @@ class BioUserModel {
 
     final isSaved = await StorageService().setData(_bioKey, json);
     if (isSaved) {
-      print("✅ Biometric data saved locally: $json");
       onSaved?.call();
     } else {
       Loader.showError("❌ Failed to save biometric data locally");
@@ -64,7 +63,6 @@ class BioUserModel {
       try {
         return BioUserModel.fromJson(bioJson);
       } catch (e) {
-        print("⚠️ Error parsing biometric data: $e");
         return null;
       }
     }
@@ -75,7 +73,6 @@ class BioUserModel {
   static Future<void> deleteBioLocal({Function? onDeleted}) async {
     final isDeleted = await StorageService().remove(_bioKey);
     if (isDeleted) {
-      print("🧹 Biometric data deleted successfully");
       onDeleted?.call();
     } else {
       Loader.showError("❌ Failed to delete biometric data");

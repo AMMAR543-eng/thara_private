@@ -27,12 +27,15 @@ class BuildPackageWidget extends StatelessWidget {
                     p.title,
                     style: context.typography.bodyLarge.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: AppColors.content_secondary,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
                     p.description,
-                    style: context.typography.bodyMedium,
+                    style: context.typography.bodyMedium.copyWith(
+                      color: AppColors.content_secondary,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ],

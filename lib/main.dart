@@ -36,7 +36,6 @@ void main() {
       );
     },
     (dynamic error, dynamic stack) {
-      print("error is ${error.toString()}");
     },
   );
 }

@@ -45,34 +45,12 @@ class InvestmentWizardController extends GetxController {
     PackageEntity(id: 3, title: "C-CC", description: "package_c_desc".tr),
   ];
 
-  List<InvestmentDuration> defaultDurations = [
-    InvestmentDuration(id: 1, title: "duration_6".tr, apiValue: "6"),
-    InvestmentDuration(id: 2, title: "duration_12".tr, apiValue: "12"),
-    InvestmentDuration(id: 3, title: "duration_18".tr, apiValue: "+12"),
-  ];
-
   // ────────────────────────────────────────────────────────────────
   // INIT
   // ────────────────────────────────────────────────────────────────
   @override
   void onInit() {
     super.onInit();
-
-    // durations
-    data.durations = defaultDurations
-        .map(
-          (d) => InvestmentDuration(
-            id: d.id,
-            title: d.title,
-            apiValue: d.apiValue,
-            selected: false,
-          ),
-        )
-        .toList();
-
-    if (data.durations!.isNotEmpty) {
-      //  data.durations![0].selected = true; // default
-    }
 
     // opportunities
     data.opportunities = defaultOpportunities
@@ -182,7 +160,7 @@ class InvestmentWizardController extends GetxController {
   // ────────────────────────────────────────────────────────────────
   void nextStep() {
     if (!validateStep(currentStep)) return;
-    if (currentStep < 4) {
+    if (currentStep < 3) {
       currentStep++;
       update();
     }
@@ -253,14 +231,6 @@ class InvestmentWizardController extends GetxController {
         }
         return true;
 
-      case 3:
-        if (!data.durations!.any((d) => d.selected)) {
-          serverMessage = "error_select_duration".tr;
-          update();
-          return false;
-        }
-        return true;
-
       default:
         return true;
     }
@@ -323,9 +293,11 @@ class InvestmentWizardController extends GetxController {
         payload: payload,
         voidCallBack: (success) {
           serverMessage = isEditMode ? "success_edit".tr : "success_create".tr;
-          currentStep = 4;
+          currentStep = 3;
           isLoading = false;
-          DashboardController controller = initUseCase(()=> DashboardController());
+          DashboardController controller = initUseCase(
+            () => DashboardController(),
+          );
           controller.getAutoInvestData();
           controller.update();
           update();

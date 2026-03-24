@@ -24,7 +24,6 @@ extension SaveLocalData on OnboardLocalCheck {
   Future<void> saveOnBoardLocal({Function? saveCallback}) async {
     final isSaved = await StorageService().setData(Strings.firstOepn, toJson());
     if (isSaved) {
-      print("Saving data: ${toJson()}");
       saveCallback?.call();
     } else {
       Loader.showError("Not saved locally");
@@ -35,7 +34,6 @@ extension SaveLocalData on OnboardLocalCheck {
     final productJson = await StorageService().getData(Strings.firstOepn);
     if (productJson != null) {
       try {
-        print("Parsed data: $productJson"); // Debug log
         return OnboardLocalCheck.fromJson(productJson);
       } catch (e) {
         return null;

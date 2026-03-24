@@ -46,7 +46,6 @@ class ForgetPasswordController extends GetxController {
     final data = await Get.arguments;
     code = data["code"];
     update();
-    print("code is $code");
   }
 
   /// Update email validation
@@ -100,7 +99,6 @@ class ForgetPasswordController extends GetxController {
       nin: nin,
       voidCallBack: (data) {
         if (kDebugMode) {
-          print("data is $data");
 
         }
         if (data.customStatusCode == 200) {
@@ -134,7 +132,6 @@ class ForgetPasswordController extends GetxController {
       passwordConfirm: passwordConfirm,
       voidCallBack: (data) {
         if (kDebugMode) {
-          print("data is $data");
         }
         if (data.customStatusCode == 200) {
           Get.toNamed(resetCompleteScreen);

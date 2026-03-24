@@ -21,7 +21,6 @@ class _ProcessViewState extends State<ProcessView> {
       builder: (controller) {
         final isGuest =
             LoginResponseModel().getTokenData()?.data?.accessToken == null;
-        print("isGuest is ${isGuest}");
 
         return AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.dark,

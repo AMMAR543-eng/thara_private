@@ -1,9 +1,9 @@
 import '../../../../index/index_main.dart';
 
 void showInvestSettingsSheet(
-    BuildContext context,
-    InvestmentWizardEntity entity,
-    ) {
+  BuildContext context,
+  InvestmentWizardEntity entity,
+) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -55,7 +55,7 @@ void showInvestSettingsSheet(
                     Text(
                       "auto_invest_enabled_now".tr,
                       style: context.typography.bodyMedium.copyWith(
-                        color: AppColors.background_black,
+                        color: AppColors.content_secondary,
                       ),
                     ),
 
@@ -77,7 +77,7 @@ void showInvestSettingsSheet(
                         onTap: () {
                           Navigator.pop(context);
                           Get.to(
-                                () => InvestmentWizardScreen(editData: entity),
+                            () => InvestmentWizardScreen(editData: entity),
                           );
                         },
                       ),
@@ -104,7 +104,7 @@ void showInvestSettingsSheet(
                           OpportunitiesService().cancelAutoInvestment(
                             voidCallBack: (data) {
                               DashboardController dashboard = initUseCase(
-                                    () => DashboardController(),
+                                () => DashboardController(),
                               );
                               dashboard.getAutoInvestData();
                               dashboard.update();

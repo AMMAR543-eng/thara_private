@@ -42,8 +42,6 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
       case 2:
         return BuildPackageWidget(controller: controller);
       case 3:
-        return BuildDurationWidget(controller: controller);
-      case 4:
         return BuildSuccessWidget(controller: controller);
       default:
         return const SizedBox.shrink();
@@ -64,6 +62,8 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         backgroundColor: AppColors.white,
+        leading: BackButton(color: AppColors.content_primary),
+
         title: Text(
           "wizard_title".tr,
           style: context.typography.bodyLarge.copyWith(
@@ -75,7 +75,7 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
       bottomNavigationBar: GetBuilder<InvestmentWizardController>(
         init: controller,
         builder: (c) {
-          if (c.currentStep == 4) return const SizedBox.shrink();
+          if (c.currentStep == 3) return const SizedBox.shrink();
 
           bool enabled = c.isStepValid(c.currentStep);
 
@@ -136,7 +136,7 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
                                       false;
                                   if (!valid) return;
                                 }
-                                if (c.currentStep < 3) {
+                                if (c.currentStep < 2) {
                                   c.nextStep();
                                 } else {
                                   await c.submit();
@@ -177,8 +177,6 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
                           _buildTopTab("wizard_step_1".tr, 1, c),
                           const SizedBox(width: 16),
                           _buildTopTab("wizard_step_2".tr, 2, c),
-                          const SizedBox(width: 16),
-                          _buildTopTab("wizard_step_3".tr, 3, c),
                         ],
                       ),
                     ),
@@ -257,9 +255,7 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
           color: active ? AppColors.primary.withValues(alpha: 0.06) : null,
           borderRadius: BorderRadius.circular(6),
           border: active
-              ?  Border(
-                  bottom: BorderSide(width: 3, color: AppColors.primary),
-                )
+              ? Border(bottom: BorderSide(width: 3, color: AppColors.primary))
               : null,
         ),
         child: Text(
@@ -280,15 +276,11 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
         return "wizard_step_1".tr;
       case 2:
         return "wizard_step_2".tr;
-      case 3:
-        return "wizard_step_3".tr;
-      case 4:
-        return "";
+
       default:
         return "";
     }
   }
-
 
   String _getSubtitleOfStep(int step) {
     switch (step) {
@@ -298,11 +290,9 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
         return "";
       case 2:
         return "wizard_subtitle_multi_select".tr;
-      case 3:
-        return "wizard_subtitle_multi_select".tr;
+
       default:
         return "";
     }
   }
-
 }

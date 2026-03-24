@@ -12,7 +12,6 @@
 //   //   await askForPermission();
 //   //   await handleBackgroundNotification();
 //   //   await handleForgroundNotification();
-//   //   print("topicName is ${topicName()}");
 //   //   if (topicName() != "") {
 //   //     await subscripeToTopic(topicName());
 //   //   }
@@ -20,21 +19,17 @@
 //   //
 //   // Future<void> subscripeToTopic(String topicName) async {
 //   //   await FirebaseMessaging.instance.subscribeToTopic(topicName);
-//   //   print("subscripeToTopic is  ${topicName}");
 //   // }
 //   //
 //   // Future<void> un_subscripeToTopic(String topicName) async {
 //   //   await FirebaseMessaging.instance.unsubscribeFromTopic(topicName);
-//   //   print("un_subscripeToTopic is ${topicName} ");
 //   // }
 //   //
 //   // String topicName({String? relation}) {
 //   //   UserClient userData = UserClient.fromJson(LocalStorage().read(Strings.model));
 //   //   LocalStorage_language localStorage_language = LocalStorage_language();
 //   //   String? current_relation = relation ?? userData.name;
-//   //   print("local relation is ${current_relation}");
 //   //   String topic = current_relation ?? "";
-//   //   print("topic relation is ${topic}");
 //   //
 //   //   if (localStorage_language.read() == "ar") {
 //   //     if (current_relation == "guest_user") {
@@ -76,12 +71,9 @@
 //   //   );
 //   //
 //   //   if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-//   //     print('User granted permission');
 //   //   } else if (settings.authorizationStatus ==
 //   //       AuthorizationStatus.provisional) {
-//   //     print('User granted provisional permission');
 //   //   } else {
-//   //     print('User declined or has not accepted permission');
 //   //   }
 //   // }
 //   //
@@ -90,7 +82,6 @@
 //   //   // a terminated state.
 //   //   RemoteMessage? initialMessage =
 //   //       await FirebaseMessaging.instance.getInitialMessage();
-//   //   print("initialMessage ${initialMessage}");
 //   //
 //   //   // If the message also contains a data property with a "type" of "chat",
 //   //   // navigate to a chat screen
@@ -168,17 +159,14 @@
 //   //
 //   // Future<void> onSelectNotification(String? payload) async {
 //   //   if (payload != null) {
-//   //     print('notification payload: ' + payload);
 //   //   }
 //   // }
 //   //
 //   // Future<void> onDidReceiveLocalNotification(
 //   //     int id, String title, String body, String payload) async {
-//   //   print('did receive local notification: $id $title $body $payload');
 //   // }
 //   //
 //   // void _handleMessageNavigation(RemoteMessage message) {
-//   //   print("data in notification is ${message.data["target"]}");
 //   //   if (message.data['target'] == 'home') {
 //   //     Get.offAll(
 //   //         () => MainPage(

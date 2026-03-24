@@ -15,8 +15,6 @@ class LoginController extends GetxController {
     // const AccountModel().deleteAccountLocal();
     //  UserModel().deleteUserLocal();
     // BioUserModel.deleteBioLocal();
-    print("email is ${UserModel().getUserData()?.email}");
-    print("biometric is ${BioUserModel.getBioData()?.isBiometric}");
 
     if(UserModel().getUserData()?.email != null &&
         BioUserModel.getBioData()?.isBiometric == true){
@@ -87,7 +85,6 @@ class LoginController extends GetxController {
     AuthService().login(
       params: LoginParams(email: email, password: password),
       voidCallBack: (loginModel) {
-        print("local in login ${loginModel?.user?.toJson()}");
 
         String? token = loginModel.data?.accessToken;
 

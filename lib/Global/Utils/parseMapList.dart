@@ -5,7 +5,6 @@ List<T?> handleResponse<T>(
 
   List<T?> itemList = [];
   if (dataresponse is List) {
-    print("doannnne");
     final List<dynamic> responseList = dataresponse;
     itemList = responseList
         .map((dynamic item) {
@@ -16,7 +15,6 @@ List<T?> handleResponse<T>(
         .where((merchant) => merchant != null)
         .toList();
   } else if (dataresponse is Map) {
-    print("doannnne 222");
     // Handle the case where the response is a Map
     final Map<dynamic, dynamic> responseMap = dataresponse;
     responseMap.forEach((key, itemData) {

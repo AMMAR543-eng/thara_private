@@ -9,6 +9,7 @@ class InvestmentOnboardingScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         backgroundColor: AppColors.white,
+        leading: BackButton(color: AppColors.content_primary),
         title: Text(
           "auto_invest_title_header".tr,
           style: context.typography.headerLarge.copyWith(
@@ -79,7 +80,7 @@ class InvestmentOnboardingScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Get.to(
-                        () =>  GenericPdfViewerFromAsset(
+                    () => GenericPdfViewerFromAsset(
                       assetPath: 'assets/RiskStatement_AutomatedInvesting.pdf',
                       title: 'risk_level'.tr,
                     ),
@@ -137,14 +138,14 @@ class InvestmentOnboardingScreen extends StatelessWidget {
   }
 
   Widget _buildFeature(
-      BuildContext context, {
-        required String title,
-        required String description,
-      }) {
+    BuildContext context, {
+    required String title,
+    required String description,
+  }) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Padding(
+        Padding(
           padding: const EdgeInsets.only(top: 6.0),
           child: Icon(Icons.circle, size: 8, color: AppColors.primary),
         ),

@@ -10,7 +10,6 @@ class OpportunityDetailsController extends GetxController {
       voidCallBack: (data) {
         opportunityDetailsEntity = data;
         opportunitiesItemsEntity = data.opportunitiesItems;
-        print("duration is ${opportunitiesItemsEntity?.duration}");
         update();
       },
     );
@@ -63,6 +62,5 @@ String normalizeUrl(String url) {
 
   final protocol = uriParts[0];
   final path = uriParts[1].replaceAll(RegExp(r'\/{2,}'), '/');
-  print("urrrrl is ${'$protocol://$path'}");
   return '$protocol://$path';
 }

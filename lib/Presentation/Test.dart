@@ -227,8 +227,6 @@ class PaymentController extends GetxController {
 
   Future<void> _sendPaymentIdToBackend(String paymentId) async {
     final result = await checkWalletPayment(paymentId: paymentId);
-    print("data status is ${result?.status}");
-    print("data status is ${result?.toJson()}");
     if (result?.status == "paid") {
       Get.offAll(() => MainPage(indexNum: 3), binding: Binding());
     }

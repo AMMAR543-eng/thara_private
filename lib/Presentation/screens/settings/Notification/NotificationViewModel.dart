@@ -57,7 +57,6 @@ class NotificationViewModel extends GetxController {
   //
   //     update();
   //   } else {
-  //     print("noooooot make request again");
   //   }
   // }
 }

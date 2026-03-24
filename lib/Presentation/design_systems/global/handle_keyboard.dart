@@ -30,9 +30,7 @@ class HandleKeyboardService {
         onPressed: () => FocusScope.of(context).unfocus(),
         child: Text(
           "done".tr,
-          style: context.typography.bodyMedium.copyWith(
-            color: ColorMappingImpl().textLabel,
-          ),
+          style: context.typography.bodyMedium.copyWith(color: AppColors.white),
         ),
       ),
       actions: keys
@@ -46,7 +44,7 @@ class HandleKeyboardService {
                     child: Text(
                       "done".tr,
                       style: context.typography.bodyMedium.copyWith(
-                        color: ColorMappingImpl().textLabel,
+                        color: AppColors.white,
                       ),
                     ),
                   );

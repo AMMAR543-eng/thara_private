@@ -13,8 +13,6 @@ class SendKycWithFilesUseCase
     final Map<String, dynamic> jsonData = param.toJson();
     final Map<String, String> fileData = param.extractFiles();
 
-    print("📦 KYC JSON: $jsonData");
-    print("📎 KYC FILES: $fileData");
 
     return await _registerRepositoryImpl.sendKYCQuestionAnswerWithFilesDomain(
       jsonData,

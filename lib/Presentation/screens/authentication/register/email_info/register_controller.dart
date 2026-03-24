@@ -64,7 +64,6 @@ class RegisterController extends GetxController {
   }
 
   void onTypeSelected(GenericListModel? type) {
-    print("type is ${type?.id}");
     selectedType = type;
     typeConfirmed = type?.id == 1
         ? AccountType.individual.name
@@ -129,7 +128,6 @@ class RegisterController extends GetxController {
     RegisterService().registerEmail(
       param: param,
       voidCallBack: (data) async {
-        if (kDebugMode) print("data is $data");
 
         if (data.accessToken != null && data.accessToken!.isNotEmpty) {
           showModalBottomSheet(

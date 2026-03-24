@@ -32,7 +32,6 @@ class _GenericPdfViewerState extends State<GenericPdfViewer> {
   }
 
   Future<void> downloadPdf(Map<String, String> headers) async {
-    print("Downloading PDF from: ${widget.pdfUrl}");
     Loader.show();
     try {
       final Directory appDir = await getApplicationDocumentsDirectory();
@@ -50,14 +49,11 @@ class _GenericPdfViewerState extends State<GenericPdfViewer> {
           localPdfPath = filePath;
         });
         Loader.showSuccess("تم تحميل الملف بنجاح");
-        print("File downloaded to: $filePath");
       } else {
         Loader.showError("فشل تحميل الملف");
-        print("Failed to download file: ${response.statusCode}");
       }
     } catch (e) {
       Loader.showError("حدث خطأ أثناء تحميل الملف");
-      print("Error downloading file: $e");
     } finally {
       Loader.dismiss();
     }
@@ -69,12 +65,10 @@ class _GenericPdfViewerState extends State<GenericPdfViewer> {
       return;
     }
     final result = await OpenFile.open(localPdfPath!);
-    print("OpenFile result: ${result.message}");
   }
 
   @override
   Widget build(BuildContext context) {
-    print("pdf url ${widget.pdfUrl}");
 
     return FutureBuilder<Map<String, String>>(
       future: _headersFuture,

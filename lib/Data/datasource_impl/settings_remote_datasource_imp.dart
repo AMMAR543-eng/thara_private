@@ -181,7 +181,6 @@ class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSourceRepo {
         "${ApiConstatns.article}/$key",
       );
       final result = ArticleDetailsModelResponse.fromJson(response);
-      print("res is $result");
       return Success(result);
     } catch (error) {
       return Failure(ErrorHandler.handle(error));

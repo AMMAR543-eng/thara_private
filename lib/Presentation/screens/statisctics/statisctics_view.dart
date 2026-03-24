@@ -14,7 +14,6 @@ class StatiscticsView extends StatelessWidget {
       builder: (controller) {
         final isGuest =
             LoginResponseModel().getTokenData()?.data?.accessToken == null;
-        print("isGuest is ${isGuest}");
 
         return Directionality(
           textDirection: TextDirection.rtl,

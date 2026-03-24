@@ -20,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: () async {
                 final controller = initUseCase(() => AppLanguage());
                 final currentLang = LocalStorage_language().read();
-                print("currentLang is $currentLang");
                 if (currentLang == 'ar') {
                   controller.changeLanguage('en');
                 } else {

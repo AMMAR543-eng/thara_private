@@ -4,7 +4,6 @@
 //   try {
 //     return await RootCheck.isRooted ?? false;
 //   } catch (e) {
-//     print('Error checking root status: $e');
 //     return false;
 //   }
 // }

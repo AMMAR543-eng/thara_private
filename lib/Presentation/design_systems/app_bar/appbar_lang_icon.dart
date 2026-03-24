@@ -24,7 +24,6 @@ class GenericLanguageAppBar extends StatelessWidget
           final controller = Get.find<AppLanguage>();
 
           final currentLang = LocalStorage_language().read();
-          print("currentLang is ${currentLang}");
 
           if (currentLang == 'ar') {
             controller.changeLanguage('en');

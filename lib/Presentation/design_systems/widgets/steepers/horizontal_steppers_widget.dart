@@ -27,9 +27,7 @@ class HorizontalStepper extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final stepWidth = constraints.maxWidth / (totalSteps - 1);
-        print(
-          "total width is ${currentStep == 0 ? 0 : stepWidth * currentStep}",
-        );
+
         return Stack(
           alignment: Alignment.centerRight,
           children: [

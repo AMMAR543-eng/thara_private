@@ -102,7 +102,6 @@ Future<String?> pickImage() async {
       return result.files.single.path; // Return the selected image path
     }
   } catch (e) {
-    print("Error picking image: $e");
   }
   return null; // Return null if no image is picked
 }

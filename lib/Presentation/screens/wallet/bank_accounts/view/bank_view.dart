@@ -49,7 +49,10 @@ class BankAccountCardWidget extends StatelessWidget {
     return Container(
       width: 330.w,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
-      margin: EdgeInsets.only(left: 8.w),
+      margin: EdgeInsets.only(
+        left: LocalStorage_language().read() == "en" ? 0 : 8.w,
+        right: LocalStorage_language().read() == "en" ? 8.w : 0,
+      ),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12.r),

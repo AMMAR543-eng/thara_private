@@ -34,7 +34,6 @@ class ActiveSubscriptionResponse extends ActiveSubscriptionEntity {
        );
 
   factory ActiveSubscriptionResponse.fromJson(Map<String, dynamic> json) {
-    print("json in duration is ${json}");
     return ActiveSubscriptionResponse(
       id: json['id'] as String?,
       status: json['status'] as String?,

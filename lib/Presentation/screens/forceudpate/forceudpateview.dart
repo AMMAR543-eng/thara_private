@@ -63,7 +63,6 @@ class ForceUpdateView extends StatelessWidget {
   }
 
   Future<void> _launchUrl(String url) async {
-    print("status is ${!await canLaunchUrl(Uri.parse(url))}");
     if (!await canLaunchUrl(Uri.parse(url))) {
       throw 'Could not launch $url';
     } else {

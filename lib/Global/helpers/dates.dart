@@ -13,7 +13,6 @@ class Dates {
 
   String formatDate(int timestamp) {
     // Convert the timestamp to milliseconds
-    print("timestamp is $timestamp");
     DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
 
     // Define the format you want
@@ -32,10 +31,8 @@ class Dates {
     DateFormat dateFormat = DateFormat("dd-MM-yyyy hh:mm a", locale);
 
     try {
-      print("Parsed DateTime: ${dateFormat.parse(value)}");
       return dateFormat.parse(value);
     } catch (e) {
-      print("Error parsing date: $e");
       rethrow;
     }
   }
@@ -50,7 +47,6 @@ class Dates {
     String formattedDate = DateFormat('yyyy-MM-dd').format(date);
 
     // Output the formatted date
-    print(formattedDate); // Output: 2021-07-04 – 14:43
     return formattedDate;
   }
 
@@ -229,7 +225,6 @@ class Dates {
 
       return DateTime(year, month, day);
     } catch (e) {
-      print('Error parsing date: $dateString');
       // Handle the error as needed, e.g., return a default date or rethrow the exception
       rethrow; // Rethrow the exception to propagate it further if necessary
     }

@@ -39,9 +39,7 @@ class SettingController extends GetxController {
       } else {
         faceIDEnabled = false;
       }
-      print("🔐 Face ID initial state: $faceIDEnabled");
     } catch (e) {
-      print("⚠️ Error loading BioUserModel: $e");
       faceIDEnabled = false;
     }
     update();
@@ -62,7 +60,6 @@ class SettingController extends GetxController {
       isBiometric: value,
     );
     await bioModel.saveBioLocal();
-    print("💾 Updated Face ID preference locally: $value");
   }
 
   // ---------------------------------------------------------------------------

@@ -26,7 +26,6 @@ class AppLanguage extends GetxController {
       localStorage.inset("en");
       appLocale = "en";
     }
-    print(" app local is $appLocale");
     Get.updateLocale(Locale(appLocale));
     update(); // 🔥 مهم
   }

@@ -129,7 +129,7 @@ class DashboardController extends GetxController {
     _service.getAutoInvestment(
       voidCallBack: (data) {
         investmentConfigResponseModel = data;
-        print("investmentConfigResponseModel is ${investmentConfigResponseModel?.toJson()}");
+
         update();
       },
     );
@@ -140,20 +140,20 @@ class DashboardController extends GetxController {
     try {
       isLoading = true;
       update();
+      // Then run background data calls
+
+      final token = LoginResponseModel().getTokenData()?.data?.accessToken;
+      if (token != null) {
+        unawaited(_loadBackgroundData());
+        getAutoInvestData();
+      }
 
       // Fetch both opportunity types first (so the UI shows content fast)
       await Future.wait([
         getAvailableOpportunities(),
         getUpcomingOpportunities(),
       ]);
-      // Then run background data calls
-      final token = LoginResponseModel().getTokenData()?.data?.accessToken;
-      if (token != null) {
-        unawaited(_loadBackgroundData());
-        getAutoInvestData();
-      }
     } catch (e, s) {
-      print("❌ Dashboard Init Error: $e\n$s");
     } finally {
       isLoading = false;
       update();
@@ -167,6 +167,7 @@ class DashboardController extends GetxController {
       getBankAccounts(),
       getInvests(),
       getMonthlyData(),
+      getMeData(),
       getMeData(),
     ]);
   }
@@ -188,12 +189,7 @@ class DashboardController extends GetxController {
         voidCallBack: completer.complete,
       );
       availableOpportunities = await completer.future;
-
-      print(
-        "✅ Available opportunities: ${availableOpportunities?.opportunitiesItems?.length ?? 0}",
-      );
     } catch (e) {
-      print("❌ getAvailableOpportunities error: $e");
     } finally {
       isAvailableLoading = false;
       update();
@@ -217,12 +213,7 @@ class DashboardController extends GetxController {
         voidCallBack: completer.complete,
       );
       upcomingOpportunities = await completer.future;
-
-      print(
-        "✅ Upcoming opportunities: ${upcomingOpportunities?.opportunitiesItems?.length ?? 0}",
-      );
     } catch (e) {
-      print("❌ getUpcomingOpportunities error: $e");
     } finally {
       isUpcomingLoading = false;
       update();
@@ -252,7 +243,6 @@ class DashboardController extends GetxController {
       );
       investmentEntity = await completer.future;
     } catch (e) {
-      print("❌ getInvests error: $e");
     } finally {
       isInvestLoading = false;
       update();
@@ -272,7 +262,6 @@ class DashboardController extends GetxController {
       ProcessService().getTradeAccount(voidCallBack: completer.complete);
       tradeAccountEntity = await completer.future;
     } catch (e) {
-      print("❌ getTradeAccountData error: $e");
     } finally {
       isTradeLoading = false;
       update();
@@ -294,7 +283,6 @@ class DashboardController extends GetxController {
       );
       monthlyProfitData = await completer.future;
     } catch (e) {
-      print("❌ getMonthlyData error: $e");
     } finally {
       isProfitLoading = false;
       update();
@@ -314,7 +302,6 @@ class DashboardController extends GetxController {
       isProfessional = data.account?.isProfessionalInvestor ?? false;
       isWaitingProfessional = data.account?.thereIsWaitingRequest ?? false;
     } catch (e) {
-      print("❌ getMeData error: $e");
     } finally {
       update();
     }
@@ -333,7 +320,6 @@ class DashboardController extends GetxController {
       );
       bankAccountDataEntity = await completer.future;
     } catch (e) {
-      print("❌ getBankAccounts error: $e");
     } finally {
       isBankLoading = false;
       update();

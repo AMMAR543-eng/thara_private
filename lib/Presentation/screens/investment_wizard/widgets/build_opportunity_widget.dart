@@ -26,11 +26,12 @@ class BuildOpportunityWidget extends StatelessWidget {
                 children: [
                   // optional icon
                   if (op.icon != null)
-                    const Padding(
+                     Padding(
                       padding: EdgeInsets.only(bottom: 8.0),
                       child: Icon(
                         Icons.apartment,
                         size: 28,
+                        color: AppColors.primary,
                       ), // replace with svg if available
                     ),
                   Text(

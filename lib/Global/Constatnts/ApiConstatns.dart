@@ -8,14 +8,14 @@ class ApiConstatns {
   };
 
   //stage
-  static const String Base_Url = "https://stage.tp.tharaco.sa/api/v1/";
-  static const String key_encryption = "XoaN3rC9R5Lj3E9bCzZLsmaoJQkrCcrp";
-  static const String inv_encryption = "XRx6W20dkwJe3PUI";
+  // static const String Base_Url = "https://stage.tp.tharaco.sa/api/v1/";
+  // static const String key_encryption = "XoaN3rC9R5Lj3E9bCzZLsmaoJQkrCcrp";
+  // static const String inv_encryption = "XRx6W20dkwJe3PUI";
 
   // live
-  // static const String Base_Url = "https://tp.tharaco.sa/api/v1/";
-  // static const String key_encryption = "AJtOZlC7tLIoR9wYaG80A89xckqmIwLK";
-  // static const String inv_encryption = "gOTZf9paGJe8P0IX";
+  static const String Base_Url = "https://tp.tharaco.sa/api/v1/";
+  static const String key_encryption = "AJtOZlC7tLIoR9wYaG80A89xckqmIwLK";
+  static const String inv_encryption = "gOTZf9paGJe8P0IX";
 
   static const String tradeAccountUrl = "trade_account";
   static const String deposites = "deposits";

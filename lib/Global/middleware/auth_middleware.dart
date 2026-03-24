@@ -7,7 +7,6 @@ void handleUserNavigation({
 
   VoidCallback? onNoMatch, // ✅ Optional callback
 }) {
-  print("user passTwoFactor is ${user.passTwoFactor}");
   // 🛡️ 1. Check 2FA
   if (user.passTwoFactor == false) {
     showModalBottomSheet(
@@ -40,8 +39,6 @@ void handleUserNavigation({
     return;
   }
 
-  print("activeStep is ${activeStep}");
-  print("nafath is ${nafath}");
 
   switch (activeStep) {
     case "email_verification":

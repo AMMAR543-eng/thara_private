@@ -99,11 +99,9 @@ class OtpController extends GetxController {
 
       // Only on success:
       startTimer();
-      if (kDebugMode) print("Resend success");
     } catch (e) {
       // On failure, re-enable the link and notify
       enableResend.value = true;
-      if (kDebugMode) print("Resend failed: $e");
       Loader.showError("otp_resend_failed".tr);
     } finally {
       _resending = false;
@@ -118,15 +116,11 @@ class OtpController extends GetxController {
         UserModel? userData = UserModel().getUserData();
         final String? activeStep = data.account?.registrationStage ?? "";
         final bool? nafath = data.account?.nafathCompleted;
-        print("userData?.email is ${userData?.email}");
-        print(
-          "BioUserModel.getBioData()?.isBiometric is ${BioUserModel.getBioData()?.isBiometric}",
-        );
+
         if (activeStep == "finished" &&
             nafath == true &&
             userData?.email != null &&
             BioUserModel.getBioData()?.isBiometric != true) {
-          print("go to bio");
           Get.to(
             () => BioMetricView(
               accountModel: data.account ?? const AccountModel(),
@@ -134,7 +128,6 @@ class OtpController extends GetxController {
             ),
           );
         } else {
-          print("not go to bio");
           handleUserNavigation(
             account: data.account ?? const AccountModel(),
             user: data.user ?? UserEntity(),
@@ -154,7 +147,6 @@ class OtpController extends GetxController {
     RegisterService().verifyOtp(
       code: code,
       voidCallBack: (data) {
-        if (kDebugMode) print("verify register: $data");
         if (data.customStatusCode == 200) {
           clear?.call();
           Get.offAll(

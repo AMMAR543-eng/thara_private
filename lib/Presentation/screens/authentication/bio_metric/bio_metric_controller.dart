@@ -52,8 +52,6 @@ class BiometricLoginViewModel extends GetxController {
     final token = await BiometricService.authenticateAndGenerateToken();
     if (bioUserModel?.bioToken == null) {
       final uuid = await ConstantsData.udid() ?? "";
-      print("token is ${token}");
-      print("uuid is ${uuid}");
       await biometricLogin(token ?? "", isSetting: true);
     } else {
       Loader.showError("Biometric authentication failed");

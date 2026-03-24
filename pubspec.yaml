@@ -2,7 +2,7 @@ name: thara
 description: "phentic app"
 publish_to: 'none'
 
-version: 13.0.0+3
+version: 13.0.0+4
 
 environment:
   sdk: ^3.8.0-278.2.beta
@@ -135,5 +135,5 @@ flutter_native_splash:
     icon_background_color: "#FFFFFF"
 
   # ✅ iOS settings
-  ios_content_mode: scaleAspectFit
+  ios_content_mode: center
 

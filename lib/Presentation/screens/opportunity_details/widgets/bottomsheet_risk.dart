@@ -121,7 +121,6 @@ class _RiskDisclaimerContent extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        print(" textController is ${amount}");
                         Navigator.pop(context);
                         controller.subscribeToLoan(
                           controller.opportunitiesItemsEntity?.id ?? "",

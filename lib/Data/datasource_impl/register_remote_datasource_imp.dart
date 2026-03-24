@@ -32,10 +32,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       );
       final verifyRes = OtpModel.fromJson(response);
       verifyRes.account?.saveAccountLocal(
-        onSaved: () => print("account save success from otp"),
       );
       verifyRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
       return Success(verifyRes);
     } catch (error) {
@@ -76,15 +74,12 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       final registerEmailRes = LoginResponseModel.fromJson(response);
 
       registerEmailRes.saveTokenLocal(
-        saveCallback: () => print("token saved success to local"),
       );
 
       registerEmailRes.account?.saveAccountLocal(
-        onSaved: () => print("account saved from registerEmail"),
       );
 
       registerEmailRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
 
       return Success(registerEmailRes);
@@ -104,10 +99,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       );
       final addIndividualRes = OtpModel.fromJson(response);
       addIndividualRes.account?.saveAccountLocal(
-        onSaved: () => print("account saved from addIndividual"),
       );
       addIndividualRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
       return Success(addIndividualRes);
     } catch (error) {
@@ -126,10 +119,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       );
       final addCompanyRes = OtpModel.fromJson(response);
       addCompanyRes.account?.saveAccountLocal(
-        onSaved: () => print("account saved from addCompany"),
       );
       addCompanyRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
       return Success(addCompanyRes);
     } catch (error) {
@@ -201,11 +192,9 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       );
       final sendKycQuestionsRes = OtpModel.fromJson(response);
       sendKycQuestionsRes.account?.saveAccountLocal(
-        onSaved: () => print("account saved from sendKYCQuestionAnswer"),
       );
 
       sendKycQuestionsRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
       return Success(sendKycQuestionsRes);
     } catch (error) {
@@ -238,11 +227,9 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       );
       final singingWithSirarRes = OtpModel.fromJson(response);
       singingWithSirarRes.account?.saveAccountLocal(
-        onSaved: () => print("account saved from singingWithSirar"),
       );
 
       singingWithSirarRes.user?.saveUserLocal(
-        saveCallback: () => print("account save success from otp"),
       );
 
       return Success(singingWithSirarRes);

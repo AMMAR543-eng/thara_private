@@ -71,7 +71,6 @@ class NafazController extends GetxController {
         }
       },
       errorCallback: (error) {
-        print("error is $error");
         String? yaqeenProblem = error.account?.yaqeenProblem;
         _statusTimer?.cancel();
         if (yaqeenProblem == "date_of_birth_problem") {

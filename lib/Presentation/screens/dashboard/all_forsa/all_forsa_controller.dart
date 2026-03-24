@@ -45,7 +45,6 @@ class OpportunitiesController extends GetxController {
       );
       tab_index = 2;
     }
-    print("parammm is ${param?.toJson()}");
     paginationHandleClass.loadInitialData(
       onDataLoaded: (model) {
         opportunities = model;
