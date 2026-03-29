@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:thara/Domain/UseCases/opportunities/get_invests.dart';
 import 'package:thara/Presentation/screens/dashboard/pagination_opportunity.dart';
 import '../../../index/index_main.dart';
@@ -16,6 +18,7 @@ class DashboardController extends GetxController {
   /// 🔹 States
   bool isProfessional = false;
   bool isWaitingProfessional = false;
+
   bool isLoading = true;
   bool isInvestLoading = false;
   bool isBankLoading = false;
@@ -23,6 +26,16 @@ class DashboardController extends GetxController {
   bool isProfitLoading = false;
   bool isAvailableLoading = false;
   bool isUpcomingLoading = false;
+
+  /// 🔴 Error States
+  String? globalError;
+  String? availableError;
+  String? upcomingError;
+  String? investError;
+  String? tradeError;
+  String? bankError;
+  String? profitError;
+
   final OpportunitiesService _service = OpportunitiesService();
 
   /// 🔹 Filters
@@ -31,9 +44,26 @@ class DashboardController extends GetxController {
   String? endDateFilter;
   String? searchTextFilter;
 
-  // ─────────────────────────────
-  // 🧹 Clear Filters
-  // ─────────────────────────────
+  // ================================
+  // 🔥 GLOBAL ERROR HANDLER
+  // ================================
+  void _handleError(Object e, {String? message}) {
+    final msg = message ?? "Something went wrong";
+
+    if (kDebugMode) {
+      print("❌ ERROR: $e");
+    }
+
+    Get.snackbar(
+      "Error",
+      msg,
+      snackPosition: SnackPosition.BOTTOM,
+    );
+  }
+
+  // ================================
+  // 🧹 Filters
+  // ================================
   void clearStatusFilter() {
     selectedStatusFilter = null;
     getInvests();
@@ -50,13 +80,261 @@ class DashboardController extends GetxController {
     getInvests();
   }
 
+  // ================================
+  // 🔹 INIT
+  // ================================
+  @override
+  void onInit() {
+    super.onInit();
+    _initDashboardParallel();
+  }
+
+  Future<void> _initDashboardParallel() async {
+    try {
+      isLoading = true;
+      globalError = null;
+      update();
+
+      final token = LoginResponseModel().getTokenData()?.data?.accessToken;
+
+      if (token != null) {
+        unawaited(_loadBackgroundData());
+        getAutoInvestData();
+      }
+
+      await Future.wait([
+        getAvailableOpportunities(),
+        getUpcomingOpportunities(),
+      ]);
+    } catch (e) {
+      globalError = "Failed to load dashboard";
+      _handleError(e, message: globalError);
+    } finally {
+      isLoading = false;
+      update();
+    }
+  }
+
+  Future<void> _loadBackgroundData() async {
+    await Future.wait([
+      getTradeAccountData(),
+      getBankAccounts(),
+      getInvests(),
+      getMonthlyData(),
+      getMeData(),
+    ]);
+  }
+
+  // ================================
+  // 🔹 AUTO INVEST
+  // ================================
+  void getAutoInvestData() {
+    _service.getAutoInvestment(
+      voidCallBack: (data) {
+        investmentConfigResponseModel = data;
+        update();
+      },
+    );
+  }
+
+  // ================================
+  // 🔹 AVAILABLE
+  // ================================
+  Future<void> getAvailableOpportunities() async {
+    try {
+      isAvailableLoading = true;
+      availableError = null;
+      update();
+
+      final completer = Completer<GetOpportunitiesEntity>();
+
+      OpportunitiesService().getOpportunities(
+        param: OpportunityParameter(
+          page: 1,
+          status: subscription_status.available,
+        ),
+        voidCallBack: completer.complete,
+      );
+
+      availableOpportunities = await completer.future;
+    } catch (e) {
+      availableError = "Failed to load opportunities";
+      _handleError(e, message: availableError);
+    } finally {
+      isAvailableLoading = false;
+      update();
+    }
+  }
+
+  // ================================
+  // 🔹 UPCOMING
+  // ================================
+  Future<void> getUpcomingOpportunities() async {
+    try {
+      isUpcomingLoading = true;
+      upcomingError = null;
+      update();
+
+      final completer = Completer<GetOpportunitiesEntity>();
+
+      OpportunitiesService().getOpportunities(
+        param: OpportunityParameter(
+          page: 1,
+          status: subscription_status.upcoming,
+        ),
+        voidCallBack: completer.complete,
+      );
+
+      upcomingOpportunities = await completer.future;
+    } catch (e) {
+      upcomingError = "Failed to load upcoming opportunities";
+      _handleError(e, message: upcomingError);
+    } finally {
+      isUpcomingLoading = false;
+      update();
+    }
+  }
+
+  // ================================
+  // 🔹 INVESTMENTS
+  // ================================
+  Future<void> getInvests() async {
+    try {
+      isInvestLoading = true;
+      investError = null;
+      update();
+
+      final params = InvestmentFilterParams(
+        page: 1,
+        fromDate: startDateFilter,
+        endDate: endDateFilter,
+        status: selectedStatusFilter?.text ?? selectedStatusFilter?.name,
+        query: searchTextFilter,
+      );
+
+      final completer = Completer<InvestmentTransactionDataEntity>();
+
+      OpportunitiesService().getInvestments(
+        param: params,
+        voidCallBack: completer.complete,
+      );
+
+      investmentEntity = await completer.future;
+    } catch (e) {
+      investError = "Failed to load investments";
+      _handleError(e, message: investError);
+    } finally {
+      isInvestLoading = false;
+      update();
+    }
+  }
+
+  List<InvestmentTransactionItemEntity> get investmentItems =>
+      investmentEntity?.items ?? [];
+
+  // ================================
+  // 🔹 TRADE
+  // ================================
+  Future<void> getTradeAccountData() async {
+    try {
+      isTradeLoading = true;
+      tradeError = null;
+      update();
+
+      final completer = Completer<TradeAccountEntity>();
+
+      ProcessService().getTradeAccount(voidCallBack: completer.complete);
+
+      tradeAccountEntity = await completer.future;
+    } catch (e) {
+      tradeError = "Failed to load trade account";
+      _handleError(e, message: tradeError);
+    } finally {
+      isTradeLoading = false;
+      update();
+    }
+  }
+
+  // ================================
+  // 🔹 PROFIT
+  // ================================
+  Future<void> getMonthlyData({String? year}) async {
+    try {
+      isProfitLoading = true;
+      profitError = null;
+      update();
+
+      final selectedYear = year ?? DateTime.now().year.toString();
+
+      final completer = Completer<ProfitSummaryDataModel>();
+
+      ProcessService().getMonthlyProfit(
+        year: selectedYear,
+        voidCallBack: completer.complete,
+      );
+
+      monthlyProfitData = await completer.future;
+    } catch (e) {
+      profitError = "Failed to load profit data";
+      _handleError(e, message: profitError);
+    } finally {
+      isProfitLoading = false;
+      update();
+    }
+  }
+
+  // ================================
+  // 🔹 USER DATA
+  // ================================
+  Future<void> getMeData() async {
+    try {
+      final completer = Completer<BaseEntity>();
+
+      AuthService().me(voidCallBack: completer.complete);
+
+      final data = await completer.future;
+
+      isProfessional = data.account?.isProfessionalInvestor ?? false;
+      isWaitingProfessional = data.account?.thereIsWaitingRequest ?? false;
+    } catch (e) {
+      _handleError(e, message: "Failed to load user data");
+    } finally {
+      update();
+    }
+  }
+
+  // ================================
+  // 🔹 BANK
+  // ================================
+  Future<void> getBankAccounts() async {
+    try {
+      isBankLoading = true;
+      bankError = null;
+      update();
+
+      final completer = Completer<BankAccountDataEntity>();
+
+      ProcessService().getBankAccounts(
+        processParam: ProcessFilterParams(),
+        voidCallBack: completer.complete,
+      );
+
+      bankAccountDataEntity = await completer.future;
+    } catch (e) {
+      bankError = "Failed to load bank accounts";
+      _handleError(e, message: bankError);
+    } finally {
+      isBankLoading = false;
+      update();
+    }
+  }
+
   InvestmentWizardEntity mapConfigToWizardEntity(InvestmentConfigModel config) {
     return InvestmentWizardEntity(
       amount: InvestmentAmount(
         min: config.minInvestAmount?.toString(),
         max: config.maxInvestAmount?.toString(),
       ),
-
       opportunities: config.opportunityTypes
           ?.map(
             (key) => OpportunityType(
@@ -67,7 +345,6 @@ class DashboardController extends GetxController {
             ),
           )
           .toList(),
-
       packages: config.creditRatings
           ?.map(
             (p) => PackageEntity(
@@ -78,7 +355,6 @@ class DashboardController extends GetxController {
             ),
           )
           .toList(),
-
       durations: config.durations
           ?.map(
             (d) => InvestmentDuration(
@@ -113,216 +389,6 @@ class DashboardController extends GetxController {
         return "أكثر من 12 شهرًا";
       default:
         return apiVal;
-    }
-  }
-
-  // ─────────────────────────────
-  // 🔹 Init Dashboard
-  // ─────────────────────────────
-  @override
-  void onInit() {
-    super.onInit();
-    _initDashboardParallel();
-  }
-
-  getAutoInvestData() {
-    _service.getAutoInvestment(
-      voidCallBack: (data) {
-        investmentConfigResponseModel = data;
-
-        update();
-      },
-    );
-  }
-
-  /// ✅ Run APIs in parallel — non-blocking and efficient
-  Future<void> _initDashboardParallel() async {
-    try {
-      isLoading = true;
-      update();
-      // Then run background data calls
-
-      final token = LoginResponseModel().getTokenData()?.data?.accessToken;
-      if (token != null) {
-        unawaited(_loadBackgroundData());
-        getAutoInvestData();
-      }
-
-      // Fetch both opportunity types first (so the UI shows content fast)
-      await Future.wait([
-        getAvailableOpportunities(),
-        getUpcomingOpportunities(),
-      ]);
-    } catch (e, s) {
-    } finally {
-      isLoading = false;
-      update();
-    }
-  }
-
-  /// Run background tasks concurrently
-  Future<void> _loadBackgroundData() async {
-    await Future.wait([
-      getTradeAccountData(),
-      getBankAccounts(),
-      getInvests(),
-      getMonthlyData(),
-      getMeData(),
-      getMeData(),
-    ]);
-  }
-
-  // ─────────────────────────────
-  // 🔹 Available Opportunities
-  // ─────────────────────────────
-  Future<void> getAvailableOpportunities() async {
-    try {
-      isAvailableLoading = true;
-      update();
-
-      final completer = Completer<GetOpportunitiesEntity>();
-      OpportunitiesService().getOpportunities(
-        param: OpportunityParameter(
-          page: 1,
-          status: subscription_status.available,
-        ),
-        voidCallBack: completer.complete,
-      );
-      availableOpportunities = await completer.future;
-    } catch (e) {
-    } finally {
-      isAvailableLoading = false;
-      update();
-    }
-  }
-
-  // ─────────────────────────────
-  // 🔹 Upcoming Opportunities
-  // ─────────────────────────────
-  Future<void> getUpcomingOpportunities() async {
-    try {
-      isUpcomingLoading = true;
-      update();
-
-      final completer = Completer<GetOpportunitiesEntity>();
-      OpportunitiesService().getOpportunities(
-        param: OpportunityParameter(
-          page: 1,
-          status: subscription_status.upcoming,
-        ),
-        voidCallBack: completer.complete,
-      );
-      upcomingOpportunities = await completer.future;
-    } catch (e) {
-    } finally {
-      isUpcomingLoading = false;
-      update();
-    }
-  }
-
-  // ─────────────────────────────
-  // 🔹 Investments
-  // ─────────────────────────────
-  Future<void> getInvests() async {
-    try {
-      isInvestLoading = true;
-      update();
-
-      final params = InvestmentFilterParams(
-        page: 1,
-        fromDate: startDateFilter,
-        endDate: endDateFilter,
-        status: selectedStatusFilter?.text ?? selectedStatusFilter?.name,
-        query: searchTextFilter,
-      );
-
-      final completer = Completer<InvestmentTransactionDataEntity>();
-      OpportunitiesService().getInvestments(
-        param: params,
-        voidCallBack: completer.complete,
-      );
-      investmentEntity = await completer.future;
-    } catch (e) {
-    } finally {
-      isInvestLoading = false;
-      update();
-    }
-  }
-
-  List<InvestmentTransactionItemEntity> get investmentItems =>
-      investmentEntity?.items ?? [];
-
-  // ─────────────────────────────
-  // 🔹 Trade Account
-  // ─────────────────────────────
-  Future<void> getTradeAccountData() async {
-    try {
-      isTradeLoading = true;
-      final completer = Completer<TradeAccountEntity>();
-      ProcessService().getTradeAccount(voidCallBack: completer.complete);
-      tradeAccountEntity = await completer.future;
-    } catch (e) {
-    } finally {
-      isTradeLoading = false;
-      update();
-    }
-  }
-
-  // ─────────────────────────────
-  // 🔹 Monthly Profit
-  // ─────────────────────────────
-  Future<void> getMonthlyData({String? year}) async {
-    try {
-      isProfitLoading = true;
-      final selectedYear = year ?? DateTime.now().year.toString();
-
-      final completer = Completer<ProfitSummaryDataModel>();
-      ProcessService().getMonthlyProfit(
-        year: selectedYear,
-        voidCallBack: completer.complete,
-      );
-      monthlyProfitData = await completer.future;
-    } catch (e) {
-    } finally {
-      isProfitLoading = false;
-      update();
-    }
-  }
-
-  // ─────────────────────────────
-  // 🔹 User Info
-  // ─────────────────────────────
-  Future<void> getMeData() async {
-    try {
-      final completer = Completer<BaseEntity>();
-      AuthService().me(voidCallBack: completer.complete);
-      final result = await completer.future;
-      final data = result;
-
-      isProfessional = data.account?.isProfessionalInvestor ?? false;
-      isWaitingProfessional = data.account?.thereIsWaitingRequest ?? false;
-    } catch (e) {
-    } finally {
-      update();
-    }
-  }
-
-  // ─────────────────────────────
-  // 🔹 Bank Accounts
-  // ─────────────────────────────
-  Future<void> getBankAccounts() async {
-    try {
-      isBankLoading = true;
-      final completer = Completer<BankAccountDataEntity>();
-      ProcessService().getBankAccounts(
-        processParam: ProcessFilterParams(),
-        voidCallBack: completer.complete,
-      );
-      bankAccountDataEntity = await completer.future;
-    } catch (e) {
-    } finally {
-      isBankLoading = false;
-      update();
     }
   }
 }

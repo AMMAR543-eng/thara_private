@@ -8,7 +8,6 @@ class Binding implements Bindings {
     Get.lazyPut<ClientSourceRepo>(() => ClientSourceRepo(), fenix: true);
     Get.put(AppLanguage(), permanent: true);
 
-
     // Repository Data source _________________________________________________
     Get.lazyPut<ProcessRemoteDataSourceRepo>(
       () => ProcessRemoteDataSourceImpl(Get.find()),
@@ -84,9 +83,7 @@ class Binding implements Bindings {
     Get.lazyPut<OpportunitiesController>(() => OpportunitiesController());
     Get.lazyPut<RegisterParentController>(() => RegisterParentController());
     Get.lazyPut<WalletController>(() => WalletController());
-    Get.lazyPut<SettingsBasicInfoController>(
-      () => SettingsBasicInfoController(),
-    );
+
     Get.lazyPut<AppThemeController>(() => AppThemeController());
   }
 }
