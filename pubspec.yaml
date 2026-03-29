@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 13.0.0+4
 
 environment:
-  sdk: ^3.8.0-278.2.beta
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -15,37 +15,36 @@ dependencies:
 
   # Core
   cupertino_icons: ^1.0.8
-  get: ^4.6.1
+  get: ^4.6.6
   dartz: ^0.10.1
-  equatable: ^2.0.3
-  http: ^1.0.0
-  crypto: ^3.0.2
-  uuid: ^4.1.0
-  path: any
-  intl: any
-  shared_preferences: any
+  equatable: ^2.0.5
+  http: ^1.2.1
+  crypto: ^3.0.3
+  uuid: ^4.4.0
+  path: ^1.9.0
+  intl: ^0.20.2
+  shared_preferences: ^2.2.3
 
   # UI / Design
   google_fonts: ^6.2.1
-  flutter_svg: any
+  flutter_svg: ^2.0.10+1
   flutter_screenutil: ^5.9.3
   shimmer: ^3.0.0
   font_awesome_flutter: ^10.7.0
   flutter_easyloading: ^3.0.5
   lottie: ^3.1.0
-  dotted_border: ^2.0.0
+  dotted_border: ^2.1.0
   visibility_detector: ^0.4.0+2
   get_storage: ^2.1.1
 
-
   # Media & Files
   image_picker: ^0.8.5+3
-  file_picker: any
-  open_file: any
+  file_picker: ^8.0.7
+  open_file: ^3.5.10
   video_player: ^2.10.0
   cached_network_image: ^3.3.1
-  share_plus: any
-  path_provider: any
+  share_plus: ^10.0.2
+  path_provider: ^2.1.5
 
   # Permissions & Security
   permission_handler: ^11.3.0
@@ -59,29 +58,27 @@ dependencies:
   sms_autofill: ^2.3.0
   intl_phone_field: ^3.2.0
 
-  # ✅ Fixed Git version (editable) of keyboard_actions
-  keyboard_actions:
-    git:
-      url: https://github.com/diegoveloper/flutter_keyboard_actions.git
-      ref: master
+  # Keyboard Actions (fixed version instead of master)
+  keyboard_actions: ^4.2.0
 
   # PDF / Web / HTML
-  syncfusion_flutter_pdfviewer: any
-  webview_flutter: any
+  syncfusion_flutter_pdfviewer: ^31.1.19
+  webview_flutter: ^4.7.0
   flutter_html: ^3.0.0-alpha.6
 
   # Time / Date
   hijri: ^3.0.0
-  hijriyah_indonesia:
+  hijriyah_indonesia: ^0.1.2
 
   # Encryption
   encrypt: ^5.0.1
+  flutter_jailbreak_detection: ^1.10.0
 
   # Charts
   syncfusion_flutter_charts: ^31.1.19
 
   # System / Device
-  device_info_plus:
+  device_info_plus: ^12.1.0
   flutter_plugin_android_lifecycle: ^2.0.20
   win32: ^5.5.0
 
@@ -92,11 +89,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  build_runner: ^2.4.8
-  json_serializable: any
+  flutter_lints: ^3.0.2
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
   flutter_native_splash: ^2.3.10
-
 
 flutter:
   uses-material-design: true
@@ -128,12 +124,9 @@ flutter_native_splash:
   android: true
   ios: true
 
-  # ✅ Android 12+
   android_12:
     color: "#FFFFFF"
     image: assets/images/splash.png
     icon_background_color: "#FFFFFF"
 
-  # ✅ iOS settings
   ios_content_mode: center
-

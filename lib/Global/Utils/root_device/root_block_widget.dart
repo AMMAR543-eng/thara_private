@@ -6,21 +6,31 @@ class RootBlockedApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         body: Center(
-          child: Text(
-            '⚠️ هذا الجهاز يحتوي على صلاحيات Root\nلا يمكن تشغيل التطبيق لأسباب أمنية.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.redAccent,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+          child: Padding(
+            padding: EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.security, size: 80, color: Colors.red),
+                SizedBox(height: 20),
+                Text(
+                  "Device Not Secure",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "This app cannot run on rooted or jailbroken devices for security reasons.",
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
         ),
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

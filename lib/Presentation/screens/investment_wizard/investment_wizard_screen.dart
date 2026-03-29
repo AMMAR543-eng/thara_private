@@ -63,7 +63,6 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.white,
         leading: BackButton(color: AppColors.content_primary),
-
         title: Text(
           "wizard_title".tr,
           style: context.typography.bodyLarge.copyWith(
@@ -94,38 +93,50 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
             child: SafeArea(
               child: Row(
                 children: [
+                  /// =========================
+                  /// 🔙 BACK BUTTON
+                  /// =========================
                   if (c.currentStep > 0)
                     Expanded(
                       child: SizedBox(
-                        height: 48.h,
+                        height: 52.h, // ✅ نفس الارتفاع
                         child: PressAnimatedButton(
                           backgroundColor: AppColors.grayLight,
+
                           borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.white,
+                          ),
                           label: Text(
                             "back".tr,
-                            style: context.typography.bodyMedium,
+                            style: context.typography.bodyMedium.copyWith(
+                              color: AppColors.white, // ✅ أبيض بدل أحمر
+                            ),
                           ),
-                          onTap: enabled ? c.prevStep : null,
+                          onTap: c.prevStep, // ✅ FIX: دايماً شغال
                         ),
                       ),
                     ),
+
                   if (c.currentStep > 0) const SizedBox(width: 12),
+
+                  /// =========================
+                  /// ➡️ NEXT BUTTON
+                  /// =========================
                   Expanded(
                     flex: 2,
                     child: SizedBox(
-                      height: 52.h,
+                      height: 52.h, // ✅ نفس الارتفاع
                       child: PressAnimatedButton(
                         backgroundColor: enabled
-                            ? AppColors.primary_normal
-                            : AppColors.primary_normal.withOpacity(0.3),
+                            ? AppColors.primary // 🔥 اللون الجديد
+                            : AppColors.primary.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(12),
                         enabled: enabled,
                         label: Text(
-                          "confirm".tr,
+                          "next".tr, // ✅ بدل confirm
                           style: context.typography.bodyLarge.copyWith(
-                            color: enabled
-                                ? AppColors.white
-                                : AppColors.white.withOpacity(0.5),
+                            color: AppColors.white,
                           ),
                         ),
                         onTap: enabled
@@ -133,9 +144,10 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
                                 if (c.currentStep == 1) {
                                   final valid =
                                       _formAmountKey.currentState?.validate() ??
-                                      false;
+                                          false;
                                   if (!valid) return;
                                 }
+
                                 if (c.currentStep < 2) {
                                   c.nextStep();
                                 } else {
@@ -157,7 +169,6 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
         builder: (c) {
           return KeyboardActions(
             config: keyboardService.buildConfig(context, keys),
-
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -202,19 +213,18 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
                                 children: [
                                   Text(
                                     _getTitleOfStep(c.currentStep),
-                                    style: context.typography.headerLarge
-                                        .copyWith(
-                                          color:
-                                              AppColors.content_brand_secondary,
-                                        ),
+                                    style:
+                                        context.typography.headerLarge.copyWith(
+                                      color: AppColors.content_brand_secondary,
+                                    ),
                                   ),
                                   const SizedBox(height: 12),
                                   Text(
                                     _getSubtitleOfStep(c.currentStep),
-                                    style: context.typography.bodyMedium
-                                        .copyWith(
-                                          color: AppColors.content_secondary,
-                                        ),
+                                    style:
+                                        context.typography.bodyMedium.copyWith(
+                                      color: AppColors.content_secondary,
+                                    ),
                                   ),
                                 ],
                               ),

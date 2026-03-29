@@ -127,6 +127,8 @@ class AppColors {
   static const background_Positive_Subtle = Color(0xFFF4FBF7);
   static const green_light = Color(0xFF0A9A8F);
 
+  static const lightBlue = Color(0xFF4DA6FF); // غيره حسب الديزاين
+
   static const tertiary = Color(0xFF7E8C9A);
   static const border_natural_normal = Color(0xFFCFD6DD);
 

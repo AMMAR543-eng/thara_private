@@ -21,9 +21,9 @@ class RouteWelcomeMiddleWare extends GetMiddleware {
       return const RouteSettings(name: onboardingScreen);
     }
 
-    // 2️⃣ No Token → Go to Main Page
+    // 2️⃣ No Token → Go to Login
     if (token == null) {
-      return null;
+      return const RouteSettings(name: loginScreen);
     }
 
     // 3️⃣ Token Found → Go to Login
@@ -42,10 +42,8 @@ class RouteLoginMiddleWare extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    final token = LoginResponseModel().getTokenData()?.data?.accessToken;
     bool? firstLaunch = StorageService().getData("firstLaunch");
 
-    debugPrint("🔐 token: $token");
     debugPrint("🚀 firstLaunch: $firstLaunch");
 
     // 1️⃣ First Launch → Onboarding
@@ -53,8 +51,7 @@ class RouteLoginMiddleWare extends GetMiddleware {
       return const RouteSettings(name: onboardingScreen);
     }
 
-
-    // 3️⃣ Token Found → Go to Login
+    // ❗ خليه يكمل عادي على Login
     return null;
   }
 }

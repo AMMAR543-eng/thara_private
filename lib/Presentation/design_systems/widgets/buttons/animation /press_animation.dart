@@ -16,41 +16,24 @@ class PressAnimatedButton extends StatefulWidget {
     this.leading,
     this.trailing,
     this.expand = true,
+    this.border, // ✅ NEW
   });
 
-  /// The button text/widget (use your context.typography).
   final Widget label;
-
-  /// Tap callback (null is allowed; `enabled=false` also disables).
   final VoidCallback? onTap;
-
-  /// Enable/disable button.
   final bool enabled;
-
-  /// Show a small loading spinner and block taps.
   final bool loading;
-
-  /// Fixed height (defaults to 48.h)
   final double? height;
-
-  /// Internal content padding (defaults to EdgeInsets.symmetric(horizontal: 16.w))
   final EdgeInsetsGeometry? padding;
-
-  /// Corner radius (defaults to 12.r)
   final BorderRadius? borderRadius;
-
-  /// Background color (defaults to AppColors.primary)
   final Color? backgroundColor;
-
-  /// Disabled background (defaults to AppColors.stepper_button_upcomming if exists, else grey)
   final Color? disabledColor;
-
-  /// Optional leading/trailing widgets inside button content row
   final Widget? leading;
   final Widget? trailing;
-
-  /// If true the button takes full width; else wraps content
   final bool expand;
+
+  /// ✅ NEW: Border support
+  final BoxBorder? border;
 
   @override
   State<PressAnimatedButton> createState() => _PressAnimatedButtonState();
@@ -62,7 +45,7 @@ class _PressAnimatedButtonState extends State<PressAnimatedButton>
     vsync: this,
     duration: const Duration(milliseconds: 120),
     reverseDuration: const Duration(milliseconds: 160),
-    value: 0, // 0 = normal, 1 = pressed
+    value: 0,
   );
 
   bool get _isInteractive =>
@@ -74,15 +57,10 @@ class _PressAnimatedButtonState extends State<PressAnimatedButton>
   }
 
   void _release() {
-    if (!_isInteractive) {
-      _controller.reverse();
-      return;
-    }
     _controller.reverse();
   }
 
   Color _pressedTint(Color base) {
-    // Slight darken on press
     return Color.alphaBlend(Colors.black.withValues(alpha: 0.08), base);
   }
 
@@ -95,7 +73,7 @@ class _PressAnimatedButtonState extends State<PressAnimatedButton>
   @override
   Widget build(BuildContext context) {
     final Color baseColor = widget.backgroundColor ?? AppColors.grayLight;
-    final Color disabled = widget.disabledColor ?? (AppColors.grayMedium);
+    final Color disabled = widget.disabledColor ?? AppColors.grayMedium;
     final double height = widget.height ?? 48.h;
     final radius = widget.borderRadius ?? BorderRadius.circular(12.r);
     final EdgeInsetsGeometry padding =
@@ -104,19 +82,18 @@ class _PressAnimatedButtonState extends State<PressAnimatedButton>
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, _) {
-        final double t = _controller.value; // 0->normal, 1->pressed
-        final double scale = 1.0 - (0.035 * t); // down to ~0.965
+        final double t = _controller.value;
+        final double scale = 1.0 - (0.035 * t);
+
         final Color bg = _isInteractive
             ? Color.lerp(baseColor, _pressedTint(baseColor), t)!
             : disabled;
 
-        // Shadow eases between "raised" and "pressed"
         final double blur = lerpDouble(16, 8, t)!;
         final double spread = lerpDouble(1, 0, t)!;
         final double y = lerpDouble(6, 2, t)!;
-        final double opacity = _isInteractive
-            ? lerpDouble(0.12, 0.18, t)!
-            : 0.0;
+        final double opacity =
+            _isInteractive ? lerpDouble(0.12, 0.18, t)! : 0.0;
 
         Widget content = Row(
           mainAxisSize: widget.expand ? MainAxisSize.max : MainAxisSize.min,
@@ -154,6 +131,7 @@ class _PressAnimatedButtonState extends State<PressAnimatedButton>
             decoration: BoxDecoration(
               color: bg,
               borderRadius: radius,
+              border: widget.border, // ✅ ADDED
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: opacity),
@@ -168,7 +146,7 @@ class _PressAnimatedButtonState extends State<PressAnimatedButton>
               child: InkWell(
                 borderRadius: radius,
                 onTap: _isInteractive
-                    ? () async {
+                    ? () {
                         HapticFeedback.lightImpact();
                         widget.onTap?.call();
                       }

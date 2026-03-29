@@ -1,5 +1,3 @@
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get_storage/get_storage.dart';
 import 'index/index_main.dart'; // Your custom imports
 
 void main() {
@@ -8,12 +6,13 @@ void main() {
       WidgetsFlutterBinding.ensureInitialized();
       await GetStorage.init();
 
-      // // ✅ Check if device is rooted
-      // bool rooted = await isDeviceRooted();
-      // if (rooted) {
-      //   runApp(const RootBlockedApp());
-      //   return;
-      // }
+      // ✅ SECURITY CHECK
+      final compromised = await isDeviceCompromised();
+
+      if (compromised) {
+        runApp(const RootBlockedApp());
+        return;
+      }
 
       await StorageService().init();
 
@@ -35,8 +34,7 @@ void main() {
         ),
       );
     },
-    (dynamic error, dynamic stack) {
-    },
+    (dynamic error, dynamic stack) {},
   );
 }
 
