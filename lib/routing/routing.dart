@@ -1,10 +1,5 @@
-import 'package:thara/Presentation/screens/settings/about_us.dart';
-import 'package:thara/Presentation/screens/settings/articles/articles_view.dart';
-import 'package:thara/Presentation/screens/settings/faq/faqView.dart';
-import 'package:thara/Presentation/screens/settings/shri3a.dart';
-import 'package:thara/Presentation/screens/settings/terms/terms.dart';
 
-import '../Presentation/screens/authentication/nafaz_login/login_nafaz_view.dart';
+
 import '../index/index_main.dart';
 
 const String mainPage = "/MainPage";
