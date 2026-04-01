@@ -38,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ],
         ),
-
         resizeToAvoidBottomInset: true,
         backgroundColor: AppColors.white,
         body: GetBuilder<LoginController>(
@@ -112,9 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   "login_welcome_title".tr,
                                   style: context.typography.bodyStrongLarge
                                       .copyWith(
-                                        color:
-                                            AppColors.content_brand_secondary,
-                                      ),
+                                    color: AppColors.content_brand_secondary,
+                                  ),
                                 ),
                               ),
                               SizedBox(height: 6.h),
@@ -154,7 +152,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 child: TextInputWidget(
                                   title: "login_password_label".tr,
-
                                   appTextField: AppTextField(
                                     controller: controller.passwordController,
                                     hintText: "login_password_hint".tr,
@@ -162,7 +159,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                       notEmptyValidator,
                                       //  InputValidators.validatePassword,
                                     ]),
-
                                     onValidationChanged:
                                         controller.updatePasswordValidation,
                                     obscureText: !controller.showPassword,
@@ -224,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                           onTap: controller.canLogin
                                               ? () =>
-                                                    controller.onLogin(context)
+                                                  controller.onLogin(context)
                                               : null,
                                         ),
                                       ),
@@ -271,11 +267,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   label: Text(
                                     "login_create_account".tr,
-                                    style: context.typography.bodyMedium
-                                        .copyWith(
-                                          color:
-                                              AppColors.action_natural_normal,
-                                        ),
+                                    style:
+                                        context.typography.bodyMedium.copyWith(
+                                      color: AppColors.action_natural_normal,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -295,13 +290,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     child: Text(
                                       "login_guest".tr,
                                       textAlign: TextAlign.center,
-
-                                      style: context.typography.bodyLarge
-                                          .copyWith(
-                                            color: AppColors.primary_normal,
-                                            decoration:
-                                                TextDecoration.underline,
-                                          ),
+                                      style:
+                                          context.typography.bodyLarge.copyWith(
+                                        color: AppColors.primary_normal,
+                                        decoration: TextDecoration.underline,
+                                      ),
                                     ),
                                   ),
                                 ),

@@ -6,8 +6,6 @@ class HomeInvestCreditTopWidget extends StatelessWidget {
 
   const HomeInvestCreditTopWidget({super.key, this.balance});
 
-
-
   @override
   Widget build(BuildContext context) {
     final formattedBalance = formatNumber(balance, decimals: 2);
@@ -45,8 +43,6 @@ class HomeInvestCreditTopWidget extends StatelessWidget {
                 height: 30,
                 width: 30,
                 color: AppColors.content_primary,
-
-
               ),
             ],
           ),
@@ -55,6 +51,7 @@ class HomeInvestCreditTopWidget extends StatelessWidget {
     );
   }
 }
+
 /// ✅ Locale-aware number formatter
 String formatNumber(num? number, {int decimals = 2}) {
   if (number == null) return "0.00";

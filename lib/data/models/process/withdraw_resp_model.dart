@@ -1,4 +1,3 @@
-
 import '../../../index/index_main.dart';
 
 class WithdrawalResponseModel extends BaseModel {
@@ -13,13 +12,13 @@ class WithdrawalResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory WithdrawalResponseModel.fromJson(Map<String, dynamic> json) {
     return WithdrawalResponseModel(

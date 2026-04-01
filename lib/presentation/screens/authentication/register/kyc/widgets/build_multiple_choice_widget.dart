@@ -139,7 +139,7 @@ class BuildMultipleChoiceWidget extends StatelessWidget {
           id: questionId,
           category: question.category,
           type: question.type,
-          answers: [AnswersEntity(id: itemId, answer: itemAnswer)] ,
+          answers: [AnswersEntity(id: itemId, answer: itemAnswer)],
         ),
       );
     } else if (existingIndex != null &&
@@ -147,8 +147,8 @@ class BuildMultipleChoiceWidget extends StatelessWidget {
         !kycController.containsQuestionAnswerId(itemId, existingIndex) &&
         !selectedType) {
       existingAnswerList?[existingIndex].answers?.add(
-        AnswersEntity(id: itemId, answer: itemAnswer),
-      );
+            AnswersEntity(id: itemId, answer: itemAnswer),
+          );
     } else if (existingIndex != null && existingIndex >= 0) {
       final currentAnswers = existingAnswerList?[existingIndex].answers;
       if (currentAnswers?.length == 1) {

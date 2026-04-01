@@ -32,7 +32,7 @@ class _CircularRotationState extends State<CircularRotation>
   Widget build(BuildContext context) {
     return RotationTransition(
       turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-      child:  Center(
+      child: Center(
         child: Svgicon(
           icon: IconsConstants.loadericon,
           color: AppColors.primary,

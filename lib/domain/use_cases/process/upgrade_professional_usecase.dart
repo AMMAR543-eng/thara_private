@@ -1,12 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class UpgradeProfessionalUsecase
-    extends
-        Use_Case<
-          Either<AppError, SuccessNewModel>,
-          QualifiedInvestorParamsWrapper
-        > {
+class UpgradeProfessionalUsecase extends Use_Case<
+    Either<AppError, SuccessNewModel>, QualifiedInvestorParamsWrapper> {
   final ProcessRepository _processRepositoryImpl;
 
   // Constructor

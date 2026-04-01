@@ -150,7 +150,6 @@ class InvestmentOnboardingScreen extends StatelessWidget {
           child: Icon(Icons.circle, size: 8, color: AppColors.primary),
         ),
         const SizedBox(width: 12),
-
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -69,7 +69,6 @@ class _GenericPdfViewerState extends State<GenericPdfViewer> {
 
   @override
   Widget build(BuildContext context) {
-
     return FutureBuilder<Map<String, String>>(
       future: _headersFuture,
       builder: (context, snapshot) {

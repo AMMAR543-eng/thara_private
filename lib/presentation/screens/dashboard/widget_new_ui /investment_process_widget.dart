@@ -44,7 +44,7 @@ class InvestmentTransactionsWidget extends StatelessWidget {
                           IconsConstants.search,
                           width: 20.w,
                           height: 20.w,
-                          colorFilter:  ColorFilter.mode(
+                          colorFilter: ColorFilter.mode(
                             AppColors.content_primary,
                             BlendMode.srcIn,
                           ),
@@ -132,7 +132,6 @@ class InvestmentTransactionsWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 12.h),
-
             _labelValue(
               context,
               'opportunity_name'.tr,
@@ -222,7 +221,7 @@ class InvestmentTransactionsWidget extends StatelessWidget {
                 IconsConstants.riyal,
                 width: 20.w,
                 height: 20.w,
-                colorFilter:  ColorFilter.mode(
+                colorFilter: ColorFilter.mode(
                   AppColors.content_primary,
                   BlendMode.srcIn,
                 ),

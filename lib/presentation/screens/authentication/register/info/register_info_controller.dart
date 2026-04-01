@@ -277,7 +277,7 @@ class RegisterInfoController extends GetxController {
         if (data.customStatusCode == 200) {
           handleUserNavigation(
             account: data.account ?? const AccountModel(),
-            user: data.user ??  UserEntity(),
+            user: data.user ?? UserEntity(),
           );
         }
       },
@@ -291,7 +291,7 @@ class RegisterInfoController extends GetxController {
         if (data.customStatusCode == 200) {
           handleUserNavigation(
             account: data.account ?? const AccountModel(),
-            user: data.user ??  UserEntity(),
+            user: data.user ?? UserEntity(),
           );
         }
       },

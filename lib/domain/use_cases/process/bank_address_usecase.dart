@@ -3,8 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
 class BankAddressUseCase
-    extends
-    Use_Case<Either<AppError, BankAddressDataEntity>, NoParams> {
+    extends Use_Case<Either<AppError, BankAddressDataEntity>, NoParams> {
   final ProcessRepository _processRepositoryImpl;
 
   // Constructor
@@ -12,8 +11,8 @@ class BankAddressUseCase
 
   @override
   Future<Either<AppError, BankAddressDataEntity>> call(
-      NoParams param,
-      ) async {
+    NoParams param,
+  ) async {
     // Fetch trade account using the repository
     return await _processRepositoryImpl.getBanksAddressDomain(
       {},

@@ -12,13 +12,13 @@ class CitizenResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory CitizenResponseModel.fromJson(Map<String, dynamic> json) {
     return CitizenResponseModel(
@@ -27,10 +27,9 @@ class CitizenResponseModel extends BaseModel {
       message: json['message'],
       debug: json['debug'],
       env: json['env'],
-      account:
-          json['account'] != null
-              ? AccountModel.fromJson(json['account'])
-              : null,
+      account: json['account'] != null
+          ? AccountModel.fromJson(json['account'])
+          : null,
       user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
     );
   }
@@ -52,10 +51,9 @@ class CitizenModel extends CitizenShipsEntity {
 
   factory CitizenModel.fromJson(Map<String, dynamic> json) {
     var list = json['citizenShips'] as List?;
-    List<CitizenItemModel> itemsList =
-        list != null
-            ? list.map((i) => CitizenItemModel.fromJson(i)).toList()
-            : [];
+    List<CitizenItemModel> itemsList = list != null
+        ? list.map((i) => CitizenItemModel.fromJson(i)).toList()
+        : [];
     return CitizenModel(citizenShips: itemsList);
   }
 
@@ -72,7 +70,7 @@ class CitizenItemModel extends CitizenShipsItemEntity {
   final String? name;
 
   const CitizenItemModel({this.isoCode, this.name})
-    : super(isoCode: isoCode, name: name);
+      : super(isoCode: isoCode, name: name);
 
   factory CitizenItemModel.fromJson(Map<String, dynamic> json) {
     return CitizenItemModel(

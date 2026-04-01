@@ -12,13 +12,13 @@ class ProfitSummaryResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory ProfitSummaryResponseModel.fromJson(Map<String, dynamic> json) {
     return ProfitSummaryResponseModel(
@@ -70,9 +70,9 @@ class ProfitSummaryDataModel {
       monthlyDefaultProfit: json['monthlyDefaultProfit'] != null
           ? List<num>.from(json['monthlyDefaultProfit'])
           : [],
-      monthlyOverdueProfit: json['monthlyOverdueProfit'] != null          // ✅ NEW
-          ? List<num>.from(json['monthlyOverdueProfit'])                  // ✅ NEW
-          : [],                                                            // ✅ NEW
+      monthlyOverdueProfit: json['monthlyOverdueProfit'] != null // ✅ NEW
+          ? List<num>.from(json['monthlyOverdueProfit']) // ✅ NEW
+          : [], // ✅ NEW
       minYear: json['minYear'],
       maxYear: json['maxYear'],
     );
@@ -89,4 +89,3 @@ class ProfitSummaryDataModel {
     };
   }
 }
-

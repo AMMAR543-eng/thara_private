@@ -1,5 +1,3 @@
-
-
 import '../../../../index/index_main.dart';
 
 class StartInvestWithBalance extends StatelessWidget {
@@ -68,32 +66,32 @@ class StartInvestWithBalance extends StatelessWidget {
                   itemBuilder: (_, __) => const ForseItemShimmerWidget(),
                 )
               : isEmpty
-              ? Center(
-                  child: Text(
-                    "no_opportunities_available".tr,
-                    style: context.typography.bodyStrongMedium.copyWith(
-                      color: AppColors.action_primary_normal,
-                    ),
-                  ),
-                )
-              : ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: opportunities?.length ?? 0,
-                  itemBuilder: (context, index) {
-                    final item = opportunities![index];
+                  ? Center(
+                      child: Text(
+                        "no_opportunities_available".tr,
+                        style: context.typography.bodyStrongMedium.copyWith(
+                          color: AppColors.action_primary_normal,
+                        ),
+                      ),
+                    )
+                  : ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: opportunities?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        final item = opportunities![index];
 
-                    return OpportunityCardAltWidget(
-                      opportunity: item ?? const OpportunitiesItemsEntity(),
-                      onTap: () {
-                        Get.to(
-                          () => OpportunityDetailsView(id: item?.id ?? ""),
-                          binding: Binding(),
+                        return OpportunityCardAltWidget(
+                          opportunity: item ?? const OpportunitiesItemsEntity(),
+                          onTap: () {
+                            Get.to(
+                              () => OpportunityDetailsView(id: item?.id ?? ""),
+                              binding: Binding(),
+                            );
+                          },
                         );
                       },
-                    );
-                  },
-                ),
+                    ),
         ),
       ],
     );

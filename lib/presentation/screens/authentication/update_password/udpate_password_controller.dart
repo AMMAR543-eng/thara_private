@@ -1,4 +1,3 @@
-
 import '../../../../index/index_main.dart';
 
 class UpdatePasswordController extends GetxController {
@@ -7,7 +6,7 @@ class UpdatePasswordController extends GetxController {
       param: param,
       voidCallBack: (data) {
         handleUserNavigation(
-          user: data.user ??  UserEntity(),
+          user: data.user ?? UserEntity(),
           account: data.account ?? AccountModel(),
         );
       },

@@ -50,7 +50,6 @@ class _BuildSuccessWidgetState extends State<BuildSuccessWidget> {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 8.h),
-
             Text(
               isEdit ? "redirecting_now".tr : "auto_invest_edit_anytime".tr,
               style: context.typography.bodyMedium.copyWith(

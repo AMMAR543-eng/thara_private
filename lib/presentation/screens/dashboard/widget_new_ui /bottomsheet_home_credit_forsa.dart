@@ -53,9 +53,7 @@ class StartInvestmentBottomSheet extends StatelessWidget {
               child: PrimaryTextButton(
                 label: Text(
                   "add_balance".tr,
-                  style: context.typography.bodyLarge.copyWith(
-
-                  ),
+                  style: context.typography.bodyLarge.copyWith(),
                 ),
                 onTap: () {
                   Get.offAll(() => MainPage(indexNum: 3), binding: Binding());

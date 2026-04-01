@@ -5,7 +5,6 @@ class ExpansionItemWidget extends StatelessWidget {
   final String value;
   final String? groupValue;
   final void Function(String?) onChanged;
-  
 
   const ExpansionItemWidget({
     super.key,

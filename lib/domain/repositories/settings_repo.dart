@@ -6,10 +6,10 @@ abstract class SettingsRepository {
   // 🔐 Change Password
   // ---------------------------------------------------------------------------
   Future<Either<AppError, BaseEntity>> changePasswordDomain(
-      String oldPassword,
-      String password,
-      String passwordConfirm,
-      );
+    String oldPassword,
+    String password,
+    String passwordConfirm,
+  );
 
   // ---------------------------------------------------------------------------
   // ✉️ Change Email
@@ -17,9 +17,9 @@ abstract class SettingsRepository {
   Future<Either<AppError, BaseEntity>> changeEmailDomain(String email);
 
   Future<Either<AppError, BaseEntity>> verifyNewEmailDomain(
-      String email,
-      String otp,
-      );
+    String email,
+    String otp,
+  );
 
   // ---------------------------------------------------------------------------
   // 📱 Change Phone
@@ -27,38 +27,39 @@ abstract class SettingsRepository {
   Future<Either<AppError, BaseEntity>> changePhoneDomain(String phone);
 
   Future<Either<AppError, BaseEntity>> verifyNewPhoneDomain(
-      String phone,
-      String otp,
-      );
+    String phone,
+    String otp,
+  );
 
   // ---------------------------------------------------------------------------
   // 🧾 Support Ticket
   // ---------------------------------------------------------------------------
   Future<Either<AppError, BaseEntity>> storeTicketDomain(
-      String name,
-      String phone,
-      String type,
-      String message,
-      );
+    String name,
+    String phone,
+    String type,
+    String message,
+  );
 
   // ---------------------------------------------------------------------------
   // 🗑️ Delete My Profile
   // ---------------------------------------------------------------------------
-  Future<Either<AppError, BaseEntity>> deleteMyProfileDomain(Map<String, dynamic> data);
+  Future<Either<AppError, BaseEntity>> deleteMyProfileDomain(
+      Map<String, dynamic> data);
 
   // ---------------------------------------------------------------------------
   // 📰 Articles
   // ---------------------------------------------------------------------------
   /// 🔍 Fetch list of articles
   Future<Either<AppError, ArticleModelResponse>> getArticles(
-      Map<String, dynamic> data,
-      );
+    Map<String, dynamic> data,
+  );
 
   /// 📄 Fetch single article details
   Future<Either<AppError, ArticleDetailsModelResponse>> getArticleDetails(
-      Map<String, dynamic> data,
-      String key,
-      );
+    Map<String, dynamic> data,
+    String key,
+  );
 
   // ---------------------------------------------------------------------------
   // ❓ FAQs
@@ -68,5 +69,6 @@ abstract class SettingsRepository {
   // ---------------------------------------------------------------------------
   // 📊 Financial Statements
   // ---------------------------------------------------------------------------
-  Future<Either<AppError, FinancialStatementsData>> getFinancialStatementsData();
+  Future<Either<AppError, FinancialStatementsData>>
+      getFinancialStatementsData();
 }

@@ -20,11 +20,11 @@ class GetOpportunitiesEntity extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => [
-    opportunitiesItems,
-    customStatusCode,
-    message,
-    debug,
-    env,
-    opportunitiesMeta,
-  ];
+        opportunitiesItems,
+        customStatusCode,
+        message,
+        debug,
+        env,
+        opportunitiesMeta,
+      ];
 }

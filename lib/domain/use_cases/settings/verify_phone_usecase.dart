@@ -17,8 +17,6 @@ class VerifyNewPhoneDomainUseCase
   }
 }
 
-
-
 class VerifyNewPhoneParams extends Equatable {
   final String phone;
   final String code;

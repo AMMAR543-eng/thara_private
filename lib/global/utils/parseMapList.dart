@@ -1,4 +1,3 @@
-
 List<T?> handleResponse<T>(
     dynamic response, T Function(Map<String, dynamic>) fromJson) {
   final dataresponse = response;

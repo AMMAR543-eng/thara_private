@@ -131,17 +131,17 @@ class _FilterContentState extends State<_FilterContent> {
                   onTap: () {
                     widget.controller.selectedStatusFilter = selectedStatus;
                     widget.controller.startDateFilter =
-                    startDateController.text.isEmpty
-                        ? null
-                        : startDateController.text;
+                        startDateController.text.isEmpty
+                            ? null
+                            : startDateController.text;
                     widget.controller.endDateFilter =
-                    endDateController.text.isEmpty
-                        ? null
-                        : endDateController.text;
+                        endDateController.text.isEmpty
+                            ? null
+                            : endDateController.text;
                     widget.controller.searchTextFilter =
-                    searchController.text.isEmpty
-                        ? null
-                        : searchController.text;
+                        searchController.text.isEmpty
+                            ? null
+                            : searchController.text;
 
                     widget.controller.getInvests();
                     widget.controller.update();

@@ -7,7 +7,8 @@ class RegisterCompanyInfoScreen extends StatefulWidget {
   const RegisterCompanyInfoScreen({super.key});
 
   @override
-  State<RegisterCompanyInfoScreen> createState() => _RegisterCompanyInfoScreenState();
+  State<RegisterCompanyInfoScreen> createState() =>
+      _RegisterCompanyInfoScreenState();
 }
 
 class _RegisterCompanyInfoScreenState extends State<RegisterCompanyInfoScreen> {
@@ -109,8 +110,8 @@ class _RegisterCompanyInfoScreenState extends State<RegisterCompanyInfoScreen> {
                     ),
                     onTap: controller.isFormValid
                         ? () {
-                      controller.submit(formKey);
-                    }
+                            controller.submit(formKey);
+                          }
                         : null,
                   ),
                 ),
@@ -122,7 +123,8 @@ class _RegisterCompanyInfoScreenState extends State<RegisterCompanyInfoScreen> {
     );
   }
 
-  Widget _buildInfoCard(BuildContext context, String title, Map<String, String> fields) {
+  Widget _buildInfoCard(
+      BuildContext context, String title, Map<String, String> fields) {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
@@ -139,7 +141,7 @@ class _RegisterCompanyInfoScreenState extends State<RegisterCompanyInfoScreen> {
               )),
           SizedBox(height: 12.h),
           ...fields.entries.map(
-                (e) => Padding(
+            (e) => Padding(
               padding: EdgeInsets.symmetric(vertical: 4.h),
               child: Text(
                 "${e.key}: ${e.value}",

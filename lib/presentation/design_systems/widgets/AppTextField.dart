@@ -48,7 +48,7 @@ class AppTextField extends StatefulWidget {
   final TextInputAction textInputAction;
   final int maxLines;
   final ValueChanged<bool>?
-  onValidationChanged; // Callback to indicate validation success or failure
+      onValidationChanged; // Callback to indicate validation success or failure
   final void Function(String)? onFieldSubmitted;
 
   @override
@@ -126,7 +126,6 @@ class _AppTextFieldState extends State<AppTextField> {
       decoration: InputDecoration(
         labelText: widget.labelText,
         hintText: widget.hintText,
-
         hintStyle: context.typography.bodyMedium.copyWith(
           color: AppColors.tertiary,
         ),

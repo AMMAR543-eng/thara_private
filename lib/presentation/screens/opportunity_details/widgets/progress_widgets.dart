@@ -36,7 +36,10 @@ class ProgressWidget extends StatelessWidget {
                         width: 90.r,
                         height: 90.r,
                         child: CircularProgressIndicator(
-                          value: (controller.opportunitiesItemsEntity?.collectedPercentage ?? 0) / 100,
+                          value: (controller.opportunitiesItemsEntity
+                                      ?.collectedPercentage ??
+                                  0) /
+                              100,
                           strokeWidth: 3,
                           backgroundColor: Colors.white24,
                           valueColor: const AlwaysStoppedAnimation<Color>(
@@ -48,7 +51,8 @@ class ProgressWidget extends StatelessWidget {
                         TextSpan(
                           children: [
                             TextSpan(
-                              text: '${controller.opportunitiesItemsEntity?.collectedPercentage}%\n',
+                              text:
+                                  '${controller.opportunitiesItemsEntity?.collectedPercentage}%\n',
                               style: context.typography.bodyMedium.copyWith(
                                 color: AppColors.primary,
                               ),
@@ -71,7 +75,7 @@ class ProgressWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                         Icon(Icons.hourglass_bottom, color: AppColors.white),
+                        Icon(Icons.hourglass_bottom, color: AppColors.white),
                         SizedBox(height: 8.h),
                         Text(
                           "${'remaining_days'.tr} ${controller.opportunitiesItemsEntity?.daysToEnd} ${'days'.tr}",
@@ -80,7 +84,8 @@ class ProgressWidget extends StatelessWidget {
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 3),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 5.0, vertical: 3),
                           child: Divider(thickness: 0.2),
                         ),
                         Text(

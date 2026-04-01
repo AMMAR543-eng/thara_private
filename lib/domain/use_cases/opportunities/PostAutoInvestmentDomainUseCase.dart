@@ -1,9 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class PostAutoInvestmentDomainUseCase
-    extends
-        Use_Case<Either<AppError, SuccessNewModel>, PostAutoInvestmentParams> {
+class PostAutoInvestmentDomainUseCase extends Use_Case<
+    Either<AppError, SuccessNewModel>, PostAutoInvestmentParams> {
   final OpportunitiesRepository _repo;
 
   PostAutoInvestmentDomainUseCase(this._repo);

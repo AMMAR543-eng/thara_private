@@ -15,16 +15,13 @@ class GenericPdfViewerFromAsset extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
-
       child: Scaffold(
         backgroundColor: AppColors.background_black,
-
         body: SafeArea(
           bottom: false,
           child: Column(
             children: [
               CustomPdfHeader(title),
-
               Expanded(
                 child: Container(
                   color: AppColors.white,

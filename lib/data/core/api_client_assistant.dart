@@ -4,24 +4,24 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 typedef HttpRequestFunction = Future<http.Response> Function(
-    Uri uri, {
-    Map<String, String>? headers,
-    Object? body,
-    });
+  Uri uri, {
+  Map<String, String>? headers,
+  Object? body,
+});
 
 Future<http.Response> _getRequest(
-    Uri uri, {
-      Map<String, String>? headers,
-      Object? body,
-    }) {
+  Uri uri, {
+  Map<String, String>? headers,
+  Object? body,
+}) {
   return http.get(uri, headers: headers);
 }
 
 Future<http.Response> _postRequest(
-    Uri uri, {
-      Map<String, String>? headers,
-      Object? body,
-    }) async {
+  Uri uri, {
+  Map<String, String>? headers,
+  Object? body,
+}) async {
   final request = http.MultipartRequest('POST', uri);
 
   if (headers != null) {
@@ -53,10 +53,10 @@ Future<http.Response> _postRequest(
 }
 
 Future<http.Response> _patchRequest(
-    Uri uri, {
-      Map<String, String>? headers,
-      Object? body,
-    }) {
+  Uri uri, {
+  Map<String, String>? headers,
+  Object? body,
+}) {
   return http.patch(
     uri,
     headers: headers,

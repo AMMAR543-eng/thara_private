@@ -12,28 +12,26 @@ class NafathStatusModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory NafathStatusModel.fromJson(Map<String, dynamic> json) {
     return NafathStatusModel(
-      data:
-          json['data'] != null
-              ? NafathGetStatusModel.fromJson(json['data'])
-              : null,
+      data: json['data'] != null
+          ? NafathGetStatusModel.fromJson(json['data'])
+          : null,
       customStatusCode: json['customStatusCode'],
       message: json['message'],
       debug: json['debug'],
       env: json['env'],
-      account:
-          json['account'] != null
-              ? AccountModel.fromJson(json['account'])
-              : null,
+      account: json['account'] != null
+          ? AccountModel.fromJson(json['account'])
+          : null,
       user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
     );
   }
@@ -54,7 +52,7 @@ class NafathGetStatusModel extends NafathStatusEntity {
   final bool? completed;
 
   const NafathGetStatusModel({this.status, this.completed})
-    : super(status: status, completed: completed);
+      : super(status: status, completed: completed);
 
   factory NafathGetStatusModel.fromJson(Map<String, dynamic> json) {
     return NafathGetStatusModel(

@@ -8,9 +8,8 @@ class ArticleModelResponse {
   factory ArticleModelResponse.fromJson(Map<String, dynamic>? json) {
     if (json == null) return const ArticleModelResponse();
     return ArticleModelResponse(
-      data: json['data'] != null
-          ? ArticleDataModel.fromJson(json['data'])
-          : null,
+      data:
+          json['data'] != null ? ArticleDataModel.fromJson(json['data']) : null,
     );
   }
 
@@ -34,9 +33,9 @@ class ArticleDataModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'items': items?.map((e) => e.toJson()).toList(),
-    'meta': meta?.toJson(),
-  };
+        'items': items?.map((e) => e.toJson()).toList(),
+        'meta': meta?.toJson(),
+      };
 }
 
 class ArticleDetailsModelResponse {
@@ -53,10 +52,9 @@ class ArticleDetailsModelResponse {
   }
 
   Map<String, dynamic> toJson() => {
-    'data': data?.toJson(),
-  };
+        'data': data?.toJson(),
+      };
 }
-
 
 class ArticleDetailsData {
   final ArticleItemModel? article;
@@ -101,10 +99,10 @@ class ArticleItemModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'content': content,
-    'title': title,
-    'image': image,
-    'publish_date': publishDate,
-  };
+        'id': id,
+        'content': content,
+        'title': title,
+        'image': image,
+        'publish_date': publishDate,
+      };
 }

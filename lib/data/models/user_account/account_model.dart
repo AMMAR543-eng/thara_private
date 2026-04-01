@@ -72,10 +72,14 @@ class AccountModel {
       type: json['type'],
       hasBlockedBalance: json['hasBlockedBalance'],
       steps: stepsList != null
-          ? stepsList.map((e) => ActivateAnotherAccountStep.fromJson(e)).toList()
+          ? stepsList
+              .map((e) => ActivateAnotherAccountStep.fromJson(e))
+              .toList()
           : [],
       activateAnotherAccountSteps: activateStepsList != null
-          ? activateStepsList.map((e) => ActivateAnotherAccountStep.fromJson(e)).toList()
+          ? activateStepsList
+              .map((e) => ActivateAnotherAccountStep.fromJson(e))
+              .toList()
           : [],
       virtualAccount: json['virtualAccount'] != null
           ? VirtualAccountModel.fromJson(json['virtualAccount'])
@@ -87,29 +91,29 @@ class AccountModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'ownerName': ownerName,
-    'verified_as_investor': verifiedAsInvestor,
-    'verified_as_borrower': verifiedAsBorrower,
-    'is_professional_investor': isProfessionalInvestor,
-    'thereIsWaitingRequest': thereIsWaitingRequest,
-    'registration_stage': registrationStage,
-    'activate_another_account_stage': activateAnotherAccountStage,
-    'investing_account_status': investingAccountStatus,
-    'borrowing_account_status': borrowingAccountStatus,
-    'account_status': accountStatus,
-    'nafath_completed': nafathCompleted,
-    'yaqeen_problem': yaqeenProblem,
-    'has_bank_account': hasBankAccount,
-    'applying_as': applyingAs,
-    'type': type,
-    'hasBlockedBalance': hasBlockedBalance,
-    'steps': steps?.map((e) => e.toJson()).toList(),
-    'activateAnotherAccountSteps':
-    activateAnotherAccountSteps?.map((e) => e.toJson()).toList(),
-    'virtualAccount': virtualAccount?.toJson(),
-    'profile_photo': profilePhoto?.toJson(), // ✅ added field
-  };
+        'id': id,
+        'ownerName': ownerName,
+        'verified_as_investor': verifiedAsInvestor,
+        'verified_as_borrower': verifiedAsBorrower,
+        'is_professional_investor': isProfessionalInvestor,
+        'thereIsWaitingRequest': thereIsWaitingRequest,
+        'registration_stage': registrationStage,
+        'activate_another_account_stage': activateAnotherAccountStage,
+        'investing_account_status': investingAccountStatus,
+        'borrowing_account_status': borrowingAccountStatus,
+        'account_status': accountStatus,
+        'nafath_completed': nafathCompleted,
+        'yaqeen_problem': yaqeenProblem,
+        'has_bank_account': hasBankAccount,
+        'applying_as': applyingAs,
+        'type': type,
+        'hasBlockedBalance': hasBlockedBalance,
+        'steps': steps?.map((e) => e.toJson()).toList(),
+        'activateAnotherAccountSteps':
+            activateAnotherAccountSteps?.map((e) => e.toJson()).toList(),
+        'virtualAccount': virtualAccount?.toJson(),
+        'profile_photo': profilePhoto?.toJson(), // ✅ added field
+      };
 }
 
 /// 🆕 New model for Profile Photo
@@ -129,10 +133,10 @@ class ProfilePhotoModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'url': url,
-    'mime': mime,
-  };
+        'id': id,
+        'url': url,
+        'mime': mime,
+      };
 }
 
 class VirtualAccountModel {
@@ -149,9 +153,9 @@ class VirtualAccountModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'account_number': accountNumber,
-    'iban': iban,
-  };
+        'account_number': accountNumber,
+        'iban': iban,
+      };
 }
 
 class ActivateAnotherAccountStep {
@@ -170,10 +174,10 @@ class ActivateAnotherAccountStep {
   }
 
   Map<String, dynamic> toJson() => {
-    'key': key,
-    'active': active,
-    'component': component,
-  };
+        'key': key,
+        'active': active,
+        'component': component,
+      };
 }
 
 StepType? getActiveStep(List<ActivateAnotherAccountStep> steps) {
@@ -186,7 +190,7 @@ extension AccountStorageExtension on AccountModel {
   Future<void> saveAccountLocal({Function? onSaved}) async {
     final isSaved = await StorageService().setData(Strings.account, toJson());
     if (isSaved) {
-      debugPrint("✅ Account saved locally: ${toJson()}");
+      debugPrint(" Account saved locally: ${toJson()}");
       onSaved?.call();
     } else {
       Loader.showError("فشل في حفظ بيانات الحساب محلياً");
@@ -200,7 +204,7 @@ extension AccountStorageExtension on AccountModel {
       try {
         return AccountModel.fromJson(json);
       } catch (e) {
-        debugPrint("❌ Error decoding account from local storage: $e");
+        debugPrint("Error decoding account from local storage: $e");
         return null;
       }
     }

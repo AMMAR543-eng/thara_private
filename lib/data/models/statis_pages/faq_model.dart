@@ -42,7 +42,8 @@ class FaqsData {
   factory FaqsData.fromJson(Map<String, dynamic> json) {
     final faqsJson = json['faqs'] as Map<String, dynamic>?;
     return FaqsData(
-      faqs: faqsJson?.map((key, value) => MapEntry(key, FaqCategory.fromJson(value))),
+      faqs: faqsJson
+          ?.map((key, value) => MapEntry(key, FaqCategory.fromJson(value))),
     );
   }
 
@@ -52,7 +53,6 @@ class FaqsData {
     };
   }
 }
-
 
 class FaqCategory {
   final String? categoryLabel;
@@ -80,7 +80,6 @@ class FaqCategory {
   }
 }
 
-
 class FaqItem {
   final String? question;
   final String? answer;
@@ -101,4 +100,3 @@ class FaqItem {
     };
   }
 }
-

@@ -27,7 +27,6 @@ class PaymentScheduleWidget extends StatelessWidget {
             ),
           ),
         ),
-
         SizedBox(
           height: 250.h,
           child: ListView.builder(
@@ -70,7 +69,8 @@ class PaymentScheduleWidget extends StatelessWidget {
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(12.r),
                   border: Border.all(
-                    color: AppColors.border_natural_normal.withValues(alpha: 0.5),
+                    color:
+                        AppColors.border_natural_normal.withValues(alpha: 0.5),
                   ),
                   boxShadow: [
                     BoxShadow(
@@ -90,7 +90,6 @@ class PaymentScheduleWidget extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10.h),
-
                     Expanded(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,14 +104,12 @@ class PaymentScheduleWidget extends StatelessWidget {
                                   value: dueDate,
                                 ),
                                 SizedBox(height: 10.h),
-
                                 _RowItem(
                                   label: "interest".tr,
                                   value: interestFormatted,
                                   showRiyal: true,
                                 ),
                                 SizedBox(height: 10.h),
-
                                 _RowItem(
                                   label: "taxes_and_fees".tr,
                                   value: taxFormatted,
@@ -133,14 +130,12 @@ class PaymentScheduleWidget extends StatelessWidget {
                                   showRiyal: true,
                                 ),
                                 SizedBox(height: 10.h),
-
                                 _RowItem(
                                   label: "total_payment".tr,
                                   value: totalFormatted,
                                   showRiyal: true,
                                 ),
                                 SizedBox(height: 10.h),
-
                                 _RowItem(
                                   label: "net_profit".tr,
                                   value: netProfitFormatted,
@@ -170,7 +165,6 @@ class PaymentScheduleWidget extends StatelessWidget {
     format.maximumFractionDigits = decimals;
     return format.format(number);
   }
-
 
   String _localizedOrdinal(int number) {
     final isArabic = Get.locale?.languageCode == 'ar';
@@ -246,7 +240,6 @@ class _RowItem extends StatelessWidget {
                   width: 14.w,
                   height: 14.h,
                   color: AppColors.content_primary,
-
                 ),
               ),
           ],

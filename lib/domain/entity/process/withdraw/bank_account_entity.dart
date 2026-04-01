@@ -29,16 +29,16 @@ class BankAccountEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    label,
-    alias,
-    iban,
-    bankName,
-    bankId,
-    accountNumber,
-    isPrimary,
-    beneficiaryAddress1,
-    beneficiaryAddress2,
-    verified,
-  ];
+        id,
+        label,
+        alias,
+        iban,
+        bankName,
+        bankId,
+        accountNumber,
+        isPrimary,
+        beneficiaryAddress1,
+        beneficiaryAddress2,
+        verified,
+      ];
 }

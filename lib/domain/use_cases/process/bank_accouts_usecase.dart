@@ -2,9 +2,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class BankAccountsUseCase
-    extends
-        Use_Case<Either<AppError, BankAccountDataEntity>, ProcessFilterParams> {
+class BankAccountsUseCase extends Use_Case<
+    Either<AppError, BankAccountDataEntity>, ProcessFilterParams> {
   final ProcessRepository _processRepositoryImpl;
 
   // Constructor

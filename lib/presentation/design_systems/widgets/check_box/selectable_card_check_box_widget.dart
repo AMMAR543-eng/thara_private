@@ -30,7 +30,6 @@ class SelectableCardCheckBoxWidget extends StatelessWidget {
             color: isSelected
                 ? AppColors.content_positive_secondary
                 : AppColors.border_default,
-
             width: 3,
           ),
         ),

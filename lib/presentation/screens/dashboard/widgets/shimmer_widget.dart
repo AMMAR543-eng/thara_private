@@ -65,9 +65,11 @@ class ForseItemShimmerWidget extends StatelessWidget {
                 children: List.generate(3, (i) {
                   return Column(
                     children: [
-                      Container(height: 12.h, width: 50.w, color: AppColors.white),
+                      Container(
+                          height: 12.h, width: 50.w, color: AppColors.white),
                       SizedBox(height: 6.h),
-                      Container(height: 16.h, width: 60.w, color: AppColors.white),
+                      Container(
+                          height: 16.h, width: 60.w, color: AppColors.white),
                     ],
                   );
                 }),
@@ -94,8 +96,10 @@ class ForseItemShimmerWidget extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(height: 12.h, width: 60.w, color: AppColors.white),
-                      Container(height: 12.h, width: 40.w, color: AppColors.white),
+                      Container(
+                          height: 12.h, width: 60.w, color: AppColors.white),
+                      Container(
+                          height: 12.h, width: 40.w, color: AppColors.white),
                     ],
                   ),
                 ],

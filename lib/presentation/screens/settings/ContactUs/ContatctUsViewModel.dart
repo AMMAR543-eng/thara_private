@@ -53,7 +53,6 @@ class ContatcusVieWModel extends GetxController {
     selectedType = value;
     update();
   }
-
 }
 
 /// **Model for Contact Types**

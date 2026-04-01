@@ -50,5 +50,3 @@ export '../presentation/design_systems/widgets/empty_data_widget.dart';
 export '../presentation/design_systems/widgets/pagination/pagination.dart';
 export '../presentation/design_systems/widgets/text_input_widget.dart';
 export 'package:thara/presentation/design_systems/design_constants/gradient.dart';
-
-

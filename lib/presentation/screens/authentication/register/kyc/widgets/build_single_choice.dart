@@ -14,15 +14,15 @@ class BuildSingleChoiceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // Map question answers -> GenericListModel list
     final List<GenericListModel> listTypes = question.answers
-        ?.map((element) {
-      return GenericListModel(
-        id: element?.id ?? 0,
-        name_ar: element?.answer,
-        name: element?.answer,
-      );
-    })
-        .cast<GenericListModel>()
-        .toList() ??
+            ?.map((element) {
+              return GenericListModel(
+                id: element?.id ?? 0,
+                name_ar: element?.answer,
+                name: element?.answer,
+              );
+            })
+            .cast<GenericListModel>()
+            .toList() ??
         [];
 
     // Check if an answer already exists in controller
@@ -35,7 +35,7 @@ class BuildSingleChoiceWidget extends StatelessWidget {
           kycController.questionsAnswers?[existingIndex].answers?.first;
       if (existingAnswer != null) {
         selectedType = listTypes.firstWhere(
-              (element) => element.id == existingAnswer.id,
+          (element) => element.id == existingAnswer.id,
           orElse: () => GenericListModel(
             id: existingAnswer.id ?? 0,
             name: existingAnswer.answer ?? "",

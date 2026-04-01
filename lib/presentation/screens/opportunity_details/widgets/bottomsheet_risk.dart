@@ -1,27 +1,29 @@
 import '../../../../index/index_main.dart';
 
 void showRiskDisclaimerBottomSheet(
-    BuildContext context, {
-      required OpportunityDetailsController controller,
-      required String? opportunityId,
-      required String textController,
-    }) {
+  BuildContext context, {
+  required OpportunityDetailsController controller,
+  required String? opportunityId,
+  required String textController,
+}) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
-    builder: (_) =>  _RiskDisclaimerContent(amount: textController,),
+    builder: (_) => _RiskDisclaimerContent(
+      amount: textController,
+    ),
   );
 }
 
 class _RiskDisclaimerContent extends StatelessWidget {
-  const _RiskDisclaimerContent({super.key,required this.amount});
+  const _RiskDisclaimerContent({super.key, required this.amount});
   final String amount;
 
   @override
   Widget build(BuildContext context) {
     final OpportunityDetailsController controller =
-    Get.find<OpportunityDetailsController>();
+        Get.find<OpportunityDetailsController>();
     final sharePrice = controller.opportunitiesItemsEntity?.sharePrice;
 
     return Directionality(

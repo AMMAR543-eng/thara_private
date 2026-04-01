@@ -31,9 +31,6 @@ class RouteWelcomeMiddleWare extends GetMiddleware {
   }
 }
 
-
-
-
 class RouteLoginMiddleWare extends GetMiddleware {
   @override
   final int? priority;

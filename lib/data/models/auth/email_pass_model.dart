@@ -8,8 +8,8 @@ class LoginParams extends Equatable {
   final String? udid; // ✅ Added
 
   const LoginParams({
-     this.email,
-     this.password,
+    this.email,
+    this.password,
     this.biometrics,
     this.token,
     this.udid,
@@ -41,7 +41,6 @@ class LoginParams extends Equatable {
 
     return data;
   }
-
 
   /// 🔄 Optional: Create from JSON if needed later
   factory LoginParams.fromJson(Map<String, dynamic> json) {

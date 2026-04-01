@@ -30,44 +30,49 @@ class SettingsBankInfoView extends StatelessWidget {
             child: controller.profileData == null
                 ? const InfoListShimmerWidget()
                 : SingleChildScrollView(
-              child: Column(
-                children: [
-                  InfoItemWidget(
-                    label: 'beneficiary_name'.tr,
-                    value: controller.profileData?.account?.ownerName ?? "",
-                    typography: typography,
-                    showEdit: false,
+                    child: Column(
+                      children: [
+                        InfoItemWidget(
+                          label: 'beneficiary_name'.tr,
+                          value:
+                              controller.profileData?.account?.ownerName ?? "",
+                          typography: typography,
+                          showEdit: false,
+                        ),
+                        SizedBox(height: 10.h),
+                        Divider(
+                          color: AppColors.grayMedium.withAlpha(30),
+                          endIndent: 20.h,
+                          indent: 20.h,
+                        ),
+                        SizedBox(height: 10.h),
+                        InfoItemWidget(
+                          label: 'iban_number'.tr,
+                          value: controller
+                                  .profileData?.account?.virtualAccount?.iban ??
+                              "",
+                          typography: typography,
+                          showEdit: false,
+                        ),
+                        SizedBox(height: 10.h),
+                        Divider(
+                          color: AppColors.grayMedium.withAlpha(30),
+                          endIndent: 20.h,
+                          indent: 20.h,
+                        ),
+                        SizedBox(height: 10.h),
+                        InfoItemWidget(
+                          label: 'account_number'.tr,
+                          value: controller.profileData?.account?.virtualAccount
+                                  ?.accountNumber ??
+                              "",
+                          typography: typography,
+                          showEdit: false,
+                        ),
+                        SizedBox(height: 10.h),
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 10.h),
-                  Divider(
-                    color: AppColors.grayMedium.withAlpha(30),
-                    endIndent: 20.h,
-                    indent: 20.h,
-                  ),
-                  SizedBox(height: 10.h),
-                  InfoItemWidget(
-                    label: 'iban_number'.tr,
-                    value: controller.profileData?.account?.virtualAccount?.iban ?? "",
-                    typography: typography,
-                    showEdit: false,
-                  ),
-                  SizedBox(height: 10.h),
-                  Divider(
-                    color: AppColors.grayMedium.withAlpha(30),
-                    endIndent: 20.h,
-                    indent: 20.h,
-                  ),
-                  SizedBox(height: 10.h),
-                  InfoItemWidget(
-                    label: 'account_number'.tr,
-                    value: controller.profileData?.account?.virtualAccount?.accountNumber ?? "",
-                    typography: typography,
-                    showEdit: false,
-                  ),
-                  SizedBox(height: 10.h),
-                ],
-              ),
-            ),
           );
         },
       ),

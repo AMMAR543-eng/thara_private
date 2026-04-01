@@ -139,7 +139,7 @@ class _DeactivateAccountDialogState extends State<_DeactivateAccountDialog> {
                       ),
                     ),
                     contentPadding:
-                    EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
                   ),
                 ),
               ],
@@ -180,17 +180,17 @@ class _DeactivateAccountDialogState extends State<_DeactivateAccountDialog> {
                       onPressed: selectedReason == null
                           ? null
                           : () {
-                        // If "other" selected and reason text exists
-                        if (selectedReason == "other" &&
-                            _otherReasonController.text.isNotEmpty) {
-                          Navigator.pop(context, {
-                            "type": selectedReason,
-                            "reason": _otherReasonController.text,
-                          });
-                        } else {
-                          Navigator.pop(context, selectedReason);
-                        }
-                      },
+                              // If "other" selected and reason text exists
+                              if (selectedReason == "other" &&
+                                  _otherReasonController.text.isNotEmpty) {
+                                Navigator.pop(context, {
+                                  "type": selectedReason,
+                                  "reason": _otherReasonController.text,
+                                });
+                              } else {
+                                Navigator.pop(context, selectedReason);
+                              }
+                            },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.errorForeground,
                         shape: RoundedRectangleBorder(

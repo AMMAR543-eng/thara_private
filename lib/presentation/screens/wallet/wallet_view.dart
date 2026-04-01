@@ -38,7 +38,7 @@ class _WalletViewState extends State<WalletView> {
                 builder: (walletController) {
                   final accounts =
                       walletController.bankAccountDataEntity?.bankAccounts ??
-                      [];
+                          [];
 
                   return Stack(
                     children: [
@@ -68,8 +68,7 @@ class _WalletViewState extends State<WalletView> {
                               /// 🔹 Balance Summary
                               WalletBalanceCard(
                                 balance: walletController
-                                    .tradeAccountEntity
-                                    ?.available
+                                    .tradeAccountEntity?.available
                                     ?.toString(),
                                 onDepositTap: () async {
                                   showModalBottomSheet(
@@ -80,7 +79,6 @@ class _WalletViewState extends State<WalletView> {
                                         const DepositAmountBottomSheet(),
                                   );
                                 },
-
                                 onWithdrawTap: () => walletController
                                     .openWithdrawBottomSheet(context),
                               ),
@@ -91,8 +89,8 @@ class _WalletViewState extends State<WalletView> {
                               Align(
                                 alignment:
                                     LocalStorage_language().read() == "ar"
-                                    ? Alignment.centerRight
-                                    : Alignment.centerLeft,
+                                        ? Alignment.centerRight
+                                        : Alignment.centerLeft,
                                 child: Text(
                                   "trusted_bank_accounts".tr,
                                   style: typography.headerXLarge.copyWith(
@@ -143,8 +141,7 @@ class _WalletViewState extends State<WalletView> {
                                         }
 
                                         return BankAccountCardWidget(
-                                          aliasName:
-                                              account.alias ??
+                                          aliasName: account.alias ??
                                               account.label ??
                                               "—",
                                           bankName: account.bankName ?? "—",
@@ -179,21 +176,13 @@ class _WalletViewState extends State<WalletView> {
                               GetBuilder<DepositeController>(
                                 init: DepositeController(),
                                 builder: (depositController) {
-                                  final userName =
-                                      depositController
-                                          .baseEntity
-                                          ?.user
-                                          ?.name ??
+                                  final userName = depositController
+                                          .baseEntity?.user?.name ??
                                       "—";
-                                  final iban =
-                                      depositController
-                                          .baseEntity
-                                          ?.account
-                                          ?.virtualAccount
-                                          ?.iban ??
+                                  final iban = depositController.baseEntity
+                                          ?.account?.virtualAccount?.iban ??
                                       "—";
-                                  final accountNumber =
-                                      depositController
+                                  final accountNumber = depositController
                                           .baseEntity
                                           ?.account
                                           ?.virtualAccount

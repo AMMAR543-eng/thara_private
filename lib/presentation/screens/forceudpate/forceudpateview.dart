@@ -19,7 +19,6 @@ class ForceUpdateView extends StatelessWidget {
             width: 300.w,
             height: 300.h,
           ),
-
           Padding(
             padding: const EdgeInsets.only(
               top: 50.0,

@@ -39,7 +39,7 @@ class ProfileHeaderSection extends StatelessWidget {
                   right: 4,
                   child: Container(
                     padding: EdgeInsets.all(4.r),
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       color: AppColors.white,
                       shape: BoxShape.circle,
                     ),

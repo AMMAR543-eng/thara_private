@@ -219,8 +219,8 @@ class OpportunityDetailsCardWidget extends StatelessWidget {
                         AnimatedProgressBar(
                           value:
                               (double.tryParse(coverage.replaceAll(',', '')) ??
-                                  0) /
-                              100,
+                                      0) /
+                                  100,
                           backgroundColor: AppColors.border_natural_normal,
                           progressColor: AppColors.green_light,
                         ),
@@ -334,9 +334,8 @@ class _RiskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: alignCenter
-          ? CrossAxisAlignment.center
-          : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          alignCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
           "risk_rating".tr,
@@ -382,9 +381,8 @@ class _InfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: alignCenter
-          ? CrossAxisAlignment.center
-          : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          alignCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
           label,

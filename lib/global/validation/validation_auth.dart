@@ -106,8 +106,8 @@ class InputValidators {
 
   /// Combines multiple validators.
   static String? Function(String?) combine(
-      List<String? Function(String?)> validators,
-      ) {
+    List<String? Function(String?)> validators,
+  ) {
     return (value) {
       for (final validator in validators) {
         final result = validator(value);
@@ -118,5 +118,4 @@ class InputValidators {
   }
 }
 
-final notEmptyValidator =
-    (value) => InputValidators.notEmpty(value);
+final notEmptyValidator = (value) => InputValidators.notEmpty(value);

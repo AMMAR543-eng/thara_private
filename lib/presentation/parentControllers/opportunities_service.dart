@@ -1,5 +1,3 @@
-
-
 import '../../index/index_main.dart';
 
 class OpportunitiesService {
@@ -8,7 +6,7 @@ class OpportunitiesService {
     required Function(GetOpportunitiesEntity) voidCallBack,
   }) async {
     final result = await initUseCase(
-          () => GetOpportunitiesUseCase(Get.find()),
+      () => GetOpportunitiesUseCase(Get.find()),
     ).call(param ?? OpportunityParameter());
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
   }
@@ -19,7 +17,7 @@ class OpportunitiesService {
   }) async {
     Loader.show();
     final result = await initUseCase(
-          () => GetOpportunityDetailsUseCase(Get.find()),
+      () => GetOpportunityDetailsUseCase(Get.find()),
     ).call(oppo_id);
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
@@ -31,7 +29,7 @@ class OpportunitiesService {
   }) async {
     Loader.show();
     final result = await initUseCase(
-          () => SubscribeToLoanDomainUseCase(Get.find()),
+      () => SubscribeToLoanDomainUseCase(Get.find()),
     ).call(param);
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
@@ -43,7 +41,7 @@ class OpportunitiesService {
   }) async {
     Loader.show();
     final result = await initUseCase(
-          () => CancelSubscriptionDomainUseCase(Get.find()),
+      () => CancelSubscriptionDomainUseCase(Get.find()),
     ).call(opportunityId);
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
@@ -54,7 +52,7 @@ class OpportunitiesService {
     InvestmentFilterParams? param,
   }) async {
     final result = await initUseCase(
-          () => GetInvestmentsUseCase(Get.find()),
+      () => GetInvestmentsUseCase(Get.find()),
     ).call(param ?? InvestmentFilterParams());
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
   }
@@ -68,7 +66,7 @@ class OpportunitiesService {
     Loader.show();
 
     final result = await initUseCase(
-          () => GetAutoInvestmentDomainUseCase(Get.find()),
+      () => GetAutoInvestmentDomainUseCase(Get.find()),
     ).call(NoParams());
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
@@ -86,7 +84,7 @@ class OpportunitiesService {
     Loader.show();
 
     final result = await initUseCase(
-          () => PostAutoInvestmentDomainUseCase(Get.find()),
+      () => PostAutoInvestmentDomainUseCase(Get.find()),
     ).call(PostAutoInvestmentParams(payload));
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
@@ -103,7 +101,7 @@ class OpportunitiesService {
     Loader.show();
 
     final result = await initUseCase(
-          () => CancelAutoInvestmentDomainUseCase(Get.find()),
+      () => CancelAutoInvestmentDomainUseCase(Get.find()),
     ).call(NoParams());
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));

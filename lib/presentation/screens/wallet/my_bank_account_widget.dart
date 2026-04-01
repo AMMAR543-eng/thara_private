@@ -128,7 +128,7 @@ class DetailedBankCardWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                     Icon(
+                    Icon(
                       Icons.info_outline,
                       color: AppColors.primary,
                       size: 20,
@@ -159,13 +159,13 @@ class DetailedBankCardWidget extends StatelessWidget {
 
   /// 🔸 Helper — Label, Value + Copy Button
   Widget _buildCopyRow(
-      BuildContext context, {
-        required String label,
-        required String value,
-        bool? show_copy,
-        required AppTypography typography,
-        VoidCallback? onCopy,
-      }) {
+    BuildContext context, {
+    required String label,
+    required String value,
+    bool? show_copy,
+    required AppTypography typography,
+    VoidCallback? onCopy,
+  }) {
     return Row(
       children: [
         Expanded(
@@ -193,21 +193,21 @@ class DetailedBankCardWidget extends StatelessWidget {
         show_copy != null
             ? const SizedBox()
             : InkWell(
-          onTap: onCopy,
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            padding: EdgeInsets.all(6.w),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.border_default),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child:  Icon(
-              Icons.copy,
-              size: 20,
-              color: AppColors.primary,
-            ),
-          ),
-        ),
+                onTap: onCopy,
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  padding: EdgeInsets.all(6.w),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.border_default),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    Icons.copy,
+                    size: 20,
+                    color: AppColors.primary,
+                  ),
+                ),
+              ),
       ],
     );
   }

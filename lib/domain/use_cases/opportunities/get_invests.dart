@@ -1,12 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class GetInvestmentsUseCase
-    extends
-        Use_Case<
-          Either<AppError, InvestmentTransactionDataEntity>,
-          InvestmentFilterParams
-        > {
+class GetInvestmentsUseCase extends Use_Case<
+    Either<AppError, InvestmentTransactionDataEntity>, InvestmentFilterParams> {
   final OpportunitiesRepository _opportunitiesRepository;
 
   // Constructor

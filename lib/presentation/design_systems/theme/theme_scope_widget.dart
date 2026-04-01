@@ -1,4 +1,3 @@
-
 import '../../../index/index.dart';
 
 const _kThemeMode = 'themeMode';
@@ -26,9 +25,7 @@ class ThemeScopeWidget extends StatefulWidget {
     );
   }
 
-  /// In order to use methods of [ThemeScopeWidget] this function
-  /// should be called first. Theme change process will handled by
-  /// [ThemeScopeWidget] automatically.
+  /// Access the state بسهولة
   static ThemeScopeWidgetState? of(BuildContext context) {
     return context.findRootAncestorStateOfType<ThemeScopeWidgetState>();
   }
@@ -37,7 +34,6 @@ class ThemeScopeWidget extends StatefulWidget {
   State<ThemeScopeWidget> createState() => ThemeScopeWidgetState();
 }
 
-/// The state for [ThemeScopeWidget].
 class ThemeScopeWidgetState extends State<ThemeScopeWidget> {
   ThemeMode? _themeMode;
 
@@ -52,7 +48,10 @@ class ThemeScopeWidgetState extends State<ThemeScopeWidget> {
       setState(() {
         _themeMode = themeMode;
       });
-    } on Exception catch (_) {}
+    } catch (e, stack) {
+      debugPrint('❌ Theme change failed: $e');
+      debugPrint(stack.toString());
+    }
   }
 
   @override
@@ -60,20 +59,31 @@ class ThemeScopeWidgetState extends State<ThemeScopeWidget> {
     super.didChangeDependencies();
 
     try {
-      final themeModeIndex = widget.preferences.getInt(_kThemeMode) ?? 0;
-      final themeMode = ThemeMode.values[themeModeIndex];
+      final themeModeIndex = widget.preferences.getInt(_kThemeMode);
 
-      _themeMode = themeMode;
-    } on Exception catch (_) {
+      if (themeModeIndex == null ||
+          themeModeIndex < 0 ||
+          themeModeIndex >= ThemeMode.values.length) {
+        throw Exception('Invalid theme index: $themeModeIndex');
+      }
+
+      _themeMode = ThemeMode.values[themeModeIndex];
+    } catch (e, stack) {
+      debugPrint('❌ Theme initialization failed: $e');
+      debugPrint(stack.toString());
+
       _themeMode = ThemeMode.system;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    // fallback safety (extra protection)
+    final currentMode = _themeMode ?? ThemeMode.system;
+
     final brightness = MediaQuery.platformBrightnessOf(context);
 
-    final appTheme = switch (_themeMode!) {
+    final appTheme = switch (currentMode) {
       ThemeMode.light => AppTheme.light(),
       ThemeMode.dark => AppTheme.light(),
       ThemeMode.system =>
@@ -81,7 +91,7 @@ class ThemeScopeWidgetState extends State<ThemeScopeWidget> {
     };
 
     return ThemeScope(
-      themeMode: _themeMode!,
+      themeMode: currentMode,
       appTheme: appTheme,
       child: widget.child,
     );

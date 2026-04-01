@@ -7,7 +7,8 @@ class DepositesListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<DepositeEntity> items = controller.depositeDataEntity?.items ?? [];
+    final List<DepositeEntity> items =
+        controller.depositeDataEntity?.items ?? [];
 
     if (items.isEmpty) {
       return PlaceholderImage(
@@ -29,7 +30,7 @@ class DepositesListViewWidget extends StatelessWidget {
         final String sourceIban = item.sourceIban ?? "—";
         final bool knownSource = item.knownSource ?? false;
         final String accountLabel =
-        knownSource ? "investment_account".tr : "unknown_source".tr;
+            knownSource ? "investment_account".tr : "unknown_source".tr;
 
         final double amount = double.tryParse(item.amount ?? "0") ?? 0;
         final String formattedAmount = amount.toStringAsFixed(2);

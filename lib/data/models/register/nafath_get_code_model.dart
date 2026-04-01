@@ -12,13 +12,13 @@ class NafathGetCodeModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory NafathGetCodeModel.fromJson(Map<String, dynamic> json) {
     return NafathGetCodeModel(
@@ -28,10 +28,9 @@ class NafathGetCodeModel extends BaseModel {
       message: json['message'],
       debug: json['debug'],
       env: json['env'],
-      account:
-          json['account'] != null
-              ? AccountModel.fromJson(json['account'])
-              : null,
+      account: json['account'] != null
+          ? AccountModel.fromJson(json['account'])
+          : null,
       user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
     );
   }
@@ -52,7 +51,7 @@ class NafathCodeModel extends NafathCodeEntity {
   final bool? completed;
 
   const NafathCodeModel({this.random, this.completed})
-    : super(random: random, completed: completed);
+      : super(random: random, completed: completed);
 
   factory NafathCodeModel.fromJson(Map<String, dynamic> json) {
     return NafathCodeModel(

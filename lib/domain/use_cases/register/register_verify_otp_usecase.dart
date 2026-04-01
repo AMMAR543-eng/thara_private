@@ -10,6 +10,7 @@ class RegisterVerifyOtpDomainUseCase
 
   @override
   Future<Either<AppError, BaseEntity>> call(OtpParams params) async {
-    return await _registerRepositoryImpl.verifyOtpDomain(params.code,url: params.url);
+    return await _registerRepositoryImpl.verifyOtpDomain(params.code,
+        url: params.url);
   }
 }

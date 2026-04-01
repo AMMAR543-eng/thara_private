@@ -1,5 +1,3 @@
-
-
 import '../../../index/index_main.dart';
 
 class HomeView extends StatefulWidget {
@@ -61,10 +59,8 @@ class _HomeViewState extends State<HomeView> {
         appBar: HomeAppBar(title: "home".tr),
         body: GetBuilder<DashboardController>(
           builder: (controller) {
-            final token = LoginResponseModel()
-                .getTokenData()
-                ?.data
-                ?.accessToken;
+            final token =
+                LoginResponseModel().getTokenData()?.data?.accessToken;
             final trade = controller.tradeAccountEntity;
             final hasDeposit = (trade?.total ?? 0) > 0;
             final noDeposit = trade != null && (trade.total ?? 0) == 0;
@@ -118,10 +114,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           _buildHeaderRow(context, controller),
                           _buildOpportunitiesList(context, controller),
-
-                          controller
-                                      .investmentConfigResponseModel
-                                      ?.data
+                          controller.investmentConfigResponseModel?.data
                                       ?.configured ==
                                   false
                               ? PrimaryTextButton(
@@ -161,7 +154,6 @@ class _HomeViewState extends State<HomeView> {
                                     }
                                   },
                                 ),
-
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0),
                             child: InvestmentSummaryWidget(),
@@ -175,12 +167,8 @@ class _HomeViewState extends State<HomeView> {
                             balance: controller.tradeAccountEntity?.total
                                 ?.toDouble(),
                           ),
-
                           StartInvestWithBalance(controller: controller),
-
-                          controller
-                                      .investmentConfigResponseModel
-                                      ?.data
+                          controller.investmentConfigResponseModel?.data
                                       ?.configured ==
                                   false
                               ? PrimaryTextButton(
@@ -220,7 +208,6 @@ class _HomeViewState extends State<HomeView> {
                                     }
                                   },
                                 ),
-
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0, bottom: 15),
                             child: InvestmentSummaryWidget(),
@@ -234,12 +221,11 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           _buildHeaderRow(context, controller),
                           _buildOpportunitiesList(context, controller),
-
                           controller.isWaitingProfessional == true
                               ? const WaitingQualifiedInvestorWidget()
                               : controller.isProfessional == true
-                              ? const ProfessionalInvestorWidget()
-                              : const UpgradeQualifiedInvestorWidget(),
+                                  ? const ProfessionalInvestorWidget()
+                                  : const UpgradeQualifiedInvestorWidget(),
                           const InvestmentTransactionsWidget(),
                         ],
                       ],

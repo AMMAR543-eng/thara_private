@@ -95,9 +95,9 @@ class IconsConstants {
   static const String person = "assets/icons/person.svg";
   static const String company = "assets/icons/company.svg";
   static const String forward_arrow = "assets/icons/forward_arrow.svg";
-  static const String  before_icon= "assets/icons/before_icon.svg";
-  static const String  face_id= "assets/icons/face_id.svg";
-  static const String  fingerprint= "assets/icons/fingerprint.svg";
+  static const String before_icon = "assets/icons/before_icon.svg";
+  static const String face_id = "assets/icons/face_id.svg";
+  static const String fingerprint = "assets/icons/fingerprint.svg";
   static const String search = "assets/icons/search.svg";
   static const String right_icon = "assets/icons/right_icon.svg";
   static const String share_icon = "assets/icons/share.svg";

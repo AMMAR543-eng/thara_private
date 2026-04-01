@@ -23,10 +23,13 @@ class SelectableCardWidget extends StatelessWidget {
       child: Container(
         padding: padding,
         decoration: BoxDecoration(
-          color: selected ? AppColors.primary.withValues(alpha: 0.05) : AppColors.white,
+          color: selected
+              ? AppColors.primary.withValues(alpha: 0.05)
+              : AppColors.white,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected ? AppColors.primary : AppColors.borderNeutralPrimary,
+            color:
+                selected ? AppColors.primary : AppColors.borderNeutralPrimary,
             width: 0.8,
           ),
         ),

@@ -56,15 +56,15 @@ class StoreBankController extends GetxController {
   void validateForm() {
     isButtonEnabled = isleanEnable == true
         ? aliasController.text.isNotEmpty &&
-              ibanController.text.isNotEmpty &&
-              accountNumberController.text.isNotEmpty &&
-              selectedAddress != null
+            ibanController.text.isNotEmpty &&
+            accountNumberController.text.isNotEmpty &&
+            selectedAddress != null
         : aliasController.text.isNotEmpty &&
-              ibanController.text.isNotEmpty &&
-              accountNumberController.text.isNotEmpty &&
-              selectedBank != null &&
-              selectedAddress != null &&
-              filePath != null;
+            ibanController.text.isNotEmpty &&
+            accountNumberController.text.isNotEmpty &&
+            selectedBank != null &&
+            selectedAddress != null &&
+            filePath != null;
     update();
   }
 

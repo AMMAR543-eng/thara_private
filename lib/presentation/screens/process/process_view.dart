@@ -1,5 +1,3 @@
-
-
 import '../../../index/index_main.dart';
 
 class ProcessView extends StatefulWidget {
@@ -105,7 +103,7 @@ class _ProcessViewState extends State<ProcessView> {
                         IconsConstants.search,
                         width: 20.w,
                         height: 20.w,
-                        colorFilter:  ColorFilter.mode(
+                        colorFilter: ColorFilter.mode(
                           AppColors.content_primary,
                           BlendMode.srcIn,
                         ),
@@ -125,25 +123,25 @@ class _ProcessViewState extends State<ProcessView> {
           Expanded(
             child: hasData
                 ? ListView(
-              physics: const BouncingScrollPhysics(),
-              children: [
-                isDepositTab
-                    ? DepositesListViewWidget(controller: controller)
-                    : WithdrawListViewWidget(controller: controller),
-              ],
-            )
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      isDepositTab
+                          ? DepositesListViewWidget(controller: controller)
+                          : WithdrawListViewWidget(controller: controller),
+                    ],
+                  )
                 : Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 80.h),
-                child: PlaceholderImage(
-                  image: Images.no_data,
-                  messege: isDepositTab
-                      ? "no_deposit_operations".tr
-                      : "no_withdraw_operations".tr,
-                  isAsset: true,
-                ),
-              ),
-            ),
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 80.h),
+                      child: PlaceholderImage(
+                        image: Images.no_data,
+                        messege: isDepositTab
+                            ? "no_deposit_operations".tr
+                            : "no_withdraw_operations".tr,
+                        isAsset: true,
+                      ),
+                    ),
+                  ),
           ),
         ],
       ),
@@ -152,9 +150,9 @@ class _ProcessViewState extends State<ProcessView> {
 
   /// --- Active Filters Chips Section
   Widget _buildActiveFilters(
-      BuildContext context,
-      ProcessController controller,
-      ) {
+    BuildContext context,
+    ProcessController controller,
+  ) {
     final filters = <Widget>[];
 
     // Only show for Withdraw tab
@@ -164,7 +162,7 @@ class _ProcessViewState extends State<ProcessView> {
           _buildChip(
             context,
             label:
-            "${'request_status'.tr}: ${controller.selectedStatusFilter?.name_ar ?? controller.selectedStatusFilter?.name ?? ""}",
+                "${'request_status'.tr}: ${controller.selectedStatusFilter?.name_ar ?? controller.selectedStatusFilter?.name ?? ""}",
             onRemove: () {
               controller.selectedStatusFilter = null;
               controller.getWithdraw();
@@ -179,7 +177,7 @@ class _ProcessViewState extends State<ProcessView> {
           _buildChip(
             context,
             label:
-            "${'money_transfer_status'.tr}: ${controller.selectedMoneyTransferStatusFilter?.name_ar ?? controller.selectedMoneyTransferStatusFilter?.name ?? ""}",
+                "${'money_transfer_status'.tr}: ${controller.selectedMoneyTransferStatusFilter?.name_ar ?? controller.selectedMoneyTransferStatusFilter?.name ?? ""}",
             onRemove: () {
               controller.selectedMoneyTransferStatusFilter = null;
               controller.getWithdraw();
@@ -196,7 +194,7 @@ class _ProcessViewState extends State<ProcessView> {
         _buildChip(
           context,
           label:
-          "${'date_range'.tr}: ${controller.startDateFilter} ${'until'.tr} ${controller.endDateFilter}",
+              "${'date_range'.tr}: ${controller.startDateFilter} ${'until'.tr} ${controller.endDateFilter}",
           onRemove: () {
             controller.startDateFilter = null;
             controller.endDateFilter = null;
@@ -244,10 +242,10 @@ class _ProcessViewState extends State<ProcessView> {
 
   /// --- Single Filter Chip
   Widget _buildChip(
-      BuildContext context, {
-        required String label,
-        required VoidCallback onRemove,
-      }) {
+    BuildContext context, {
+    required String label,
+    required VoidCallback onRemove,
+  }) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(

@@ -10,7 +10,6 @@ class Dates {
     return DateFormat('yyyy-MM-dd').format(date);
   }
 
-
   String formatDate(int timestamp) {
     // Convert the timestamp to milliseconds
     DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
@@ -21,7 +20,6 @@ class Dates {
     // Format the date and return the string
     return formatter.format(date);
   }
-
 
   DateTime convertStringToTime(String value, {required String locale}) {
     // Set the locale for DateFormat based on the input locale

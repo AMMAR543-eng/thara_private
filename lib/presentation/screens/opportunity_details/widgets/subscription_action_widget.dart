@@ -1,5 +1,3 @@
-
-
 import '../../../../index/index_main.dart';
 
 class SubscribeSection extends StatefulWidget {
@@ -34,15 +32,16 @@ class _SubscribeSectionState extends State<SubscribeSection> {
     final isUnderLimit = _isUnderInvestmentLimit(parsedValue);
     final isAboveMin = _isAboveSharePrice(parsedValue);
     final isMultiple = _isMultipleOfSharePrice(parsedValue);
-    final notOwner = !(widget.controller.opportunitiesItemsEntity?.isOwner ?? false);
+    final notOwner =
+        !(widget.controller.opportunitiesItemsEntity?.isOwner ?? false);
 
-    final newState = isNotEmpty && isUnderLimit && isAboveMin && isMultiple && notOwner;
+    final newState =
+        isNotEmpty && isUnderLimit && isAboveMin && isMultiple && notOwner;
 
     if (newState != isInputValid) {
       setState(() => isInputValid = newState);
     }
   }
-
 
   bool _isAboveSharePrice(num? value) {
     final minValue = widget.controller.opportunitiesItemsEntity?.sharePrice;
@@ -83,7 +82,9 @@ class _SubscribeSectionState extends State<SubscribeSection> {
       );
     }
 
-    return isSubscribed ? _alreadySubscribed(context) : _subscribeInput(context);
+    return isSubscribed
+        ? _alreadySubscribed(context)
+        : _subscribeInput(context);
   }
 
   /// ✅ Subscribed (Already Invested)
@@ -215,23 +216,23 @@ class _SubscribeSectionState extends State<SubscribeSection> {
               ),
               onTap: isInputValid
                   ? () {
-                final token = LoginResponseModel()
-                    .getTokenData()
-                    ?.data
-                    ?.accessToken;
-                if (token == null) {
-                  CheckGuestUser().openGuestUserBottomSheet(
-                    "login_first".tr,
-                  );
-                } else {
-                  showRiskDisclaimerBottomSheet(
-                    context,
-                    opportunityId: widget.opportunityId,
-                    controller: widget.controller,
-                    textController: widget.textController.text,
-                  );
-                }
-              }
+                      final token = LoginResponseModel()
+                          .getTokenData()
+                          ?.data
+                          ?.accessToken;
+                      if (token == null) {
+                        CheckGuestUser().openGuestUserBottomSheet(
+                          "login_first".tr,
+                        );
+                      } else {
+                        showRiskDisclaimerBottomSheet(
+                          context,
+                          opportunityId: widget.opportunityId,
+                          controller: widget.controller,
+                          textController: widget.textController.text,
+                        );
+                      }
+                    }
                   : null,
               appButtonSize: AppButtonSize.xxLarge,
             ),
@@ -250,7 +251,8 @@ class _SubscribeSectionState extends State<SubscribeSection> {
             ),
 
           if (widget.textController.text.isNotEmpty &&
-              !_isMultipleOfSharePrice(num.tryParse(widget.textController.text)))
+              !_isMultipleOfSharePrice(
+                  num.tryParse(widget.textController.text)))
             Padding(
               padding: EdgeInsets.only(top: 6.h),
               child: Text(
@@ -260,7 +262,6 @@ class _SubscribeSectionState extends State<SubscribeSection> {
                 ),
               ),
             ),
-
         ],
       ),
     );
@@ -273,5 +274,4 @@ class _SubscribeSectionState extends State<SubscribeSection> {
     // التأكد إنه مضاعف
     return value % sharePrice == 0;
   }
-
 }

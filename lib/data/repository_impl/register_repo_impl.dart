@@ -79,7 +79,8 @@ class RegisterRepositoryImpl extends RegisterRepository {
   }
 
   @override
-  Future<Either<AppError, NafathCodeEntity>> nafathGetCodeDomain(bool? isLogin) async {
+  Future<Either<AppError, NafathCodeEntity>> nafathGetCodeDomain(
+      bool? isLogin) async {
     final result = await _registerRemoteDataSourceRepo.nafathGetCode(isLogin);
 
     return result is Success<NafathGetCodeModel>
@@ -88,8 +89,10 @@ class RegisterRepositoryImpl extends RegisterRepository {
   }
 
   @override
-  Future<Either<AppError, NafathStatusModel>> nafathCheckStatusDomain(bool? isLogin) async {
-    final result = await _registerRemoteDataSourceRepo.nafathCheckStatus(isLogin);
+  Future<Either<AppError, NafathStatusModel>> nafathCheckStatusDomain(
+      bool? isLogin) async {
+    final result =
+        await _registerRemoteDataSourceRepo.nafathCheckStatus(isLogin);
 
     return result is Success<NafathStatusModel>
         ? right(result.data)
@@ -125,9 +128,9 @@ class RegisterRepositoryImpl extends RegisterRepository {
 
   @override
   Future<Either<AppError, SingingDetailsEntity>>
-  singingAgreementDomain() async {
-    final result = await _registerRemoteDataSourceRepo
-        .singingAgreementDetails();
+      singingAgreementDomain() async {
+    final result =
+        await _registerRemoteDataSourceRepo.singingAgreementDetails();
 
     return result is Success<SingingAgreementModel>
         ? right(result.data.data ?? const SingingDetailsEntity())
@@ -155,11 +158,13 @@ class RegisterRepositoryImpl extends RegisterRepository {
   }
 
   @override
-  Future<Either<AppError, SuccessNewModel>> sendKYCQuestionAnswerWithFilesDomain(
+  Future<Either<AppError, SuccessNewModel>>
+      sendKYCQuestionAnswerWithFilesDomain(
     Map<String, dynamic> data,
     Map<String, String> files,
   ) async {
-    final result = await _registerRemoteDataSourceRepo.sendKYCQuestionAnswerWithFiles(data,files);
+    final result = await _registerRemoteDataSourceRepo
+        .sendKYCQuestionAnswerWithFiles(data, files);
 
     return result is Success<SuccessNewModel>
         ? right(result.data)

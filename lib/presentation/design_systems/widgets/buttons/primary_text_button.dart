@@ -72,5 +72,4 @@ class PrimaryTextButton extends AppTextButton {
   BorderSide disabledBorder(BuildContext context) {
     return customBorder ?? super.disabledBorder(context);
   }
-
 }

@@ -1,7 +1,6 @@
 import 'dart:ui';
 import '../../../index/index.dart';
 
-
 class AppDropdownTheme extends ThemeExtension<AppDropdownTheme> {
   const AppDropdownTheme({
     required this.backgroundColor,

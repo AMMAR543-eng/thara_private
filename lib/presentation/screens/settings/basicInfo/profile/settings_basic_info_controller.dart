@@ -47,7 +47,6 @@ class SettingsBasicInfoController extends GetxController {
     return active / limitation;
   }
 
-
   // ---------------------------------------------------------------------------
   // 🔹 Fetch Data
   // ---------------------------------------------------------------------------

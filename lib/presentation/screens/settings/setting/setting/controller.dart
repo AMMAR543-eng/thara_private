@@ -118,7 +118,7 @@ class SettingController extends GetxController {
       AuthService().uploadProfileImage(
         imagePath: imageFile.path,
         voidCallBack: (data) {
-          Loader.showSuccess("تم تحديث صورة الملف الشخصي بنجاح ✅");
+          Loader.showSuccess("تم تحديث صورة الملف الشخصي بنجاح ");
           refreshProfile();
         },
       );
@@ -130,7 +130,7 @@ class SettingController extends GetxController {
   Future<void> deleteProfilePhoto() async {
     AuthService().uploadProfileImage(
       voidCallBack: (data) {
-        Loader.showSuccess("تم تحديث صورة الملف الشخصي بنجاح ✅");
+        Loader.showSuccess("تم تحديث صورة الملف الشخصي بنجاح ");
         refreshProfile();
       },
     );

@@ -23,7 +23,6 @@ class BiometricService {
 
         final availableBiometrics = await localAuth.getAvailableBiometrics();
 
-
         if (didAuthenticate) {
           // Generate a random secure token (e.g. SHA256 hash)
           final random = Random.secure();
@@ -32,8 +31,7 @@ class BiometricService {
 
           return token; // 🔑 You can now send this to your use case
         }
-      } on PlatformException catch (e) {
-      }
+      } on PlatformException catch (e) {}
     }
     return null;
   }

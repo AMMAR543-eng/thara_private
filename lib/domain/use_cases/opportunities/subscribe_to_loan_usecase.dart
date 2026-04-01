@@ -2,11 +2,7 @@ import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
 class SubscribeToLoanDomainUseCase
-    extends
-        Use_Case<
-          Either<AppError, SuccessNewModel>,
-          InvestSubscribeParam
-        > {
+    extends Use_Case<Either<AppError, SuccessNewModel>, InvestSubscribeParam> {
   final OpportunitiesRepository _opportunitiesRepositoryImpl;
 
   // Constructor

@@ -52,7 +52,7 @@ class FinancialStatementsData {
   Map<String, dynamic> toJson() {
     return {
       'financialStatements':
-      financialStatements?.map((e) => e.toJson()).toList(),
+          financialStatements?.map((e) => e.toJson()).toList(),
     };
   }
 }

@@ -1,4 +1,3 @@
-
 import '../../index/index_main.dart';
 
 class LocalStorage_language {
@@ -15,6 +14,6 @@ class LocalStorage_language {
       return "en";
     }
 
-    return  StorageService().getData("lang");
+    return StorageService().getData("lang");
   }
 }

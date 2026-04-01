@@ -25,9 +25,7 @@ class NotificationItemWidget extends StatelessWidget {
       ),
       trailing: CupertinoSwitch(
         value: value,
-
         activeTrackColor: AppColors.darkGray.withAlpha(60),
-
         thumbColor: AppColors.moonstoneBlue,
         inactiveThumbColor: AppColors.whiteSmoke,
         onChanged: onChanged,

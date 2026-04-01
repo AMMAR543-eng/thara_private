@@ -49,24 +49,24 @@ class ProfileIconWidget extends StatelessWidget {
           child: ClipOval(
             child: imageUrl.isEmpty
                 ? Icon(
-              Icons.person,
-              size: size * 0.45,
-              color: AppColors.content_secondary,
-            )
+                    Icons.person,
+                    size: size * 0.45,
+                    color: AppColors.content_secondary,
+                  )
                 : CachedNetworkImage(
-              imageUrl: imageUrl,
-              fit: BoxFit.cover,
-              width: size.w,
-              height: size.w,
-              placeholder: (context, url) => const Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-              errorWidget: (context, url, error) => Icon(
-                Icons.person,
-                size: size * 0.45,
-                color: AppColors.content_secondary,
-              ),
-            ),
+                    imageUrl: imageUrl,
+                    fit: BoxFit.cover,
+                    width: size.w,
+                    height: size.w,
+                    placeholder: (context, url) => const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                    errorWidget: (context, url, error) => Icon(
+                      Icons.person,
+                      size: size * 0.45,
+                      color: AppColors.content_secondary,
+                    ),
+                  ),
           ),
         ),
       );

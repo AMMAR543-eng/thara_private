@@ -21,7 +21,7 @@ class _SuccessAuthViewState extends State<SuccessAuthView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar:  GenericLanguageAppBar(title: "register_title".tr),
+      appBar: GenericLanguageAppBar(title: "register_title".tr),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),

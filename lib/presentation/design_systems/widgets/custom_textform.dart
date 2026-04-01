@@ -7,7 +7,7 @@ class ArabicToEnglishDigitsFormatter extends TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     String newText = newValue.text.replaceAllMapped(
       RegExp(r'[٠١٢٣٤٥٦٧٨٩]'),
-          (match) {
+      (match) {
         switch (match.group(0)) {
           case '٠':
             return '0';
@@ -95,7 +95,7 @@ class CustomInputField extends StatelessWidget {
                   ),
                 ),
                 Text(
-                   label,
+                  label,
                   style: context.typography.font40White.copyWith(
                     color: ColorMappingImpl().textLabel,
                   ),

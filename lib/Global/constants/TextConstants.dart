@@ -7,7 +7,8 @@ const kAnimationDuration = Duration(milliseconds: 400);
 class Strings {
   // font name
 
-  static const String placeholder_image = 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png';
+  static const String placeholder_image =
+      'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png';
   static const String user = "user";
   static const String bioMetric = "bioMetric";
   static const String bioMetric_password = "bioMetric_password";
@@ -117,5 +118,4 @@ class Strings {
   static const String invoicekey = "invoice_key";
   static const String uidMerchant = "uid_merchant";
   static const String account = "account";
-
 }

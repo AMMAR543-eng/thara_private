@@ -1,4 +1,3 @@
-
 import '../../index/index_main.dart';
 
 class SettingsService {
@@ -14,12 +13,12 @@ class SettingsService {
     Loader.show();
     final result =
         await initUseCase(() => ChangePasswordDomainUseCase(Get.find())).call(
-          ChangePasswordParams(
-            oldPassword: oldPassword,
-            password: password,
-            passwordConfirm: passwordConfirm,
-          ),
-        );
+      ChangePasswordParams(
+        oldPassword: oldPassword,
+        password: password,
+        passwordConfirm: passwordConfirm,
+      ),
+    );
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
   }
@@ -95,15 +94,15 @@ class SettingsService {
     required Function(BaseEntity) voidCallBack,
   }) async {
     Loader.show();
-    final result = await initUseCase(() => StoreTicketDomainUseCase(Get.find()))
-        .call(
-          StoreTicketParams(
-            name: name,
-            phone: phone,
-            type: type,
-            message: message,
-          ),
-        );
+    final result =
+        await initUseCase(() => StoreTicketDomainUseCase(Get.find())).call(
+      StoreTicketParams(
+        name: name,
+        phone: phone,
+        type: type,
+        message: message,
+      ),
+    );
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();

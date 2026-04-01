@@ -27,7 +27,7 @@ class AddBalanceBottomSheet extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
         child: SafeArea(
           child: Obx(
-                () => Column(
+            () => Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -225,7 +225,7 @@ class AddBalanceBottomSheet extends StatelessWidget {
               ),
               SizedBox(width: 8.w),
               Obx(
-                    () => Checkbox(
+                () => Checkbox(
                   value: saveCard.value,
                   onChanged: (v) => saveCard.value = v ?? true,
                   activeColor: AppColors.primary,
@@ -243,13 +243,13 @@ class AddBalanceBottomSheet extends StatelessWidget {
 
   /// --- Reusable Payment Option
   Widget _buildPaymentOption(
-      BuildContext context, {
-        required int index,
-        required bool isSelected,
-        required String title,
-        Widget? trailingIcons,
-        required VoidCallback onTap,
-      }) {
+    BuildContext context, {
+    required int index,
+    required bool isSelected,
+    required String title,
+    Widget? trailingIcons,
+    required VoidCallback onTap,
+  }) {
     final typography = context.typography;
     return InkWell(
       onTap: onTap,

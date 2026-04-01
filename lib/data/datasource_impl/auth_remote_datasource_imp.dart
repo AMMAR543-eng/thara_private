@@ -18,11 +18,9 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSourceRepo {
       final loginRes = LoginResponseModel.fromJson(response);
       loginRes.saveTokenLocal(
         saveCallback: () {
-          loginRes.account?.saveAccountLocal(
-          );
+          loginRes.account?.saveAccountLocal();
 
-          loginRes.user?.saveUserLocal(
-          );
+          loginRes.user?.saveUserLocal();
         },
       );
 
@@ -62,11 +60,9 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSourceRepo {
         params: {"otp": code},
       );
       final verifyRes = OtpModel.fromJson(response);
-      verifyRes.account?.saveAccountLocal(
-      );
+      verifyRes.account?.saveAccountLocal();
 
-      verifyRes.user?.saveUserLocal(
-      );
+      verifyRes.user?.saveUserLocal();
       return Success(verifyRes);
     } catch (error) {
       final handledError = ErrorHandler.handle(error);

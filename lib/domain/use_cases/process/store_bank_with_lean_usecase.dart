@@ -2,9 +2,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class StoreBankWithLeanUseCase
-    extends
-        Use_Case<Either<AppError, SuccessNewModel>, StoreBankWithLeanParams> {
+class StoreBankWithLeanUseCase extends Use_Case<
+    Either<AppError, SuccessNewModel>, StoreBankWithLeanParams> {
   final ProcessRepository _processRepositoryImpl;
 
   // Constructor

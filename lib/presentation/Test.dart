@@ -198,7 +198,7 @@ class PaymentController extends GetxController {
       final paymentId = result.id;
 
       if (paymentId == null || paymentId.isEmpty) {
-        debugPrint('❌ Payment ID is null');
+        debugPrint(' Payment ID is null');
         Get.snackbar(
           'Payment Error',
           'Payment ID not returned. Please try again.',

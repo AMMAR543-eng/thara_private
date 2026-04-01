@@ -1,12 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class StoreWithdrawUseCase
-    extends
-        Use_Case<
-          Either<AppError, WithdrawalResponseModel>,
-          CancelWithdrawParams
-        > {
+class StoreWithdrawUseCase extends Use_Case<
+    Either<AppError, WithdrawalResponseModel>, CancelWithdrawParams> {
   final ProcessRepository _processRepository;
 
   StoreWithdrawUseCase(this._processRepository);

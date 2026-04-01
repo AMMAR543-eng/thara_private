@@ -6,7 +6,8 @@ class StatusCard extends StatelessWidget {
   final Color color;
   final Color? amountColor;
 
-  const StatusCard({super.key, 
+  const StatusCard({
+    super.key,
     required this.amount,
     required this.label,
     required this.color,

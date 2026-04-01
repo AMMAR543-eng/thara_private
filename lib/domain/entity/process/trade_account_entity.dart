@@ -21,12 +21,12 @@ class TradeAccountEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    total,
-    available,
-    reserved,
-    pending,
-    blocked,
-    invested,
-    expectedProfit,
-  ];
+        total,
+        available,
+        reserved,
+        pending,
+        blocked,
+        invested,
+        expectedProfit,
+      ];
 }

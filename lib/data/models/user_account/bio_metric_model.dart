@@ -52,7 +52,7 @@ class BioUserModel {
     if (isSaved) {
       onSaved?.call();
     } else {
-      Loader.showError("❌ Failed to save biometric data locally");
+      Loader.showError(" Failed to save biometric data locally");
     }
   }
 
@@ -75,7 +75,7 @@ class BioUserModel {
     if (isDeleted) {
       onDeleted?.call();
     } else {
-      Loader.showError("❌ Failed to delete biometric data");
+      Loader.showError(" Failed to delete biometric data");
     }
   }
 }

@@ -43,7 +43,6 @@ class InfoRowWidget extends StatelessWidget {
                   width: 20.w,
                   height: 20.h,
                   color: AppColors.content_primary,
-
                 ),
               ),
           ],

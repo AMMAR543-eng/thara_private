@@ -29,7 +29,6 @@ class ProcessController extends GetxController {
   void onInit() {
     super.onInit();
     _initializeData();
-
   }
 
   /// ✅ Ensure data loads in sequence to avoid race condition
@@ -161,8 +160,7 @@ class ProcessController extends GetxController {
       elevation: 1,
       backgroundColor: Colors.transparent,
       builder: (context) => WithdrawBottomSheet(
-        bankAccounts:
-            bankAccountDataEntity?.bankAccounts
+        bankAccounts: bankAccountDataEntity?.bankAccounts
                 ?.map(
                   (e) => GenericListModel(
                     id: e.id ?? 0,
@@ -201,6 +199,4 @@ class ProcessController extends GetxController {
       // }
     }
   }
-
-
 }

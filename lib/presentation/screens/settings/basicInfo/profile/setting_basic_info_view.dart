@@ -61,9 +61,7 @@ class SettingsBasicInfoView extends StatelessWidget {
                             ),
                             SizedBox(height: 12.h),
                             Text(
-                              controller
-                                      .userInfoModel
-                                      ?.personalInfo
+                              controller.userInfoModel?.personalInfo
                                       ?.fullNameAr ??
                                   "",
                               style: context.typography.headerXLarge.copyWith(
@@ -125,7 +123,6 @@ class SettingsBasicInfoView extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: Get.context!.typography.bodyMedium.copyWith(
                               color: AppColors.content_secondary,
-
                             ),
                           ),
                           Text(
@@ -220,8 +217,8 @@ class SettingsBasicInfoView extends StatelessWidget {
                     trackHeight: 6.h,
                     thumbShape: RoundSliderThumbShape(enabledThumbRadius: 8.r),
                     activeTrackColor: AppColors.primary,
-                    inactiveTrackColor: AppColors.border_natural_normal
-                        .withValues(alpha: .2),
+                    inactiveTrackColor:
+                        AppColors.border_natural_normal.withValues(alpha: .2),
                   ),
                   child: Slider(
                     value: controller.investmentProgress,

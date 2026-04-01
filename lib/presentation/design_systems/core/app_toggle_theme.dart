@@ -79,8 +79,8 @@ class AppToggleThemeExtension extends ThemeExtension<AppToggleThemeExtension> {
       splashColor: Colors.blue.withOpacity(0.3),
       overlayColor: Colors.blue.withOpacity(0.1),
       iconSize: 20.0,
-      checkedIcon:  Icon(Icons.check, color: AppColors.white),
-      uncheckedIcon:  Icon(Icons.close, color: AppColors.white),
+      checkedIcon: Icon(Icons.check, color: AppColors.white),
+      uncheckedIcon: Icon(Icons.close, color: AppColors.white),
       borderRadius: BorderRadius.circular(8.0),
       autofocus: false,
     );
@@ -97,8 +97,8 @@ class AppToggleThemeExtension extends ThemeExtension<AppToggleThemeExtension> {
       splashColor: Colors.green.withOpacity(0.3),
       overlayColor: Colors.green.withOpacity(0.1),
       iconSize: 20.0,
-      checkedIcon:  Icon(Icons.check, color: AppColors.white),
-      uncheckedIcon:  Icon(Icons.close, color: AppColors.white),
+      checkedIcon: Icon(Icons.check, color: AppColors.white),
+      uncheckedIcon: Icon(Icons.close, color: AppColors.white),
       borderRadius: BorderRadius.circular(8.0),
       autofocus: false,
     );

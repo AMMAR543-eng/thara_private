@@ -98,16 +98,18 @@ class ForgetPasswordController extends GetxController {
       email: email,
       nin: nin,
       voidCallBack: (data) {
-        if (kDebugMode) {
-
-        }
+        if (kDebugMode) {}
         if (data.customStatusCode == 200) {
           showModalBottomSheet(
             context: context,
             isScrollControlled: true,
             backgroundColor: Colors.transparent,
-            builder: (context) =>
-                OtpBottomSheet(length: 4, page: OtpPages.forget, phone: email,is_email: true,),
+            builder: (context) => OtpBottomSheet(
+              length: 4,
+              page: OtpPages.forget,
+              phone: email,
+              is_email: true,
+            ),
           );
         }
         return data.customStatusCode == 200;
@@ -131,8 +133,7 @@ class ForgetPasswordController extends GetxController {
       password: password,
       passwordConfirm: passwordConfirm,
       voidCallBack: (data) {
-        if (kDebugMode) {
-        }
+        if (kDebugMode) {}
         if (data.customStatusCode == 200) {
           Get.toNamed(resetCompleteScreen);
         }

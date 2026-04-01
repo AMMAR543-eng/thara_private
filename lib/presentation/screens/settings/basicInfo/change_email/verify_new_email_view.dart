@@ -134,7 +134,7 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
 
               /// --- Resend Section
               Obx(
-                    () => Text.rich(
+                () => Text.rich(
                   TextSpan(
                     text: "verify_email_check_spam".tr,
                     style: context.typography.bodyMedium.copyWith(
@@ -144,9 +144,8 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                       TextSpan(
                         text: enableResend.value
                             ? "resend_code".tr
-                            : "resend_in".trParams({
-                          "seconds": "${secondsRemaining.value}s"
-                        }),
+                            : "resend_in".trParams(
+                                {"seconds": "${secondsRemaining.value}s"}),
                         style: context.typography.bodyStrongMedium.copyWith(
                           color: enableResend.value
                               ? AppColors.primary
@@ -158,21 +157,21 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                         recognizer: TapGestureRecognizer()
                           ..onTap = enableResend.value
                               ? () {
-                            secondsRemaining.value = 60;
-                            enableResend.value = false;
-                            Timer.periodic(
-                              const Duration(seconds: 1),
-                                  (timer) {
-                                if (secondsRemaining.value > 0) {
-                                  secondsRemaining.value--;
-                                } else {
-                                  timer.cancel();
-                                  enableResend.value = true;
+                                  secondsRemaining.value = 60;
+                                  enableResend.value = false;
+                                  Timer.periodic(
+                                    const Duration(seconds: 1),
+                                    (timer) {
+                                      if (secondsRemaining.value > 0) {
+                                        secondsRemaining.value--;
+                                      } else {
+                                        timer.cancel();
+                                        enableResend.value = true;
+                                      }
+                                    },
+                                  );
+                                  Loader.showSuccess("code_resent_success".tr);
                                 }
-                              },
-                            );
-                            Loader.showSuccess("code_resent_success".tr);
-                          }
                               : null,
                       ),
                     ],

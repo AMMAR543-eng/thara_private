@@ -273,15 +273,10 @@ class InvestmentWizardController extends GetxController {
           ?.where((e) => e.selected)
           .map((e) => e.apiKey)
           .toList(),
-
       "minAmount": int.parse(data.amount?.min ?? "0"),
       "maxAmount": int.parse(data.amount?.max ?? "0"),
-
-      "creditRatings": data.packages
-          ?.where((p) => p.selected)
-          .map((p) => p.title)
-          .toList(),
-
+      "creditRatings":
+          data.packages?.where((p) => p.selected).map((p) => p.title).toList(),
       "durations": data.durations
           ?.where((d) => d.selected)
           .map((d) => d.apiValue) // "6", "12", "18"

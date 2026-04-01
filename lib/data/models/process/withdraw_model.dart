@@ -14,13 +14,13 @@ class WithdrawResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory WithdrawResponseModel.fromJson(Map<String, dynamic> json) {
     return WithdrawResponseModel(
@@ -54,13 +54,13 @@ class WithdrawDataModel extends WithdrawDataEntity {
   @override
   final Meta? meta;
 
-  const WithdrawDataModel({this.items, this.meta}) : super(items: items, meta: meta);
+  const WithdrawDataModel({this.items, this.meta})
+      : super(items: items, meta: meta);
 
   factory WithdrawDataModel.fromJson(Map<String, dynamic> json) {
     var list = json['items'] as List?;
-    List<WithdrawModel> itemsList = list != null
-        ? list.map((i) => WithdrawModel.fromJson(i)).toList()
-        : [];
+    List<WithdrawModel> itemsList =
+        list != null ? list.map((i) => WithdrawModel.fromJson(i)).toList() : [];
 
     return WithdrawDataModel(
       items: itemsList,
@@ -86,13 +86,13 @@ class WithdrawModel extends WithdrawEntity {
     BankAccountModel? bankAccountModel,
     String? createdAt,
   }) : super(
-         id: id,
-         status: status,
-         transferringStatus: transferringStatus,
-         amount: amount,
-         bankAccount: bankAccountModel,
-         createdAt: createdAt,
-       );
+          id: id,
+          status: status,
+          transferringStatus: transferringStatus,
+          amount: amount,
+          bankAccount: bankAccountModel,
+          createdAt: createdAt,
+        );
 
   factory WithdrawModel.fromJson(Map<String, dynamic> json) {
     return WithdrawModel(
@@ -135,18 +135,18 @@ class BankAccountModel extends BankAccountEntity {
     String? beneficiaryAddress2,
     bool? verified,
   }) : super(
-         id: id,
-         label: label,
-         alias: alias,
-         iban: iban,
-         bankName: bankName,
-         bankId: bankId,
-         accountNumber: accountNumber,
-         isPrimary: isPrimary,
-         beneficiaryAddress1: beneficiaryAddress1,
-         beneficiaryAddress2: beneficiaryAddress2,
-         verified: verified,
-       );
+          id: id,
+          label: label,
+          alias: alias,
+          iban: iban,
+          bankName: bankName,
+          bankId: bankId,
+          accountNumber: accountNumber,
+          isPrimary: isPrimary,
+          beneficiaryAddress1: beneficiaryAddress1,
+          beneficiaryAddress2: beneficiaryAddress2,
+          verified: verified,
+        );
 
   factory BankAccountModel.fromJson(Map<String, dynamic> json) {
     return BankAccountModel(

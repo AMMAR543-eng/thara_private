@@ -12,13 +12,13 @@ class DepositeResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory DepositeResponseModel.fromJson(Map<String, dynamic> json) {
     return DepositeResponseModel(
@@ -52,13 +52,12 @@ class DepositeDataModel extends DepositeDataEntity {
   final Meta? meta;
 
   const DepositeDataModel({this.items, this.meta})
-    : super(items: items, meta: meta);
+      : super(items: items, meta: meta);
 
   factory DepositeDataModel.fromJson(Map<String, dynamic> json) {
     var list = json['items'] as List?;
-    List<DepositeModel> itemsList = list != null
-        ? list.map((i) => DepositeModel.fromJson(i)).toList()
-        : [];
+    List<DepositeModel> itemsList =
+        list != null ? list.map((i) => DepositeModel.fromJson(i)).toList() : [];
 
     return DepositeDataModel(
       items: itemsList,
@@ -82,12 +81,12 @@ class DepositeModel extends DepositeEntity {
     String? date,
     String? ref,
   }) : super(
-         amount: amount,
-         sourceIban: sourceIban,
-         knownSource: knownSource,
-         date: date,
-         ref: ref,
-       );
+          amount: amount,
+          sourceIban: sourceIban,
+          knownSource: knownSource,
+          date: date,
+          ref: ref,
+        );
 
   factory DepositeModel.fromJson(Map<String, dynamic> json) {
     return DepositeModel(

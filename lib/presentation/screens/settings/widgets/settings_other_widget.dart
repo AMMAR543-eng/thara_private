@@ -1,5 +1,5 @@
-
 import 'package:thara/index/index_main.dart';
+
 class SettingsOtherWidget extends StatelessWidget {
   const SettingsOtherWidget({super.key});
 
@@ -32,9 +32,6 @@ class SettingsOtherWidget extends StatelessWidget {
                 );
               }),
             ),
-
-
-
             Divider(
               color: AppColors.grayMedium.withAlpha(128),
               endIndent: 20.h,
@@ -126,10 +123,10 @@ class SettingsOtherWidget extends StatelessWidget {
   }
 
   Widget _divider() => Divider(
-    color: AppColors.grayMedium.withAlpha(128),
-    endIndent: 20.h,
-    indent: 20.h,
-  );
+        color: AppColors.grayMedium.withAlpha(128),
+        endIndent: 20.h,
+        indent: 20.h,
+      );
 
   void showLogoutDialog(BuildContext context) {
     showDialog(context: context, builder: (_) => const LogoutDialog());
@@ -161,7 +158,7 @@ class SettingsOtherWidget extends StatelessWidget {
                 ListTile(
                   title: Text('arabic'.tr),
                   trailing: currentLang == 'ar'
-                      ?  Icon(Icons.check, color: AppColors.primary)
+                      ? Icon(Icons.check, color: AppColors.primary)
                       : null,
                   onTap: () {
                     if (currentLang != 'ar') {
@@ -173,7 +170,7 @@ class SettingsOtherWidget extends StatelessWidget {
                 ListTile(
                   title: Text('english'.tr),
                   trailing: currentLang == 'en'
-                      ?  Icon(Icons.check, color: AppColors.primary)
+                      ? Icon(Icons.check, color: AppColors.primary)
                       : null,
                   onTap: () {
                     if (currentLang != 'en') {

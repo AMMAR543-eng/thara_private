@@ -11,7 +11,7 @@ class NafazController extends GetxController {
 
   @override
   void onInit() {
-   // nafathGetCodeApi();
+    // nafathGetCodeApi();
     super.onInit();
   }
 
@@ -46,7 +46,7 @@ class NafazController extends GetxController {
           _statusTimer?.cancel();
           handleUserNavigation(
             account: data.account ?? const AccountModel(),
-            user: data.user ??  UserModel(),
+            user: data.user ?? UserModel(),
           );
         } else if (status == "REJECTED" || status == "EXPIRED") {
           _statusTimer?.cancel();

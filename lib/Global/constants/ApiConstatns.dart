@@ -11,7 +11,7 @@ class ApiConstatns {
   static const String Base_Url = "https://stage.tp.tharaco.sa/api/v1/";
   static const String key_encryption = "XoaN3rC9R5Lj3E9bCzZLsmaoJQkrCcrp";
   static const String inv_encryption = "XRx6W20dkwJe3PUI";
- // com.tharaco.sa
+  // com.tharaco.sa
   // com.thara.thara
   // live
   // static const String Base_Url = "https://tp.tharaco.sa/api/v1/";

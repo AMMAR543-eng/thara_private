@@ -4,7 +4,7 @@ class WithdrawBottomSheet extends StatefulWidget {
   final List<GenericListModel> bankAccounts;
 
   const WithdrawBottomSheet({Key? key, required this.bankAccounts})
-    : super(key: key);
+      : super(key: key);
 
   @override
   State<WithdrawBottomSheet> createState() => _WithdrawBottomSheetState();
@@ -190,7 +190,6 @@ class _WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
                           height: 20.h,
                           width: 20.w,
                           color: AppColors.content_primary,
-
                         ),
                       ],
                     ),
@@ -219,7 +218,10 @@ class _WithdrawBottomSheetState extends State<WithdrawBottomSheet> {
                             color: AppColors.content_primary,
                           ),
                         ),
-                        SvgPicture.asset(IconsConstants.riyal, width: 16.w,                      color: AppColors.content_primary,
+                        SvgPicture.asset(
+                          IconsConstants.riyal,
+                          width: 16.w,
+                          color: AppColors.content_primary,
                         ),
                       ],
                     ),

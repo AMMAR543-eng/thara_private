@@ -58,10 +58,10 @@ class CheckGuestUser {
                         appButtonSize: AppButtonSize.xxLarge,
                         label: Text(
                           "canceled".tr,
-                          style: Get.context!.typography.bodyStrongLarge
-                              .copyWith(
-                                color: AppColors.textSecondaryParagraph,
-                              ),
+                          style:
+                              Get.context!.typography.bodyStrongLarge.copyWith(
+                            color: AppColors.textSecondaryParagraph,
+                          ),
                         ),
                       ),
                     ),

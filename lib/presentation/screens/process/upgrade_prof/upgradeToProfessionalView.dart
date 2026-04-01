@@ -24,7 +24,7 @@ class Upgradetoprofessionalview extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () => Get.back(),
-              icon:  Icon(
+              icon: Icon(
                 Icons.arrow_forward_ios,
                 color: AppColors.content_primary,
                 size: 18,
@@ -62,8 +62,8 @@ class Upgradetoprofessionalview extends StatelessWidget {
                         child: ListView.builder(
                           itemCount: _labels.length,
                           itemBuilder: (context, index) {
-                            final isSelected = controller.selectedRequirements
-                                .contains(index);
+                            final isSelected =
+                                controller.selectedRequirements.contains(index);
 
                             final filePath = controller.uploadedFiles[index];
 
@@ -88,8 +88,8 @@ class Upgradetoprofessionalview extends StatelessWidget {
                                             _labels[index].tr,
                                             style: context.typography.bodyLarge
                                                 .copyWith(
-                                              color: AppColors
-                                                  .formFieldTextLabel,
+                                              color:
+                                                  AppColors.formFieldTextLabel,
                                               fontSize: 20,
                                             ),
                                           ),
@@ -118,13 +118,13 @@ class Upgradetoprofessionalview extends StatelessWidget {
                                           : null,
                                       fileSize: filePath != null
                                           ? File(filePath).lengthSync() /
-                                          (1024 * 1024)
+                                              (1024 * 1024)
                                           : null,
                                       progress:
-                                      controller.uploadProgress[index] ??
-                                          0.0,
+                                          controller.uploadProgress[index] ??
+                                              0.0,
                                       errorMessage:
-                                      controller.uploadError[index],
+                                          controller.uploadError[index],
                                       onPickFile: () async {
                                         final selected = await pickImage();
                                         if (selected != null) {
@@ -182,12 +182,12 @@ class Upgradetoprofessionalview extends StatelessWidget {
 
                           final param = QualifiedInvestorParam(
                             annualIncomeAndGeneralSecuritiesCertificationRequirement:
-                            controller.uploadedFiles[0],
+                                controller.uploadedFiles[0],
                             netAssetRequirement: controller.uploadedFiles[1],
                             experienceInFinancialSector:
-                            controller.uploadedFiles[2],
+                                controller.uploadedFiles[2],
                             professionalCertificationRequirement:
-                            controller.uploadedFiles[3],
+                                controller.uploadedFiles[3],
                           );
 
                           controller.uploadData(param);
@@ -205,9 +205,9 @@ class Upgradetoprofessionalview extends StatelessWidget {
   }
 
   List<String> get _labels => [
-    'requirement_annual_income',
-    'requirement_net_assets',
-    'requirement_experience',
-    'requirement_certification',
-  ];
+        'requirement_annual_income',
+        'requirement_net_assets',
+        'requirement_experience',
+        'requirement_certification',
+      ];
 }

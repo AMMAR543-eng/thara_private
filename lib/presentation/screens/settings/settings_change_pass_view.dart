@@ -94,15 +94,13 @@ class _SettingsChangePassViewState extends State<SettingsChangePassView> {
                                   ),
                                   SizedBox(height: 12.h),
                                   Text(
-                                    controller
-                                            .userInfoModel
-                                            ?.personalInfo
+                                    controller.userInfoModel?.personalInfo
                                             ?.fullNameAr ??
                                         "",
                                     style: context.typography.headerXLarge
                                         .copyWith(
-                                          color: AppColors.content_primary,
-                                        ),
+                                      color: AppColors.content_primary,
+                                    ),
                                   ),
                                   Text(
                                     controller.profileData?.account?.id ?? "",

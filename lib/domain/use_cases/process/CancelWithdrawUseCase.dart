@@ -1,12 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class CancelWithdrawUseCase
-    extends
-        Use_Case<
-          Either<AppError, WithdrawalResponseModel>,
-          CancelWithdrawParams
-        > {
+class CancelWithdrawUseCase extends Use_Case<
+    Either<AppError, WithdrawalResponseModel>, CancelWithdrawParams> {
   final ProcessRepository _processRepository;
 
   CancelWithdrawUseCase(this._processRepository);
@@ -25,12 +21,12 @@ class CancelWithdrawUseCase
 class CancelWithdrawParams {
   final int bankAccountId;
   final String amount;
-   String? id;
+  String? id;
 
   CancelWithdrawParams({
     required this.bankAccountId,
     required this.amount,
-     this.id,
+    this.id,
   });
 
   Map<String, dynamic> toJson() {

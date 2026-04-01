@@ -53,7 +53,9 @@ class EditPhoneBottomSheet extends StatelessWidget {
                 SizedBox(height: 24.h),
 
                 Align(
-                  alignment:LocalStorage_language().read() == "ar" ? Alignment.centerRight: Alignment.centerLeft,
+                  alignment: LocalStorage_language().read() == "ar"
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
                   child: Text(
                     "new_phone_number".tr,
                     style: typography.bodyStrongLarge.copyWith(

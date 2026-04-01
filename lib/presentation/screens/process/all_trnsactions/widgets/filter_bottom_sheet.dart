@@ -3,10 +3,10 @@ import '../../../../../../index/index_main.dart';
 
 class TransactionFilterBottomSheet {
   static void open(
-      BuildContext context, {
-        required ProcessController controller,
-        bool isFromDeposite = false,
-      }) {
+    BuildContext context, {
+    required ProcessController controller,
+    bool isFromDeposite = false,
+  }) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -73,11 +73,11 @@ class _TransactionFilterContentState extends State<_TransactionFilterContent> {
 
   void applyFilters() {
     widget.controller.startDateFilter =
-    startDateController.text.isEmpty ? null : startDateController.text;
+        startDateController.text.isEmpty ? null : startDateController.text;
     widget.controller.endDateFilter =
-    endDateController.text.isEmpty ? null : endDateController.text;
+        endDateController.text.isEmpty ? null : endDateController.text;
     widget.controller.searchTextFilter =
-    searchController.text.isEmpty ? null : searchController.text;
+        searchController.text.isEmpty ? null : searchController.text;
 
     if (!widget.isFromDeposite) {
       widget.controller.selectedStatusFilter = selectedStatus;
@@ -104,7 +104,7 @@ class _TransactionFilterContentState extends State<_TransactionFilterContent> {
         search: widget.controller.searchTextFilter,
         status: widget.controller.selectedStatusFilter?.text,
         transferringStatus:
-        widget.controller.selectedMoneyTransferStatusFilter?.name,
+            widget.controller.selectedMoneyTransferStatusFilter?.name,
       );
       widget.controller.getWithdraw();
     }
@@ -347,10 +347,16 @@ class _TransactionFilterContentState extends State<_TransactionFilterContent> {
 
 /// --- Withdraw Status Options
 final List<GenericListModel> statusList = [
-  GenericListModel(id: 1, name_ar: 'بانتظار الموافقة', name: 'Pending Approval', text: "waiting_for_approval"),
-  GenericListModel(id: 2, name_ar: 'تمت الموافقة', name: 'Approved', text: "approved"),
+  GenericListModel(
+      id: 1,
+      name_ar: 'بانتظار الموافقة',
+      name: 'Pending Approval',
+      text: "waiting_for_approval"),
+  GenericListModel(
+      id: 2, name_ar: 'تمت الموافقة', name: 'Approved', text: "approved"),
   GenericListModel(id: 3, name_ar: 'مرفوض', name: 'Rejected', text: "rejected"),
-  GenericListModel(id: 4, name_ar: 'إلغاء', name: 'Cancelled', text: "canceled"),
+  GenericListModel(
+      id: 4, name_ar: 'إلغاء', name: 'Cancelled', text: "canceled"),
 ];
 
 /// --- Transfer Status Options

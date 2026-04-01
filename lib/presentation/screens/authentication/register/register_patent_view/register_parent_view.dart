@@ -16,7 +16,7 @@ class RegisterParentView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar:  GenericLanguageAppBar(title: "register_title".tr),
+      appBar: GenericLanguageAppBar(title: "register_title".tr),
       body: SafeArea(
         child: Obx(
           () => Column(

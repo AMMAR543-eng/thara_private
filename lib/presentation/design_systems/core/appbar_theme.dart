@@ -23,7 +23,7 @@ class AppBarThemeExtension extends ThemeExtension<AppBarThemeExtension> {
 
   /// Light Theme Configuration
   factory AppBarThemeExtension.light() {
-    return  AppBarThemeExtension(
+    return AppBarThemeExtension(
       titleTextColor: AppColors.primary,
       // Main black text
       titleTextStyle: TextStyle(

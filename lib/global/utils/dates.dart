@@ -45,7 +45,6 @@ class DatesUtilis {
     }
   }
 
-
   /// Check if `third` is between `first` and `second`
   static bool isDateBetween(
       {required DateTime first,

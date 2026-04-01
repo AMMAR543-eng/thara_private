@@ -62,7 +62,7 @@ class ArticlesView extends StatelessWidget {
 
                   /// --- Articles List
                   ...articles.map(
-                        (article) => _ArticleCard(
+                    (article) => _ArticleCard(
                       article: article,
                       controller: controller,
                     ),
@@ -94,7 +94,7 @@ class _ArticleCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-              () => ArticlesDetailsView(
+          () => ArticlesDetailsView(
             controller: controller,
             key_article: article.id ?? "",
           ),
@@ -128,18 +128,18 @@ class _ArticleCard extends StatelessWidget {
               width: double.infinity,
               child: hasImage
                   ? FadeInImage(
-                placeholder: const AssetImage(Images.placeholder),
-                image: NetworkImage(article.image ?? ""),
-                fit: BoxFit.cover,
-                imageErrorBuilder: (_, __, ___) => Image.asset(
-                  Images.placeholder,
-                  fit: BoxFit.cover,
-                ),
-              )
+                      placeholder: const AssetImage(Images.placeholder),
+                      image: NetworkImage(article.image ?? ""),
+                      fit: BoxFit.cover,
+                      imageErrorBuilder: (_, __, ___) => Image.asset(
+                        Images.placeholder,
+                        fit: BoxFit.cover,
+                      ),
+                    )
                   : Image.asset(
-                Images.placeholder,
-                fit: BoxFit.cover,
-              ),
+                      Images.placeholder,
+                      fit: BoxFit.cover,
+                    ),
             ),
 
             /// --- Title & Meta
@@ -181,7 +181,7 @@ class _ArticleCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 6.w),
-                       Icon(
+                      Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: AppColors.primary,
                         size: 16,

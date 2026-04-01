@@ -89,12 +89,12 @@ class HorizontalStepper extends StatelessWidget {
                                   size: 18,
                                 )
                               : isActive
-                              ? Icon(
-                                  Icons.circle,
-                                  color: AppColors.white,
-                                  size: 10,
-                                )
-                              : null,
+                                  ? Icon(
+                                      Icons.circle,
+                                      color: AppColors.white,
+                                      size: 10,
+                                    )
+                                  : null,
                         ),
                       ),
                     );

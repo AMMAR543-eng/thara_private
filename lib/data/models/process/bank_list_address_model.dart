@@ -12,13 +12,13 @@ class BankAccountResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory BankAccountResponseModel.fromJson(Map<String, dynamic> json) {
     return BankAccountResponseModel(
@@ -51,7 +51,7 @@ class BankAccountRespoModel extends BankAddressDataEntity {
   final List<AddressModel>? addresses;
 
   BankAccountRespoModel({this.banks, this.leanEnabled, this.addresses})
-    : super(banks: banks, leanEnabled: leanEnabled, addresses: addresses);
+      : super(banks: banks, leanEnabled: leanEnabled, addresses: addresses);
 
   factory BankAccountRespoModel.fromJson(Map<String, dynamic> json) {
     return BankAccountRespoModel(
@@ -76,7 +76,7 @@ class BankAccountRespoModel extends BankAddressDataEntity {
 
 class BankModel extends GenericListModel {
   BankModel({required int id, required String name})
-    : super(id: id, name: name);
+      : super(id: id, name: name);
 
   factory BankModel.fromJson(Map<String, dynamic> json) {
     return BankModel(id: json['id'], name: json['name']);
@@ -98,14 +98,14 @@ class AddressModel extends AddressEntity {
     required String postCode,
     required bool isPrimary,
   }) : super(
-         objLatLng: objLatLng,
-         buildingNumber: buildingNumber,
-         street: street,
-         district: district,
-         city: city,
-         postCode: postCode,
-         isPrimary: isPrimary,
-       );
+          objLatLng: objLatLng,
+          buildingNumber: buildingNumber,
+          street: street,
+          district: district,
+          city: city,
+          postCode: postCode,
+          isPrimary: isPrimary,
+        );
 
   factory AddressModel.fromJson(Map<String, dynamic> json) {
     return AddressModel(

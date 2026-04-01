@@ -23,13 +23,13 @@ class AddCompanyParams extends Equatable {
 
   @override
   List<Object?> get props => [
-    citizenship,
-    phoneNumber,
-    nin,
-    dob,
-    name,
-    fieldOfBusiness,
-    crn,
-    unifiedNumber,
-  ];
+        citizenship,
+        phoneNumber,
+        nin,
+        dob,
+        name,
+        fieldOfBusiness,
+        crn,
+        unifiedNumber,
+      ];
 }

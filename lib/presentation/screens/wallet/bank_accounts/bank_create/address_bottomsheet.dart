@@ -108,7 +108,7 @@ class SelectAddressBottomSheet extends StatelessWidget {
                               padding: EdgeInsets.only(top: 4.h, right: 10.w),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   /// Right column (type, district, street)
@@ -116,7 +116,7 @@ class SelectAddressBottomSheet extends StatelessWidget {
                                     flex: 1,
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         _buildTextRow(
                                           "address_type".tr,
@@ -146,7 +146,7 @@ class SelectAddressBottomSheet extends StatelessWidget {
                                     flex: 1,
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         _buildTextRow(
                                           "city".tr,
@@ -237,11 +237,11 @@ class SelectAddressBottomSheet extends StatelessWidget {
 
   /// Address row builder
   Widget _buildTextRow(
-      String label,
-      String value,
-      AppTypography typography, {
-        bool isBold = false,
-      }) {
+    String label,
+    String value,
+    AppTypography typography, {
+    bool isBold = false,
+  }) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h),
       child: Column(

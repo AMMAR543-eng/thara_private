@@ -69,7 +69,6 @@ class ApiErrorModel {
     );
   }
 
-
   static AccountModel? _parseAccount(Map<String, dynamic> json) {
     final accountJson = json['account'];
     if (accountJson != null && accountJson is Map<String, dynamic>) {

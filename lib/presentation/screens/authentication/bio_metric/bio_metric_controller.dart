@@ -133,7 +133,6 @@ class BiometricLoginViewModel extends GetxController {
         token: bioUserModel?.bioToken,
         udid: bioUserModel?.uuid,
       ),
-
       voidCallBack: (loginModel) {
         final user = loginModel.user;
 
@@ -142,11 +141,9 @@ class BiometricLoginViewModel extends GetxController {
         final token = loginModel.data?.accessToken;
         if (token != null && token.isNotEmpty) {
           handleUserNavigation(
-            account: loginModel.account ?? const AccountModel(),
-            user: user ?? UserModel(),
-              is_biometric: true
-
-          );
+              account: loginModel.account ?? const AccountModel(),
+              user: user ?? UserModel(),
+              is_biometric: true);
         }
       },
     );

@@ -20,11 +20,11 @@ class BaseEntity extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => [
-    customStatusCode,
-    message,
-    debug,
-    env,
-    user,
-    account,
-  ];
+        customStatusCode,
+        message,
+        debug,
+        env,
+        user,
+        account,
+      ];
 }

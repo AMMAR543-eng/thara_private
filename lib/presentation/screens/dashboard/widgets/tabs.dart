@@ -4,7 +4,7 @@ class OpportunityTabsWidget extends StatelessWidget {
   final OpportunitiesController controller;
 
   const OpportunityTabsWidget({Key? key, required this.controller})
-    : super(key: key);
+      : super(key: key);
 
   final List<Map<String, dynamic>> _tabs = const [
     {"text": "available_opportunities", "index": 0},
@@ -33,9 +33,8 @@ class OpportunityTabsWidget extends StatelessWidget {
                   child: Text(
                     (tab["text"] as String).tr, // ✅ FIX
                     style: context.typography.bodyMedium.copyWith(
-                      fontWeight: isSelected
-                          ? FontWeight.w600
-                          : FontWeight.w400,
+                      fontWeight:
+                          isSelected ? FontWeight.w600 : FontWeight.w400,
                       color: isSelected
                           ? AppColors.action_primary_normal
                           : AppColors.content_secondary,
@@ -45,7 +44,6 @@ class OpportunityTabsWidget extends StatelessWidget {
               }).toList(),
             ),
           ),
-
           Stack(
             children: [
               Container(

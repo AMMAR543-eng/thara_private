@@ -21,19 +21,19 @@ class _GenericDatePickerState extends State<GenericDatePicker> {
 
   /// 🔹 Localized months
   List<String> get _months => [
-    "month_january".tr,
-    "month_february".tr,
-    "month_march".tr,
-    "month_april".tr,
-    "month_may".tr,
-    "month_june".tr,
-    "month_july".tr,
-    "month_august".tr,
-    "month_september".tr,
-    "month_october".tr,
-    "month_november".tr,
-    "month_december".tr,
-  ];
+        "month_january".tr,
+        "month_february".tr,
+        "month_march".tr,
+        "month_april".tr,
+        "month_may".tr,
+        "month_june".tr,
+        "month_july".tr,
+        "month_august".tr,
+        "month_september".tr,
+        "month_october".tr,
+        "month_november".tr,
+        "month_december".tr,
+      ];
   final List<int> _years = List.generate(
     DateTime.now().year - 1950 + 1,
     (index) => 1950 + index,
@@ -79,13 +79,13 @@ class _GenericDatePickerState extends State<GenericDatePicker> {
   String _formatSelectedDate() {
     final monthIndex = _months.indexOf(selectedMonth) + 1;
     final formattedDay = selectedDay.toString().padLeft(
-      2,
-      '0',
-    ); // no leading zero
+          2,
+          '0',
+        ); // no leading zero
     final formattedMonth = monthIndex.toString().padLeft(
-      2,
-      '0',
-    ); // no leading zero
+          2,
+          '0',
+        ); // no leading zero
 
     return '$selectedYear-$formattedMonth-$formattedDay';
   }
@@ -97,7 +97,6 @@ class _GenericDatePickerState extends State<GenericDatePicker> {
         height: 300,
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         margin: const EdgeInsets.only(top: 10),
-
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

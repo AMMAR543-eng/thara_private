@@ -9,13 +9,13 @@ class Meta extends MetaEntity {
     int? to,
     int? total,
   }) : super(
-         currentPage: currentPage,
-         from: from,
-         lastPage: lastPage,
-         perPage: perPage,
-         to: to,
-         total: total,
-       );
+          currentPage: currentPage,
+          from: from,
+          lastPage: lastPage,
+          perPage: perPage,
+          to: to,
+          total: total,
+        );
 
   // Factory method to create a MetaEntity from a Map
   factory Meta.fromJson(Map<String, dynamic> json) {

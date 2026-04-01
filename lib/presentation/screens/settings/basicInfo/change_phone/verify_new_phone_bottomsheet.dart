@@ -127,7 +127,7 @@ class VerifyNewPhoneBottomSheet extends StatelessWidget {
 
               /// Resend section
               Obx(
-                    () => Text.rich(
+                () => Text.rich(
                   TextSpan(
                     text: "did_not_receive_code".tr,
                     style: context.typography.bodyMedium.copyWith(
@@ -138,8 +138,8 @@ class VerifyNewPhoneBottomSheet extends StatelessWidget {
                         text: enableResend.value
                             ? "resend_code".tr
                             : "resend_in_seconds".trParams({
-                          "seconds": secondsRemaining.value.toString(),
-                        }),
+                                "seconds": secondsRemaining.value.toString(),
+                              }),
                         style: context.typography.bodyStrongMedium.copyWith(
                           color: enableResend.value
                               ? AppColors.primary
@@ -151,19 +151,19 @@ class VerifyNewPhoneBottomSheet extends StatelessWidget {
                         recognizer: TapGestureRecognizer()
                           ..onTap = enableResend.value
                               ? () {
-                            secondsRemaining.value = 60;
-                            enableResend.value = false;
-                            Timer.periodic(const Duration(seconds: 1),
-                                    (timer) {
-                                  if (secondsRemaining.value > 0) {
-                                    secondsRemaining.value--;
-                                  } else {
-                                    timer.cancel();
-                                    enableResend.value = true;
-                                  }
-                                });
-                            controller.resendPhoneVerification(phone);
-                          }
+                                  secondsRemaining.value = 60;
+                                  enableResend.value = false;
+                                  Timer.periodic(const Duration(seconds: 1),
+                                      (timer) {
+                                    if (secondsRemaining.value > 0) {
+                                      secondsRemaining.value--;
+                                    } else {
+                                      timer.cancel();
+                                      enableResend.value = true;
+                                    }
+                                  });
+                                  controller.resendPhoneVerification(phone);
+                                }
                               : null,
                       ),
                     ],

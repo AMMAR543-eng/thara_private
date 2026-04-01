@@ -57,11 +57,9 @@ class ToggleButtonWidget extends StatelessWidget {
       borderColor: borderColor ?? toggleTheme?.inactiveColor,
       selectedBorderColor: selectedBorderColor ?? toggleTheme?.activeColor,
       disabledColor: disabledColor ?? Colors.grey,
-      borderRadius: borderRadius is BorderRadius
-          ? borderRadius
-          : BorderRadius.zero,
-      constraints:
-          constraints ??
+      borderRadius:
+          borderRadius is BorderRadius ? borderRadius : BorderRadius.zero,
+      constraints: constraints ??
           BoxConstraints(
             minWidth: toggleTheme?.size ?? 40.0,
             minHeight: toggleTheme?.size ?? 40.0,

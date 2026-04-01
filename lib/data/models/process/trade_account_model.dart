@@ -12,14 +12,14 @@ class TradeAccount extends TradeAccountEntity {
     num? invested,
     num? expectedProfit,
   }) : super(
-    total: total,
-    available: available,
-    reserved: reserved,
-    pending: pending,
-    blocked: blocked,
-    invested: invested,
-    expectedProfit: expectedProfit,
-  );
+          total: total,
+          available: available,
+          reserved: reserved,
+          pending: pending,
+          blocked: blocked,
+          invested: invested,
+          expectedProfit: expectedProfit,
+        );
 
   factory TradeAccount.fromJson(Map<String, dynamic> json) {
     return TradeAccount(
@@ -29,7 +29,7 @@ class TradeAccount extends TradeAccountEntity {
       pending: json['pending'],
       blocked: json['blocked'],
       invested: json['invested'],
-      expectedProfit: json['expectedProfit'] ,
+      expectedProfit: json['expectedProfit'],
     );
   }
 
@@ -58,13 +58,13 @@ class AccountResponse extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-    customStatusCode: customStatusCode,
-    message: message,
-    debug: debug,
-    env: env,
-    account: account,
-    user: user,
-  );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory AccountResponse.fromJson(Map<String, dynamic> json) {
     return AccountResponse(

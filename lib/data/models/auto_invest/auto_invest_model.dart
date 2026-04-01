@@ -1,4 +1,3 @@
-
 import '../../../index/index_main.dart';
 
 class InvestmentConfigResponseModel extends BaseModel {
@@ -13,13 +12,13 @@ class InvestmentConfigResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-    customStatusCode: customStatusCode,
-    message: message,
-    debug: debug,
-    env: env,
-    account: account,
-    user: user,
-  );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory InvestmentConfigResponseModel.fromJson(Map<String, dynamic> json) {
     return InvestmentConfigResponseModel(
@@ -33,9 +32,7 @@ class InvestmentConfigResponseModel extends BaseModel {
       account: json['account'] != null
           ? AccountModel.fromJson(json['account'])
           : null,
-      user: json['user'] != null
-          ? UserModel.fromJson(json['user'])
-          : null,
+      user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
     );
   }
 
@@ -47,7 +44,6 @@ class InvestmentConfigResponseModel extends BaseModel {
     };
   }
 }
-
 
 class InvestmentConfigDataModel {
   final bool? configured;
@@ -75,7 +71,6 @@ class InvestmentConfigDataModel {
   }
 }
 
-
 class InvestmentConfigModel {
   final int? minInvestAmount;
   final int? maxInvestAmount;
@@ -98,12 +93,13 @@ class InvestmentConfigModel {
       minInvestAmount: json['min_invest_amount'],
       maxInvestAmount: json['max_invest_amount'],
       active: json['active'],
-      opportunityTypes:
-      (json['opportunityTypes'] as List?)?.map((e) => e.toString()).toList(),
+      opportunityTypes: (json['opportunityTypes'] as List?)
+          ?.map((e) => e.toString())
+          .toList(),
       creditRatings:
-      (json['creditRatings'] as List?)?.map((e) => e.toString()).toList(),
+          (json['creditRatings'] as List?)?.map((e) => e.toString()).toList(),
       durations:
-      (json['durations'] as List?)?.map((e) => e.toString()).toList(),
+          (json['durations'] as List?)?.map((e) => e.toString()).toList(),
     );
   }
 

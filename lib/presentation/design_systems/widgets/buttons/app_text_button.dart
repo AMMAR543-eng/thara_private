@@ -67,7 +67,8 @@ abstract class AppTextButton extends StatelessWidget {
     final betweenSpace = switch (appButtonSize) {
       AppButtonSize.small ||
       AppButtonSize.xSmall ||
-      AppButtonSize.medium => AppSpacing.x2,
+      AppButtonSize.medium =>
+        AppSpacing.x2,
       AppButtonSize.large || AppButtonSize.xlarge => AppSpacing.x8,
       AppButtonSize.xxLarge => AppSpacing.x12,
     };
@@ -144,7 +145,8 @@ abstract class AppTextButton extends StatelessWidget {
         foregroundColor: inputTextColor,
         fixedSize: WidgetStateProperty.all(switch (appButtonSize) {
           AppButtonSize.small ||
-          AppButtonSize.xSmall => Size(double.infinity, 36.h),
+          AppButtonSize.xSmall =>
+            Size(double.infinity, 36.h),
           AppButtonSize.medium => Size(double.infinity, 40.h),
           AppButtonSize.large => Size(double.infinity, 44.h),
           AppButtonSize.xlarge => Size(double.infinity, 48.h),
@@ -152,7 +154,8 @@ abstract class AppTextButton extends StatelessWidget {
         }),
         padding: WidgetStateProperty.all(switch (appButtonSize) {
           AppButtonSize.small ||
-          AppButtonSize.xSmall => EdgeInsets.symmetric(horizontal: 12.w),
+          AppButtonSize.xSmall =>
+            EdgeInsets.symmetric(horizontal: 12.w),
           AppButtonSize.medium => EdgeInsets.symmetric(horizontal: 16.w),
           AppButtonSize.large => EdgeInsets.symmetric(horizontal: 16.w),
           AppButtonSize.xlarge => EdgeInsets.symmetric(horizontal: 20.w),

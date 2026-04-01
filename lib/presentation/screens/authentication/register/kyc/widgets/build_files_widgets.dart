@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:thara/index/index_main.dart';
 
-
 class BuildFileWidget extends StatefulWidget {
   final KycItemEntity question;
   final KYCController kycController;
@@ -82,9 +81,8 @@ class _BuildFileWidgetState extends State<BuildFileWidget> {
             ? FileUploadStatus.initial
             : FileUploadStatus.success,
         // you can also handle error/uploading
-        fileName: _filePath != null
-            ? File(_filePath!).uri.pathSegments.last
-            : null,
+        fileName:
+            _filePath != null ? File(_filePath!).uri.pathSegments.last : null,
         fileSize: _filePath != null
             ? File(_filePath!).lengthSync() / (1024 * 1024)
             : null,

@@ -30,7 +30,7 @@ class NetworkAttachmentImage extends StatelessWidget {
           SizedBox(
             width: width,
             height: height,
-            child:  Center(
+            child: Center(
               child: CircularProgressIndicator(color: AppColors.primary),
             ),
           ),

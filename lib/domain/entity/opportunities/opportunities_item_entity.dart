@@ -1,6 +1,5 @@
 import 'package:thara/index/index_main.dart';
 
-
 class OpportunitiesItemsEntity extends Equatable {
   final String? id;
   final num? companyParticipationRate;
@@ -67,34 +66,34 @@ class OpportunitiesItemsEntity extends Equatable {
   @override
   // Implementing the props getter to compare fields of the entity
   List<Object?> get props => [
-    id,
-    conflictOfInteres,
-    projectSummary,
-    projectDetails,
-    companyParticipationRate,
-    duration,
-    opportunityType,
-    sharePrice,
-    feesAndTaxPercentage,
-    principalAmount,
-    interestPercentage,
-    actualInterestPercentage,
-    score,
-    projectName,
-    projectImage,
-    collectedPercentage,
-    startAt,
-    startAtHuman,
-    endOfSubscription,
-    subscriptionClosedAt,
-    subscriptionStatus,
-    subscribed,
-    subscriptionStarted,
-    subscriptionClosed,
-    daysToEnd,
-    activeSubscription,
-    isOwner,
-    paymentsSchedule,
-    attachments,
-  ];
+        id,
+        conflictOfInteres,
+        projectSummary,
+        projectDetails,
+        companyParticipationRate,
+        duration,
+        opportunityType,
+        sharePrice,
+        feesAndTaxPercentage,
+        principalAmount,
+        interestPercentage,
+        actualInterestPercentage,
+        score,
+        projectName,
+        projectImage,
+        collectedPercentage,
+        startAt,
+        startAtHuman,
+        endOfSubscription,
+        subscriptionClosedAt,
+        subscriptionStatus,
+        subscribed,
+        subscriptionStarted,
+        subscriptionClosed,
+        daysToEnd,
+        activeSubscription,
+        isOwner,
+        paymentsSchedule,
+        attachments,
+      ];
 }

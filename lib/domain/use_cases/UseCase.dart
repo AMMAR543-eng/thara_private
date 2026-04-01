@@ -1,4 +1,3 @@
-
 import '../../index/index_main.dart';
 
 // abstract class UseCase<OutPut, InPut> {

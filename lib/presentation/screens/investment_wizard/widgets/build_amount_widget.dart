@@ -42,9 +42,10 @@ class BuildAmountWidget extends StatelessWidget {
     if (n % 1000 != 0) return "must_be_multiple_of_1000".tr;
 
     final minVal = int.tryParse(controller.minController.text) ?? 0;
-    if (n < minVal) return "max_must_be_more_than_min".trParams({
-      "min": "$minVal",
-    });
+    if (n < minVal)
+      return "max_must_be_more_than_min".trParams({
+        "min": "$minVal",
+      });
 
     return null;
   }
@@ -70,9 +71,7 @@ class BuildAmountWidget extends StatelessWidget {
                 onChanged: (_) => controller.update(),
               ),
             ),
-
             SizedBox(height: 20.h),
-
             TextInputWidget(
               title: "max_invest_title".tr, // الحد الأعلى للاستثمار
               appTextField: AppTextField(
@@ -84,7 +83,6 @@ class BuildAmountWidget extends StatelessWidget {
                 onChanged: (_) => controller.update(),
               ),
             ),
-
             if (controller.serverMessage != null)
               Padding(
                 padding: const EdgeInsets.only(top: 10),

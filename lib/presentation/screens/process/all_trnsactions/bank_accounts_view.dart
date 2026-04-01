@@ -1,4 +1,3 @@
-
 import '../../../../index/index_main.dart';
 
 class BankAccountsView extends StatefulWidget {
@@ -43,7 +42,6 @@ class _BankAccountsViewState extends State<BankAccountsView> {
                   Get.toNamed(storeBankView);
                 },
               ),
-
               controller.bankAccountDataEntity == null
                   ? const TransactionListShimmerWidget()
                   : BankListViewWidget(controller: controller),

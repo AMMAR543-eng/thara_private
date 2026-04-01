@@ -1,10 +1,10 @@
 class ProcessFilterParams {
-  final String? fromDate;              // 🔹 بداية النطاق الزمني
-  final String? endDate;               // 🔹 نهاية النطاق الزمني
-  final String? status;                // 🔹 حالة الطلب
-  final String? transferringStatus;    // 🔹 حالة تحويل الأموال
-  final String? search;                // 🔹 نص البحث
-  final int? page;                     // 🔹 رقم الصفحة
+  final String? fromDate; // 🔹 بداية النطاق الزمني
+  final String? endDate; // 🔹 نهاية النطاق الزمني
+  final String? status; // 🔹 حالة الطلب
+  final String? transferringStatus; // 🔹 حالة تحويل الأموال
+  final String? search; // 🔹 نص البحث
+  final int? page; // 🔹 رقم الصفحة
 
   ProcessFilterParams({
     this.fromDate,

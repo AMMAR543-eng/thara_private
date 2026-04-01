@@ -14,7 +14,6 @@ class _RegisterSigningScreenState extends State<RegisterSigningScreen> {
     return GetBuilder<SigningController>(
       init: SigningController(),
       builder: (controller) {
-
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -55,7 +54,6 @@ class _RegisterSigningScreenState extends State<RegisterSigningScreen> {
                     ),
                   ),
                   SizedBox(height: 10.h),
-
                   GestureDetector(
                     onTap: () {
                       Get.to(
@@ -110,9 +108,6 @@ class _RegisterSigningScreenState extends State<RegisterSigningScreen> {
                 onTap: () => controller.singingWithSirar(),
               ),
             ),
-
-
-
 
             SizedBox(height: 12.h),
           ],

@@ -12,10 +12,10 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, BaseEntity>> changePasswordDomain(
-      String oldPassword,
-      String password,
-      String passwordConfirm,
-      ) async {
+    String oldPassword,
+    String password,
+    String passwordConfirm,
+  ) async {
     final result = await _settingsRemoteDataSourceRepo.changePassword(
       oldPassword,
       password,
@@ -42,9 +42,9 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, BaseEntity>> verifyNewEmailDomain(
-      String email,
-      String otp,
-      ) async {
+    String email,
+    String otp,
+  ) async {
     final result = await _settingsRemoteDataSourceRepo.verifyNewEmail(
       email,
       otp,
@@ -70,9 +70,9 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, BaseEntity>> verifyNewPhoneDomain(
-      String phone,
-      String otp,
-      ) async {
+    String phone,
+    String otp,
+  ) async {
     final result = await _settingsRemoteDataSourceRepo.verifyNewPhone(
       phone,
       otp,
@@ -89,11 +89,11 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, BaseEntity>> storeTicketDomain(
-      String name,
-      String phone,
-      String type,
-      String message,
-      ) async {
+    String name,
+    String phone,
+    String type,
+    String message,
+  ) async {
     final result = await _settingsRemoteDataSourceRepo.storeTicket(
       name,
       phone,
@@ -111,7 +111,8 @@ class SettingsRepositoryImpl extends SettingsRepository {
   // ---------------------------------------------------------------------------
 
   @override
-  Future<Either<AppError, BaseEntity>> deleteMyProfileDomain(Map<String, dynamic> data) async {
+  Future<Either<AppError, BaseEntity>> deleteMyProfileDomain(
+      Map<String, dynamic> data) async {
     final result = await _settingsRemoteDataSourceRepo.deleteMyProfile(data);
 
     return result is Success<OtpModel>
@@ -125,8 +126,8 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, ArticleModelResponse>> getArticles(
-      Map<String, dynamic> data,
-      ) async {
+    Map<String, dynamic> data,
+  ) async {
     final result = await _settingsRemoteDataSourceRepo.articles(data);
 
     return result is Success<ArticleModelResponse>
@@ -136,9 +137,9 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, ArticleDetailsModelResponse>> getArticleDetails(
-      Map<String, dynamic> data,
-      String key,
-      ) async {
+    Map<String, dynamic> data,
+    String key,
+  ) async {
     final result = await _settingsRemoteDataSourceRepo.articles_details(
       data,
       key,
@@ -168,7 +169,7 @@ class SettingsRepositoryImpl extends SettingsRepository {
 
   @override
   Future<Either<AppError, FinancialStatementsData>>
-  getFinancialStatementsData() async {
+      getFinancialStatementsData() async {
     final result = await _settingsRemoteDataSourceRepo.financialStatmentsData();
 
     return result is Success<FinancialStatementsData>

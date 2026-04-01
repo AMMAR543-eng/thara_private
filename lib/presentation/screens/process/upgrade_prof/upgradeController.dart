@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:thara/index/index_main.dart';
 
-
 class UploadController extends GetxController {
   /// Multiple selected requirements
   final Set<int> selectedRequirements = {};

@@ -46,14 +46,15 @@ class AddressItemWidget extends StatelessWidget {
                   _buildText("city".tr, address.city, context),
                   _buildText("district".tr, address.district, context),
                   _buildText("street".tr, address.street, context),
-                  _buildText("building_number".tr, address.buildingNumber, context),
-
+                  _buildText(
+                      "building_number".tr, address.buildingNumber, context),
                   if (address.isPrimary)
                     Padding(
                       padding: const EdgeInsets.only(top: 4.0),
                       child: Row(
                         children: [
-                          const Icon(Icons.check_circle, color: Colors.green, size: 18),
+                          const Icon(Icons.check_circle,
+                              color: Colors.green, size: 18),
                           const SizedBox(width: 4),
                           Text(
                             "primary_address".tr,

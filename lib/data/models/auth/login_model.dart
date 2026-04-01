@@ -1,6 +1,3 @@
-
-
-
 import '../../../index/index_main.dart';
 
 class LoginResponseModel extends BaseModel {
@@ -15,19 +12,18 @@ class LoginResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
     return LoginResponseModel(
-      data: json['data'] != null
-          ? LoginAccessModel.fromJson(json['data'])
-          : null,
+      data:
+          json['data'] != null ? LoginAccessModel.fromJson(json['data']) : null,
       customStatusCode: json['customStatusCode'],
       message: json['message'],
       debug: json['debug'],
@@ -84,7 +80,7 @@ extension LoginAccessStorageExtension on LoginResponseModel {
       try {
         return LoginResponseModel.fromJson(json);
       } catch (e) {
-        debugPrint("❌ Error decoding token: $e");
+        debugPrint(" Error decoding token: $e");
         return null;
       }
     }

@@ -34,7 +34,8 @@ class _AddBankAccountBottomSheetState extends State<AddBankAccountBottomSheet> {
             padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 15.w),
             decoration: BoxDecoration(
               color: AppColors.white,
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(24)),
             ),
             child: Form(
               key: formKey,
@@ -98,21 +99,21 @@ class _AddBankAccountBottomSheetState extends State<AddBankAccountBottomSheet> {
                     controller.isleanEnable == true
                         ? const SizedBox()
                         : GenericDropdown<GenericListModel>(
-                      title: "bank".tr,
-                      hint_text: "select_bank_hint".tr,
-                      items: controller.listBanks ?? [],
-                      initialValue: controller.selectedBank,
-                      onChanged: (bank) {
-                        controller.onBankSelected(bank);
-                        controller.validateForm();
-                      },
-                      displayItemBuilder: (item) => Text(
-                        item.name ?? "",
-                        style: typography.bodyMedium.copyWith(
-                          color: AppColors.content_primary,
-                        ),
-                      ),
-                    ),
+                            title: "bank".tr,
+                            hint_text: "select_bank_hint".tr,
+                            items: controller.listBanks ?? [],
+                            initialValue: controller.selectedBank,
+                            onChanged: (bank) {
+                              controller.onBankSelected(bank);
+                              controller.validateForm();
+                            },
+                            displayItemBuilder: (item) => Text(
+                              item.name ?? "",
+                              style: typography.bodyMedium.copyWith(
+                                color: AppColors.content_primary,
+                              ),
+                            ),
+                          ),
                     SizedBox(height: 18.h),
 
                     /// --- Account Number
@@ -204,9 +205,9 @@ class _AddBankAccountBottomSheetState extends State<AddBankAccountBottomSheet> {
 
   /// 🔹 Opens the next bottom sheet (address selector)
   void _openAddressSelectionBottomSheet(
-      BuildContext context,
-      StoreBankController controller,
-      ) {
+    BuildContext context,
+    StoreBankController controller,
+  ) {
     showModalBottomSheet(
       context: context,
       isDismissible: true,

@@ -8,8 +8,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<AppError, LoginResponseModel>> loginDomain(
-      Map<String, dynamic> data
-  ) async {
+      Map<String, dynamic> data) async {
     final result = await _authRemoteDataSourceRepo.login(data);
 
     return result is Success<LoginResponseModel>
@@ -55,10 +54,11 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<AppError, BaseEntity>> initialResetPasswordDomain(
-      String email,
-      String nin,
-      ) async {
-    final result = await _authRemoteDataSourceRepo.initialResetPassword(email, nin);
+    String email,
+    String nin,
+  ) async {
+    final result =
+        await _authRemoteDataSourceRepo.initialResetPassword(email, nin);
 
     return result is Success<OtpModel>
         ? right(result.data)
@@ -67,12 +67,12 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<AppError, BaseEntity>> resetPasswordDomain(
-      String email,
-      String nin,
-      String code,
-      String password,
-      String passwordConfirm,
-      ) async {
+    String email,
+    String nin,
+    String code,
+    String password,
+    String passwordConfirm,
+  ) async {
     final result = await _authRemoteDataSourceRepo.resetPassword(
       email,
       nin,
@@ -113,10 +113,11 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<AppError, SuccessNewModel>> uploadProfileImageDomain(
-      Map<String, dynamic> data,
-      Map<String, String> files,
-      ) async {
-    final result = await _authRemoteDataSourceRepo.uploadProfileImage(data, files);
+    Map<String, dynamic> data,
+    Map<String, String> files,
+  ) async {
+    final result =
+        await _authRemoteDataSourceRepo.uploadProfileImage(data, files);
 
     return result is Success<SuccessNewModel>
         ? right(result.data)

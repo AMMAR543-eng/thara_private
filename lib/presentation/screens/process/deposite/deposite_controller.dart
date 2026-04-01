@@ -8,8 +8,9 @@ class DepositeController extends GetxController {
   @override
   onInit() {
     super.onInit();
-    if (LoginResponseModel().getTokenData()?.data?.accessToken != null) {getMeData();}
-
+    if (LoginResponseModel().getTokenData()?.data?.accessToken != null) {
+      getMeData();
+    }
   }
 
   getMeData() {

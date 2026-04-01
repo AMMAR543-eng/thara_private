@@ -46,8 +46,9 @@ class ChangePhoneController extends GetxController {
       voidCallBack: (data) async {
         isLoading.value = false;
         if (data.customStatusCode == 200) {
-         // openVerifyNewPhoneBottomSheet(context, newPhone);
-          SettingsBasicInfoController controller = initUseCase(()=> SettingsBasicInfoController());
+          // openVerifyNewPhoneBottomSheet(context, newPhone);
+          SettingsBasicInfoController controller =
+              initUseCase(() => SettingsBasicInfoController());
           controller.getProfileData();
           controller.update();
           Loader.showSuccess(data.message ?? "");

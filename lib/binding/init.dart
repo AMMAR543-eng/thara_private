@@ -1,6 +1,3 @@
-
-
-
 import '../index/index_main.dart';
 
 class Binding implements Bindings {

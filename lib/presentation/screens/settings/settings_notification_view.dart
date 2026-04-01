@@ -128,12 +128,12 @@ class _SettingsNotificationViewState extends State<SettingsNotificationView> {
 
   /// --- Notification Item Widget
   Widget _buildNotificationItem(
-      BuildContext context, {
-        required String title,
-        required bool value,
-        required ValueChanged<bool> onChanged,
-        bool isDestructive = false,
-      }) {
+    BuildContext context, {
+    required String title,
+    required bool value,
+    required ValueChanged<bool> onChanged,
+    bool isDestructive = false,
+  }) {
     final typography = context.typography;
 
     return Padding(
@@ -164,8 +164,8 @@ class _SettingsNotificationViewState extends State<SettingsNotificationView> {
   }
 
   Widget _divider() => const Divider(
-    height: 1,
-    thickness: 0.8,
-    color: AppColors.border_natural_normal,
-  );
+        height: 1,
+        thickness: 0.8,
+        color: AppColors.border_natural_normal,
+      );
 }

@@ -1,6 +1,4 @@
-
 import 'package:thara/index/index_main.dart';
-
 
 class OnboardCheck extends GetxController {
   Future<bool> saveAlreadyOpen(bool isUpdate) {

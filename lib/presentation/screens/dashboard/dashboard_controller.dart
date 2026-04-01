@@ -47,7 +47,7 @@ class DashboardController extends GetxController {
     final msg = message ?? "Something went wrong";
 
     if (kDebugMode) {
-      print("❌ ERROR: $e");
+      print(" ERROR: $e");
     }
 
     Get.snackbar(
@@ -91,10 +91,7 @@ class DashboardController extends GetxController {
       globalError = null;
       update();
 
-      final token = LoginResponseModel()
-          .getTokenData()
-          ?.data
-          ?.accessToken;
+      final token = LoginResponseModel().getTokenData()?.data?.accessToken;
 
       if (token != null) {
         unawaited(_loadBackgroundData());
@@ -263,10 +260,7 @@ class DashboardController extends GetxController {
       profitError = null;
       update();
 
-      final selectedYear = year ?? DateTime
-          .now()
-          .year
-          .toString();
+      final selectedYear = year ?? DateTime.now().year.toString();
 
       final completer = Completer<ProfitSummaryDataModel>();
 
@@ -339,40 +333,36 @@ class DashboardController extends GetxController {
       ),
       opportunities: config.opportunityTypes
           ?.map(
-            (key) =>
-            OpportunityType(
+            (key) => OpportunityType(
               id: key.hashCode,
               name: getOpportunityName(key),
               apiKey: key,
               selected: true,
             ),
-      )
+          )
           .toList(),
       packages: config.creditRatings
           ?.map(
-            (p) =>
-            PackageEntity(
+            (p) => PackageEntity(
               id: p.hashCode,
               title: p,
               description: "",
               selected: true,
             ),
-      )
+          )
           .toList(),
       durations: config.durations
           ?.map(
-            (d) =>
-            InvestmentDuration(
+            (d) => InvestmentDuration(
               id: d.hashCode,
               title: getDurationLabel(d),
               apiValue: d,
               selected: true,
             ),
-      )
+          )
           .toList(),
     );
   }
-
 
   String getOpportunityName(String apiKey) {
     switch (apiKey) {

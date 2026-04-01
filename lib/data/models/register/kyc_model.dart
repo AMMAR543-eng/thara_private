@@ -1,4 +1,3 @@
-
 import '../../../index/index_main.dart';
 
 class KYCResponseModel extends BaseModel {
@@ -13,28 +12,26 @@ class KYCResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory KYCResponseModel.fromJson(Map<String, dynamic> json) {
     return KYCResponseModel(
-      data:
-          json['data'] != null
-              ? KYCQuestionsModel.fromJson(json['data'])
-              : null,
+      data: json['data'] != null
+          ? KYCQuestionsModel.fromJson(json['data'])
+          : null,
       customStatusCode: json['customStatusCode'],
       message: json['message'],
       debug: json['debug'],
       env: json['env'],
-      account:
-          json['account'] != null
-              ? AccountModel.fromJson(json['account'])
-              : null,
+      account: json['account'] != null
+          ? AccountModel.fromJson(json['account'])
+          : null,
       user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
     );
   }

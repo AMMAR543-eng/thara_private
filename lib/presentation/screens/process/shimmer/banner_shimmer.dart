@@ -11,7 +11,7 @@ class WalletBannerShimmerWidget extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40.r),
-        gradient:  const LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [Color(0xFF003B3A), Colors.black],
@@ -52,7 +52,7 @@ class WalletBannerShimmerWidget extends StatelessWidget {
             ],
           ),
 
-           Divider(color: AppColors.primary, thickness: 0.5),
+          Divider(color: AppColors.primary, thickness: 0.5),
           SizedBox(height: 20.h),
 
           /// 🔻 Bottom rows: available + reserved

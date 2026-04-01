@@ -50,7 +50,8 @@ class AppListTileThemeExtension
       textStyle: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
       iconSize: 24.0,
       iconColor: AppColors.blueForeground, // Blue for icons
-      leadingIcon: const Icon(Icons.star, color: Color(0xFF4CAF50)), // Green icon
+      leadingIcon:
+          const Icon(Icons.star, color: Color(0xFF4CAF50)), // Green icon
       trailingIcon: const Icon(Icons.arrow_forward, color: Color(0xFFCCCCCC)),
       onTapColor: AppColors.yellowBackground, // Yellow light background
       subtitleStyle: const TextStyle(fontSize: 14.0, color: Colors.grey),
@@ -65,8 +66,6 @@ class AppListTileThemeExtension
       mouseCursor: SystemMouseCursors.click,
     );
   }
-
-
 
   @override
   AppListTileThemeExtension copyWith({
@@ -113,9 +112,9 @@ class AppListTileThemeExtension
 
   @override
   ThemeExtension<AppListTileThemeExtension> lerp(
-      covariant ThemeExtension<AppListTileThemeExtension>? other,
-      double t,
-      ) {
+    covariant ThemeExtension<AppListTileThemeExtension>? other,
+    double t,
+  ) {
     if (other is! AppListTileThemeExtension) {
       return this;
     }
@@ -124,7 +123,7 @@ class AppListTileThemeExtension
       tileColor: Color.lerp(tileColor, other.tileColor, t)!,
       shape: t < 0.5 ? shape : other.shape,
       selectedTileColor:
-      Color.lerp(selectedTileColor, other.selectedTileColor, t)!,
+          Color.lerp(selectedTileColor, other.selectedTileColor, t)!,
       textStyle: TextStyle.lerp(textStyle, other.textStyle, t) ?? textStyle,
       iconSize: lerpDouble(iconSize, other.iconSize, t)!,
       iconColor: Color.lerp(iconColor, other.iconColor, t)!,
@@ -132,18 +131,18 @@ class AppListTileThemeExtension
       trailingIcon: t < 0.5 ? trailingIcon : other.trailingIcon,
       onTapColor: Color.lerp(onTapColor, other.onTapColor, t)!,
       subtitleStyle:
-      TextStyle.lerp(subtitleStyle, other.subtitleStyle, t) ?? textStyle,
+          TextStyle.lerp(subtitleStyle, other.subtitleStyle, t) ?? textStyle,
       dense: t < 0.5 ? dense : other.dense,
       selected: t < 0.5 ? selected : other.selected,
       focusColor: Color.lerp(focusColor, other.focusColor, t)!,
       hoverColor: Color.lerp(hoverColor, other.hoverColor, t)!,
       contentPadding:
-      EdgeInsetsGeometry.lerp(contentPadding, other.contentPadding, t) ??
-          EdgeInsets.zero,
+          EdgeInsetsGeometry.lerp(contentPadding, other.contentPadding, t) ??
+              EdgeInsets.zero,
       horizontalTitleGap:
-      lerpDouble(horizontalTitleGap, other.horizontalTitleGap, t)!,
+          lerpDouble(horizontalTitleGap, other.horizontalTitleGap, t)!,
       minVerticalPadding:
-      lerpDouble(minVerticalPadding, other.minVerticalPadding, t)!,
+          lerpDouble(minVerticalPadding, other.minVerticalPadding, t)!,
       mouseCursor: t < 0.5 ? mouseCursor : other.mouseCursor,
     );
   }

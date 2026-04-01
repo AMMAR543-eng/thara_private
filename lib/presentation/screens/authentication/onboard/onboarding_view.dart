@@ -12,22 +12,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   int currentPage = 0;
 
   List<OnboardingItem> get onboardingItems => [
-    OnboardingItem(
-      animation: Animations.onboard_1,
-      title: "onboard_title_1".tr,
-      description: "onboard_desc_1".tr,
-    ),
-    OnboardingItem(
-      animation: Animations.onboard_2,
-      title: "onboard_title_2".tr,
-      description: "onboard_desc_2".tr,
-    ),
-    OnboardingItem(
-      animation: Animations.onboard_3,
-      title: "onboard_title_3".tr,
-      description: "onboard_desc_3".tr,
-    ),
-  ];
+        OnboardingItem(
+          animation: Animations.onboard_1,
+          title: "onboard_title_1".tr,
+          description: "onboard_desc_1".tr,
+        ),
+        OnboardingItem(
+          animation: Animations.onboard_2,
+          title: "onboard_title_2".tr,
+          description: "onboard_desc_2".tr,
+        ),
+        OnboardingItem(
+          animation: Animations.onboard_3,
+          title: "onboard_title_3".tr,
+          description: "onboard_desc_3".tr,
+        ),
+      ];
 
   @override
   void initState() {
@@ -68,7 +68,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           decoration: const BoxDecoration(
             gradient: AppGradients.onboardingBackground,
           ),
-
           child: Stack(
             children: [
               /// PageView for animations

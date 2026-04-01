@@ -1,4 +1,3 @@
-
 import '../../../index/index.dart';
 
 class ThemeScope extends InheritedWidget {

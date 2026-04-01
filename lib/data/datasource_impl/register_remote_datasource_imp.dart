@@ -31,10 +31,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
         params: {"otp": code},
       );
       final verifyRes = OtpModel.fromJson(response);
-      verifyRes.account?.saveAccountLocal(
-      );
-      verifyRes.user?.saveUserLocal(
-      );
+      verifyRes.account?.saveAccountLocal();
+      verifyRes.user?.saveUserLocal();
       return Success(verifyRes);
     } catch (error) {
       final handledError = ErrorHandler.handle(error);
@@ -73,14 +71,11 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       );
       final registerEmailRes = LoginResponseModel.fromJson(response);
 
-      registerEmailRes.saveTokenLocal(
-      );
+      registerEmailRes.saveTokenLocal();
 
-      registerEmailRes.account?.saveAccountLocal(
-      );
+      registerEmailRes.account?.saveAccountLocal();
 
-      registerEmailRes.user?.saveUserLocal(
-      );
+      registerEmailRes.user?.saveUserLocal();
 
       return Success(registerEmailRes);
     } catch (error) {
@@ -98,10 +93,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
         params: data,
       );
       final addIndividualRes = OtpModel.fromJson(response);
-      addIndividualRes.account?.saveAccountLocal(
-      );
-      addIndividualRes.user?.saveUserLocal(
-      );
+      addIndividualRes.account?.saveAccountLocal();
+      addIndividualRes.user?.saveUserLocal();
       return Success(addIndividualRes);
     } catch (error) {
       final handledError = ErrorHandler.handle(error);
@@ -118,10 +111,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
         params: data,
       );
       final addCompanyRes = OtpModel.fromJson(response);
-      addCompanyRes.account?.saveAccountLocal(
-      );
-      addCompanyRes.user?.saveUserLocal(
-      );
+      addCompanyRes.account?.saveAccountLocal();
+      addCompanyRes.user?.saveUserLocal();
       return Success(addCompanyRes);
     } catch (error) {
       final handledError = ErrorHandler.handle(error);
@@ -158,9 +149,8 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
       final nafathStatusRes = NafathStatusModel.fromJson(response);
       return Success(nafathStatusRes);
     } catch (error) {
-      final handledError = error is ApiErrorModel
-          ? error
-          : ErrorHandler.handle(error);
+      final handledError =
+          error is ApiErrorModel ? error : ErrorHandler.handle(error);
       return Failure(handledError);
     }
   }
@@ -191,11 +181,9 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
         params: data,
       );
       final sendKycQuestionsRes = OtpModel.fromJson(response);
-      sendKycQuestionsRes.account?.saveAccountLocal(
-      );
+      sendKycQuestionsRes.account?.saveAccountLocal();
 
-      sendKycQuestionsRes.user?.saveUserLocal(
-      );
+      sendKycQuestionsRes.user?.saveUserLocal();
       return Success(sendKycQuestionsRes);
     } catch (error) {
       final handledError = ErrorHandler.handle(error);
@@ -226,11 +214,9 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
         ApiConstatns.singingWithSirar,
       );
       final singingWithSirarRes = OtpModel.fromJson(response);
-      singingWithSirarRes.account?.saveAccountLocal(
-      );
+      singingWithSirarRes.account?.saveAccountLocal();
 
-      singingWithSirarRes.user?.saveUserLocal(
-      );
+      singingWithSirarRes.user?.saveUserLocal();
 
       return Success(singingWithSirarRes);
     } catch (error) {

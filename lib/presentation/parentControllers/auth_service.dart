@@ -1,7 +1,4 @@
-
-
 import '../../index/index_main.dart';
-
 
 class AuthService {
   Future<void> login({
@@ -98,14 +95,14 @@ class AuthService {
     Loader.show();
     final result =
         await initUseCase(() => ResetPasswordDomainUseCase(Get.find())).call(
-          ForgetParams(
-            email: email,
-            nin: nin,
-            code: code,
-            password: password,
-            passwordConfirm: passwordConfirm,
-          ),
-        );
+      ForgetParams(
+        email: email,
+        nin: nin,
+        code: code,
+        password: password,
+        passwordConfirm: passwordConfirm,
+      ),
+    );
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
@@ -136,10 +133,10 @@ class AuthService {
     Loader.show();
     final result =
         await initUseCase(() => UploadProfileImageUsecase(Get.find())).call(
-          UploadProfileImageParamsWrapper(
-            files: imagePath == null ? {} : {"profile_picture": imagePath},
-          ),
-        );
+      UploadProfileImageParamsWrapper(
+        files: imagePath == null ? {} : {"profile_picture": imagePath},
+      ),
+    );
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
 

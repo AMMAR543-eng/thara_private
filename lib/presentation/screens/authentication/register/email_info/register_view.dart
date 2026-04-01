@@ -159,9 +159,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         notEmptyValidator,
                         InputValidators.validatePassword,
                         (value) => InputValidators.validateConfirmationPassword(
-                          value,
-                          controller.passwordController.text,
-                        ),
+                              value,
+                              controller.passwordController.text,
+                            ),
                       ]),
                       onValidationChanged: (value) {
                         controller.setValidation(confirm: value);
@@ -220,8 +220,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: GetBuilder<RegisterController>(
                       id: 'auth_button',
                       builder: (controller) {
-                        final enabled =
-                            controller.validEmail &&
+                        final enabled = controller.validEmail &&
                             controller.validPassword &&
                             controller.validConfirm &&
                             controller.check_terms == true &&

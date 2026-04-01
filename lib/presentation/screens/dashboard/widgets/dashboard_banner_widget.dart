@@ -13,10 +13,8 @@ class DashboardBannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String? token = LoginResponseModel()
-        .getTokenData()
-        ?.data
-        ?.accessToken;
+    final String? token =
+        LoginResponseModel().getTokenData()?.data?.accessToken;
     final bool isGuest = token == null;
 
     final bool hasTotal = !isGuest && tradeAccountEntity.total != null;
@@ -45,8 +43,8 @@ class DashboardBannerWidget extends StatelessWidget {
               child: isGuest
                   ? _buildGuestContent(context)
                   : (needsBankAccount
-                        ? _buildBankAccountNotice(context)
-                        : _buildDefaultOrTotal(context, hasTotal)),
+                      ? _buildBankAccountNotice(context)
+                      : _buildDefaultOrTotal(context, hasTotal)),
             ),
             InkWell(
               onTap: !hasTotal
@@ -145,7 +143,6 @@ class DashboardBannerWidget extends StatelessWidget {
                           width: 60.w,
                           height: 60.h,
                           color: AppColors.content_primary,
-
                         ),
                       ],
                     ),

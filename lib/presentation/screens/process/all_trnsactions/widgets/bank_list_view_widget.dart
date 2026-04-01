@@ -57,7 +57,6 @@ class BankListViewWidget extends StatelessWidget {
                               height: 0,
                             ),
                           ),
-
                           Text(
                             item.accountNumber ?? "",
                             style: context.typography.font42Grey.copyWith(
@@ -99,7 +98,6 @@ class BankListViewWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-
                         Text(
                           item.bankName ?? "",
                           style: context.typography.font33Grey.copyWith(

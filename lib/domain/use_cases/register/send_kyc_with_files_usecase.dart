@@ -13,7 +13,6 @@ class SendKycWithFilesUseCase
     final Map<String, dynamic> jsonData = param.toJson();
     final Map<String, String> fileData = param.extractFiles();
 
-
     return await _registerRepositoryImpl.sendKYCQuestionAnswerWithFilesDomain(
       jsonData,
       fileData,

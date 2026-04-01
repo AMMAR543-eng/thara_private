@@ -224,7 +224,6 @@ class _ProfitChartWidgetState extends State<ProfitChartWidget>
                   dataSource: chartData,
                   xValueMapper: (d, _) => _monthNameArabic(d.month),
                   yValueMapper: (d, _) => d.overdue,
-
                   name: "profit_default".tr,
                   color: const Color(0xFFE67E22),
                   borderRadius: BorderRadius.circular(6.r),

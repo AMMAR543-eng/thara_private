@@ -50,8 +50,10 @@ class _DatePickerTabsWidgetState extends State<DatePickerTabsWidget> {
                 child: Text(
                   tab["text"],
                   style: context.typography.bodyMedium.copyWith(
-                    color: isSelected ? AppColors.primary : AppColors.textDefault,
-                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                    color:
+                        isSelected ? AppColors.primary : AppColors.textDefault,
+                    fontWeight:
+                        isSelected ? FontWeight.bold : FontWeight.normal,
                   ),
                 ),
               ),

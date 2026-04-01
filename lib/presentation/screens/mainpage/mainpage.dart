@@ -1,4 +1,3 @@
-
 import 'package:lottie/lottie.dart';
 
 import '../../../index/index_main.dart';
@@ -9,7 +8,7 @@ class MainPage extends StatefulWidget {
   int? inner_index;
 
   MainPage({Key? key, this.indexNum = 0, this.keyValue, this.inner_index})
-    : super(key: key);
+      : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -138,7 +137,6 @@ class _MainPageState extends State<MainPage> {
             width: 32,
             child: Lottie.asset(
               animationFile,
-
               repeat: true,
               reverse: false,
               animate: isActive,
@@ -180,9 +178,8 @@ class _MainPageState extends State<MainPage> {
 class MainPageController extends GetxController {
   String? name;
   final token = LoginResponseModel().getTokenData()?.data?.accessToken;
-  final registrationStage = const AccountModel()
-      .getAccountLocal()
-      ?.registrationStage;
+  final registrationStage =
+      const AccountModel().getAccountLocal()?.registrationStage;
   final passTwoFactor = UserModel().getUserData()?.passTwoFactor;
 
   @override

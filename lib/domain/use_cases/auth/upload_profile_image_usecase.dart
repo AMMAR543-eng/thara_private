@@ -1,10 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class UploadProfileImageUsecase
-    extends Use_Case<
-        Either<AppError, SuccessNewModel>,
-        UploadProfileImageParamsWrapper> {
+class UploadProfileImageUsecase extends Use_Case<
+    Either<AppError, SuccessNewModel>, UploadProfileImageParamsWrapper> {
   final AuthRepository _authRepository;
 
   // Constructor
@@ -12,8 +10,8 @@ class UploadProfileImageUsecase
 
   @override
   Future<Either<AppError, SuccessNewModel>> call(
-      UploadProfileImageParamsWrapper params,
-      ) async {
+    UploadProfileImageParamsWrapper params,
+  ) async {
     return await _authRepository.uploadProfileImageDomain(
       params.data,
       params.files,

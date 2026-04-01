@@ -32,7 +32,8 @@ class OtpView extends StatelessWidget {
     final numberController = TextEditingController();
 
     return SingleChildScrollView(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
         decoration: BoxDecoration(
@@ -69,8 +70,8 @@ class OtpView extends StatelessWidget {
               Text(
                 desc ??
                     ((page == OtpPages.register ||
-                        page == OtpPages.registerIndi ||
-                        isEmail == true)
+                            page == OtpPages.registerIndi ||
+                            isEmail == true)
                         ? "otp_sent_email".tr
                         : "otp_sent_phone".tr),
                 style: context.typography.bodyMedium.copyWith(
@@ -108,8 +109,8 @@ class OtpView extends StatelessWidget {
                       color: AppColors.textDefault,
                     ),
                     onChanged: (value) {
-                      final isValid =
-                          value.length == (page == OtpPages.forget ? 6 : length);
+                      final isValid = value.length ==
+                          (page == OtpPages.forget ? 6 : length);
                       if (isValid) {
                         controller.setOtpValidation(isValid);
 
@@ -158,7 +159,7 @@ class OtpView extends StatelessWidget {
 
               /// Resend Section
               Obx(
-                    () => Text.rich(
+                () => Text.rich(
                   TextSpan(
                     text: "${"otp_not_received".tr} ",
                     style: context.typography.bodyMedium.copyWith(
@@ -169,9 +170,9 @@ class OtpView extends StatelessWidget {
                         text: controller.enableResend.value
                             ? "otp_resend_request".tr
                             : "otp_resend_in".trParams({
-                          "seconds": controller.secondsRemaining.value
-                              .toString(),
-                        }),
+                                "seconds": controller.secondsRemaining.value
+                                    .toString(),
+                              }),
                         style: context.typography.bodyStrongMedium.copyWith(
                           color: controller.enableResend.value
                               ? AppColors.primary
@@ -183,9 +184,9 @@ class OtpView extends StatelessWidget {
                         recognizer: TapGestureRecognizer()
                           ..onTap = controller.enableResend.value
                               ? () => controller.resend(
-                            page: page,
-                            withdrawId: withdrawId,
-                          )
+                                    page: page,
+                                    withdrawId: withdrawId,
+                                  )
                               : null,
                       ),
                     ],
@@ -209,7 +210,7 @@ class OtpView extends StatelessWidget {
                       controller.verifyWithdrawOtp(
                         withdrawId ?? '',
                         otp,
-                            () => Get.back(),
+                        () => Get.back(),
                       );
                     } else if (page == OtpPages.login) {
                       controller.verifyOtp(otp, () => Get.back());

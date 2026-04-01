@@ -16,8 +16,8 @@ class LoginController extends GetxController {
     //  UserModel().deleteUserLocal();
     // BioUserModel.deleteBioLocal();
 
-    if(UserModel().getUserData()?.email != null &&
-        BioUserModel.getBioData()?.isBiometric == true){
+    if (UserModel().getUserData()?.email != null &&
+        BioUserModel.getBioData()?.isBiometric == true) {
       checkBiometric();
     }
   }
@@ -85,7 +85,6 @@ class LoginController extends GetxController {
     AuthService().login(
       params: LoginParams(email: email, password: password),
       voidCallBack: (loginModel) {
-
         String? token = loginModel.data?.accessToken;
 
         if (token != null && token.isNotEmpty) {

@@ -1,9 +1,9 @@
 import '../../../../index/index_main.dart';
 
 void showCancelConfirmationDialog(
-    BuildContext context, {
-      required VoidCallback onConfirm,
-    }) {
+  BuildContext context, {
+  required VoidCallback onConfirm,
+}) {
   showDialog(
     context: context,
     barrierDismissible: false,
@@ -99,39 +99,39 @@ class CancelConfirmationDialog extends StatelessWidget {
                 /// Confirm Button
                 is_primary_btn != null
                     ? SizedBox(
-                  height: 55.h,
-                  child: PrimaryTextButton(
-                    appButtonSize: AppButtonSize.xxLarge,
-                    onTap: () {
-                      Navigator.pop(context);
-                      onConfirm();
-                    },
-                    label: Text(
-                      confirm_text,
-                      style: context.typography.bodyLarge,
-                    ),
-                  ),
-                )
+                        height: 55.h,
+                        child: PrimaryTextButton(
+                          appButtonSize: AppButtonSize.xxLarge,
+                          onTap: () {
+                            Navigator.pop(context);
+                            onConfirm();
+                          },
+                          label: Text(
+                            confirm_text,
+                            style: context.typography.bodyLarge,
+                          ),
+                        ),
+                      )
                     : ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    onConfirm();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.errorForeground,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    padding: EdgeInsets.symmetric(vertical: 14.h),
-                  ),
-                  child: Text(
-                    confirm_text,
-                    style: context.typography.bodyLarge.copyWith(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          onConfirm();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.errorForeground,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6.r),
+                          ),
+                          padding: EdgeInsets.symmetric(vertical: 14.h),
+                        ),
+                        child: Text(
+                          confirm_text,
+                          style: context.typography.bodyLarge.copyWith(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
               ],
             ),
           ],

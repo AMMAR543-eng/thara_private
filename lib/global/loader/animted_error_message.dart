@@ -61,7 +61,7 @@ class _AnimatedErrorMessageState extends State<AnimatedErrorMessage>
               child: SafeArea(
                 child: Row(
                   children: [
-                     Icon(
+                    Icon(
                       Icons.error_outline,
                       color: AppColors.white,
                       size: 24,

@@ -27,7 +27,6 @@ class ContactSectionWidget extends StatelessWidget {
           ),
         ),
         SizedBox(height: 20.h),
-
         _buildCard(
           context,
           icon: Icons.mail,
@@ -36,7 +35,6 @@ class ContactSectionWidget extends StatelessWidget {
           onTap: () => launchUrlString("mailto:info@tharaco.sa"),
         ),
         SizedBox(height: 20.h),
-
         _buildCard(
           context,
           icon: Icons.phone,
@@ -45,7 +43,6 @@ class ContactSectionWidget extends StatelessWidget {
           onTap: () => launchUrlString("tel:8001240393"),
         ),
         SizedBox(height: 15.h),
-
         _buildCard(
           context,
           icon: Icons.mail,
@@ -54,7 +51,6 @@ class ContactSectionWidget extends StatelessWidget {
           onTap: () => launchUrlString("mailto:care@tharaco.sa"),
         ),
         SizedBox(height: 15.h),
-
         _buildCard(
           context,
           icon: Icons.lock_clock,
@@ -66,12 +62,12 @@ class ContactSectionWidget extends StatelessWidget {
   }
 
   Widget _buildCard(
-      BuildContext context, {
-        required IconData icon,
-        required String title,
-        required String subtitle,
-        VoidCallback? onTap,
-      }) {
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    VoidCallback? onTap,
+  }) {
     final colors = ColorMappingImpl();
 
     return GestureDetector(

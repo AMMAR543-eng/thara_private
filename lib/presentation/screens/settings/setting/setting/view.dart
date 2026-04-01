@@ -1,4 +1,3 @@
-
 import 'package:thara/index/index_main.dart';
 
 class SettingView extends StatelessWidget {
@@ -123,10 +122,7 @@ class SettingView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          if ((controller
-                                      .profileData
-                                      ?.account
-                                      ?.profilePhoto
+                          if ((controller.profileData?.account?.profilePhoto
                                       ?.url ??
                                   "")
                               .isNotEmpty)
@@ -358,7 +354,6 @@ class SettingView extends StatelessWidget {
                 );
               },
             ),
-
             GetBuilder<AppThemeController>(
               init: AppThemeController(),
               builder: (controller) {
@@ -372,7 +367,6 @@ class SettingView extends StatelessWidget {
               },
             ),
             const Divider(height: 1, color: AppColors.border_natural_normal),
-
             _buildListItem(
               context,
               "about_thara".tr,
@@ -498,44 +492,44 @@ class SettingView extends StatelessWidget {
   }
 
   Widget _buildActionText(BuildContext context, String text) => Text(
-    text,
-    style: context.typography.bodyLarge.copyWith(
-      color: AppColors.primary,
-      fontWeight: FontWeight.w600,
-    ),
-  );
+        text,
+        style: context.typography.bodyLarge.copyWith(
+          color: AppColors.primary,
+          fontWeight: FontWeight.w600,
+        ),
+      );
 
   Widget _buildSectionTitle(BuildContext context, String title) => Padding(
-    padding: EdgeInsets.symmetric(vertical: 8.h),
-    child: Align(
-      alignment: LocalStorage_language().read() == "en"
-          ? Alignment.centerLeft
-          : Alignment.centerRight,
-      child: Text(
-        title,
-        style: context.typography.bodyStrongMedium.copyWith(
-          color: AppColors.content_secondary,
+        padding: EdgeInsets.symmetric(vertical: 8.h),
+        child: Align(
+          alignment: LocalStorage_language().read() == "en"
+              ? Alignment.centerLeft
+              : Alignment.centerRight,
+          child: Text(
+            title,
+            style: context.typography.bodyStrongMedium.copyWith(
+              color: AppColors.content_secondary,
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 
   Widget _buildCardContainer(List<Widget> children) => Container(
-    width: double.infinity,
-    margin: EdgeInsets.only(top: 4.h),
-    decoration: BoxDecoration(
-      color: AppColors.white,
-      borderRadius: BorderRadius.circular(16.r),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black12.withOpacity(0.05),
-          blurRadius: 4,
-          offset: const Offset(0, 2),
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 4.h),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(16.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12.withOpacity(0.05),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-      ],
-    ),
-    child: Column(children: children),
-  );
+        child: Column(children: children),
+      );
 
   Widget _buildListItem(
     BuildContext context,

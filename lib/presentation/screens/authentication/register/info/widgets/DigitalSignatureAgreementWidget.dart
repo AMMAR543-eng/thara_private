@@ -55,7 +55,6 @@ class DigitalSignatureAgreementWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 8.w),
-
                 SvgPicture.asset(
                   IconsConstants.eye_icon, // 👈 your "eye" icon
                   height: 20.h,

@@ -6,7 +6,7 @@ class HijriDatePicker extends StatefulWidget {
   final bool? hasValue;
 
   const HijriDatePicker({Key? key, required this.onDateSelected, this.hasValue})
-    : super(key: key);
+      : super(key: key);
 
   @override
   State<HijriDatePicker> createState() => _HijriDatePickerState();
@@ -19,19 +19,19 @@ class _HijriDatePickerState extends State<HijriDatePicker> {
 
   // RIGHT ✅
   List<String> get hijriMonths => [
-    "hijri_muharram".tr,
-    "hijri_safar".tr,
-    "hijri_rabi_al_awwal".tr,
-    "hijri_rabi_al_thani".tr,
-    "hijri_jumada_al_ula".tr,
-    "hijri_jumada_al_thania".tr,
-    "hijri_rajab".tr,
-    "hijri_shaban".tr,
-    "hijri_ramadan".tr,
-    "hijri_shawwal".tr,
-    "hijri_dhul_qidah".tr,
-    "hijri_dhul_hijjah".tr,
-  ];
+        "hijri_muharram".tr,
+        "hijri_safar".tr,
+        "hijri_rabi_al_awwal".tr,
+        "hijri_rabi_al_thani".tr,
+        "hijri_jumada_al_ula".tr,
+        "hijri_jumada_al_thania".tr,
+        "hijri_rajab".tr,
+        "hijri_shaban".tr,
+        "hijri_ramadan".tr,
+        "hijri_shawwal".tr,
+        "hijri_dhul_qidah".tr,
+        "hijri_dhul_hijjah".tr,
+      ];
 
   final List<int> hijriYears = List.generate(
     100,

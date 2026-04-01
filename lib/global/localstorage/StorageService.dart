@@ -31,8 +31,7 @@ class StorageService {
       if (jsonData != null) {
         return json.decode(jsonData) as T;
       }
-    } catch (e) {
-    }
+    } catch (e) {}
     return null;
   }
 
@@ -68,8 +67,7 @@ class SecureStorageService {
       if (jsonData != null) {
         return json.decode(jsonData) as T;
       }
-    } catch (e) {
-    }
+    } catch (e) {}
     return null;
   }
 

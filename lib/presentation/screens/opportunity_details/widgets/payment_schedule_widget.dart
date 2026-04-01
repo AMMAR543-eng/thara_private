@@ -144,28 +144,27 @@ class PaymentSummaryRow extends StatelessWidget {
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: Row(
-        children:
-            [
-                  'total'.tr,
-                  '-',
-                  totalPrinciple.toStringAsFixed(2),
-                  totalInterest.toStringAsFixed(2),
-                  totalPlatformFee.toStringAsFixed(2),
-                  totalNetProfit.toStringAsFixed(2),
-                ]
-                .map(
-                  (cell) => Expanded(
-                    child: Text(
-                      cell,
-                      textAlign: TextAlign.center,
-                      style: context.typography.bodyMedium.copyWith(
-                        color: AppColors.background_black,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+        children: [
+          'total'.tr,
+          '-',
+          totalPrinciple.toStringAsFixed(2),
+          totalInterest.toStringAsFixed(2),
+          totalPlatformFee.toStringAsFixed(2),
+          totalNetProfit.toStringAsFixed(2),
+        ]
+            .map(
+              (cell) => Expanded(
+                child: Text(
+                  cell,
+                  textAlign: TextAlign.center,
+                  style: context.typography.bodyMedium.copyWith(
+                    color: AppColors.background_black,
+                    fontWeight: FontWeight.w600,
                   ),
-                )
-                .toList(),
+                ),
+              ),
+            )
+            .toList(),
       ),
     );
   }

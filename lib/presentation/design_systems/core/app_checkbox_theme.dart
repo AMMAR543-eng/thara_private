@@ -173,7 +173,8 @@ class AppCheckboxThemeExtension
           materialTapTargetSize ?? this.materialTapTargetSize,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
-      ) ,       mouseCursor: mouseCursor ?? this.mouseCursor,
+      ),
+      mouseCursor: mouseCursor ?? this.mouseCursor,
       side: side ?? this.side,
     );
   }

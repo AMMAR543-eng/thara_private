@@ -101,14 +101,12 @@ class GenericDropdownState<T> extends State<GenericDropdown<T>>
         screenHeight - offset.dy - renderBox.size.height;
     final availableSpaceAbove = offset.dy;
 
-    final bool showAbove =
-        availableSpaceBelow < widget.maxHeight &&
+    final bool showAbove = availableSpaceBelow < widget.maxHeight &&
         availableSpaceAbove > availableSpaceBelow;
 
     final dropdownHeight = widget.items.length * 56.0;
-    final dropdownMaxHeight = (dropdownHeight < widget.maxHeight
-        ? dropdownHeight
-        : widget.maxHeight);
+    final dropdownMaxHeight =
+        (dropdownHeight < widget.maxHeight ? dropdownHeight : widget.maxHeight);
 
     return OverlayEntry(
       builder: (context) => Stack(
@@ -227,7 +225,7 @@ class GenericDropdownState<T> extends State<GenericDropdown<T>>
                     child: Text(
                       selectedValue != null
                           ? (selectedValue as GenericListModel).name ??
-                                "" // Display only the name
+                              "" // Display only the name
                           : widget.hint_text,
                       style: context.typography.bodyMedium.copyWith(
                         height: 0,

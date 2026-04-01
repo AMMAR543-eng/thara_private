@@ -67,7 +67,7 @@ abstract class ProcessRepository {
 
   /// Create wallet payment (amount + type)
   Future<Either<AppError, CreatePaymentResponseModel>>
-  createWalletPaymentDomain(Map<String, dynamic> data);
+      createWalletPaymentDomain(Map<String, dynamic> data);
 
   /// Check wallet payment status by payment_id
   Future<Either<AppError, CheckPaymentResponseModel>> checkWalletPaymentDomain(

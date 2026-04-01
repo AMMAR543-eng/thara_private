@@ -9,13 +9,13 @@ class OtpModel extends BaseEntity {
     final AccountModel? account,
     final UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory OtpModel.fromJson(Map<String, dynamic> json) {
     return OtpModel(

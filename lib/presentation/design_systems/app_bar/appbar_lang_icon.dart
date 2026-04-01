@@ -20,7 +20,7 @@ class GenericLanguageAppBar extends StatelessWidget
         icon: const Icon(Icons.language, size: 25),
         color: AppColors.primary,
         onPressed: () {
-       //   final controller = initUseCase(() => AppLanguage());
+          //   final controller = initUseCase(() => AppLanguage());
           final controller = Get.find<AppLanguage>();
 
           final currentLang = LocalStorage_language().read();

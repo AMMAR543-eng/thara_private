@@ -4,7 +4,7 @@ class QualifiedInvestorParam {
   final String? experienceInFinancialSector; // ملف خبرة بالقطاع المالي
   final String? professionalCertificationRequirement; // ملف شهادة مهنية
   final String?
-  annualIncomeAndGeneralSecuritiesCertificationRequirement; // ملف الدخل السنوي
+      annualIncomeAndGeneralSecuritiesCertificationRequirement; // ملف الدخل السنوي
 
   QualifiedInvestorParam({
     this.transactionHistoryRequirement,
@@ -29,10 +29,10 @@ class QualifiedInvestorParam {
           experienceInFinancialSector ?? this.experienceInFinancialSector,
       professionalCertificationRequirement:
           professionalCertificationRequirement ??
-          this.professionalCertificationRequirement,
+              this.professionalCertificationRequirement,
       annualIncomeAndGeneralSecuritiesCertificationRequirement:
           annualIncomeAndGeneralSecuritiesCertificationRequirement ??
-          this.annualIncomeAndGeneralSecuritiesCertificationRequirement,
+              this.annualIncomeAndGeneralSecuritiesCertificationRequirement,
     );
   }
 }

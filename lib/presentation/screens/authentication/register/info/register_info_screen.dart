@@ -1,9 +1,9 @@
 import '../../../../../index/index_main.dart';
 
 class RegisterInfoScreen extends StatefulWidget {
-   bool? isCompany;
+  bool? isCompany;
 
-   RegisterInfoScreen({super.key, this.isCompany});
+  RegisterInfoScreen({super.key, this.isCompany});
 
   @override
   State<RegisterInfoScreen> createState() => _RegisterInfoScreenState();
@@ -16,7 +16,7 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
   @override
   void initState() {
     String account_type = const AccountModel().getAccountLocal()?.type ?? "";
-    bool is_local_account_company = account_type == "company" ?true:false;
+    bool is_local_account_company = account_type == "company" ? true : false;
     widget.isCompany = is_local_account_company;
     registerController = initUseCase(() => RegisterController());
     super.initState();
@@ -172,7 +172,6 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                     ),
                   ),
                   SizedBox(height: 16.h),
-
                   TextInputWidget(
                     title: "companyRecord".tr,
                     appTextField: AppTextField(
@@ -187,7 +186,6 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                     ),
                   ),
                   SizedBox(height: 16.h),
-
                   TextInputWidget(
                     title: "uniNumber".tr,
                     appTextField: AppTextField(
@@ -202,7 +200,6 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                     ),
                   ),
                   SizedBox(height: 16.h),
-
                   GetBuilder<RegisterInfoController>(
                     builder: (_) {
                       return GenericNewDropdown<GenericListModel>(
@@ -274,11 +271,12 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                     ],
                   ),
                 ),
+
                 /// Terms
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
                   child: Obx(
-                        () => Row(
+                    () => Row(
                       children: [
                         GestureDetector(
                           onTap: controller.acceptCreditsAction,
@@ -299,10 +297,10 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                             ),
                             child: controller.acceptCredits.value
                                 ? Icon(
-                              Icons.check,
-                              size: 16.sp,
-                              color: AppColors.white,
-                            )
+                                    Icons.check,
+                                    size: 16.sp,
+                                    color: AppColors.white,
+                                  )
                                 : null,
                           ),
                         ),

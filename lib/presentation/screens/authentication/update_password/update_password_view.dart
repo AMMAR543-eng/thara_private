@@ -1,4 +1,3 @@
-
 import 'package:thara/presentation/screens/authentication/update_password/udpate_password_controller.dart';
 
 import '../../../../index/index_main.dart';
@@ -136,8 +135,8 @@ class _UpdatePasswordScreenState extends State<UpdatePasswordScreen> {
                               validator: InputValidators.combine([
                                 notEmptyValidator,
                                 InputValidators.validatePassword,
-                                (value) =>
-                                    InputValidators.validateConfirmationPassword(
+                                (value) => InputValidators
+                                        .validateConfirmationPassword(
                                       value,
                                       passwordController.text,
                                     ),

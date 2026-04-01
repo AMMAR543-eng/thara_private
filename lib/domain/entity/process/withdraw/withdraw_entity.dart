@@ -20,11 +20,11 @@ class WithdrawEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    status,
-    transferringStatus,
-    amount,
-    bankAccount,
-    createdAt,
-  ];
+        id,
+        status,
+        transferringStatus,
+        amount,
+        bankAccount,
+        createdAt,
+      ];
 }

@@ -12,7 +12,6 @@ class UpgradeQualifiedInvestorWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       decoration: BoxDecoration(
         color: AppColors.white,
-
         borderRadius: BorderRadius.circular(12.r),
         image: LocalStorageTheme().read() == "dark"
             ? null
@@ -124,7 +123,6 @@ class ProfessionalInvestorWidget extends StatelessWidget {
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: AppColors.white,
-
         borderRadius: BorderRadius.circular(12.r),
         image: LocalStorageTheme().read() == "dark"
             ? null

@@ -10,8 +10,8 @@ class BiometricLoginUseCase
 
   @override
   Future<Either<AppError, SuccessNewModel>> call(
-      BiometricLoginParams params,
-      ) async {
+    BiometricLoginParams params,
+  ) async {
     return await _authRepositoryImpl.biometricLoginDomain(params.toMap());
   }
 }

@@ -41,23 +41,23 @@ class _TransactionTabsWidgetState extends State<TransactionTabsWidget> {
             if (index == 0) {
               borderRadius = isArabic
                   ? const BorderRadius.only(
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              )
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    )
                   : const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-              );
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    );
             } else {
               borderRadius = isArabic
                   ? const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-              )
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10),
+                    )
                   : const BorderRadius.only(
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              );
+                      topRight: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    );
             }
 
             return Expanded(
@@ -76,8 +76,7 @@ class _TransactionTabsWidgetState extends State<TransactionTabsWidget> {
                     child: Text(
                       tab["text"],
                       style: context.typography.font40White.copyWith(
-                        color:
-                        isSelected ? colors.white : colors.textDefault,
+                        color: isSelected ? colors.white : colors.textDefault,
                       ),
                     ),
                   ),

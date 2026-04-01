@@ -54,7 +54,9 @@ class EditEmailBottomSheet extends StatelessWidget {
 
                 /// --- Label
                 Align(
-                  alignment:LocalStorage_language().read() == "ar" ? Alignment.centerRight: Alignment.centerLeft,
+                  alignment: LocalStorage_language().read() == "ar"
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
                   child: Text(
                     "new_email_label".tr,
                     style: typography.bodyStrongLarge.copyWith(

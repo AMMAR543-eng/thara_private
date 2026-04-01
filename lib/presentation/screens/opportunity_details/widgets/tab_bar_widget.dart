@@ -38,8 +38,8 @@ class CustomTabBar extends StatelessWidget {
                       color: isSelected
                           ? AppColors.darkJungleGreen
                           : isEnabled
-                          ? AppColors.grayMedium
-                          : AppColors.grayLight, // disabled color
+                              ? AppColors.grayMedium
+                              : AppColors.grayLight, // disabled color
                     ),
                   ),
                   SizedBox(height: 15.h),
@@ -49,9 +49,8 @@ class CustomTabBar extends StatelessWidget {
                     width: double.infinity,
                     margin: EdgeInsets.symmetric(horizontal: 20.w),
                     decoration: BoxDecoration(
-                      color: isSelected
-                          ? AppColors.primary
-                          : Colors.transparent,
+                      color:
+                          isSelected ? AppColors.primary : Colors.transparent,
                       borderRadius: BorderRadius.circular(2.r),
                     ),
                   ),

@@ -13,7 +13,7 @@ class OtpBottomSheet extends StatelessWidget {
     this.is_email = false,
     required this.page,
     required this.phone,
-     this.is_company,
+    this.is_company,
   });
 
   @override
@@ -63,8 +63,8 @@ class OtpBottomSheet extends StatelessWidget {
               /// Description
               Text(
                 (page == OtpPages.register ||
-                    page == OtpPages.registerIndi ||
-                    is_email == true)
+                        page == OtpPages.registerIndi ||
+                        is_email == true)
                     ? "otp_sent_email".tr
                     : "otp_sent_phone".tr,
                 style: context.typography.bodyMedium.copyWith(
@@ -102,8 +102,8 @@ class OtpBottomSheet extends StatelessWidget {
                       color: AppColors.primary,
                     ),
                     onChanged: (value) {
-                      final isValid =
-                          value.length == (page == OtpPages.forget ? 6 : length);
+                      final isValid = value.length ==
+                          (page == OtpPages.forget ? 6 : length);
                       if (isValid) {
                         controller.setOtpValidation(isValid);
 
@@ -120,7 +120,8 @@ class OtpBottomSheet extends StatelessWidget {
                           controller.verifyOtp(value, clearInput);
                         } else if (page == OtpPages.register ||
                             page == OtpPages.registerIndi) {
-                          controller.registerVerifyOtp(value, clearInput,is_company);
+                          controller.registerVerifyOtp(
+                              value, clearInput, is_company);
                         } else if (page == OtpPages.withdraw) {
                           // handle withdraw verifyOtp if you have ID
                         }
@@ -146,7 +147,7 @@ class OtpBottomSheet extends StatelessWidget {
 
               /// Resend line
               Obx(
-                    () => Text.rich(
+                () => Text.rich(
                   TextSpan(
                     text: "otp_not_received".tr,
                     style: context.typography.bodyMedium.copyWith(
@@ -157,9 +158,9 @@ class OtpBottomSheet extends StatelessWidget {
                         text: controller.enableResend.value
                             ? "otp_resend_request".tr
                             : "otp_resend_in".trParams({
-                          "seconds":
-                          controller.secondsRemaining.value.toString(),
-                        }),
+                                "seconds": controller.secondsRemaining.value
+                                    .toString(),
+                              }),
                         style: context.typography.bodyStrongMedium.copyWith(
                           color: controller.enableResend.value
                               ? AppColors.primary

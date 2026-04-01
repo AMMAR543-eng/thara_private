@@ -20,7 +20,7 @@ class LogoutDialog extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(18.w),
               decoration: const BoxDecoration(shape: BoxShape.circle),
-              child:  Icon(
+              child: Icon(
                 Icons.logout_rounded,
                 color: AppColors.primary,
                 size: 36,

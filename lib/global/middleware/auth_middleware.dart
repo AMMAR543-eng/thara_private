@@ -3,8 +3,7 @@ import '../../index/index_main.dart';
 void handleUserNavigation({
   required UserEntity user,
   required AccountModel account,
-   bool? is_biometric,
-
+  bool? is_biometric,
   VoidCallback? onNoMatch, // ✅ Optional callback
 }) {
   // 🛡️ 1. Check 2FA
@@ -38,7 +37,6 @@ void handleUserNavigation({
     Get.toNamed(loginNafazScreen);
     return;
   }
-
 
   switch (activeStep) {
     case "email_verification":

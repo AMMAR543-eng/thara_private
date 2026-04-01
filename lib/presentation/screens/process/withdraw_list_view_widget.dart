@@ -35,9 +35,8 @@ class WithdrawListViewWidget extends StatelessWidget {
         final int? bankId = item.bankAccount?.bankId;
         final String iban = item.bankAccount?.iban ?? "—";
 
-        final bool isCancelable =
-            item.status == "waiting_for_approval" ||
-                item.status == "not_verified";
+        final bool isCancelable = item.status == "waiting_for_approval" ||
+            item.status == "not_verified";
 
         final bool is_not_verified = item.status == "not_verified";
 
@@ -163,9 +162,9 @@ class _WithdrawCard extends StatelessWidget {
           transferringStatus == null
               ? const SizedBox()
               : InfoStatusRowWidget(
-            title: "money_transfer_status".tr,
-            status: getArabicTransferStatus(transferringStatus),
-          ),
+                  title: "money_transfer_status".tr,
+                  status: getArabicTransferStatus(transferringStatus),
+                ),
 
           if (is_not_verified)
             SizedBox(
@@ -185,9 +184,9 @@ class _WithdrawCard extends StatelessWidget {
                       desc: "otp_sent_to_Email".tr,
                       withdrawId: id,
                       phone: LoginResponseModel()
-                          .getTokenData()
-                          ?.user
-                          ?.phoneNumber ??
+                              .getTokenData()
+                              ?.user
+                              ?.phoneNumber ??
                           "",
                       page: OtpPages.withdraw,
                     ),
@@ -230,9 +229,9 @@ class _WithdrawCard extends StatelessWidget {
 }
 
 void showCancelConfirmationDialog(
-    BuildContext context, {
-      required VoidCallback onConfirm,
-    }) {
+  BuildContext context, {
+  required VoidCallback onConfirm,
+}) {
   showDialog(
     context: context,
     barrierDismissible: false,
@@ -251,7 +250,7 @@ String getArabicTransferStatus(String? status) {
   if (status == null || status.isEmpty) return "-";
 
   final match = moneyTransferStatusList.firstWhere(
-        (item) => item.name?.toUpperCase() == status.toUpperCase(),
+    (item) => item.name?.toUpperCase() == status.toUpperCase(),
     orElse: () => GenericListModel(name_ar: "-", name: "-", id: 0),
   );
   return match.name_ar ?? "-";

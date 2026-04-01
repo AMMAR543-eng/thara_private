@@ -132,12 +132,11 @@ class RegisterNafazScreen extends StatelessWidget {
                                     controller.nafazCode?.random ?? "--",
                                     style: context.typography.header4xLarge
                                         .copyWith(
-                                          color: AppColors.black_color,
-                                          fontSize: 100,
-                                        ),
+                                      color: AppColors.black_color,
+                                      fontSize: 100,
+                                    ),
                                   ),
                           ),
-
                           Positioned(
                             top: -10.h,
                             right: -10.w,

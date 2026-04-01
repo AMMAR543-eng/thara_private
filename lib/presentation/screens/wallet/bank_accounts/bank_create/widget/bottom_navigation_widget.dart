@@ -25,10 +25,10 @@ class BottomNavigationConfirm extends StatelessWidget {
         ),
         onTap: controller.isButtonEnabled
             ? () {
-          controller.isleanEnable == true
-              ? controller.submitDataWithLean()
-              : controller.submitData();
-        }
+                controller.isleanEnable == true
+                    ? controller.submitDataWithLean()
+                    : controller.submitData();
+              }
             : null,
       ),
     );

@@ -1,4 +1,3 @@
-
 import '../../index/index_main.dart';
 
 class RegisterService {
@@ -58,13 +57,13 @@ class RegisterService {
     Loader.show();
     final result =
         await initUseCase(() => RegisterEmailDomainUseCase(Get.find())).call(
-          SignUpParam(
-            type: param.type,
-            email: param.email,
-            password: param.password,
-            passwordConfirm: param.passwordConfirm,
-          ),
-        );
+      SignUpParam(
+        type: param.type,
+        email: param.email,
+        password: param.password,
+        passwordConfirm: param.passwordConfirm,
+      ),
+    );
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
   }
@@ -96,7 +95,6 @@ class RegisterService {
   Future<void> nafathGetCode({
     required Function(NafathCodeEntity) voidCallBack,
     bool? isLogin,
-
   }) async {
     Loader.show();
     final result = await initUseCase(
@@ -109,7 +107,7 @@ class RegisterService {
   Future<void> nafathCheckStatus({
     required Function(NafathStatusModel) voidCallBack,
     required Function(AppError) errorCallback,
-     bool? isLogin,
+    bool? isLogin,
   }) async {
     Loader.show();
     final result = await initUseCase(

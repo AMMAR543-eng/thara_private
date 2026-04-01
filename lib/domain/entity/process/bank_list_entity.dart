@@ -1,4 +1,4 @@
- import '../../../index/index_main.dart';
+import '../../../index/index_main.dart';
 
 class BankAddressDataEntity {
   final List<GenericListModel>? banks;
@@ -12,9 +12,7 @@ class BankAddressDataEntity {
   });
 }
 
-
-
- class AddressEntity {
+class AddressEntity {
   final String objLatLng;
   final String buildingNumber;
   final String street;

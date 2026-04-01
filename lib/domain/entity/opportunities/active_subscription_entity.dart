@@ -35,19 +35,19 @@ class ActiveSubscriptionEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    status,
-    volume,
-    price,
-    totalPrice,
-    expectedProfit,
-    taxesFees,
-    netProfit,
-    gainedNetProfit,
-    createdAt,
-    projectName,
-    loanType,
-    duration,
-    opportunityId,
-  ];
+        id,
+        status,
+        volume,
+        price,
+        totalPrice,
+        expectedProfit,
+        taxesFees,
+        netProfit,
+        gainedNetProfit,
+        createdAt,
+        projectName,
+        loanType,
+        duration,
+        opportunityId,
+      ];
 }

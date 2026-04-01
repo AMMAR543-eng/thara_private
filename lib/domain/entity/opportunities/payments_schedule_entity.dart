@@ -21,12 +21,12 @@ class PaymentsScheduleEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    dueToDate,
-    monthOffset,
-    principle,
-    interest,
-    total,
-    netProfit,
-    platformFee,
-  ];
+        dueToDate,
+        monthOffset,
+        principle,
+        interest,
+        total,
+        netProfit,
+        platformFee,
+      ];
 }

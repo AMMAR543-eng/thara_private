@@ -48,8 +48,7 @@ class BuildTextWidget extends StatelessWidget {
           ]),
 
           onChanged: (value) {
-            final isText =
-                keyboardType == TextInputType.text ||
+            final isText = keyboardType == TextInputType.text ||
                 keyboardType == TextInputType.emailAddress ||
                 keyboardType == TextInputType.name;
 

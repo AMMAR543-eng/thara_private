@@ -43,8 +43,7 @@ class RegisterController extends GetxController {
       final hasMinLen = text.length >= 8;
       final noSpaces = !text.contains(' ');
 
-      validPassword =
-          hasUpper &&
+      validPassword = hasUpper &&
           hasLower &&
           hasNumber &&
           hasSpecial &&
@@ -57,16 +56,15 @@ class RegisterController extends GetxController {
     confirmPasswordController.addListener(() {
       validConfirm =
           confirmPasswordController.text == passwordController.text &&
-          confirmPasswordController.text.isNotEmpty;
+              confirmPasswordController.text.isNotEmpty;
       update(['auth_button']);
     });
   }
 
   void onTypeSelected(GenericListModel? type) {
     selectedType = type;
-    typeConfirmed = type?.id == 1
-        ? AccountType.individual.name
-        : AccountType.company.name;
+    typeConfirmed =
+        type?.id == 1 ? AccountType.individual.name : AccountType.company.name;
     update(['auth_button']);
     update();
   }
@@ -127,7 +125,6 @@ class RegisterController extends GetxController {
     RegisterService().registerEmail(
       param: param,
       voidCallBack: (data) async {
-
         if (data.accessToken != null && data.accessToken!.isNotEmpty) {
           showModalBottomSheet(
             context: context,

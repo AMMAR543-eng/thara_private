@@ -1,4 +1,3 @@
-
 import '../../../index/index_main.dart';
 
 class InvestmentTransactionDataModel extends InvestmentTransactionDataEntity {

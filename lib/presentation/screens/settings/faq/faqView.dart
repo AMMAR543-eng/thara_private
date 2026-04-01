@@ -10,7 +10,7 @@ class FaqView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar:  InnerViewAppBar(title: "faq".tr),
+      appBar: InnerViewAppBar(title: "faq".tr),
       body: SafeArea(
         child: GetBuilder<FaqVieWModel>(
           init: FaqVieWModel(),

@@ -45,8 +45,7 @@ class WalletController extends GetxController {
       elevation: 1,
       backgroundColor: Colors.transparent,
       builder: (context) => WithdrawBottomSheet(
-        bankAccounts:
-            bankAccountDataEntity?.bankAccounts
+        bankAccounts: bankAccountDataEntity?.bankAccounts
                 ?.map(
                   (e) => GenericListModel(
                     id: e.id ?? 0,

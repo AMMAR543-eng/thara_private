@@ -63,7 +63,6 @@ class OpportunitiesController extends GetxController {
     );
   }
 
-
   getOpportunitiesData() {
     OpportunitiesService().getOpportunities(
       voidCallBack: (data) {

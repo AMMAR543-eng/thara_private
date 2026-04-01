@@ -9,7 +9,9 @@ abstract class RegisterRepository {
     String? url,
   });
 
-  Future<Either<AppError, BaseEntity>> resendOtpDomain(Map<String, dynamic> data,{String? url});
+  Future<Either<AppError, BaseEntity>> resendOtpDomain(
+      Map<String, dynamic> data,
+      {String? url});
 
   Future<Either<AppError, LoginEntity>> registerEmailDomain(
     Map<String, dynamic> data,
@@ -29,7 +31,8 @@ abstract class RegisterRepository {
 
   Future<Either<AppError, NafathCodeEntity>> nafathGetCodeDomain(bool? isLogin);
 
-  Future<Either<AppError, NafathStatusModel>> nafathCheckStatusDomain(bool? isLogin);
+  Future<Either<AppError, NafathStatusModel>> nafathCheckStatusDomain(
+      bool? isLogin);
 
   Future<Either<AppError, KycQuestionsEntity>> getKYCQuestionsDomain();
 
@@ -37,14 +40,13 @@ abstract class RegisterRepository {
     Map<String, dynamic> data,
   );
 
-  Future<Either<AppError, SuccessNewModel>> sendKYCQuestionAnswerWithFilesDomain(
-      Map<String, dynamic> data,
-      Map<String, String> files,
-      );
+  Future<Either<AppError, SuccessNewModel>>
+      sendKYCQuestionAnswerWithFilesDomain(
+    Map<String, dynamic> data,
+    Map<String, String> files,
+  );
 
   Future<Either<AppError, SingingDetailsEntity>> singingAgreementDomain();
 
   Future<Either<AppError, BaseEntity>> singingWithSirarDomain();
-
-
 }

@@ -27,7 +27,6 @@ class SettingsWidget extends StatelessWidget {
               endIndent: 20.h,
               indent: 20.h,
             ),
-
             SettingsItemWidget(
               title: "change_password_pin".tr,
               icon: IconsConstants.passSettings,
@@ -38,6 +37,4 @@ class SettingsWidget extends StatelessWidget {
       ),
     );
   }
-
-
 }

@@ -1,12 +1,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class GetOpportunitiesUseCase
-    extends
-        Use_Case<
-          Either<AppError, GetOpportunitiesEntity>,
-          OpportunityParameter
-        > {
+class GetOpportunitiesUseCase extends Use_Case<
+    Either<AppError, GetOpportunitiesEntity>, OpportunityParameter> {
   final OpportunitiesRepository _opportunitiesRepositoryImpl;
 
   // Constructor

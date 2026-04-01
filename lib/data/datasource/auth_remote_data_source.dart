@@ -1,4 +1,3 @@
-
 import '../../index/index_main.dart';
 
 abstract class AuthRemoteDataSourceRepo {
@@ -6,13 +5,12 @@ abstract class AuthRemoteDataSourceRepo {
 
   Future<ApiResult<OtpModel>> verifyOtp(String code);
 
-
   Future<ApiResult<SuccessNewModel>> biometriclogin(Map<String, dynamic> data);
 
-
-  Future<ApiResult<SuccessNewModel>> uploadProfileImage(  Map<String, dynamic> data,
-      Map<String, String> files,);
-
+  Future<ApiResult<SuccessNewModel>> uploadProfileImage(
+    Map<String, dynamic> data,
+    Map<String, String> files,
+  );
 
   Future<ApiResult<OtpModel>> resendOtp();
 

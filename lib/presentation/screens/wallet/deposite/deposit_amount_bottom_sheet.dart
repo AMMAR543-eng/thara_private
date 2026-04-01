@@ -36,15 +36,12 @@ class _DepositAmountBottomSheetState extends State<DepositAmountBottomSheet> {
               ),
             ),
             SizedBox(height: 12.h),
-
             AppTextField(
               controller: amountController,
               keyboardType: TextInputType.number,
               hintText: "enter_amount".tr,
             ),
-
             SizedBox(height: 20.h),
-
             SizedBox(
               height: 50.h,
               width: double.infinity,

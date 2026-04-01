@@ -137,7 +137,7 @@ class ProcessRepositoryImpl extends ProcessRepository {
 
   @override
   Future<Either<AppError, CreatePaymentResponseModel>>
-  createWalletPaymentDomain(Map<String, dynamic> data) async {
+      createWalletPaymentDomain(Map<String, dynamic> data) async {
     final result = await _processRemoteDataSourceRepo.createWalletPayment(data);
 
     return result is Success<CreatePaymentResponseModel>

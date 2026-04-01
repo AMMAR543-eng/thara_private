@@ -36,12 +36,13 @@ class FileUploadWidget extends StatelessWidget {
 
       case FileUploadStatus.uploading:
         final remainingSeconds =
-        ((1 - progress) * 15).clamp(1, 60).toInt(); // fake calc (1–60s)
+            ((1 - progress) * 15).clamp(1, 60).toInt(); // fake calc (1–60s)
 
         return _buildUploadFileRow(
           context,
           background: AppColors.background_neutral_default,
-          statusText: "${(progress * 100).toStringAsFixed(0)}% • متبقي $remainingSeconds ثانية",
+          statusText:
+              "${(progress * 100).toStringAsFixed(0)}% • متبقي $remainingSeconds ثانية",
           progressWidget: LinearProgressIndicator(
             value: progress,
             color: AppColors.primary,
@@ -50,7 +51,6 @@ class FileUploadWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
           ),
         );
-
 
       case FileUploadStatus.success:
         return _buildFileRow(
@@ -127,8 +127,6 @@ class FileUploadWidget extends StatelessWidget {
                             color: AppColors.content_secondary,
                           ),
                         ),
-
-
                     ],
                   ),
                 ),
@@ -167,7 +165,7 @@ class FileUploadWidget extends StatelessWidget {
           const SizedBox(width: 10),
           InkWell(
             onTap: onRemoveFile,
-            child:  Icon(
+            child: Icon(
               Icons.close,
               size: 20,
               color: AppColors.content_primary,
@@ -179,11 +177,11 @@ class FileUploadWidget extends StatelessWidget {
   }
 
   Widget _buildUploadFileRow(
-      BuildContext context, {
-        required Color background,
-        Widget? progressWidget,
-        String? statusText,
-      }) {
+    BuildContext context, {
+    required Color background,
+    Widget? progressWidget,
+    String? statusText,
+  }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 6),
       padding: const EdgeInsets.all(14),
@@ -199,7 +197,7 @@ class FileUploadWidget extends StatelessWidget {
               /// Remove button
               InkWell(
                 onTap: onRemoveFile,
-                child:  Icon(
+                child: Icon(
                   Icons.close,
                   size: 20,
                   color: AppColors.content_primary,
@@ -223,7 +221,7 @@ class FileUploadWidget extends StatelessWidget {
                     if (fileSize != null)
                       Text(
                         "${fileSize!.toStringAsFixed(1)}MB"
-                            "${statusText != null ? " • $statusText" : ""}",
+                        "${statusText != null ? " • $statusText" : ""}",
                         style: context.typography.bodySmall.copyWith(
                           color: AppColors.content_secondary,
                         ),
@@ -268,8 +266,6 @@ class FileUploadWidget extends StatelessWidget {
     }
     return SvgPicture.asset(IconsConstants.pdf_icon);
   }
-
-
 }
 
 Widget dottedUploadBox(BuildContext context) {

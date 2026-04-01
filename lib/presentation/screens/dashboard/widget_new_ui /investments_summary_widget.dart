@@ -212,9 +212,8 @@ class InvestmentSummaryWidget extends StatelessWidget {
             context: context,
             label: 'total_investment_count',
             type: StatType.investmentsCount,
-            value: (c.investmentEntity == null)
-                ? null
-                : c.investmentItems.length,
+            value:
+                (c.investmentEntity == null) ? null : c.investmentItems.length,
           ),
           _card(
             context: context,

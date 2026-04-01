@@ -10,7 +10,6 @@ class ResetPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: const GenericLanguageAppBar(title: "forget_password_title"),
-
       body: GetBuilder<ForgetPasswordController>(
         init: ForgetPasswordController(),
         builder: (controller) {
@@ -33,7 +32,7 @@ class ResetPasswordScreen extends StatelessWidget {
                           InputValidators.validatePassword,
                         ]),
                         onValidationChanged:
-                        controller.updatePasswordValidation,
+                            controller.updatePasswordValidation,
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: !controller.showPassword,
                         prefixIcon: Padding(
@@ -133,14 +132,14 @@ class ResetPasswordScreen extends StatelessWidget {
                           ),
                           onTap: controller.canSubmitResetPass
                               ? () {
-                            controller.resetPassword(
-                              controller.emailController.text,
-                              controller.idController.text,
-                              code ?? "",
-                              controller.passwordController.text,
-                              controller.confirmPasswordController.text,
-                            );
-                          }
+                                  controller.resetPassword(
+                                    controller.emailController.text,
+                                    controller.idController.text,
+                                    code ?? "",
+                                    controller.passwordController.text,
+                                    controller.confirmPasswordController.text,
+                                  );
+                                }
                               : null,
                         ),
                       ),
@@ -160,9 +159,8 @@ class ResetPasswordScreen extends StatelessWidget {
       children: [
         Icon(
           isValid ? Icons.check_circle : Icons.cancel,
-          color: isValid
-              ? AppColors.successForeground
-              : AppColors.errorForeground,
+          color:
+              isValid ? AppColors.successForeground : AppColors.errorForeground,
           size: 18,
         ),
         SizedBox(width: 6.w),

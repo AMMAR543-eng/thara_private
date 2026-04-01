@@ -1,4 +1,3 @@
-
 import '../../../../index/index_main.dart';
 
 class ResetCompletedScreen extends StatelessWidget {

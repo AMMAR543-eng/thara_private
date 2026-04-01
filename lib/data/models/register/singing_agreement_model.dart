@@ -12,28 +12,26 @@ class SingingAgreementModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory SingingAgreementModel.fromJson(Map<String, dynamic> json) {
     return SingingAgreementModel(
-      data:
-          json['data'] != null
-              ? SingingDetailsModel.fromJson(json['data'])
-              : null,
+      data: json['data'] != null
+          ? SingingDetailsModel.fromJson(json['data'])
+          : null,
       customStatusCode: json['customStatusCode'],
       message: json['message'],
       debug: json['debug'],
       env: json['env'],
-      account:
-          json['account'] != null
-              ? AccountModel.fromJson(json['account'])
-              : null,
+      account: json['account'] != null
+          ? AccountModel.fromJson(json['account'])
+          : null,
       user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
     );
   }
@@ -52,7 +50,7 @@ class SingingDetailsModel extends SingingDetailsEntity {
   final String? investAgreement;
 
   const SingingDetailsModel({this.investAgreement})
-    : super(investAgreement: investAgreement);
+      : super(investAgreement: investAgreement);
 
   factory SingingDetailsModel.fromJson(Map<String, dynamic> json) {
     return SingingDetailsModel(

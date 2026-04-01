@@ -99,12 +99,8 @@ class BankTransferView extends StatelessWidget {
                         /// --- IBAN
                         _BankDetailItem(
                           label: "iban".tr,
-                          value:
-                              controller
-                                  .baseEntity
-                                  ?.account
-                                  ?.virtualAccount
-                                  ?.iban ??
+                          value: controller
+                                  .baseEntity?.account?.virtualAccount?.iban ??
                               "----------",
                           typography: typography,
                         ),
@@ -114,11 +110,7 @@ class BankTransferView extends StatelessWidget {
                         /// --- Account Number
                         _BankDetailItem(
                           label: "account_number".tr,
-                          value:
-                              controller
-                                  .baseEntity
-                                  ?.account
-                                  ?.virtualAccount
+                          value: controller.baseEntity?.account?.virtualAccount
                                   ?.accountNumber ??
                               "----------",
                           typography: typography,
@@ -128,8 +120,6 @@ class BankTransferView extends StatelessWidget {
                   ),
 
                   SizedBox(height: 40.h),
-
-
                 ],
               ),
             );
@@ -202,7 +192,7 @@ class _BankDetailItem extends StatelessWidget {
               },
               child: Padding(
                 padding: EdgeInsets.only(top: 4.h),
-                child:  Icon(
+                child: Icon(
                   Icons.copy_outlined,
                   size: 22,
                   color: AppColors.primary,

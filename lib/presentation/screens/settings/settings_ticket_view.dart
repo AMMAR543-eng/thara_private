@@ -173,20 +173,20 @@ class _SettingsTicketViewState extends State<SettingsTicketView> {
                         child: PrimaryTextButton(
                           appButtonSize: AppButtonSize.xlarge,
                           onTap: validName &&
-                              validPhone &&
-                              validMessage &&
-                              controller.selectedTicketType?.id != null
+                                  validPhone &&
+                                  validMessage &&
+                                  controller.selectedTicketType?.id != null
                               ? () {
-                            if (formTicketKey.currentState?.validate() ??
-                                false) {
-                              controller.storeTicketApi(
-                                nameController.text,
-                                phoneController.text,
-                                controller.selectedTicketType!.name_ar!,
-                                messageController.text,
-                              );
-                            }
-                          }
+                                  if (formTicketKey.currentState?.validate() ??
+                                      false) {
+                                    controller.storeTicketApi(
+                                      nameController.text,
+                                      phoneController.text,
+                                      controller.selectedTicketType!.name_ar!,
+                                      messageController.text,
+                                    );
+                                  }
+                                }
                               : null,
                           label: Text(
                             "send".tr,

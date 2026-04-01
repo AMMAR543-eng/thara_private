@@ -107,7 +107,7 @@ class _ApplePayBottomSheetState extends State<ApplePayBottomSheet> {
                       ),
                     ),
                     const SizedBox(width: 8),
-                     Icon(
+                    Icon(
                       Icons.currency_exchange_rounded,
                       color: AppColors.primary,
                       size: 22,

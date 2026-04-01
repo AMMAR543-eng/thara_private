@@ -12,13 +12,13 @@ class BankAccountsResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory BankAccountsResponseModel.fromJson(Map<String, dynamic> json) {
     return BankAccountsResponseModel(
@@ -76,19 +76,19 @@ class BankAccount_Model extends BankAccount_Entity {
     String? beneficiaryAddress2,
     bool? verified,
   }) : super(
-         id: id,
-         label: label,
-         alias: alias,
-         iban: iban,
-         bic: bic,
-         bankName: bankName,
-         bankId: bankId,
-         accountNumber: accountNumber,
-         isPrimary: isPrimary,
-         beneficiaryAddress1: beneficiaryAddress1,
-         beneficiaryAddress2: beneficiaryAddress2,
-         verified: verified,
-       );
+          id: id,
+          label: label,
+          alias: alias,
+          iban: iban,
+          bic: bic,
+          bankName: bankName,
+          bankId: bankId,
+          accountNumber: accountNumber,
+          isPrimary: isPrimary,
+          beneficiaryAddress1: beneficiaryAddress1,
+          beneficiaryAddress2: beneficiaryAddress2,
+          verified: verified,
+        );
 
   factory BankAccount_Model.fromJson(Map<String, dynamic> json) {
     return BankAccount_Model(

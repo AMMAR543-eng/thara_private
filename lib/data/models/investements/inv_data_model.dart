@@ -1,5 +1,3 @@
-
-
 import '../../../index/index_main.dart';
 
 class InvestmentTransactionsResponseModel extends BaseModel {
@@ -14,13 +12,13 @@ class InvestmentTransactionsResponseModel extends BaseModel {
     AccountModel? account,
     UserModel? user,
   }) : super(
-         customStatusCode: customStatusCode,
-         message: message,
-         debug: debug,
-         env: env,
-         account: account,
-         user: user,
-       );
+          customStatusCode: customStatusCode,
+          message: message,
+          debug: debug,
+          env: env,
+          account: account,
+          user: user,
+        );
 
   factory InvestmentTransactionsResponseModel.fromJson(
     Map<String, dynamic> json,

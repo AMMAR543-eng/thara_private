@@ -1,8 +1,8 @@
-
 import 'package:thara/index/index_main.dart';
+
 class AnswersModel extends AnswersEntity {
   const AnswersModel({final int? id, final String? answer})
-    : super(id: id, answer: answer);
+      : super(id: id, answer: answer);
 
   factory AnswersModel.fromJson(Map<String, dynamic> json) {
     return AnswersModel(

@@ -1,4 +1,5 @@
-import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+
 import '../../../../index/index_main.dart';
 
 class ArticlesDetailsView extends StatefulWidget {
@@ -100,33 +101,45 @@ class _ArticlesDetailsViewState extends State<ArticlesDetailsView> {
                         width: 0.6,
                       ),
                     ),
-                    child: Html(
-                      data: article.content ?? '',
-                      style: {
-                        "body": Style(
-                          fontSize: FontSize(14.sp),
-                          color: AppColors.content_secondary,
-                          fontFamily: Strings.fontname,
-                          lineHeight: const LineHeight(1.8),
-                          margin: Margins.zero,
-                          padding: HtmlPaddings.zero,
-                        ),
-                        "p": Style(
-                          margin: Margins.only(bottom: 8),
-                        ),
-                        "h2": Style(
-                          color: AppColors.primary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: FontSize(18.sp),
-                          margin: Margins.only(bottom: 8),
-                        ),
-                        "ul": Style(
-                          margin: Margins.only(left: 16, bottom: 8),
-                        ),
-                        "li": Style(
-                          color: AppColors.content_primary,
-                          fontSize: FontSize(13.sp),
-                        ),
+                    child: HtmlWidget(
+                      article.content ?? '',
+                      textStyle: TextStyle(
+                        fontSize: 14.sp,
+                        color: AppColors.content_secondary,
+                        fontFamily: Strings.fontname,
+                        height: 1.8,
+                      ),
+                      customStylesBuilder: (element) {
+                        switch (element.localName) {
+                          case 'p':
+                            return {
+                              'margin-bottom': '8px',
+                            };
+
+                          case 'h2':
+                            return {
+                              'color':
+                                  '#${AppColors.primary.value.toRadixString(16).substring(2)}',
+                              'font-weight': 'bold',
+                              'font-size': '${18.sp}px',
+                              'margin-bottom': '8px',
+                            };
+
+                          case 'ul':
+                            return {
+                              'margin-left': '16px',
+                              'margin-bottom': '8px',
+                            };
+
+                          case 'li':
+                            return {
+                              'color':
+                                  '#${AppColors.content_primary.value.toRadixString(16).substring(2)}',
+                              'font-size': '${13.sp}px',
+                            };
+                        }
+
+                        return null;
                       },
                     ),
                   ),

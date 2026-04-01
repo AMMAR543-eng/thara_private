@@ -21,37 +21,40 @@ class AllInvestementsView extends StatelessWidget {
         builder: (controller) {
           return controller.investmentItems.isEmpty
               ? PlaceholderImage(
-            image: Images.no_data,
-            messege: "no_data".tr, // 🔁 "لا توجد بيانات"
-            isAsset: true,
-          )
+                  image: Images.no_data,
+                  messege: "no_data".tr, // 🔁 "لا توجد بيانات"
+                  isAsset: true,
+                )
               : ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-            shrinkWrap: true,
-            physics: const BouncingScrollPhysics(),
-            itemCount: controller.investmentItems.length,
-            itemBuilder: (context, index) {
-              final item = controller.investmentItems[index];
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: controller.investmentItems.length,
+                  itemBuilder: (context, index) {
+                    final item = controller.investmentItems[index];
 
-              return InkWell(
-                onTap: () {
-                  Get.to(
-                        () => OpportunityDetailsView(id: item.opportunityId ?? ""),
-                    binding: Binding(),
-                    duration: const Duration(milliseconds: 0),
-                  );
-                },
-                child: InvestmentItem(
-                  title: item.projectName ?? 'no_name'.tr, // 🔁 fallback "بدون اسم"
-                  statusLabel: mapStatusToLabel(item.status),
-                  statusColor: mapStatusToColor(item.status),
-                  statusTextColor: mapStatusTextColor(item.status),
-                  investmentAmount: item.totalPrice.toString(),
-                  date: item.createdAt ?? '',
-                ),
-              );
-            },
-          );
+                    return InkWell(
+                      onTap: () {
+                        Get.to(
+                          () => OpportunityDetailsView(
+                              id: item.opportunityId ?? ""),
+                          binding: Binding(),
+                          duration: const Duration(milliseconds: 0),
+                        );
+                      },
+                      child: InvestmentItem(
+                        title: item.projectName ??
+                            'no_name'.tr, // 🔁 fallback "بدون اسم"
+                        statusLabel: mapStatusToLabel(item.status),
+                        statusColor: mapStatusToColor(item.status),
+                        statusTextColor: mapStatusTextColor(item.status),
+                        investmentAmount: item.totalPrice.toString(),
+                        date: item.createdAt ?? '',
+                      ),
+                    );
+                  },
+                );
         },
       ),
     );

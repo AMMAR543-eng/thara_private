@@ -1,5 +1,3 @@
-
-
 import '../../../index/index_main.dart';
 
 class KycItemModel extends KycItemEntity {
@@ -16,18 +14,18 @@ class KycItemModel extends KycItemEntity {
     List<KycItemModel?>? children,
     List<dynamic>? parentAnswerChildDependOn,
   }) : super(
-         id: id,
-         type: type,
-         category: category,
-         question: question,
-         answers: answers,
-         children: children,
-         parentAnswerChildDependOn: parentAnswerChildDependOn,
-         textAnswer: textAnswer,
-         numberAnswer: numberAnswer,
-         boolAnswer: boolAnswer,
-         file: file,
-       );
+          id: id,
+          type: type,
+          category: category,
+          question: question,
+          answers: answers,
+          children: children,
+          parentAnswerChildDependOn: parentAnswerChildDependOn,
+          textAnswer: textAnswer,
+          numberAnswer: numberAnswer,
+          boolAnswer: boolAnswer,
+          file: file,
+        );
 
   factory KycItemModel.fromJson(Map<String, dynamic> json) {
     return KycItemModel(
@@ -39,22 +37,19 @@ class KycItemModel extends KycItemEntity {
       numberAnswer: json['number_answer'] as String?,
       boolAnswer: json['bool_answer'] as String?,
       file: json['file'] as String?,
-      answers:
-          (json['answers'] as List)
-              .map((item) => AnswersModel.fromJson(item))
-              .toList(),
-      children:
-          json['children'] != null
-              ? (json['children'] as List)
-                  .map((item) => KycItemModel.fromJson(item))
-                  .toList()
-              : null,
-      parentAnswerChildDependOn:
-          json['parentAnswerChildDependOn'] != null
-              ? (json['parentAnswerChildDependOn'] as List<dynamic>?)!
-                  .map((e) => e)
-                  .toList()
-              : null,
+      answers: (json['answers'] as List)
+          .map((item) => AnswersModel.fromJson(item))
+          .toList(),
+      children: json['children'] != null
+          ? (json['children'] as List)
+              .map((item) => KycItemModel.fromJson(item))
+              .toList()
+          : null,
+      parentAnswerChildDependOn: json['parentAnswerChildDependOn'] != null
+          ? (json['parentAnswerChildDependOn'] as List<dynamic>?)!
+              .map((e) => e)
+              .toList()
+          : null,
     );
   }
 

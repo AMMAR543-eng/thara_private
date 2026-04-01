@@ -103,9 +103,9 @@ class UploadProofBottomSheet extends StatelessWidget {
                     customBackgroundColor: AppColors.action_primary_normal,
                     onTap: controller.filePath != null
                         ? () {
-                      Navigator.pop(context);
-                      controller.submitData();
-                    }
+                            Navigator.pop(context);
+                            controller.submitData();
+                          }
                         : null,
                     label: Text(
                       "continue".tr,

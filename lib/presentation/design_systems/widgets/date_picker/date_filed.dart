@@ -32,9 +32,8 @@ class DateField extends StatelessWidget {
           child: AppTextField(
             show_shadow: false,
             controller: controller,
-            prefixIcon: icon != null
-                ? const Icon(Icons.calendar_today_outlined)
-                : null,
+            prefixIcon:
+                icon != null ? const Icon(Icons.calendar_today_outlined) : null,
             hintText: hint ?? "choose_date".tr,
             ontap: () async {
               Get.bottomSheet(

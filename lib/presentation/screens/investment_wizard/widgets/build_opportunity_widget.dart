@@ -26,7 +26,7 @@ class BuildOpportunityWidget extends StatelessWidget {
                 children: [
                   // optional icon
                   if (op.icon != null)
-                     Padding(
+                    Padding(
                       padding: EdgeInsets.only(bottom: 8.0),
                       child: Icon(
                         Icons.apartment,

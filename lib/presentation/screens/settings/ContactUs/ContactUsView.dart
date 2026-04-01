@@ -142,15 +142,15 @@ class _ContactUsViewState extends State<ContactUsView> {
 
   Widget _buildSubmitButton(ContatcusVieWModel controller) {
     return Obx(
-          () => PrimaryTextButton(
+      () => PrimaryTextButton(
         appButtonSize: AppButtonSize.xlarge,
         onTap: controller.message.value.isEmpty
             ? null
             : () {
-          if (_contactGlobalKey.currentState!.validate()) {
-            // Trigger submit logic
-          }
-        },
+                if (_contactGlobalKey.currentState!.validate()) {
+                  // Trigger submit logic
+                }
+              },
         label: Text("send".tr, style: context.typography.myriadSemi46Black),
       ),
     );

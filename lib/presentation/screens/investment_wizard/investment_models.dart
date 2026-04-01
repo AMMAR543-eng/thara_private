@@ -9,8 +9,8 @@ import 'package:thara/index/index_main.dart';
 class OpportunityType {
   final int id;
   final String name;
-  final String? icon;     // UI icon asset
-  final String? apiKey;   // Backend key: "invoice", "real_estate", etc.
+  final String? icon; // UI icon asset
+  final String? apiKey; // Backend key: "invoice", "real_estate", etc.
   bool selected;
 
   OpportunityType({
@@ -28,8 +28,8 @@ class OpportunityType {
 /// Backend expects titles: "A-AA", "B-BB", "C-CC"
 class PackageEntity {
   final int id;
-  final String title;        // API value (credit rating)
-  final String description;  // UI description
+  final String title; // API value (credit rating)
+  final String description; // UI description
   bool selected;
 
   PackageEntity({
@@ -48,8 +48,8 @@ class PackageEntity {
 /// apiValue: "6"   <-- EXACT VALUE backend expects
 class InvestmentDuration {
   final int id;
-  final String title;       // UI string
-  final String? apiValue;   // Backend value: "6", "12", "18"
+  final String title; // UI string
+  final String? apiValue; // Backend value: "6", "12", "18"
   bool selected;
 
   InvestmentDuration({

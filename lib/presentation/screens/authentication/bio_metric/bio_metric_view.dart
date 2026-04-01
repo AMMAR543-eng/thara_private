@@ -44,7 +44,6 @@ class BioMetricView extends StatelessWidget {
                               fit: BoxFit.contain,
                             ),
                           ),
-
                           Column(
                             children: [
                               SafeArea(
@@ -58,7 +57,6 @@ class BioMetricView extends StatelessWidget {
                                   ),
                                 ),
                               ),
-
                               Expanded(
                                 child: Image.asset(
                                   Images.face_id,
@@ -100,17 +98,17 @@ class BioMetricView extends StatelessWidget {
                                       "biometric_title".tr,
                                       style: context.typography.headerXLarge
                                           .copyWith(
-                                            color: AppColors
-                                                .content_brand_secondary,
-                                          ),
+                                        color:
+                                            AppColors.content_brand_secondary,
+                                      ),
                                     ),
                                     SizedBox(height: 4.h),
                                     Text(
                                       "biometric_subtitle".tr,
                                       style: context.typography.bodyMedium
                                           .copyWith(
-                                            color: AppColors.content_secondary,
-                                          ),
+                                        color: AppColors.content_secondary,
+                                      ),
                                       textAlign: TextAlign.center,
                                     ),
                                   ],
@@ -134,11 +132,10 @@ class BioMetricView extends StatelessWidget {
                                   ),
                                   label: Text(
                                     "biometric_skip".tr,
-                                    style: context.typography.bodyLarge
-                                        .copyWith(
-                                          color:
-                                              AppColors.action_natural_normal,
-                                        ),
+                                    style:
+                                        context.typography.bodyLarge.copyWith(
+                                      color: AppColors.action_natural_normal,
+                                    ),
                                   ),
                                 ),
                               ),

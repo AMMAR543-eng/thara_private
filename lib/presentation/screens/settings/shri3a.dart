@@ -88,7 +88,6 @@ class IslamicShariaa extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 12.h),
-
                     GestureDetector(
                       onTap: () {
                         Get.to(

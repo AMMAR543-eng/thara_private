@@ -1,5 +1,3 @@
-
-
 import '../../../../../index/index.dart';
 
 class PaginationLoader extends StatelessWidget {

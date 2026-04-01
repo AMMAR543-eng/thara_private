@@ -23,7 +23,7 @@ class SettingsContactWidget extends StatelessWidget {
               icon: IconsConstants.contactSettings,
               onTap: () {
                 Get.to(
-                      () => const ContactUsView(),
+                  () => const ContactUsView(),
                   duration: const Duration(milliseconds: 0),
                   binding: Binding(),
                 );

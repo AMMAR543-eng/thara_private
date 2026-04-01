@@ -47,7 +47,6 @@ class DeviceService {
     final encryptedId = _encrypt(combinedId);
     final encryptedInfo = _encrypt(jsonEncode(deviceData));
 
-
     return {"X-DEVICE-ID": encryptedId, "X-DEVICE-INFO": encryptedInfo};
   }
 

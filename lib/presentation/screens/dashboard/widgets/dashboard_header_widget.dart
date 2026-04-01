@@ -1,4 +1,3 @@
-
 import '../../../../index/index_main.dart';
 
 class DashboardHeaderWidget extends StatelessWidget
@@ -41,7 +40,7 @@ class DashboardHeaderWidget extends StatelessWidget
                         Get.toNamed(settingsBasicInfoView);
                       }
                     },
-                    child:  CircleAvatar(
+                    child: CircleAvatar(
                       radius: 29,
                       backgroundColor: AppColors.moonstoneBlue,
                       child: CircleAvatar(

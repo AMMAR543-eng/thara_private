@@ -51,10 +51,8 @@ class TitleWithBackAppbar extends StatelessWidget
                       children: [
                         Icon(
                           Icons.arrow_back_ios,
-
                           color: AppColors.content_brand_secondary,
                         ),
-
                         SizedBox(width: 8.w),
                       ],
                     ),

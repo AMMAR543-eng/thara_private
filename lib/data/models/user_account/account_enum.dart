@@ -28,5 +28,3 @@ extension StepTypeExtension on StepType {
     return StepType.values.firstWhereOrNull((e) => e.key == key);
   }
 }
-
-

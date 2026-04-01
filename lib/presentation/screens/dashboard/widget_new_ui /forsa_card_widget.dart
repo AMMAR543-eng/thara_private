@@ -95,7 +95,6 @@ class OpportunityCardWidget extends StatelessWidget {
                   bottom: 0.h,
                   right: LocalStorage_language().read() == "en" ? null : 10.w,
                   left: LocalStorage_language().read() == "en" ? 10.w : null,
-
                   child: Container(
                     padding: EdgeInsets.all(10.w),
                     decoration: BoxDecoration(
@@ -178,6 +177,7 @@ class OpportunityCardWidget extends StatelessWidget {
                   SizedBox(height: 12.h),
 
                   if (coverage != "0")
+
                     /// 🔹 Coverage bar
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,8 +185,8 @@ class OpportunityCardWidget extends StatelessWidget {
                         AnimatedProgressBar(
                           value:
                               (double.tryParse(coverage.replaceAll(',', '')) ??
-                                  0) /
-                              100,
+                                      0) /
+                                  100,
                           backgroundColor: AppColors.border_natural_normal,
                           progressColor: AppColors.green_light,
                         ),
@@ -235,35 +235,38 @@ class OpportunityCardWidget extends StatelessWidget {
                           ),
                         )
                       : (daysLeft != "0" && tab_index != 1)
-                      ? Padding(
-                          padding: const EdgeInsets.only(top: 12.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
+                          ? Padding(
+                              padding: const EdgeInsets.only(top: 12.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Icon(
-                                    Icons.info,
-                                    color: AppColors.greyDark,
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.info,
+                                        color: AppColors.greyDark,
+                                      ),
+                                      SizedBox(width: 6.w),
+                                      Text(
+                                        "days_left".tr,
+                                        style: context.typography.bodyMedium
+                                            .copyWith(
+                                                color: AppColors.tertiary),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: 6.w),
                                   Text(
-                                    "days_left".tr,
-                                    style: context.typography.bodyMedium
-                                        .copyWith(color: AppColors.tertiary),
+                                    "$daysLeft ${'day'.tr}",
+                                    style:
+                                        context.typography.bodyMedium.copyWith(
+                                      color: AppColors.content_secondary,
+                                    ),
                                   ),
                                 ],
                               ),
-                              Text(
-                                "$daysLeft ${'day'.tr}",
-                                style: context.typography.bodyMedium.copyWith(
-                                  color: AppColors.content_secondary,
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      : const SizedBox(),
+                            )
+                          : const SizedBox(),
                 ],
               ),
             ),

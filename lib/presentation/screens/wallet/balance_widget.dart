@@ -101,8 +101,9 @@ class WalletBalanceCard extends StatelessWidget {
               (balance == null || balance == "0")
                   ? const SizedBox()
                   :
-                    /// سحب الرصيد المتاح
-                    Expanded(
+
+                  /// سحب الرصيد المتاح
+                  Expanded(
                       flex: 3,
                       child: PrimaryTextButton(
                         onTap: onWithdrawTap,

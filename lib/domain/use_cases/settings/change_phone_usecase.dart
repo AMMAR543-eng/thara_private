@@ -14,7 +14,6 @@ class ChangePhoneDomainUseCase
   }
 }
 
-
 class ChangePhoneParams extends Equatable {
   final String phone;
 

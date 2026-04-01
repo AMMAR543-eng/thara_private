@@ -23,8 +23,7 @@ class ForseItemWidget extends StatelessWidget {
     final projectName =
         opportunity?.projectName ?? "مشروع شركة كال للتطوير العقاري";
     const projectCode = "TCLC01-502024";
-    final interest =
-        double.tryParse(
+    final interest = double.tryParse(
           opportunity?.interestPercentage ?? "",
         )?.toStringAsFixed(0) ??
         "15";
@@ -118,7 +117,6 @@ class ForseItemWidget extends StatelessWidget {
                 ),
               ],
             ),
-
             Padding(
               padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
               child: Align(
@@ -132,7 +130,6 @@ class ForseItemWidget extends StatelessWidget {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Row(
@@ -214,7 +211,6 @@ class ForseItemWidget extends StatelessWidget {
                 ],
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(
                 left: 12,

@@ -41,7 +41,6 @@ class InnerViewAppBar extends StatelessWidget implements PreferredSizeWidget {
                 /// 🔹 Left back button + label
                 InkWell(
                   onTap: () => Get.back(),
-
                   child: Align(
                     alignment: LocalStorage_language().read() == "en"
                         ? Alignment.centerLeft
@@ -50,8 +49,8 @@ class InnerViewAppBar extends StatelessWidget implements PreferredSizeWidget {
                       Icons.arrow_back_ios,
                       color:
                           Theme.of(Get.context!).brightness == Brightness.dark
-                          ? Colors.white
-                          : AppColors.primary,
+                              ? Colors.white
+                              : AppColors.primary,
                     ),
                   ),
                 ),

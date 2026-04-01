@@ -2,12 +2,8 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class CreateWalletPaymentUseCase
-    extends
-        Use_Case<
-          Either<AppError, CreatePaymentResponseModel>,
-          WalletPaymentParams
-        > {
+class CreateWalletPaymentUseCase extends Use_Case<
+    Either<AppError, CreatePaymentResponseModel>, WalletPaymentParams> {
   final ProcessRepository _processRepository;
 
   // Constructor

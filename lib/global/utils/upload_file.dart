@@ -63,7 +63,7 @@ class FileUploadField extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                   Icon(Icons.file_present, color: AppColors.primary),
+                  Icon(Icons.file_present, color: AppColors.primary),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
@@ -101,7 +101,6 @@ Future<String?> pickImage() async {
     if (result != null && result.files.isNotEmpty) {
       return result.files.single.path; // Return the selected image path
     }
-  } catch (e) {
-  }
+  } catch (e) {}
   return null; // Return null if no image is picked
 }

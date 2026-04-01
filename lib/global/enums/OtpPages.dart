@@ -1,1 +1,1 @@
-enum OtpPages { login, forget, register, registerIndi,withdraw }
+enum OtpPages { login, forget, register, registerIndi, withdraw }

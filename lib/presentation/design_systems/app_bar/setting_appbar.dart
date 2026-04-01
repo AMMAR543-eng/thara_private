@@ -1,8 +1,7 @@
 import '../../../index/index_main.dart';
 
 /// 🔹 Base AppBar that defines common structure & behavior
- class ProfileAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
+class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool showProfile;
   final bool showNotification;
@@ -36,12 +35,12 @@ import '../../../index/index_main.dart';
       ),
       bottom: bottomWidget == null
           ? PreferredSize(
-        preferredSize: const Size.fromHeight(1),
-        child: Container(
-          height: 2,
-          color: AppColors.border_natural_normal.withValues(alpha: 0.4),
-        ),
-      )
+              preferredSize: const Size.fromHeight(1),
+              child: Container(
+                height: 2,
+                color: AppColors.border_natural_normal.withValues(alpha: 0.4),
+              ),
+            )
           : null,
     );
   }

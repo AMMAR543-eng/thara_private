@@ -32,47 +32,45 @@ class AccountSettingsView extends StatelessWidget {
                 LoginResponseModel().getTokenData()?.data?.accessToken == null
                     ? const SizedBox()
                     : Center(
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: 130.w,
-                            height: 130.h,
-                            decoration: BoxDecoration(
-                              color: AppColors
-                                  .grayLight, // optional background
-                              borderRadius: BorderRadius.circular(20),
+                        child: Column(
+                          children: [
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
+                                  width: 130.w,
+                                  height: 130.h,
+                                  decoration: BoxDecoration(
+                                    color: AppColors
+                                        .grayLight, // optional background
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    // 👈 THIS is key
+                                    child: _getProfileImage(controller),
+                                  ),
+                                ),
+                              ],
                             ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              // 👈 THIS is key
-                              child: _getProfileImage(controller),
+                            SizedBox(height: 12.h),
+                            Text(
+                              controller.userInfoModel?.personalInfo
+                                      ?.fullNameAr ??
+                                  "",
+                              style: context.typography.headerXLarge.copyWith(
+                                color: AppColors.content_primary,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 12.h),
-                      Text(
-                        controller
-                            .userInfoModel
-                            ?.personalInfo
-                            ?.fullNameAr ??
-                            "",
-                        style: context.typography.headerXLarge.copyWith(
-                          color: AppColors.content_primary,
+                            Text(
+                              controller.profileData?.account?.id ?? "",
+                              style: context.typography.bodyMedium.copyWith(
+                                color: AppColors.tertiary,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        controller.profileData?.account?.id ?? "",
-                        style: context.typography.bodyMedium.copyWith(
-                          color: AppColors.tertiary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 const SizedBox(height: 20),
 
                 /// --- Verified / Waiting Badge
@@ -112,8 +110,8 @@ class AccountSettingsView extends StatelessWidget {
                       controller.isWaitingProfessional
                           ? "upgrade_request_pending".tr
                           : controller.isProfessionalInvestor
-                          ? "already_professional_investor".tr
-                          : "upgrade_to_professional_investor".tr,
+                              ? "already_professional_investor".tr
+                              : "upgrade_to_professional_investor".tr,
                       style: context.typography.bodyLarge.copyWith(
                         color: AppColors.white,
                       ),
@@ -186,9 +184,7 @@ class AccountSettingsView extends StatelessWidget {
       height: double.infinity.h,
     );
   }
-
 }
-
 
 class _StatusBadge extends StatelessWidget {
   final String label;
@@ -246,7 +242,7 @@ class _AccountDetailItem extends StatelessWidget {
           Text(
             title,
             style:
-            typography.bodyStrongLarge.copyWith(color: AppColors.primary),
+                typography.bodyStrongLarge.copyWith(color: AppColors.primary),
           ),
           Text(
             value,

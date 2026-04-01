@@ -140,7 +140,7 @@ class FinanicalReportsView extends StatelessWidget {
             onTap: () {
               if (report.attachment?.isNotEmpty == true) {
                 Get.to(
-                      () => GenericPdfViewer(
+                  () => GenericPdfViewer(
                     fileName: "financial_report_${report.year}.pdf",
                     pdfUrl: report.attachment!,
                   ),

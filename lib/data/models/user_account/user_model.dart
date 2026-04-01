@@ -40,17 +40,17 @@ class UserModel extends UserEntity {
     final bool? passTwoFactor,
     final bool? needPassword,
   }) : super(
-         name: name,
-         email: email,
-         type: type,
-         biometricPassword: biometricPassword,
-         phoneNumber: phoneNumber,
-         nin: nin,
-         userType: userType,
-         twoFactorCodeSent: twoFactorCodeSent,
-         passTwoFactor: passTwoFactor,
-         needPassword: needPassword,
-       );
+          name: name,
+          email: email,
+          type: type,
+          biometricPassword: biometricPassword,
+          phoneNumber: phoneNumber,
+          nin: nin,
+          userType: userType,
+          twoFactorCodeSent: twoFactorCodeSent,
+          passTwoFactor: passTwoFactor,
+          needPassword: needPassword,
+        );
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
@@ -81,8 +81,6 @@ class UserModel extends UserEntity {
       'passTwoFactor': passTwoFactor,
       'needPassword': needPassword,
     };
-
-
 
     return data;
   }

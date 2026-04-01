@@ -14,7 +14,6 @@ class LoginNafazScreen extends StatelessWidget {
           backgroundColor: AppColors.white,
           appBar: AppBar(
             backgroundColor: AppColors.white,
-
             title: Text(
               "nafath".tr,
               style: context.typography.bodyLarge.copyWith(
@@ -151,15 +150,13 @@ class LoginNafazScreen extends StatelessWidget {
                                       : Text(
                                           controller.nafazCode?.random ?? "--",
                                           style: context
-                                              .typography
-                                              .header4xLarge
+                                              .typography.header4xLarge
                                               .copyWith(
-                                                color: AppColors.black_color,
-                                                fontSize: 100,
-                                              ),
+                                            color: AppColors.black_color,
+                                            fontSize: 100,
+                                          ),
                                         ),
                                 ),
-
                                 Positioned(
                                   top: -10.h,
                                   right: -10.w,

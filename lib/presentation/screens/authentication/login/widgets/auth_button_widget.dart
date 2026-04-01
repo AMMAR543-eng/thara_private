@@ -18,18 +18,17 @@ class AuthButtonWidget extends StatelessWidget {
       width: ScreenUtil().screenWidth - 80.w,
       child: PrimaryTextButton(
         appButtonSize: AppButtonSize.xxLarge,
-        trailing:
-            next
-                ? (value) {
-                  return SvgPicture.asset(
-                    IconsConstants.arrow,
-                    fit: BoxFit.contain,
-                    color: AppColors.white,
-                    height: 17.h,
-                    // width: 20.getWidth(),
-                  );
-                }
-                : null,
+        trailing: next
+            ? (value) {
+                return SvgPicture.asset(
+                  IconsConstants.arrow,
+                  fit: BoxFit.contain,
+                  color: AppColors.white,
+                  height: 17.h,
+                  // width: 20.getWidth(),
+                );
+              }
+            : null,
         onTap: onPressed,
         label: Text(
           title.tr,
