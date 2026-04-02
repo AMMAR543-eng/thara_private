@@ -1,15 +1,8 @@
-import 'package:thara/global/constants/env_config.dart';
-
 import 'index/index_main.dart'; // Your custom imports
-
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-
-import 'package:thara/global/constants/env_config.dart';
-import 'index/index_main.dart';
 
 void main() {
   runZonedGuarded(
