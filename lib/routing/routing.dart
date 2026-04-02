@@ -1,52 +1,52 @@
 import '../index/index_main.dart';
 
-const String mainPage = "/MainPage";
-const String test = "/Test";
-const String processView = "/ProcessView";
-const String loginScreen = "/LoginScreen";
-const String forgetPasswordScreen = "/forgetPasswordScreen";
-const String otpScreen = "/otpScreen";
-const String resetPasswordScreen = "/resetPasswordScreen";
-const String resetCompleteScreen = "/resetCompleteScreen";
-const String dashboardScreen = "/dashboardScreen";
-const String register = "/register";
-const String registerInfo = "/registerInfo";
-const String registerTerms = "/registerTerms";
-const String registerNafaz = "/registerNafaz";
-const String registerKYC = "/registerKYC";
-const String registerIndividualsWork = "/registerIndividualsWork";
-const String registerSigning = "/registerSigning";
-const String storeBankView = "/StoreBankView";
-const String settingsView = "/settingsView";
-const String settingsBankInfoView = "/settingsBankInfoView";
-const String settingsBasicInfoView = "/settingsBasicInfoView";
-const String settingsKYCInfoView = "/settingsKYCInfoView";
-const String settingsNotificationView = "/settingsNotificationView";
-const String settingsTicketView = "/settingsTicketView";
-const String settingsChangePassView = "/settingsChangePassView";
-const String opportunityDetailsView = "/OpportunityDetailsView";
-const String allInvestementsView = "/AllInvestementsView";
-const String splashScreen = "/SplashScreen";
-const String updatePasswordScreen = "/UpdatePasswordScreen";
-const String underReview = "/UnderReview";
-const String successAuthView = "/SuccessAuthView";
-const String bankTransferView = "/BankTransferView";
-const String finanicalReportsView = "/FinanicalReportsView";
-const String upgradetoprofessionalview = "/Upgradetoprofessionalview";
-const String forceUpdateView = "/ForceUpdateView";
-const String onboardingScreen = "/OnboardingScreen";
-const String bioMetricView = "/BioMetricView";
-const String notificationsView = "/NotificationsView";
-const String walletView = "/WalletView";
-const String settingView = "/SettingView";
-const String accountSettingsView = "/AccountSettingsView";
-const String faqView = "/FaqView";
-const String aboutUsView = "/AboutUsView";
-const String islamicShariaa = "/IslamicShariaa";
-const String termsConditions = "/TermsConditions";
-const String articlesView = "/ArticlesView";
-const String settingNewView = "/SettingView";
-const String loginNafazScreen = "/LoginNafazScreen";
+const String mainPage = '/MainPage';
+const String test = '/Test';
+const String processView = '/ProcessView';
+const String loginScreen = '/LoginScreen';
+const String forgetPasswordScreen = '/forgetPasswordScreen';
+const String otpScreen = '/otpScreen';
+const String resetPasswordScreen = '/resetPasswordScreen';
+const String resetCompleteScreen = '/resetCompleteScreen';
+const String dashboardScreen = '/dashboardScreen';
+const String register = '/register';
+const String registerInfo = '/registerInfo';
+const String registerTerms = '/registerTerms';
+const String registerNafaz = '/registerNafaz';
+const String registerKYC = '/registerKYC';
+const String registerIndividualsWork = '/registerIndividualsWork';
+const String registerSigning = '/registerSigning';
+const String storeBankView = '/StoreBankView';
+const String settingsView = '/settingsView';
+const String settingsBankInfoView = '/settingsBankInfoView';
+const String settingsBasicInfoView = '/settingsBasicInfoView';
+const String settingsKYCInfoView = '/settingsKYCInfoView';
+const String settingsNotificationView = '/settingsNotificationView';
+const String settingsTicketView = '/settingsTicketView';
+const String settingsChangePassView = '/settingsChangePassView';
+const String opportunityDetailsView = '/OpportunityDetailsView';
+const String allInvestementsView = '/AllInvestementsView';
+const String splashScreen = '/SplashScreen';
+const String updatePasswordScreen = '/UpdatePasswordScreen';
+const String underReview = '/UnderReview';
+const String successAuthView = '/SuccessAuthView';
+const String bankTransferView = '/BankTransferView';
+const String finanicalReportsView = '/FinanicalReportsView';
+const String upgradetoprofessionalview = '/Upgradetoprofessionalview';
+const String forceUpdateView = '/ForceUpdateView';
+const String onboardingScreen = '/OnboardingScreen';
+const String bioMetricView = '/BioMetricView';
+const String notificationsView = '/NotificationsView';
+const String walletView = '/WalletView';
+const String settingView = '/SettingView';
+const String accountSettingsView = '/AccountSettingsView';
+const String faqView = '/FaqView';
+const String aboutUsView = '/AboutUsView';
+const String islamicShariaa = '/IslamicShariaa';
+const String termsConditions = '/TermsConditions';
+const String articlesView = '/ArticlesView';
+const String settingNewView = '/SettingView';
+const String loginNafazScreen = '/LoginNafazScreen';
 
 class Routes {
   /// 🔥 helper بدل التكرار
@@ -171,7 +171,7 @@ class Routes {
       ),
       _page(
         name: allInvestementsView,
-        page: () => const AllInvestementsView(),
+        page: () => const AllInvestmentsView(),
       ),
       _page(
         name: forgetPasswordScreen,

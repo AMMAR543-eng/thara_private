@@ -287,7 +287,7 @@ export '../presentation/screens/settings/settings_change_pass_view.dart';
 export '../presentation/screens/settings/settings_notification_view.dart';
 export '../presentation/screens/settings/settings_ticket_view.dart';
 export '../presentation/screens/settings/widgets/info_item_widget.dart';
-export '../presentation/screens/statisctics/statisctics_view.dart';
+export '../presentation/screens/statisctics/statistics_view.dart';
 export 'package:thara/presentation/screens/statisctics/statistics_controller.dart';
 
 export 'package:thara/domain/entity/investments_entity/InvestmentTransactionDataEntity.dart';
@@ -307,14 +307,14 @@ export 'package:thara/presentation/screens/authentication/register/success_scree
 export 'package:thara/presentation/screens/authentication/underreview_view/under_review.dart';
 export 'package:thara/presentation/screens/authentication/update_password/update_password_view.dart';
 export 'package:thara/presentation/screens/process/deposite/bank_transfer_deposite.dart';
-export 'package:thara/presentation/screens/settings/financial_reports/finanical_reports_View.dart';
+export 'package:thara/presentation/screens/settings/financial_reports/financial_reports_View.dart';
 export 'package:thara/presentation/screens/statisctics/all_investments/all_investements_view.dart';
 export '../presentation/screens/authentication/register/register_patent_view/register_parent_view.dart';
 export '../presentation/screens/forceudpate/forceudpateview.dart';
 export '../presentation/screens/process/upgrade_prof/upgradeToProfessionalView.dart';
 export 'package:thara/presentation/screens/authentication/register/register_patent_view/register_parent_controller.dart';
 export 'package:thara/presentation/screens/settings/articles/articles_view_model.dart';
-export 'package:thara/presentation/screens/settings/financial_reports/finanical_reports_view_Model.dart';
+export 'package:thara/presentation/screens/settings/financial_reports/financial_reports_view_Model.dart';
 export '../presentation/screens/dashboard/all_forsa/all_forsa_controller.dart';
 export 'package:thara/presentation/design_systems/widgets/steepers/horizontal_steppers_widget.dart';
 export 'package:thara/presentation/design_systems/widgets/drop_down/generic_new_dropdown.dart';
@@ -446,3 +446,7 @@ export 'package:thara/presentation/screens/authentication/nafaz_login/login_nafa
 export 'package:thara/presentation/screens/process/all_trnsactions/widgets/bank_list_view_widget.dart';
 export 'package:thara/presentation/screens/process/all_trnsactions/widgets/filter_widget.dart';
 export 'package:thara/presentation/screens/process/all_trnsactions/widgets/tabs_transaction.dart';
+export 'package:thara/Presentation/screens/opportunity_details/widget/forsa_card_widget.dart';
+export '../../../global/constants/api_urls.dart';
+export 'package:share_plus/share_plus.dart';
+export 'package:thara/presentation/design_systems/app_bar/forsa_details_app_bar.dart';

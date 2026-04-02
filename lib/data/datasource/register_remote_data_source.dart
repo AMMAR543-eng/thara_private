@@ -33,7 +33,7 @@ abstract class RegisterRemoteDataSourceRepo {
 
   Future<ApiResult<SuccessNewModel>> udpate_Password(Map<String, dynamic> data);
 
-  Future<ApiResult<SingingAgreementModel>> singingAgreementDetails();
+  Future<ApiResult<SigningAgreementModel>> singingAgreementDetails();
 
   Future<ApiResult<OtpModel>> singingWithSirar();
 }

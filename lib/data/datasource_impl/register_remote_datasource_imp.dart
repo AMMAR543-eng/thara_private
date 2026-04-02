@@ -192,13 +192,13 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
   }
 
   @override
-  Future<ApiResult<SingingAgreementModel>> singingAgreementDetails() async {
+  Future<ApiResult<SigningAgreementModel>> singingAgreementDetails() async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
         ApiConstatns.singingAgreementDetails,
       );
-      final singingAgreementRes = SingingAgreementModel.fromJson(response);
+      final singingAgreementRes = SigningAgreementModel.fromJson(response);
       return Success(singingAgreementRes);
     } catch (error) {
       final handledError = ErrorHandler.handle(error);
@@ -232,7 +232,7 @@ class RegisterRemoteDataSourceImpl extends RegisterRemoteDataSourceRepo {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.PATCH,
-        ApiConstatns.udpdatePassword,
+        ApiConstatns.upddatePassword,
         params: data,
       );
       final successModel = SuccessNewModel.fromJson(response);

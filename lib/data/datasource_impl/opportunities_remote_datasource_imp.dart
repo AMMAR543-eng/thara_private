@@ -1,3 +1,4 @@
+
 import '../../index/index_main.dart';
 
 class OpportunitiesRemoteDataSourceImpl
@@ -10,126 +11,124 @@ class OpportunitiesRemoteDataSourceImpl
 
   @override
   Future<ApiResult<OpportunitiesResponse>> getOpportunities(
-    Map<String, dynamic> data,
-  ) async {
+      Map<String, dynamic> data,
+      ) async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
         ApiConstatns.opportunitiesUrl,
         params: data,
       );
+
       final opportunitiesItems = OpportunitiesResponse.fromJson(response);
       return Success(opportunitiesItems);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
   @override
   Future<ApiResult<OpportunityDetailsModel>> getOpportunityDetails(
-    String opportunityId,
-  ) async {
+      String opportunityId,
+      ) async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
-        "${ApiConstatns.opportunityIdUrl}$opportunityId",
+        ApiConstatns.opportunityById(opportunityId), // ✅ FIX
       );
-      final opportunityDetailsItem = OpportunityDetailsModel.fromJson(response);
-      return Success(opportunityDetailsItem);
+
+      final model = OpportunityDetailsModel.fromJson(response);
+      return Success(model);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
   @override
   Future<ApiResult<SuccessNewModel>> subscribeToLoan(
-    String opportunityId,
-    int volume,
-  ) async {
+      String opportunityId,
+      int volume,
+      ) async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.POST,
-        "${ApiConstatns.opportunityIdUrl}$opportunityId/subscribe",
+        ApiConstatns.subscribe(opportunityId), // ✅ FIX
         params: {"volume": volume},
       );
-      final opportunitiesItems = SuccessNewModel.fromJson(response);
-      return Success(opportunitiesItems);
+
+      final model = SuccessNewModel.fromJson(response);
+      return Success(model);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
   @override
   Future<ApiResult<SuccessNewModel>> cancelSubscription(
-    String opportunityId,
-  ) async {
+      String opportunityId,
+      ) async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.PATCH,
-        "${ApiConstatns.opportunityIdUrl}$opportunityId/cancel_subscription",
+        ApiConstatns.cancelSubscription(opportunityId), // ✅ FIX
       );
-      final opportunitiesItems = SuccessNewModel.fromJson(response);
-      return Success(opportunitiesItems);
+
+      final model = SuccessNewModel.fromJson(response);
+      return Success(model);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
   @override
   Future<ApiResult<InvestmentTransactionDataModel>> getInvestments(
-    Map<String, dynamic> data,
-  ) async {
+      Map<String, dynamic> data,
+      ) async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
-        ApiConstatns.invests,
+        ApiConstatns.invests, // ✅ already ok
         params: data,
       );
-      final opportunitiesItems = InvestmentTransactionsResponseModel.fromJson(
-        response,
-      );
+
+      final model =
+      InvestmentTransactionsResponseModel.fromJson(response);
 
       return Success(
-        opportunitiesItems.data ?? const InvestmentTransactionDataModel(),
+        model.data ?? const InvestmentTransactionDataModel(),
       );
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
-  // ─────────────────────────────────────────────────────────────
-  // 🔥 NEW METHODS
-  // ─────────────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────
+  // 🔥 AUTO INVESTMENT
+  // ─────────────────────────────────────────────
 
   @override
   Future<ApiResult<InvestmentConfigResponseModel>> getAutoInvestment() async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
-        ApiConstatns.autoInvestmentConfig, // ← endpoint path
+        ApiConstatns.autoInvestmentConfig,
       );
 
       final model = InvestmentConfigResponseModel.fromJson(response);
       return Success(model);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
   @override
   Future<ApiResult<SuccessNewModel>> postAutoInvestment(
-    Map<String, dynamic> payload,
-  ) async {
+      Map<String, dynamic> payload,
+      ) async {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.POST,
-        ApiConstatns.autoInvestmentConfig, // ← same endpoint for POST
+        ApiConstatns.autoInvestmentConfig,
         params: payload,
         auto_invest: true,
       );
@@ -137,8 +136,7 @@ class OpportunitiesRemoteDataSourceImpl
       final model = SuccessNewModel.fromJson(response);
       return Success(model);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 
@@ -147,15 +145,14 @@ class OpportunitiesRemoteDataSourceImpl
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.PATCH,
+        ApiConstatns.autoInvestmentConfigDelete,
         params: {"active": false},
-        ApiConstatns.autoInvestmentConfigDelete, // ← same endpoint for POST
       );
 
       final model = SuccessNewModel.fromJson(response);
       return Success(model);
     } catch (error) {
-      final handledError = ErrorHandler.handle(error);
-      return Failure(handledError);
+      return Failure(ErrorHandler.handle(error));
     }
   }
 }

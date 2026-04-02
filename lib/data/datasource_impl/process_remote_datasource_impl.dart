@@ -49,7 +49,7 @@ class ProcessRemoteDataSourceImpl extends ProcessRemoteDataSourceRepo {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
-        ApiConstatns.withdraws,
+        ApiConstatns.withdrawal_requests,
         params: data,
       );
       final model = WithdrawResponseModel.fromJson(response);
@@ -200,7 +200,7 @@ class ProcessRemoteDataSourceImpl extends ProcessRemoteDataSourceRepo {
     try {
       final response = await _clientSoureceRepo.request(
         HttpMethod.GET,
-        "${ApiConstatns.monthlyProfitsUrl}${year ?? ''}",
+        ApiConstatns.monthlyProfitsUrl(year ?? ""),
         params: data,
       );
       final model = ProfitSummaryResponseModel.fromJson(response);

@@ -152,7 +152,7 @@ class RegisterService {
     Loader.dismiss();
   }
 
-  Future<void> singingAgreement({
+  Future<void> signingAgreement({
     required Function(SingingDetailsEntity) voidCallBack,
   }) async {
     Loader.show();

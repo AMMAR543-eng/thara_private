@@ -1,7 +1,7 @@
 import 'package:thara/index/index_main.dart';
 
-class AllInvestementsView extends StatelessWidget {
-  const AllInvestementsView({super.key});
+class AllInvestmentsView extends StatelessWidget {
+  const AllInvestmentsView({super.key});
 
   @override
   Widget build(BuildContext context) {

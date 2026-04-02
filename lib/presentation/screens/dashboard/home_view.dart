@@ -158,9 +158,11 @@ class _HomeViewState extends State<HomeView> {
                             padding: EdgeInsets.only(top: 10.0),
                             child: InvestmentSummaryWidget(),
                           ),
-                          ProfitChartWidget(
-                            profitSummaryDataModel:
-                                controller.monthlyProfitData,
+                          RepaintBoundary(
+                            child: ProfitChartWidget(
+                              profitSummaryDataModel:
+                                  controller.monthlyProfitData,
+                            ),
                           ),
                         ] else if (hasDeposit) ...[
                           HomeInvestCreditTopWidget(
@@ -335,16 +337,18 @@ class _HomeViewState extends State<HomeView> {
         itemCount: opportunities.length,
         itemBuilder: (context, index) {
           final item = opportunities[index];
-          return OpportunityCardWidget(
-            opportunity: item ?? const OpportunitiesItemsEntity(),
-            onTap: () {
-              Get.to(
-                () => OpportunityDetailsView(id: item?.id ?? ""),
-                binding: Binding(),
-                duration: const Duration(milliseconds: 0),
-              );
-            },
-            show_view_button: hasDeposit,
+          return RepaintBoundary(
+            child: OpportunityCardWidget(
+              opportunity: item ?? const OpportunitiesItemsEntity(),
+              onTap: () {
+                Get.to(
+                  () => OpportunityDetailsView(id: item?.id ?? ""),
+                  binding: Binding(),
+                  duration: const Duration(milliseconds: 0),
+                );
+              },
+              show_view_button: hasDeposit,
+            ),
           );
         },
       ),

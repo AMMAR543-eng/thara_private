@@ -136,11 +136,12 @@ class _GenericPdfViewerState extends State<GenericPdfViewer> {
 }
 
 // // Fetch sell contracts
-void goViewPdf(String Id, String url) {
+void goViewPdf(String id, String url) {
   Get.to(
-    () => GenericPdfViewer(
-      fileName: "smfile$Id.pdf",
-      pdfUrl: "${ApiConstatns.Base_Url}$url",
+        () => GenericPdfViewer(
+      fileName: "smfile$id.pdf",
+      pdfUrl:
+      "${ApiConstatns.Base_Url}${url.startsWith('/') ? url.substring(1) : url}",
     ),
     binding: Binding(),
   );

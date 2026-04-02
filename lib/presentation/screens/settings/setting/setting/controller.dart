@@ -1,9 +1,8 @@
 import 'dart:io';
-
+import 'package:thara/global/constants/api_urls.dart';
 import 'package:thara/index/index_main.dart';
 
 class SettingController extends GetxController {
-  /// --- User Profile Data
   BaseEntity? profileData;
   UserInfoModel? userInfoModel;
 
@@ -11,7 +10,6 @@ class SettingController extends GetxController {
 
   bool get hasUserInfo => userInfoModel != null;
 
-  /// --- Face ID Switch State
   bool faceIDEnabled = false;
 
   @override
@@ -20,39 +18,27 @@ class SettingController extends GetxController {
     _initializeData();
   }
 
-  /// ✅ Ensure data loads in sequence to avoid race condition
   Future<void> _initializeData() async {
     if (LoginResponseModel().getTokenData()?.data?.accessToken != null) {
-      // await getMeData();
       _loadUserProfile();
-      _initFaceIDState(); // ✅ Load local biometric preference
-      //getBankAccounts()
+      _initFaceIDState();
     }
   }
 
-  // ---------------------------------------------------------------------------
   void _initFaceIDState() {
     try {
       final bioModel = BioUserModel.getBioData();
-      if (bioModel != null && bioModel.isBiometric == true) {
-        faceIDEnabled = true;
-      } else {
-        faceIDEnabled = false;
-      }
+      faceIDEnabled = bioModel?.isBiometric == true;
     } catch (e) {
       faceIDEnabled = false;
     }
     update();
   }
 
-  // ---------------------------------------------------------------------------
-  // 🔐 Toggle Face ID (and persist locally)
-  // ---------------------------------------------------------------------------
   void toggleFaceID(bool value) async {
     faceIDEnabled = value;
     update();
 
-    // Save the new value locally via BioUserModel
     final existing = BioUserModel.getBioData();
     final bioModel = BioUserModel(
       bioToken: existing?.bioToken ?? "",
@@ -62,21 +48,16 @@ class SettingController extends GetxController {
     await bioModel.saveBioLocal();
   }
 
-  // ---------------------------------------------------------------------------
-  // 🧩 Load Real User Profile
-  // ---------------------------------------------------------------------------
   void _loadUserProfile() {
     final tokenData = LoginResponseModel().getTokenData();
 
     if (tokenData == null || tokenData.data?.accessToken == null) {
-      // Guest user (not logged in)
       profileData = null;
       userInfoModel = null;
       update();
       return;
     }
 
-    /// ✅ Fetch user base account info
     AuthService().me(
       voidCallBack: (data) {
         profileData = data;
@@ -84,7 +65,6 @@ class SettingController extends GetxController {
       },
     );
 
-    /// ✅ Fetch detailed Nafath user info (personal + company)
     AuthService().profileData(
       voidCallBack: (data) {
         userInfoModel = data;
@@ -93,16 +73,10 @@ class SettingController extends GetxController {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // 🔄 Public API to Refresh Manually
-  // ---------------------------------------------------------------------------
   void refreshProfile() {
     _loadUserProfile();
   }
 
-  // ---------------------------------------------------------------------------
-  // 🖼️ Profile Photo Upload (✅ NEW)
-  // ---------------------------------------------------------------------------
   Future<void> changeProfilePhoto() async {
     try {
       final picker = ImagePicker();
@@ -136,16 +110,10 @@ class SettingController extends GetxController {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // 🚪 Logout
-  // ---------------------------------------------------------------------------
   void logout() {
     showLogoutDialog(Get.context!);
   }
 
-  // ---------------------------------------------------------------------------
-  // 🔑 Change Password
-  // ---------------------------------------------------------------------------
   void changePasswordApi(
     String oldPassword,
     String password,
@@ -164,9 +132,6 @@ class SettingController extends GetxController {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // 🎟️ Support Ticket
-  // ---------------------------------------------------------------------------
   void storeTicketApi(String name, String phone, String type, String message) {
     SettingsService().storeTicket(
       name: name,
@@ -186,12 +151,47 @@ class SettingController extends GetxController {
     showDialog(context: context, builder: (_) => const LogoutDialog());
   }
 
-  // ---------------------------------------------------------------------------
-  // 🧭 Navigation & Actions
-  // ---------------------------------------------------------------------------
+  // =========================
+  // 🧭 Navigation
+  // =========================
+
   void goToPersonalInfo() => Get.toNamed(settingsBasicInfoView);
 
   void goToAccountSettings() => Get.toNamed(accountSettingsView);
+
+  void changePassword() => Get.toNamed(settingsChangePassView);
+
+  void manageDevices() => Get.toNamed(settingsView);
+
+  void manageNotifications() => Get.toNamed(settingsNotificationView);
+
+  void openTicket() => Get.toNamed(settingsTicketView);
+
+  void showFAQ() => Get.toNamed(faqView);
+
+  void showCompliance() => Get.toNamed(islamicShariaa);
+
+  void financial_report() => Get.toNamed(finanicalReportsView);
+
+  void terms() => Get.toNamed(termsConditions);
+
+  // =========================
+  // 🌍 Web URLs (FIXED 🔥)
+  // =========================
+
+  void aboutThara() => launchUrl(Uri.parse(ApiConstatns.about));
+
+  void articles() => launchUrl(Uri.parse(ApiConstatns.articlesWeb));
+
+  void indicators() => launchUrl(Uri.parse(ApiConstatns.rei));
+
+  void openWebsite() => launchUrl(Uri.parse(ApiConstatns.home));
+
+  void creditRating() => launchUrl(Uri.parse(ApiConstatns.credit));
+
+  // =========================
+  // 🌐 Language
+  // =========================
 
   void showLanguageBottomSheet(BuildContext context, AppLanguage controller) {
     showModalBottomSheet(
@@ -216,13 +216,10 @@ class SettingController extends GetxController {
                   ),
                 ),
                 const SizedBox(height: 20),
+
+                /// Arabic
                 ListTile(
-                  title: Text(
-                    'arabic'.tr,
-                    style: context.typography.bodyMedium.copyWith(
-                      color: AppColors.primary,
-                    ),
-                  ),
+                  title: Text('arabic'.tr),
                   trailing: currentLang == 'ar'
                       ? Icon(Icons.check, color: AppColors.primary)
                       : null,
@@ -231,46 +228,27 @@ class SettingController extends GetxController {
                     if (currentLang != 'ar') {
                       controller.changeLanguage('ar');
                     }
-                    // Show loading dialog
-
-                    // Wait 2 seconds
                     await Future.delayed(const Duration(seconds: 2));
-
                     Loader.dismiss();
-
-                    // Restart routing and go Home
-
                     Get.back();
-
-                    // Restart routing and go Home
                     Get.offAllNamed(mainPage);
                   },
                 ),
+
+                /// English
                 ListTile(
-                  title: Text(
-                    'english'.tr,
-                    style: context.typography.bodyMedium.copyWith(
-                      color: AppColors.primary,
-                    ),
-                  ),
+                  title: Text('english'.tr),
                   trailing: currentLang == 'en'
                       ? Icon(Icons.check, color: AppColors.primary)
                       : null,
                   onTap: () async {
-                    // Show loading dialog
                     Loader.show();
                     if (currentLang != 'en') {
                       controller.changeLanguage('en');
                     }
-
-                    // Wait 2 seconds
                     await Future.delayed(const Duration(seconds: 2));
-
                     Loader.dismiss();
-
-                    // Restart routing and go Home
                     Get.back();
-
                     Get.offAllNamed(mainPage);
                   },
                 ),
@@ -281,33 +259,4 @@ class SettingController extends GetxController {
       },
     );
   }
-
-  void changePassword() => Get.toNamed(settingsChangePassView);
-
-  void manageDevices() => Get.toNamed(settingsView);
-
-  void manageNotifications() => Get.toNamed(settingsNotificationView);
-
-  void openTicket() => Get.toNamed(settingsTicketView);
-
-  void showFAQ() => Get.toNamed(faqView);
-
-  // void aboutThara() => Get.toNamed(aboutUsView);
-
-  void showCompliance() => Get.toNamed(islamicShariaa);
-
-  void financial_report() => Get.toNamed(finanicalReportsView);
-
-  void terms() => Get.toNamed(termsConditions);
-
-  void aboutThara() => launchUrl(Uri.parse("https://tharaco.sa/about"));
-
-  void articles() => launchUrl(Uri.parse("https://tharaco.sa/articles"));
-
-  void indicators() => launchUrl(Uri.parse("https://tharaco.sa/rei"));
-
-  void openWebsite() => launchUrl(Uri.parse("https://tharaco.sa/"));
-
-  void creditRating() =>
-      launchUrl(Uri.parse("https://tharaco.sa/credit-scoring"));
 }

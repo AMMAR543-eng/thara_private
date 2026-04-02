@@ -132,7 +132,7 @@ class RegisterRepositoryImpl extends RegisterRepository {
     final result =
         await _registerRemoteDataSourceRepo.singingAgreementDetails();
 
-    return result is Success<SingingAgreementModel>
+    return result is Success<SigningAgreementModel>
         ? right(result.data.data ?? const SingingDetailsEntity())
         : left(AppError((result as Failure).errorHandler.message ?? ""));
   }

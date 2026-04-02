@@ -6,11 +6,11 @@ class SigningController extends GetxController {
   @override
   onInit() {
     super.onInit();
-    singingAgreementApi();
+    signingAgreementApi();
   }
 
-  singingAgreementApi() {
-    RegisterService().singingAgreement(
+  signingAgreementApi() {
+    RegisterService().signingAgreement(
       voidCallBack: (data) {
         singing = data;
         update();

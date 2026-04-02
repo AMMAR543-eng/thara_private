@@ -224,7 +224,12 @@ class ClientSourceRepo {
   // 🔗 URI BUILDER
   // =========================================
   Uri _buildUri(String path, Map<String, dynamic>? params, HttpMethod method) {
-    const baseUrl = ApiConstatns.Base_Url;
+    // ✅ لو already full URL → استخدمه زي ما هو
+    if (path.startsWith('http')) {
+      return Uri.parse(path);
+    }
+
+    final baseUrl = ApiConstatns.Base_Url;
     return Uri.parse('$baseUrl$path');
   }
 
@@ -262,8 +267,8 @@ class ClientSourceRepo {
   // 🔓 DECRYPT
   // =========================================
   String decryptData(String base64Encrypted) {
-    const key_encryption = ApiConstatns.key_encryption;
-    const inv_encryption = ApiConstatns.inv_encryption;
+    final key_encryption = ApiConstatns.key_encryption;
+    final inv_encryption = ApiConstatns.inv_encryption;
 
     final key = encrypt.Key.fromUtf8(key_encryption);
     final iv = encrypt.IV.fromUtf8(inv_encryption);

@@ -1,9 +1,9 @@
 import '../../../index/index_main.dart';
 
-class SingingAgreementModel extends BaseModel {
+class SigningAgreementModel extends BaseModel {
   final SingingDetailsModel? data;
 
-  SingingAgreementModel({
+  SigningAgreementModel({
     this.data,
     int? customStatusCode,
     String? message,
@@ -20,8 +20,8 @@ class SingingAgreementModel extends BaseModel {
           user: user,
         );
 
-  factory SingingAgreementModel.fromJson(Map<String, dynamic> json) {
-    return SingingAgreementModel(
+  factory SigningAgreementModel.fromJson(Map<String, dynamic> json) {
+    return SigningAgreementModel(
       data: json['data'] != null
           ? SingingDetailsModel.fromJson(json['data'])
           : null,

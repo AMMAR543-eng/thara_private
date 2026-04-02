@@ -1,5 +1,3 @@
-import 'package:thara/Presentation/screens/opportunity_details/widget/forsa_card_widget.dart';
-import '../../design_systems/app_bar/forsa_details_app_bar.dart';
 import '../../../index/index_main.dart';
 export 'package:share_plus/share_plus.dart';
 
@@ -47,9 +45,12 @@ class _OpportunityDetailsViewState extends State<OpportunityDetailsView> {
               onShare: () async {
                 String title = opportunity?.projectName ?? "";
                 String id = opportunity?.id ?? "";
-                String url = "https://tharaco.sa/opportunities/$id";
+
+                String url = ApiConstatns.opportunityWeb(id);
                 final message =
-                    "💼 ${'discover_investment_opportunity'.tr} $title\n${'share_via_tharaa'.tr} ${url}";
+                    "💼 ${'discover_investment_opportunity'.tr} $title\n"
+                    "${'share_via_tharaa'.tr} $url";
+
                 await Share.share(message);
               },
             ),
@@ -63,9 +64,11 @@ class _OpportunityDetailsViewState extends State<OpportunityDetailsView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       /// ✅ Reuse the same card (without view button)
-                      OpportunityDetailsCardWidget(
-                        opportunity:
-                            opportunity ?? const OpportunitiesItemsEntity(),
+                      RepaintBoundary(
+                        child: OpportunityDetailsCardWidget(
+                          opportunity:
+                              opportunity ?? const OpportunitiesItemsEntity(),
+                        ),
                       ),
 
                       opportunity?.attachments?.isEmpty == true
@@ -75,11 +78,13 @@ class _OpportunityDetailsViewState extends State<OpportunityDetailsView> {
                               opportunity: opportunity,
                             ),
 
-                      AboutOpportunityTab(controller),
+                      RepaintBoundary(child: AboutOpportunityTab(controller)),
 
                       EfsahWidgetTab(controller),
 
-                      PaymentScheduleWidget(opportunity: opportunity),
+                      RepaintBoundary(
+                          child:
+                              PaymentScheduleWidget(opportunity: opportunity)),
                       const SizedBox(height: 15),
                       controller.opportunitiesItemsEntity?.subscriptionStatus !=
                               "subscription_opened"

@@ -1,3 +1,5 @@
+import 'package:thara/global/constants/env_config.dart';
+
 import 'index/index_main.dart'; // Your custom imports
 
 void main() {
@@ -5,14 +7,6 @@ void main() {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await GetStorage.init();
-
-      // // ✅ SECURITY CHECK
-      // final compromised = await isDeviceCompromised();
-      //
-      // if (compromised) {
-      //   runApp(const RootBlockedApp());
-      //   return;
-      // }
 
       await StorageService().init();
 
@@ -22,6 +16,8 @@ void main() {
 
       Binding().dependencies();
 
+      /// ✅ INIT ENV FIRST
+      ApiConstatns.setEnv(Environment.dev);
       final initializedApp = await ThemeScopeWidget.initialize(const MyApp());
 
       runApp(
@@ -34,7 +30,10 @@ void main() {
         ),
       );
     },
-    (dynamic error, dynamic stack) {},
+    (dynamic error, dynamic stack) {
+      debugPrint("🔥 ERROR: $error");
+      debugPrint("📍 STACK: $stack");
+    },
   );
 }
 
