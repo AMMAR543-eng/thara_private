@@ -2,12 +2,38 @@ import 'package:thara/global/constants/env_config.dart';
 
 import 'index/index_main.dart'; // Your custom imports
 
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+
+import 'package:thara/global/constants/env_config.dart';
+import 'index/index_main.dart';
+
 void main() {
   runZonedGuarded(
-    () async {
+        () async {
       WidgetsFlutterBinding.ensureInitialized();
-      await GetStorage.init();
 
+      /// 🔥 INIT FIREBASE
+      await Firebase.initializeApp();
+
+      /// 🔥 CRASHLYTICS (Flutter errors)
+      FlutterError.onError =
+          FirebaseCrashlytics.instance.recordFlutterError;
+
+      /// 🔥 CRASHLYTICS (Dart / Platform errors)
+      PlatformDispatcher.instance.onError = (error, stack) {
+        FirebaseCrashlytics.instance.recordError(
+          error,
+          stack,
+          fatal: true,
+        );
+        return true;
+      };
+
+      await GetStorage.init();
       await StorageService().init();
 
       await SystemChrome.setPreferredOrientations([
@@ -16,9 +42,11 @@ void main() {
 
       Binding().dependencies();
 
-      /// ✅ INIT ENV FIRST
+      /// ✅ ENV
       ApiConstatns.setEnv(Environment.dev);
-      final initializedApp = await ThemeScopeWidget.initialize(const MyApp());
+
+      final initializedApp =
+      await ThemeScopeWidget.initialize(const MyApp());
 
       runApp(
         ScreenUtilInit(
@@ -30,7 +58,15 @@ void main() {
         ),
       );
     },
-    (dynamic error, dynamic stack) {
+
+    /// 🔥 GLOBAL ERROR HANDLER (fallback)
+        (dynamic error, dynamic stack) {
+      FirebaseCrashlytics.instance.recordError(
+        error,
+        stack,
+        fatal: true,
+      );
+
       debugPrint("🔥 ERROR: $error");
       debugPrint("📍 STACK: $stack");
     },
@@ -40,27 +76,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // Helper function to fetch the locale from storage
   String getLocalLan() {
     final localStorage = LocalStorage_language();
     return localStorage.read();
-    // return "ar";
   }
 
   @override
   Widget build(BuildContext context) {
-    // Access the theme context
     final theme = ThemeScope.of(context);
 
-    // Return the GetMaterialApp with all necessary configurations
-    return AnnotatedRegion(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
-      // const SystemUiOverlayStyle(
-      //   statusBarBrightness: Brightness.light,
-      //   statusBarIconBrightness: Brightness.dark,
-      //   systemNavigationBarColor:  Colors.white,
-      //   systemNavigationBarIconBrightness: Brightness.dark,
-      // ),
       child: GetMaterialApp(
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,

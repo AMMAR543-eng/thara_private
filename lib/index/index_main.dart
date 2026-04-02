@@ -83,7 +83,6 @@ export 'package:thara/domain/entity/opportunities/opportunities_item_entity.dart
 export 'package:thara/domain/use_cases/process/CancelWithdrawUseCase.dart';
 
 export '../data/core/app_error.dart';
-export '../../global/constants/ApiConstatns.dart';
 export '../../../domain/use_cases/UseCase.dart';
 export '../../global/constants/HexColor.dart';
 export '../../global/constants/StatusBarColors.dart';

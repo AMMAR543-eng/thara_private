@@ -43,15 +43,14 @@ class ApiConstatns {
   /// 🔐 SECURITY
   /// =========================
 
+
+
+
   static String get key_encryption =>
-      _env == Environment.dev
-          ? 'XoaN3rC9R5Lj3E9bCzZLsmaoJQkrCcrp'
-          : 'AJtOZlC7tLIoR9wYaG80A89xckqmIwLK';
+      const String.fromEnvironment('KEY_ENCRYPTION');
 
   static String get inv_encryption =>
-      _env == Environment.dev
-          ? 'XRx6W20dkwJe3PUI'
-          : 'gOTZf9paGJe8P0IX';
+      const String.fromEnvironment('IV_ENCRYPTION');
 
   static const Map<String, String> header = {
     'Content-Type': 'application/json',
