@@ -13,15 +13,14 @@ import 'index/index_main.dart';
 
 void main() {
   runZonedGuarded(
-        () async {
+    () async {
       WidgetsFlutterBinding.ensureInitialized();
 
       /// 🔥 INIT FIREBASE
       await Firebase.initializeApp();
 
       /// 🔥 CRASHLYTICS (Flutter errors)
-      FlutterError.onError =
-          FirebaseCrashlytics.instance.recordFlutterError;
+      FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
       /// 🔥 CRASHLYTICS (Dart / Platform errors)
       PlatformDispatcher.instance.onError = (error, stack) {
@@ -36,6 +35,13 @@ void main() {
       await GetStorage.init();
       await StorageService().init();
 
+      // ✅ SECURITY CHECK
+      final compromised = await isDeviceCompromised();
+      if (compromised) {
+        runApp(const RootBlockedApp());
+        return;
+      }
+
       await SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
       ]);
@@ -45,8 +51,7 @@ void main() {
       /// ✅ ENV
       ApiConstatns.setEnv(Environment.dev);
 
-      final initializedApp =
-      await ThemeScopeWidget.initialize(const MyApp());
+      final initializedApp = await ThemeScopeWidget.initialize(const MyApp());
 
       runApp(
         ScreenUtilInit(
@@ -60,7 +65,7 @@ void main() {
     },
 
     /// 🔥 GLOBAL ERROR HANDLER (fallback)
-        (dynamic error, dynamic stack) {
+    (dynamic error, dynamic stack) {
       FirebaseCrashlytics.instance.recordError(
         error,
         stack,
