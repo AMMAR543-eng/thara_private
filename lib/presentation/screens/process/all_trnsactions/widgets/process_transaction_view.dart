@@ -1,5 +1,5 @@
-// import 'package:thara/Presentation/screens/process/all_trnsactions/transaction_view.dart';
-// import 'package:thara/Presentation/screens/process/deposites_list_view_widget.dart';
+// import 'package:thara/presentation/screens/process/all_trnsactions/transaction_view.dart';
+// import 'package:thara/presentation/screens/process/deposites_list_view_widget.dart';
 //
 // import '../../../../../../index/index_main.dart';
 // import '../../shimmer/deposite_shimmer.dart';

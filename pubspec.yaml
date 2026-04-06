@@ -71,7 +71,7 @@ dependencies:
 
   # Encryption
   encrypt: ^5.0.1
-  flutter_jailbreak_detection: ^1.10.0
+  # flutter_jailbreak_detection: ^1.10.0
 
   # Charts
   syncfusion_flutter_charts: ^31.1.19

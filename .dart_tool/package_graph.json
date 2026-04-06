@@ -22,7 +22,6 @@
         "firebase_crashlytics",
         "flutter",
         "flutter_easyloading",
-        "flutter_jailbreak_detection",
         "flutter_localizations",
         "flutter_plugin_android_lifecycle",
         "flutter_screenutil",
@@ -278,13 +277,6 @@
         "intl",
         "syncfusion_flutter_core",
         "vector_math"
-      ]
-    },
-    {
-      "name": "flutter_jailbreak_detection",
-      "version": "1.10.0",
-      "dependencies": [
-        "flutter"
       ]
     },
     {

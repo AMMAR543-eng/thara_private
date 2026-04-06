@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import '../../../../Global/index.dart';
-// import 'package:testahelnew/Presentation/Widgets/CustomButton.dart';
-// import 'package:testahelnew/Presentation/Widgets/TextWidget.dart';
+// import 'package:testahelnew/presentation/Widgets/CustomButton.dart';
+// import 'package:testahelnew/presentation/Widgets/TextWidget.dart';
 //
 // class UpdateWidget extends StatefulWidget {
 //   Function? onpress;

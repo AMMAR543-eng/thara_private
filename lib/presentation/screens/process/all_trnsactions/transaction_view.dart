@@ -1,9 +1,9 @@
-// import 'package:thara/Presentation/screens/process/all_trnsactions/widgets/bank_list_view_widget.dart';
-// import 'package:thara/Presentation/screens/process/all_trnsactions/widgets/filter_widget.dart';
-// import 'package:thara/Presentation/screens/process/all_trnsactions/widgets/tabs_transaction.dart';
-// import 'package:thara/Presentation/screens/process/deposites_list_view_widget.dart';
-// import 'package:thara/Presentation/screens/process/withdraw_list_view_widget.dart';
-// import 'package:thara/Presentation/screens/process/shimmer/deposite_shimmer.dart';
+// import 'package:thara/presentation/screens/process/all_trnsactions/widgets/bank_list_view_widget.dart';
+// import 'package:thara/presentation/screens/process/all_trnsactions/widgets/filter_widget.dart';
+// import 'package:thara/presentation/screens/process/all_trnsactions/widgets/tabs_transaction.dart';
+// import 'package:thara/presentation/screens/process/deposites_list_view_widget.dart';
+// import 'package:thara/presentation/screens/process/withdraw_list_view_widget.dart';
+// import 'package:thara/presentation/screens/process/shimmer/deposite_shimmer.dart';
 //
 // import '../../../../index/index_main.dart';
 //
