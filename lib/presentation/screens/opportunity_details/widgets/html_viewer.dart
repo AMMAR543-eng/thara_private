@@ -9,6 +9,9 @@ class HtmlViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HtmlWidget(htmlData ?? "");
+    return HtmlWidget(
+      htmlData ?? "",
+      textStyle: TextStyle(color: AppColors.textDefault),
+    );
   }
 }
