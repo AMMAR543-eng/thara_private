@@ -40,7 +40,7 @@ void main() {
       ]);
 
       Binding().dependencies();
-
+      /// test
       /// ✅ ENV
       ApiConstatns.setEnv(Environment.dev);
 
