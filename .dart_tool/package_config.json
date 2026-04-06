@@ -782,6 +782,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "mocktail",
+      "rootUri": "file:///C:/Users/ET/AppData/Local/Pub/Cache/hosted/pub.dev/mocktail-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "moyasar",
       "rootUri": "file:///C:/Users/ET/AppData/Local/Pub/Cache/hosted/pub.dev/moyasar-2.1.3",
       "packageUri": "lib/",

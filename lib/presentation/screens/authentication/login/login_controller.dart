@@ -8,6 +8,11 @@ class LoginController extends GetxController {
   bool validEmail = false;
   bool validPassword = false;
 
+  final AuthService authService;
+
+  LoginController({AuthService? authService})
+      : authService = authService ?? AuthService();
+
   @override
   void onInit() {
     super.onInit();

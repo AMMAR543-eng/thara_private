@@ -1,38 +1,88 @@
 import '../../index/index_main.dart';
 
 class AuthService {
+  // 👇 optional injection
+  final LoginDomainUseCase? loginUseCase;
+  final VerifyOtpDomainUseCase? verifyOtpUseCase;
+  final ResendOtpDomainUseCase? resendOtpUseCase;
+
+  AuthService({
+    this.loginUseCase,
+    this.verifyOtpUseCase,
+    this.resendOtpUseCase,
+  });
+
+  // 👇 internal getters (production fallback)
+  LoginDomainUseCase _loginUseCase() {
+    return loginUseCase ??
+        initUseCase(() => LoginDomainUseCase(Get.find()));
+  }
+
+  VerifyOtpDomainUseCase _verifyOtpUseCase() {
+    return verifyOtpUseCase ??
+        initUseCase(() => VerifyOtpDomainUseCase(Get.find()));
+  }
+
+  ResendOtpDomainUseCase _resendOtpUseCase() {
+    return resendOtpUseCase ??
+        initUseCase(() => ResendOtpDomainUseCase(Get.find()));
+  }
+
+  // ================================
+  // LOGIN
+  // ================================
   Future<void> login({
     required LoginParams params,
     required Function(LoginResponseModel) voidCallBack,
   }) async {
     Loader.show();
-    final result = await initUseCase(
-      () => LoginDomainUseCase(Get.find()),
-    ).call(params);
-    result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
+
+    final result = await _loginUseCase().call(params);
+
+    result.fold(
+          (l) => Loader.showError(l.messege),
+          (r) => voidCallBack(r),
+    );
+
     Loader.dismiss();
   }
 
+  // ================================
+  // VERIFY OTP
+  // ================================
   Future<void> verifyOtp({
     required String code,
     required Function(BaseEntity) voidCallBack,
   }) async {
     Loader.show();
-    final result = await initUseCase(
-      () => VerifyOtpDomainUseCase(Get.find()),
-    ).call(OtpParams(code: code));
 
-    result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
+    final result = await _verifyOtpUseCase().call(
+      OtpParams(code: code),
+    );
+
+    result.fold(
+          (l) => Loader.showError(l.messege),
+          (r) => voidCallBack(r),
+    );
+
     Loader.dismiss();
   }
 
-  Future<void> resendOtp({required Function(BaseEntity) voidCallBack}) async {
+  // ================================
+  // RESEND OTP
+  // ================================
+  Future<void> resendOtp({
+    required Function(BaseEntity) voidCallBack,
+  }) async {
     Loader.show();
-    final result = await initUseCase(
-      () => ResendOtpDomainUseCase(Get.find()),
-    ).call(NoParams());
 
-    result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
+    final result = await _resendOtpUseCase().call(NoParams());
+
+    result.fold(
+          (l) => Loader.showError(l.messege),
+          (r) => voidCallBack(r),
+    );
+
     Loader.dismiss();
   }
 
