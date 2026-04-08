@@ -65,8 +65,8 @@ void main() {
         fatal: true,
       );
 
-      debugPrint("🔥 ERROR: $error");
-      debugPrint("📍 STACK: $stack");
+      debugPrint('🔥 ERROR: $error');
+      debugPrint('📍 STACK: $stack');
     },
   );
 }

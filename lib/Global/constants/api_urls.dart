@@ -5,10 +5,12 @@ enum Environment { dev, prod }
 class ApiConstatns {
   ApiConstatns._();
 
-  /// 🔥 environment (dynamic بدل const)
+  /// =========================
+  /// 🌍 ENV
+  /// =========================
+
   static Environment _env = Environment.dev;
 
-  /// ✅ change environment from main
   static void setEnv(Environment env) {
     _env = env;
   }
@@ -40,17 +42,44 @@ class ApiConstatns {
   }
 
   /// =========================
-  /// 🔐 SECURITY
+  /// 🔐 SECURITY (FIXED)
   /// =========================
 
+  /// DEV KEYS
+  static const String _devKey =
+      "XoaN3rC9R5Lj3E9bCzZLsmaoJQkrCcrp";
 
+  static const String _devIV =
+      "XRx6W20dkwJe3PUI"; // لازم 16 char
 
+  /// PROD KEYS
+  static const String _prodKey =
+      "AJtOZlC7tLIoR9wYaG80A89xckqmIwLK";
 
-  static String get key_encryption =>
-      const String.fromEnvironment('KEY_ENCRYPTION');
+  static const String _prodIV =
+      "gOTZf9paGJe8P0IX"; // لازم 16 char
 
-  static String get inv_encryption =>
-      const String.fromEnvironment('IV_ENCRYPTION');
+  /// 🔑 KEY
+  static String get key_encryption {
+    const key = String.fromEnvironment('KEY_ENCRYPTION');
+
+    if (key.isNotEmpty) return key;
+
+    print("⚠️ KEY_ENCRYPTION missing → using fallback");
+
+    return _env == Environment.prod ? _prodKey : _devKey;
+  }
+
+  /// 🔐 IV
+  static String get inv_encryption {
+    const iv = String.fromEnvironment('IV_ENCRYPTION');
+
+    if (iv.isNotEmpty && iv.length == 16) return iv;
+
+    print("⚠️ IV invalid or missing → using fallback");
+
+    return _env == Environment.prod ? _prodIV : _devIV;
+  }
 
   static const Map<String, String> header = {
     'Content-Type': 'application/json',
