@@ -7,7 +7,7 @@ class ArabicToEnglishDigitsFormatter extends TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     String newText = newValue.text.replaceAllMapped(
       RegExp(r'[٠١٢٣٤٥٦٧٨٩]'),
-      (match) {
+          (match) {
         switch (match.group(0)) {
           case '٠':
             return '0';
@@ -52,6 +52,10 @@ class CustomInputField extends StatelessWidget {
   final bool? show_asterisc;
   final double? padding_horizontal;
 
+  // 🔥 NEW (Accessibility)
+  final String? semanticsLabel;
+  final String? semanticsHint;
+
   const CustomInputField({
     Key? key,
     required this.label,
@@ -66,11 +70,14 @@ class CustomInputField extends StatelessWidget {
     required this.focusNode,
     required this.validator,
     this.obscureText = false,
+
+    // 🔥 NEW
+    this.semanticsLabel,
+    this.semanticsHint,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Add input formatter for numeric keyboard types
     List<TextInputFormatter>? inputFormatters;
     if (keyboardType == TextInputType.number ||
         (keyboardType.toString().contains('number'))) {
@@ -82,11 +89,11 @@ class CustomInputField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// 🔥 label (optional semantics enhancement)
           Padding(
             padding: const EdgeInsets.only(bottom: 5.0),
             child: Row(
               children: [
-                // Show asterisk if needed (assuming null means show)
                 Visibility(
                   visible: show_asterisc == null,
                   child: Text(
@@ -103,6 +110,8 @@ class CustomInputField extends StatelessWidget {
               ],
             ),
           ),
+
+          /// 🔥 FIELD (Semantics هنا بيتم تمريره)
           AppTextField(
             controller: controller,
             hintText: hintText,
@@ -116,8 +125,11 @@ class CustomInputField extends StatelessWidget {
             validator: validator,
             onChanged: voidCallbackAction,
             enabled: true,
-            // Pass the formatter if applicable
             formaters: inputFormatters,
+
+            // 🔥 IMPORTANT
+            semanticsLabel: semanticsLabel ?? label,
+            semanticsHint: semanticsHint ?? hintText,
           ),
         ],
       ),

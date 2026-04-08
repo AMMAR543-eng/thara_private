@@ -362,6 +362,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_driver",
+      "rootUri": "file:///C:/src/flutter/packages/flutter_driver",
+      "packageUri": "lib/",
+      "languageVersion": "3.9"
+    },
+    {
       "name": "flutter_easyloading",
       "rootUri": "file:///D:/pub_cache/hosted/pub.dev/flutter_easyloading-3.0.5",
       "packageUri": "lib/",
@@ -472,6 +478,12 @@
     {
       "name": "font_awesome_flutter",
       "rootUri": "file:///D:/pub_cache/hosted/pub.dev/font_awesome_flutter-10.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.9"
+    },
+    {
+      "name": "fuchsia_remote_debug_protocol",
+      "rootUri": "file:///C:/src/flutter/packages/fuchsia_remote_debug_protocol",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -630,6 +642,12 @@
       "rootUri": "file:///D:/pub_cache/hosted/pub.dev/image_picker_windows-0.2.2",
       "packageUri": "lib/",
       "languageVersion": "3.6"
+    },
+    {
+      "name": "integration_test",
+      "rootUri": "file:///C:/src/flutter/packages/integration_test",
+      "packageUri": "lib/",
+      "languageVersion": "3.9"
     },
     {
       "name": "intl",
@@ -1034,6 +1052,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "process",
+      "rootUri": "file:///D:/pub_cache/hosted/pub.dev/process-5.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
       "name": "provider",
       "rootUri": "file:///D:/pub_cache/hosted/pub.dev/provider-6.1.5+1",
       "packageUri": "lib/",
@@ -1224,6 +1248,12 @@
       "rootUri": "file:///D:/pub_cache/hosted/pub.dev/string_scanner-1.4.1",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "sync_http",
+      "rootUri": "file:///D:/pub_cache/hosted/pub.dev/sync_http-0.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "syncfusion_flutter_charts",
@@ -1470,6 +1500,12 @@
       "rootUri": "file:///D:/pub_cache/hosted/pub.dev/web_socket_channel-3.0.3",
       "packageUri": "lib/",
       "languageVersion": "3.3"
+    },
+    {
+      "name": "webdriver",
+      "rootUri": "file:///D:/pub_cache/hosted/pub.dev/webdriver-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
     },
     {
       "name": "webview_flutter",

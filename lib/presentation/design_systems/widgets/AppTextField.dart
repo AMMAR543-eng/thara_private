@@ -1,5 +1,4 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../index/index.dart';
 
 class AppTextField extends StatefulWidget {
@@ -22,10 +21,14 @@ class AppTextField extends StatefulWidget {
     this.keyboardType,
     this.read_only,
     this.ontap,
-    this.textInputAction = TextInputAction.done, // "Done" action
+    this.textInputAction = TextInputAction.done,
     this.maxLines = 1,
-    this.onValidationChanged, // Callback for validation state
+    this.onValidationChanged,
     this.onFieldSubmitted,
+
+    // 🔥 NEW (Accessibility)
+    this.semanticsLabel,
+    this.semanticsHint,
   });
 
   final TextEditingController? controller;
@@ -41,15 +44,18 @@ class AppTextField extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
   final String? helperText;
-  final String? errorText; // Determines if there’s an error
+  final String? errorText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final TextInputType? keyboardType;
   final TextInputAction textInputAction;
   final int maxLines;
-  final ValueChanged<bool>?
-      onValidationChanged; // Callback to indicate validation success or failure
+  final ValueChanged<bool>? onValidationChanged;
   final void Function(String)? onFieldSubmitted;
+
+  // 🔥 Accessibility fields
+  final String? semanticsLabel;
+  final String? semanticsHint;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -67,20 +73,19 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   void _onFocusChange() {
-    setState(() {}); // Trigger UI update on focus state change
+    setState(() {});
   }
 
   @override
   void dispose() {
     _focusNode.removeListener(_onFocusChange);
     if (widget.focusNode == null) {
-      _focusNode.dispose(); // Dispose only if locally created
+      _focusNode.dispose();
     }
     super.dispose();
   }
 
   void _onFieldChanged(String value) {
-    // Validate the field and trigger the callback
     final validationError = widget.validator?.call(value);
     final isValid = validationError == null;
 
@@ -99,65 +104,77 @@ class _AppTextFieldState extends State<AppTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onFieldSubmitted: widget.onFieldSubmitted,
-      controller: widget.controller,
-      enabled: widget.enabled,
-      obscureText: widget.obscureText,
-      onTap: widget.ontap,
-      readOnly: widget.read_only ?? false,
-      focusNode: _focusNode,
-      inputFormatters: widget.formaters,
-      onChanged: _onFieldChanged,
-      validator: widget.validator,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: widget.keyboardType ?? TextInputType.name,
-      textInputAction: widget.textInputAction,
-      onEditingComplete: () {
-        FocusScope.of(context).unfocus();
-      },
-      cursorColor: context.inputTheme.focusedTextColor,
-      style: context.typography.bodyMedium.copyWith(
-        color: widget.enabled
-            ? context.inputTheme.focusedTextColor
-            : context.inputTheme.disabledTextColor,
-      ),
-      maxLines: widget.maxLines,
-      decoration: InputDecoration(
-        labelText: widget.labelText,
-        hintText: widget.hintText,
-        hintStyle: context.typography.bodyMedium.copyWith(
-          color: AppColors.tertiary,
+    return Semantics(
+      textField: true,
+
+      // 🔥 Smart fallback
+      label: widget.semanticsLabel ??
+          widget.labelText ??
+          widget.hintText ??
+          "Input field",
+
+      hint: widget.semanticsHint ?? widget.hintText,
+
+      child: TextFormField(
+        onFieldSubmitted: widget.onFieldSubmitted,
+        controller: widget.controller,
+        enabled: widget.enabled,
+        obscureText: widget.obscureText,
+        onTap: widget.ontap,
+        readOnly: widget.read_only ?? false,
+        focusNode: _focusNode,
+        inputFormatters: widget.formaters,
+        onChanged: _onFieldChanged,
+        validator: widget.validator,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        keyboardType: widget.keyboardType ?? TextInputType.name,
+        textInputAction: widget.textInputAction,
+        onEditingComplete: () {
+          FocusScope.of(context).unfocus();
+        },
+        cursorColor: context.inputTheme.focusedTextColor,
+        style: context.typography.bodyMedium.copyWith(
+          color: widget.enabled
+              ? context.inputTheme.focusedTextColor
+              : context.inputTheme.disabledTextColor,
         ),
-        filled: true,
-        fillColor: AppColors.white,
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.inputTheme.borderDefault),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.inputTheme.borderFocused),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.inputTheme.borderError),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.inputTheme.borderError),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: context.inputTheme.borderDisabled),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        errorText: _errorText,
-        helperText: widget.helperText,
-        suffixIcon: widget.suffixIcon,
-        prefixIcon: widget.prefixIcon,
-        errorStyle: context.typography.bodySmall.copyWith(
-          overflow: TextOverflow.visible,
-          color: AppColors.errorForeground,
+        maxLines: widget.maxLines,
+        decoration: InputDecoration(
+          labelText: widget.labelText,
+          hintText: widget.hintText,
+          hintStyle: context.typography.bodyMedium.copyWith(
+            color: AppColors.tertiary,
+          ),
+          filled: true,
+          fillColor: AppColors.white,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: context.inputTheme.borderDefault),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: context.inputTheme.borderFocused),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: context.inputTheme.borderError),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: context.inputTheme.borderError),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: context.inputTheme.borderDisabled),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          errorText: _errorText,
+          helperText: widget.helperText,
+          suffixIcon: widget.suffixIcon,
+          prefixIcon: widget.prefixIcon,
+          errorStyle: context.typography.bodySmall.copyWith(
+            overflow: TextOverflow.visible,
+            color: AppColors.errorForeground,
+          ),
         ),
       ),
     );
