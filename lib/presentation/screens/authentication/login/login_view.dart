@@ -277,11 +277,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
                               InkWell(
                                 onTap: () {
+                                  print("test btn");
+
                                   LoginResponseModel().deleteTokenLocal();
                                   const AccountModel().deleteAccountLocal();
                                   UserModel().deleteUserLocal();
                                   BioUserModel.deleteBioLocal();
-                                  Get.offAllNamed(mainPage);
+                                  Get.offAll(()=> MainPage(),binding: Binding());
                                 },
                                 child: SizedBox(
                                   height: 50.h,
