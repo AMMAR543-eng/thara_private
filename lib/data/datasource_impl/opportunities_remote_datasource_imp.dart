@@ -130,7 +130,6 @@ class OpportunitiesRemoteDataSourceImpl
         HttpMethod.POST,
         ApiConstatns.autoInvestmentConfig,
         params: payload,
-        auto_invest: true,
       );
 
       final model = SuccessNewModel.fromJson(response);

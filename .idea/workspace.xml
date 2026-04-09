@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15c82c84-94db-4650-a673-9dce8db7e21b" name="Changes" comment="fix text issue">
-      <change afterPath="$PROJECT_DIR$/integration_test/cancel_withdraw_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration_test/deposit_flow_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration_test/home_view_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration_test/integration_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration_test/investment_onboarding_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration_test/login_flow_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration_test/process_view_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_graph.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="15c82c84-94db-4650-a673-9dce8db7e21b" name="Changes" comment="fix integration test&#10;and accessibility widgets">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/design_systems/widgets/AppTextField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/design_systems/widgets/AppTextField.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/design_systems/widgets/custom_textform.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/design_systems/widgets/custom_textform.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/datasource_impl/opportunities_remote_datasource_imp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/datasource_impl/opportunities_remote_datasource_imp.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775642153694</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix integration test&#10;and accessibility widgets">
+      <option name="closed" value="true" />
+      <created>1775647839014</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775647839014</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +207,7 @@
     <MESSAGE value="unit test" />
     <MESSAGE value="FIX ENCRYPTION ISSUE" />
     <MESSAGE value="fix text issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix text issue" />
+    <MESSAGE value="fix integration test&#10;and accessibility widgets" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix integration test&#10;and accessibility widgets" />
   </component>
 </project>
