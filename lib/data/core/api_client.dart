@@ -134,6 +134,8 @@ class ClientSourceRepo {
       return _processResponse(response);
     } catch (e) {
       if (e is dio.DioException) {
+        debugPrint('🔴 DioException status: ${e.response?.statusCode}');
+        debugPrint('🔴 DioException body: ${e.response?.data}');
         if (e.type == dio.DioExceptionType.connectionTimeout ||
             e.type == dio.DioExceptionType.receiveTimeout ||
             e.type == dio.DioExceptionType.sendTimeout) {

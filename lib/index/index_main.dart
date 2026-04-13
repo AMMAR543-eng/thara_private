@@ -193,7 +193,6 @@ export 'package:thara/domain/Repositories/settings_repo.dart';
 export 'package:thara/data/datasource_impl/settings_remote_datasource_imp.dart';
 export 'package:thara/presentation/parentControllers/settings_service.dart';
 export 'package:thara/domain/parameters/change_password_params.dart';
-export 'package:thara/domain/parameters/change_email_params.dart';
 export 'package:thara/domain/parameters/verify_new_email_params.dart';
 export 'package:thara/domain/parameters/store_ticket_params.dart';
 

@@ -7,13 +7,17 @@ abstract class SettingsRemoteDataSourceRepo {
     String passwordConfirm,
   );
 
-  Future<ApiResult<OtpModel>> changeEmail(String email);
+  Future<ApiResult<OtpModel>> changeEmailRequestOtp();
+
+  Future<ApiResult<OtpModel>> changeEmailSubmit(String email, String otp);
 
   Future<ApiResult<OtpModel>> verifyNewEmail(String email, String otp);
 
-  Future<ApiResult<OtpModel>> changePhone(String email);
+  Future<ApiResult<OtpModel>> changePhoneRequestOtp();
 
-  Future<ApiResult<OtpModel>> verifyNewPhone(String email, String otp);
+  Future<ApiResult<OtpModel>> changePhoneSubmit(String phone, String otp);
+
+  Future<ApiResult<OtpModel>> verifyNewPhone(String phone, String otp);
 
   Future<ApiResult<OtpModel>> storeTicket(
     String name,

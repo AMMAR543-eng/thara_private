@@ -186,7 +186,10 @@ class ApiConstatns {
   static String get changePassword =>
       _url('profile/change_password');
 
-  static String get changeEmail =>
+  static String get changeEmailRequestOtp =>
+      _url('profile/request_change_email_otp');
+
+  static String get changeEmailSubmit =>
       _url('profile/request_change_email');
 
   static String get verifyEmail =>
@@ -195,14 +198,17 @@ class ApiConstatns {
   static String get BIOMETRIC =>
       _url('biometrics/store');
 
-  static String get changePhone =>
+  static String get changePhoneRequestOtp =>
+      _url('profile/change_phone_number_otp');
+
+  static String get changePhoneSubmit =>
       _url('profile/change_phone_number');
 
   static String get change_profile_photo =>
       _url('profile/change_profile_photo');
 
   static String get verifyPhone =>
-      _url('profile/verify_new_phone_number');
+      _url('profile/verify_new_phone');
 
   static String get storeTicket =>
       _url('tickets/store');

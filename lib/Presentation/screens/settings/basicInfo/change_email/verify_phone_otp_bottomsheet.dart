@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'package:flutter/gestures.dart';
-import 'package:thara/Presentation/screens/settings/basicInfo/change_email/controller.dart';
 import '../../../../../index/index_main.dart';
+import 'controller.dart';
 
-class VerifyNewEmailBottomSheet extends StatelessWidget {
-  final String email;
+class VerifyPhoneOtpForEmailChangeBottomSheet extends StatelessWidget {
+  final String phone;
 
-  const VerifyNewEmailBottomSheet({super.key, required this.email});
+  const VerifyPhoneOtpForEmailChangeBottomSheet({
+    super.key,
+    required this.phone,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
     final RxInt secondsRemaining = 60.obs;
     final RxBool enableResend = false.obs;
 
-    // Timer logic for resend
     ever(secondsRemaining, (value) {
       if (value == 0) enableResend.value = true;
     });
@@ -46,7 +48,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              /// --- Handle Bar
               Container(
                 width: 60.w,
                 height: 5.h,
@@ -57,9 +58,8 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                 ),
               ),
 
-              /// --- Title
               Text(
-                "verify_email_title".tr,
+                "enter_otp_for_new_phone".tr,
                 textAlign: TextAlign.center,
                 style: context.typography.headerXLarge.copyWith(
                   color: AppColors.content_brand_secondary,
@@ -67,9 +67,8 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              /// --- Description
               Text(
-                "verify_email_desc".tr,
+                "otp_sent_to_phone".tr,
                 textAlign: TextAlign.center,
                 style: context.typography.bodyMedium.copyWith(
                   color: AppColors.content_secondary,
@@ -77,9 +76,8 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              /// --- Email Display
               Text(
-                email,
+                phone,
                 textAlign: TextAlign.center,
                 style: context.typography.bodyMedium.copyWith(
                   color: AppColors.content_primary,
@@ -109,7 +107,7 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                           final code = otpController.text.trim();
                           if (code.isEmpty) return;
                           FocusScope.of(context).unfocus();
-                          controller.verifyNewEmailApi(email, code);
+                          controller.onPhoneOtpVerified(context, code);
                         }
                       : null,
                   appButtonSize: AppButtonSize.large,
@@ -123,11 +121,12 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                 )),
               ),
 
-              /// --- Resend Section
+              SizedBox(height: 10.h),
+
               Obx(
                 () => Text.rich(
                   TextSpan(
-                    text: "verify_email_check_spam".tr,
+                    text: "did_not_receive_code".tr,
                     style: context.typography.bodyMedium.copyWith(
                       color: AppColors.tertiary,
                     ),
@@ -135,8 +134,9 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                       TextSpan(
                         text: enableResend.value
                             ? "resend_code".tr
-                            : "resend_in".trParams(
-                                {"seconds": "${secondsRemaining.value}s"}),
+                            : "resend_in_seconds".trParams({
+                                "seconds": secondsRemaining.value.toString(),
+                              }),
                         style: context.typography.bodyStrongMedium.copyWith(
                           color: enableResend.value
                               ? AppColors.primary
@@ -161,7 +161,7 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                                       }
                                     },
                                   );
-                                  Loader.showSuccess("code_resent_success".tr);
+                                  controller.resendPhoneOtp();
                                 }
                               : null,
                       ),

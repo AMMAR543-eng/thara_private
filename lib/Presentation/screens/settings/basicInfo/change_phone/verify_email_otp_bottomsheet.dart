@@ -1,25 +1,27 @@
 import 'dart:async';
 import 'package:flutter/gestures.dart';
-import 'package:thara/Presentation/screens/settings/basicInfo/change_email/controller.dart';
 import '../../../../../index/index_main.dart';
+import 'controller.dart';
 
-class VerifyNewEmailBottomSheet extends StatelessWidget {
+class VerifyEmailOtpForPhoneChangeBottomSheet extends StatelessWidget {
   final String email;
 
-  const VerifyNewEmailBottomSheet({super.key, required this.email});
+  const VerifyEmailOtpForPhoneChangeBottomSheet({
+    super.key,
+    required this.email,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.isRegistered<ChangeEmailController>()
-        ? Get.find<ChangeEmailController>()
-        : Get.put(ChangeEmailController());
+    final controller = Get.isRegistered<ChangePhoneController>()
+        ? Get.find<ChangePhoneController>()
+        : Get.put(ChangePhoneController());
 
     final otpController = TextEditingController();
     final RxBool validOtp = false.obs;
     final RxInt secondsRemaining = 60.obs;
     final RxBool enableResend = false.obs;
 
-    // Timer logic for resend
     ever(secondsRemaining, (value) {
       if (value == 0) enableResend.value = true;
     });
@@ -46,7 +48,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              /// --- Handle Bar
               Container(
                 width: 60.w,
                 height: 5.h,
@@ -57,7 +58,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                 ),
               ),
 
-              /// --- Title
               Text(
                 "verify_email_title".tr,
                 textAlign: TextAlign.center,
@@ -67,7 +67,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              /// --- Description
               Text(
                 "verify_email_desc".tr,
                 textAlign: TextAlign.center,
@@ -77,7 +76,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              /// --- Email Display
               Text(
                 email,
                 textAlign: TextAlign.center,
@@ -109,7 +107,7 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                           final code = otpController.text.trim();
                           if (code.isEmpty) return;
                           FocusScope.of(context).unfocus();
-                          controller.verifyNewEmailApi(email, code);
+                          controller.onEmailOtpVerified(context, code);
                         }
                       : null,
                   appButtonSize: AppButtonSize.large,
@@ -123,7 +121,6 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                 )),
               ),
 
-              /// --- Resend Section
               Obx(
                 () => Text.rich(
                   TextSpan(
@@ -161,7 +158,7 @@ class VerifyNewEmailBottomSheet extends StatelessWidget {
                                       }
                                     },
                                   );
-                                  Loader.showSuccess("code_resent_success".tr);
+                                  controller.resendEmailOtp();
                                 }
                               : null,
                       ),
