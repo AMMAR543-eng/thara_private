@@ -27,13 +27,13 @@ void main() {
 
       await GetStorage.init();
       await StorageService().init();
-
-      // ✅ SECURITY CHECK
-      final compromised = await isDeviceCompromised();
-      if (compromised) {
-        runApp(const RootBlockedApp());
-        return;
-      }
+      //
+      // // ✅ SECURITY CHECK
+      // final compromised = await isDeviceCompromised();
+      // if (compromised) {
+      //   runApp(const RootBlockedApp());
+      //   return;
+      // }
 
       await SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,

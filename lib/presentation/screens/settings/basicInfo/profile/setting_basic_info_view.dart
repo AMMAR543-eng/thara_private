@@ -146,7 +146,7 @@ class SettingsBasicInfoView extends StatelessWidget {
                     ),
                     PrimaryTextButton(
                       onTap: () {
-                        controller.startPhoneChangeFlow(context);
+                        controller.startEmailChangeFlow(context);
                       },
                       customBackgroundColor: AppColors.white,
                       label: Text(
@@ -173,7 +173,7 @@ class SettingsBasicInfoView extends StatelessWidget {
                     ),
                     PrimaryTextButton(
                       onTap: () {
-                        controller.startEmailChangeFlow(context);
+                        controller.startPhoneChangeFlow(context);
                       },
                       customBackgroundColor: AppColors.white,
                       label: Text(
