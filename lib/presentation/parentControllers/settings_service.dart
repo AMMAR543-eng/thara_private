@@ -26,14 +26,26 @@ class SettingsService {
   // ---------------------------------------------------------------------------
   // ✉️ Change Email
   // ---------------------------------------------------------------------------
-  Future<void> changeEmail({
-    required String email,
+  Future<void> changeEmailRequestOtp({
     required Function(BaseEntity) voidCallBack,
   }) async {
     Loader.show();
     final result = await initUseCase(
-      () => ChangeEmailDomainUseCase(Get.find()),
-    ).call(ChangeEmailParams(email: email));
+      () => ChangeEmailRequestOtpUseCase(Get.find()),
+    ).call(NoParams());
+    result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
+    Loader.dismiss();
+  }
+
+  Future<void> changeEmailSubmit({
+    required String email,
+    required String otp,
+    required Function(BaseEntity) voidCallBack,
+  }) async {
+    Loader.show();
+    final result = await initUseCase(
+      () => ChangeEmailSubmitUseCase(Get.find()),
+    ).call(ChangeEmailSubmitParams(email: email, otp: otp));
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
   }
@@ -54,17 +66,29 @@ class SettingsService {
   // ---------------------------------------------------------------------------
   // 📱 Change Phone
   // ---------------------------------------------------------------------------
-  Future<void> changePhone({
-    required String phone,
+  Future<void> changePhoneRequestOtp({
     required Function(BaseEntity) voidCallBack,
   }) async {
     Loader.show();
     final result = await initUseCase(
-      () => ChangePhoneDomainUseCase(Get.find()),
-    ).call(ChangePhoneParams(phone: phone));
+      () => ChangePhoneRequestOtpUseCase(Get.find()),
+    ).call(NoParams());
 
     result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
+    Loader.dismiss();
+  }
 
+  Future<void> changePhoneSubmit({
+    required String phone,
+    required String otp,
+    required Function(BaseEntity) voidCallBack,
+  }) async {
+    Loader.show();
+    final result = await initUseCase(
+      () => ChangePhoneSubmitUseCase(Get.find()),
+    ).call(ChangePhoneSubmitParams(phone: phone, otp: otp));
+
+    result.fold((l) => Loader.showError(l.messege), (r) => voidCallBack(r));
     Loader.dismiss();
   }
 

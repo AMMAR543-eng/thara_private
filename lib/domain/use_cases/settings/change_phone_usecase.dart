@@ -1,24 +1,40 @@
 import 'package:dartz/dartz.dart';
 import '../../../index/index_main.dart';
 
-class ChangePhoneDomainUseCase
-    extends Use_Case<Either<AppError, BaseEntity>, ChangePhoneParams> {
+class ChangePhoneRequestOtpUseCase
+    extends Use_Case<Either<AppError, BaseEntity>, NoParams> {
   final SettingsRepository _settingsRepositoryImpl;
 
-  // Constructor
-  ChangePhoneDomainUseCase(this._settingsRepositoryImpl);
+  ChangePhoneRequestOtpUseCase(this._settingsRepositoryImpl);
 
   @override
-  Future<Either<AppError, BaseEntity>> call(ChangePhoneParams params) async {
-    return await _settingsRepositoryImpl.changePhoneDomain(params.phone);
+  Future<Either<AppError, BaseEntity>> call(NoParams params) async {
+    return await _settingsRepositoryImpl.changePhoneRequestOtpDomain();
   }
 }
 
-class ChangePhoneParams extends Equatable {
-  final String phone;
+class ChangePhoneSubmitUseCase
+    extends Use_Case<Either<AppError, BaseEntity>, ChangePhoneSubmitParams> {
+  final SettingsRepository _settingsRepositoryImpl;
 
-  const ChangePhoneParams({required this.phone});
+  ChangePhoneSubmitUseCase(this._settingsRepositoryImpl);
 
   @override
-  List<Object?> get props => [phone];
+  Future<Either<AppError, BaseEntity>> call(
+      ChangePhoneSubmitParams params) async {
+    return await _settingsRepositoryImpl.changePhoneSubmitDomain(
+      params.phone,
+      params.otp,
+    );
+  }
+}
+
+class ChangePhoneSubmitParams extends Equatable {
+  final String phone;
+  final String otp;
+
+  const ChangePhoneSubmitParams({required this.phone, required this.otp});
+
+  @override
+  List<Object?> get props => [phone, otp];
 }

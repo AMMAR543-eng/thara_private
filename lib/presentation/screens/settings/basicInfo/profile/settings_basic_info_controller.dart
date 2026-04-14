@@ -108,12 +108,14 @@ class SettingsBasicInfoController extends GetxController {
 
   void startEmailChangeFlow(BuildContext context) {
     final emailController = Get.put(ChangeEmailController());
-    emailController.openEditEmailBottomSheet(context);
+    final userPhone = profileData?.user?.phoneNumber ?? '';
+    emailController.requestPhoneOtp(context, userPhone);
   }
 
   void startPhoneChangeFlow(BuildContext context) {
     final phoneController = Get.put(ChangePhoneController());
-    phoneController.openEditPhoneBottomSheet(context);
+    final userEmail = profileData?.user?.email ?? '';
+    phoneController.requestEmailOtp(context, userEmail);
   }
 
   // ---------------------------------------------------------------------------

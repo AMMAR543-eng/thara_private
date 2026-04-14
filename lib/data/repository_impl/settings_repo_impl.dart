@@ -32,8 +32,23 @@ class SettingsRepositoryImpl extends SettingsRepository {
   // ---------------------------------------------------------------------------
 
   @override
-  Future<Either<AppError, BaseEntity>> changeEmailDomain(String email) async {
-    final result = await _settingsRemoteDataSourceRepo.changeEmail(email);
+  Future<Either<AppError, BaseEntity>> changeEmailRequestOtpDomain() async {
+    final result = await _settingsRemoteDataSourceRepo.changeEmailRequestOtp();
+
+    return result is Success<OtpModel>
+        ? right(result.data)
+        : left(AppError((result as Failure).errorHandler.message ?? ""));
+  }
+
+  @override
+  Future<Either<AppError, BaseEntity>> changeEmailSubmitDomain(
+    String email,
+    String otp,
+  ) async {
+    final result = await _settingsRemoteDataSourceRepo.changeEmailSubmit(
+      email,
+      otp,
+    );
 
     return result is Success<OtpModel>
         ? right(result.data)
@@ -60,8 +75,23 @@ class SettingsRepositoryImpl extends SettingsRepository {
   // ---------------------------------------------------------------------------
 
   @override
-  Future<Either<AppError, BaseEntity>> changePhoneDomain(String phone) async {
-    final result = await _settingsRemoteDataSourceRepo.changePhone(phone);
+  Future<Either<AppError, BaseEntity>> changePhoneRequestOtpDomain() async {
+    final result = await _settingsRemoteDataSourceRepo.changePhoneRequestOtp();
+
+    return result is Success<OtpModel>
+        ? right(result.data)
+        : left(AppError((result as Failure).errorHandler.message ?? ""));
+  }
+
+  @override
+  Future<Either<AppError, BaseEntity>> changePhoneSubmitDomain(
+    String phone,
+    String otp,
+  ) async {
+    final result = await _settingsRemoteDataSourceRepo.changePhoneSubmit(
+      phone,
+      otp,
+    );
 
     return result is Success<OtpModel>
         ? right(result.data)

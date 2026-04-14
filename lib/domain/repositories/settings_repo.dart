@@ -14,7 +14,12 @@ abstract class SettingsRepository {
   // ---------------------------------------------------------------------------
   // ✉️ Change Email
   // ---------------------------------------------------------------------------
-  Future<Either<AppError, BaseEntity>> changeEmailDomain(String email);
+  Future<Either<AppError, BaseEntity>> changeEmailRequestOtpDomain();
+
+  Future<Either<AppError, BaseEntity>> changeEmailSubmitDomain(
+    String email,
+    String otp,
+  );
 
   Future<Either<AppError, BaseEntity>> verifyNewEmailDomain(
     String email,
@@ -24,7 +29,12 @@ abstract class SettingsRepository {
   // ---------------------------------------------------------------------------
   // 📱 Change Phone
   // ---------------------------------------------------------------------------
-  Future<Either<AppError, BaseEntity>> changePhoneDomain(String phone);
+  Future<Either<AppError, BaseEntity>> changePhoneRequestOtpDomain();
+
+  Future<Either<AppError, BaseEntity>> changePhoneSubmitDomain(
+    String phone,
+    String otp,
+  );
 
   Future<Either<AppError, BaseEntity>> verifyNewPhoneDomain(
     String phone,

@@ -85,44 +85,37 @@ class VerifyNewPhoneBottomSheet extends StatelessWidget {
                 padding: EdgeInsets.only(top: 15.h, bottom: 10.h),
                 child: Directionality(
                   textDirection: TextDirection.ltr,
-                  child: PinCodeTextField(
-                    appContext: context,
+                  child: AppTextField(
                     controller: otpController,
-                    length: 4,
+                    hintText: "000000",
                     keyboardType: TextInputType.number,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    autoDismissKeyboard: false,
-                    autoFocus: true,
-                    cursorColor: AppColors.primary,
-                    enableActiveFill: true,
-                    textStyle: context.typography.headerXLarge.copyWith(
-                      color: AppColors.textDefault,
-                    ),
-                    onChanged: (value) {
-                      final isValid = value.length == 4;
-                      validOtp.value = isValid;
-                      if (isValid) {
-                        FocusScope.of(context).unfocus();
-                        controller.verifyNewPhoneApi(phone, value);
-                        otpController.clear();
-                      }
+                    onValidationChanged: (value) {
+                      validOtp.value = otpController.text.trim().isNotEmpty;
                     },
-                    pinTheme: PinTheme(
-                      shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(8),
-                      fieldHeight: 50.h,
-                      fieldWidth: 50.w,
-                      borderWidth: 0.5,
-                      activeColor: AppColors.primary,
-                      selectedColor: AppColors.primary,
-                      inactiveColor: AppColors.primary,
-                      activeFillColor: Colors.white,
-                      selectedFillColor: Colors.white,
-                      inactiveFillColor: Colors.white,
-                      fieldOuterPadding: EdgeInsets.only(left: 8.w),
-                    ),
                   ),
                 ),
+              ),
+              SizedBox(height: 10.h),
+              SizedBox(
+                width: double.infinity,
+                child: Obx(() => PrimaryTextButton(
+                  onTap: validOtp.value
+                      ? () {
+                          final code = otpController.text.trim();
+                          if (code.isEmpty) return;
+                          FocusScope.of(context).unfocus();
+                          controller.verifyNewPhoneApi(phone, code);
+                        }
+                      : null,
+                  appButtonSize: AppButtonSize.large,
+                  label: Text(
+                    "continue".tr,
+                    style: context.typography.bodyLarge.copyWith(
+                      color: AppColors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                )),
               ),
 
               /// Resend section
