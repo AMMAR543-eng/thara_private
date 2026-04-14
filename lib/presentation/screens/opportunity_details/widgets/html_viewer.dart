@@ -11,7 +11,7 @@ class HtmlViewer extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final textColor = AppColors.textDefault;
-
+ //change color in html
     return HtmlWidget(
       htmlData ?? "",
       textStyle: TextStyle(color: textColor),
