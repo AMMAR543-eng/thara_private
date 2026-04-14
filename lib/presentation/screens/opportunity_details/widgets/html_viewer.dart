@@ -9,6 +9,21 @@ class HtmlViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HtmlWidget(htmlData ?? "");
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final textColor = AppColors.textDefault;
+
+    return HtmlWidget(
+      htmlData ?? "",
+      textStyle: TextStyle(color: textColor),
+      customStylesBuilder:
+          isDark ? (element) => {'color': '${_toCssHex(textColor)}'} : null,
+    );
+  }
+
+  static String _toCssHex(Color c) {
+    final r = c.red.toInt().toRadixString(16).padLeft(2, '0');
+    final g = c.green.toInt().toRadixString(16).padLeft(2, '0');
+    final b = c.blue.toInt().toRadixString(16).padLeft(2, '0');
+    return '#$r$g$b';
   }
 }
