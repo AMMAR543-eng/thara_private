@@ -7,6 +7,8 @@ class AppTextField extends StatefulWidget {
     this.controller,
     this.labelText,
     this.hintText,
+    this.textColor,
+    this.hintColor,
     this.enabled = true,
     this.obscureText = false,
     this.onChanged,
@@ -33,6 +35,8 @@ class AppTextField extends StatefulWidget {
 
   final TextEditingController? controller;
   final String? labelText;
+  final Color? textColor;
+  final Color? hintColor;
   final VoidCallback? ontap;
   final bool? read_only;
   final String? hintText;
@@ -135,7 +139,7 @@ class _AppTextFieldState extends State<AppTextField> {
         cursorColor: context.inputTheme.focusedTextColor,
         style: context.typography.bodyMedium.copyWith(
           color: widget.enabled
-              ? context.inputTheme.focusedTextColor
+              ? (widget.textColor ?? context.inputTheme.focusedTextColor)
               : context.inputTheme.disabledTextColor,
         ),
         maxLines: widget.maxLines,

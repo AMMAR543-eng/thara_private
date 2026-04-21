@@ -56,7 +56,7 @@ class _HomeViewState extends State<HomeView> {
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         backgroundColor: AppColors.background_neutral_surface,
-        appBar: HomeAppBar(title: "home".tr),
+        appBar: HomeAppBar(title: 'home'.tr),
         body: GetBuilder<DashboardController>(
           builder: (controller) {
             final token =
@@ -114,46 +114,49 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           _buildHeaderRow(context, controller),
                           _buildOpportunitiesList(context, controller),
-                          controller.investmentConfigResponseModel?.data
-                                      ?.configured ==
-                                  false
-                              ? PrimaryTextButton(
-                                  label: Text(
-                                    "activate_auto_invest".tr, // ← 🔥 معرّب
-                                    style: context.typography.bodyLarge
-                                        .copyWith(color: AppColors.white),
-                                  ),
-                                  onTap: () {
-                                    Get.to(
-                                      () => const InvestmentOnboardingScreen(),
-                                    );
-                                  },
-                                )
-                              : PrimaryTextButton(
-                                  label: Text(
-                                    "edit_auto_invest_preferences".tr,
-                                    // ← 🔥 معرّب
-                                    style: context.typography.bodyLarge
-                                        .copyWith(color: AppColors.white),
-                                  ),
-                                  onTap: () {
-                                    final config = controller
-                                        .investmentConfigResponseModel
-                                        ?.data
-                                        ?.config;
+                          controller.investmentConfigResponseModel == null
+                              ? const SizedBox()
+                              : controller.investmentConfigResponseModel?.data
+                                          ?.configured ==
+                                      false
+                                  ? PrimaryTextButton(
+                                      label: Text(
+                                        'activate_auto_invest'.tr, // ← 🔥 معرّب
+                                        style: context.typography.bodyLarge
+                                            .copyWith(color: AppColors.white),
+                                      ),
+                                      onTap: () {
+                                        Get.to(
+                                          () =>
+                                              const InvestmentOnboardingScreen(),
+                                        );
+                                      },
+                                    )
+                                  : PrimaryTextButton(
+                                      label: Text(
+                                        'edit_auto_invest_preferences'.tr,
+                                        // ← 🔥 معرّب
+                                        style: context.typography.bodyLarge
+                                            .copyWith(color: AppColors.white),
+                                      ),
+                                      onTap: () {
+                                        final config = controller
+                                            .investmentConfigResponseModel
+                                            ?.data
+                                            ?.config;
 
-                                    if (config != null) {
-                                      final entity = controller
-                                          .mapConfigToWizardEntity(config);
+                                        if (config != null) {
+                                          final entity = controller
+                                              .mapConfigToWizardEntity(config);
 
-                                      /// 🔥 افتح البوتوم شيت مع البيانات
-                                      showInvestSettingsSheet(
-                                        Get.context!,
-                                        entity,
-                                      );
-                                    }
-                                  },
-                                ),
+                                          /// 🔥 افتح البوتوم شيت مع البيانات
+                                          showInvestSettingsSheet(
+                                            Get.context!,
+                                            entity,
+                                          );
+                                        }
+                                      },
+                                    ),
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0),
                             child: InvestmentSummaryWidget(),
@@ -170,46 +173,49 @@ class _HomeViewState extends State<HomeView> {
                                 ?.toDouble(),
                           ),
                           StartInvestWithBalance(controller: controller),
-                          controller.investmentConfigResponseModel?.data
-                                      ?.configured ==
-                                  false
-                              ? PrimaryTextButton(
-                                  label: Text(
-                                    "activate_auto_invest".tr, // ← 🔥 معرّب
-                                    style: context.typography.bodyLarge
-                                        .copyWith(color: AppColors.white),
-                                  ),
-                                  onTap: () {
-                                    Get.to(
-                                      () => const InvestmentOnboardingScreen(),
-                                    );
-                                  },
-                                )
-                              : PrimaryTextButton(
-                                  label: Text(
-                                    "edit_auto_invest_preferences".tr,
-                                    // ← 🔥 معرّب
-                                    style: context.typography.bodyLarge
-                                        .copyWith(color: AppColors.white),
-                                  ),
-                                  onTap: () {
-                                    final config = controller
-                                        .investmentConfigResponseModel
-                                        ?.data
-                                        ?.config;
+                          controller.investmentConfigResponseModel == null
+                              ? const SizedBox()
+                              : controller.investmentConfigResponseModel?.data
+                                          ?.configured ==
+                                      false
+                                  ? PrimaryTextButton(
+                                      label: Text(
+                                        'activate_auto_invest'.tr, // ← 🔥 معرّب
+                                        style: context.typography.bodyLarge
+                                            .copyWith(color: AppColors.white),
+                                      ),
+                                      onTap: () {
+                                        Get.to(
+                                          () =>
+                                              const InvestmentOnboardingScreen(),
+                                        );
+                                      },
+                                    )
+                                  : PrimaryTextButton(
+                                      label: Text(
+                                        'edit_auto_invest_preferences'.tr,
+                                        // ← 🔥 معرّب
+                                        style: context.typography.bodyLarge
+                                            .copyWith(color: AppColors.white),
+                                      ),
+                                      onTap: () {
+                                        final config = controller
+                                            .investmentConfigResponseModel
+                                            ?.data
+                                            ?.config;
 
-                                    if (config != null) {
-                                      final entity = controller
-                                          .mapConfigToWizardEntity(config);
+                                        if (config != null) {
+                                          final entity = controller
+                                              .mapConfigToWizardEntity(config);
 
-                                      /// 🔥 افتح البوتوم شيت مع البيانات
-                                      showInvestSettingsSheet(
-                                        Get.context!,
-                                        entity,
-                                      );
-                                    }
-                                  },
-                                ),
+                                          /// 🔥 افتح البوتوم شيت مع البيانات
+                                          showInvestSettingsSheet(
+                                            Get.context!,
+                                            entity,
+                                          );
+                                        }
+                                      },
+                                    ),
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0, bottom: 15),
                             child: InvestmentSummaryWidget(),
@@ -252,8 +258,8 @@ class _HomeViewState extends State<HomeView> {
           Expanded(
             child: Text(
               !hasDeposit
-                  ? "start_first_investment".tr
-                  : "new_opportunities".tr,
+                  ? 'start_first_investment'.tr
+                  : 'new_opportunities'.tr,
               style: context.typography.headerXLarge.copyWith(
                 color: AppColors.content_primary,
               ),
@@ -267,7 +273,7 @@ class _HomeViewState extends State<HomeView> {
               );
             },
             child: Text(
-              "view_all".tr,
+              'view_all'.tr,
               style: context.typography.bodyStrongMedium.copyWith(
                 color: AppColors.action_primary_normal,
               ),
@@ -275,7 +281,7 @@ class _HomeViewState extends State<HomeView> {
           ),
           const SizedBox(width: 10),
           SvgPicture.asset(
-            LocalStorage_language().read() == "ar"
+            LocalStorage_language().read() == 'ar'
                 ? IconsConstants.forward_arrow
                 : IconsConstants.back,
             width: 15,
@@ -307,7 +313,7 @@ class _HomeViewState extends State<HomeView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "no_opportunities_available".tr,
+              'no_opportunities_available'.tr,
               style: context.typography.bodyLarge.copyWith(
                 color: AppColors.action_primary_normal,
               ),
@@ -315,7 +321,7 @@ class _HomeViewState extends State<HomeView> {
             ),
             SizedBox(height: 6.h),
             Text(
-              "new_opportunities_soon".tr,
+              'new_opportunities_soon'.tr,
               style: context.typography.bodySmall.copyWith(
                 color: AppColors.action_primary_normal,
               ),
@@ -342,7 +348,7 @@ class _HomeViewState extends State<HomeView> {
               opportunity: item ?? const OpportunitiesItemsEntity(),
               onTap: () {
                 Get.to(
-                  () => OpportunityDetailsView(id: item?.id ?? ""),
+                  () => OpportunityDetailsView(id: item?.id ?? ''),
                   binding: Binding(),
                   duration: const Duration(milliseconds: 0),
                 );

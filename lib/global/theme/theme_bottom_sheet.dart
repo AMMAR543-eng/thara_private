@@ -29,8 +29,8 @@ Future<void> showThemeBottomSheet(BuildContext context) async {
                 selected: currentTheme == 'light',
                 onTap: () {
                   storage.insert('light');
-                  Get.changeThemeMode(ThemeMode.light);
-                  Get.offAllNamed(mainPage);
+                  Get..changeThemeMode(ThemeMode.light)
+                  ..offAllNamed(mainPage);
                 },
               ),
               _themeTile(

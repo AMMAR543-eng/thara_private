@@ -93,6 +93,8 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
             child: SafeArea(
               child: Row(
                 children: [
+
+
                   /// =========================
                   /// 🔙 BACK BUTTON
                   /// =========================
@@ -110,7 +112,9 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
                           label: Text(
                             "back".tr,
                             style: context.typography.bodyMedium.copyWith(
-                              color: AppColors.white, // ✅ أبيض بدل أحمر
+                              color: LocalStorageTheme().read() == 'dark'
+                                  ? Colors.white
+                                  : AppColors.grayMedium, // ✅ أبيض بدل أحمر
                             ),
                           ),
                           onTap: c.prevStep, // ✅ FIX: دايماً شغال

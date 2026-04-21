@@ -18,7 +18,7 @@ class HomeInvestCreditTopWidget extends StatelessWidget {
         children: [
           /// 🔹 Title
           Text(
-            "your_investment_wallet_balance".tr,
+            'your_investment_wallet_balance'.tr,
             style: context.typography.bodyStrongMedium.copyWith(
               color: AppColors.content_secondary,
             ),

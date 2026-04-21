@@ -18,7 +18,7 @@ class _MainPageState extends State<MainPage> {
   int pressed = 0;
   static const int backPressThreshold = 2;
 
-  final Color activeColor = LocalStorageTheme().read() == "dark"
+  final Color activeColor = LocalStorageTheme().read() == 'dark'
       ? Colors.white
       : AppColors.content_brand_secondary;
 

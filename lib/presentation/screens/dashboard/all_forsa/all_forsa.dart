@@ -25,7 +25,7 @@ class _AllForsaState extends State<AllForsa> {
       child: Scaffold(
         backgroundColor: AppColors.background_neutral_surface,
         appBar: AllForsaAppBar(
-          title: "all_investment_opportunities".tr,
+          title: 'all_investment_opportunities'.tr,
           controller: dashboardController,
           showBackAndLimitedUI: widget.isShowForsa,
         ),
@@ -71,7 +71,13 @@ class _AllForsaState extends State<AllForsa> {
                         return OpportunityCardWidget(
                           opportunity:
                               opportunity ?? const OpportunitiesItemsEntity(),
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(
+                              () => OpportunityDetailsView(id: opportunity?.id),
+                              binding: Binding(),
+                              duration: const Duration(milliseconds: 0),
+                            );
+                          },
                           tab_index: controller.tab_index,
                           show_view_button: true,
                         );

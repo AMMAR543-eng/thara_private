@@ -18,33 +18,33 @@ class BuildAmountWidget extends StatelessWidget {
 
   String? _validateMin(String? val) {
     if (val == null || val.trim().isEmpty) {
-      return "min_required".tr; // يجب إدخال حد أدنى.
+      return 'min_required'.tr; // يجب إدخال حد أدنى.
     }
 
     final n = int.tryParse(val);
-    if (n == null) return "value_invalid".tr;
+    if (n == null) return 'value_invalid'.tr;
 
-    if (n <= 0) return "value_must_be_positive".tr;
+    if (n <= 0) return 'value_must_be_positive'.tr;
 
-    if (n < 1000) return "min_must_be_1000_or_more".tr;
+    if (n < 1000) return 'min_must_be_1000_or_more'.tr;
 
     return null;
   }
 
   String? _validateMax(String? val) {
-    if (val == null || val.trim().isEmpty) return "max_required".tr;
+    if (val == null || val.trim().isEmpty) return 'max_required'.tr;
 
     final n = int.tryParse(val);
-    if (n == null) return "value_invalid".tr;
+    if (n == null) return 'value_invalid'.tr;
 
-    if (n <= 0) return "value_must_be_positive".tr;
+    if (n <= 0) return 'value_must_be_positive'.tr;
 
-    if (n % 1000 != 0) return "must_be_multiple_of_1000".tr;
+    if (n % 1000 != 0) return 'must_be_multiple_of_1000'.tr;
 
     final minVal = int.tryParse(controller.minController.text) ?? 0;
     if (n < minVal)
-      return "max_must_be_more_than_min".trParams({
-        "min": "$minVal",
+      return 'max_must_be_more_than_min'.trParams({
+        'min': '$minVal',
       });
 
     return null;
@@ -54,6 +54,8 @@ class BuildAmountWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = LocalStorageTheme().read() == 'dark';
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
       child: Form(
@@ -61,26 +63,36 @@ class BuildAmountWidget extends StatelessWidget {
         child: Column(
           children: [
             TextInputWidget(
-              title: "min_invest_title".tr, // الحد الأدنى للاستثمار
+              title: 'min_invest_title'.tr,
               appTextField: AppTextField(
                 controller: controller.minController,
-                hintText: "0",
+                hintText: '0',
                 focusNode: keyboardService.getFocusNode(keys[0]),
                 keyboardType: TextInputType.number,
                 validator: _validateMin,
                 onChanged: (_) => controller.update(),
+
+                // 🔥 هنا التعديل
+                textColor:
+                    isDark ? Colors.white : AppColors.content_brand_secondary,
+                hintColor: isDark ? Colors.white54 : AppColors.tertiary,
               ),
             ),
             SizedBox(height: 20.h),
             TextInputWidget(
-              title: "max_invest_title".tr, // الحد الأعلى للاستثمار
+              title: 'max_invest_title'.tr,
               appTextField: AppTextField(
                 controller: controller.maxController,
-                hintText: "0",
+                hintText: '0',
                 focusNode: keyboardService.getFocusNode(keys[1]),
                 keyboardType: TextInputType.number,
                 validator: _validateMax,
                 onChanged: (_) => controller.update(),
+
+                // 🔥 هنا التعديل
+                textColor:
+                    isDark ? Colors.white : AppColors.content_brand_secondary,
+                hintColor: isDark ? Colors.white54 : AppColors.tertiary,
               ),
             ),
             if (controller.serverMessage != null)

@@ -11,6 +11,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/shared_preferences-2.5.3" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/local_auth-2.3.0" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/open_file_android-1.0.6" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_jailbreak_detection-1.10.0" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/url_launcher-6.3.2" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/device_info_plus-12.1.0" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.24" />
@@ -77,7 +78,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/image_picker_android-0.8.13+4" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/open_file_web-0.0.4" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/open_file_mac-1.0.3" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_jailbreak_detection-1.10.0" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
