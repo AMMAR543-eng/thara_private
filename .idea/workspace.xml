@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15c82c84-94db-4650-a673-9dce8db7e21b" name="Changes" comment="merge all in dev">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_graph.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="15c82c84-94db-4650-a673-9dce8db7e21b" name="Changes" comment="fix issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/global/theme/theme_bottom_sheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/global/theme/theme_bottom_sheet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/design_systems/widgets/AppTextField.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/design_systems/widgets/AppTextField.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/dashboard/all_forsa/all_forsa.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/dashboard/all_forsa/all_forsa.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/authentication/login/login_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/authentication/login/login_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/dashboard/dashboard_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/dashboard/dashboard_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/presentation/screens/dashboard/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/dashboard/home_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/dashboard/widget_new_ui/home_invest_credit_top_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/dashboard/widget_new_ui/home_invest_credit_top_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/investment_wizard_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/investment_wizard_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/investment_wizard_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/investment_wizard_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/widgets/build_amount_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/widgets/build_amount_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/mainpage/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/mainpage/mainpage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/widgets/edit_invest_bottomsheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/investment_wizard/widgets/edit_invest_bottomsheet.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776164500094</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix issues">
+      <option name="closed" value="true" />
+      <created>1776761798891</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1776761798891</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +263,7 @@
     <MESSAGE value="add root again" />
     <MESSAGE value="merge with encryption" />
     <MESSAGE value="merge all in dev" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge all in dev" />
+    <MESSAGE value="fix issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix issues" />
   </component>
 </project>

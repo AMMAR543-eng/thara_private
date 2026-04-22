@@ -43,7 +43,7 @@ void main() {
 
       /// test
       /// ✅ ENV
-      ApiConstatns.setEnv(Environment.prod);
+      ApiConstatns.setEnv(Environment.dev);
 
       final initializedApp = await ThemeScopeWidget.initialize(const MyApp());
 

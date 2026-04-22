@@ -106,7 +106,7 @@ void showInvestSettingsSheet(
                               DashboardController dashboard = initUseCase(
                                 () => DashboardController(),
                               );
-                              dashboard.getAutoInvestData();
+                              dashboard.getAutoInvestDataFuture();
                               dashboard.update();
                             },
                           );

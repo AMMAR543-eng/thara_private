@@ -293,7 +293,7 @@ class InvestmentWizardController extends GetxController {
           DashboardController controller = initUseCase(
             () => DashboardController(),
           );
-          controller.getAutoInvestData();
+          controller.getAutoInvestDataFuture();
           controller.update();
           update();
         },

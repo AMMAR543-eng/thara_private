@@ -113,7 +113,7 @@ class _InvestmentWizardScreenState extends State<InvestmentWizardScreen> {
                             "back".tr,
                             style: context.typography.bodyMedium.copyWith(
                               color: LocalStorageTheme().read() == 'dark'
-                                  ? Colors.white
+                                  ? Colors.black
                                   : AppColors.grayMedium, // ✅ أبيض بدل أحمر
                             ),
                           ),

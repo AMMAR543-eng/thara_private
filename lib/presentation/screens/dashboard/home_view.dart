@@ -66,6 +66,12 @@ class _HomeViewState extends State<HomeView> {
             final noDeposit = trade != null && (trade.total ?? 0) == 0;
             final isGuest = token == null;
 
+            print(
+                "value is ${controller.investmentConfigResponseModel?.data?.config?.toJson()}");
+
+            final config =
+                controller.investmentConfigResponseModel?.data?.config;
+
             if (controller.isLoading) {
               return Padding(
                 padding: const EdgeInsets.symmetric(
@@ -114,49 +120,64 @@ class _HomeViewState extends State<HomeView> {
                           ),
                           _buildHeaderRow(context, controller),
                           _buildOpportunitiesList(context, controller),
-                          controller.investmentConfigResponseModel == null
-                              ? const SizedBox()
-                              : controller.investmentConfigResponseModel?.data
-                                          ?.configured ==
-                                      false
-                                  ? PrimaryTextButton(
-                                      label: Text(
-                                        'activate_auto_invest'.tr, // ← 🔥 معرّب
-                                        style: context.typography.bodyLarge
-                                            .copyWith(color: AppColors.white),
-                                      ),
-                                      onTap: () {
-                                        Get.to(
-                                          () =>
-                                              const InvestmentOnboardingScreen(),
-                                        );
-                                      },
-                                    )
-                                  : PrimaryTextButton(
-                                      label: Text(
-                                        'edit_auto_invest_preferences'.tr,
-                                        // ← 🔥 معرّب
-                                        style: context.typography.bodyLarge
-                                            .copyWith(color: AppColors.white),
-                                      ),
-                                      onTap: () {
-                                        final config = controller
-                                            .investmentConfigResponseModel
-                                            ?.data
-                                            ?.config;
+                          if (controller.investmentConfigResponseModel != null)
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  elevation: WidgetStateProperty.all(0),
 
-                                        if (config != null) {
-                                          final entity = controller
-                                              .mapConfigToWizardEntity(config);
+                                  /// 🎨 الألوان حسب حاله الزرار
+                                  backgroundColor:
+                                      WidgetStateProperty.resolveWith((states) {
+                                    if (states.contains(WidgetState.disabled)) {
+                                      return AppColors.action_primary_normal;
+                                    }
+                                    if (states.contains(WidgetState.pressed)) {
+                                      return AppColors.action_primary_normal;
+                                    }
+                                    return AppColors.action_primary_normal;
+                                  }),
 
-                                          /// 🔥 افتح البوتوم شيت مع البيانات
-                                          showInvestSettingsSheet(
-                                            Get.context!,
-                                            entity,
-                                          );
-                                        }
-                                      },
+                                  foregroundColor:
+                                      WidgetStateProperty.all(AppColors.white),
+
+                                  /// 🔲 الشكل
+                                  shape: WidgetStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
                                     ),
+                                  ),
+
+                                  /// 📏 padding
+                                  padding: WidgetStateProperty.all(
+                                    const EdgeInsets.symmetric(vertical: 14),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  if (config == null) {
+                                    Get.to(() =>
+                                        const InvestmentOnboardingScreen());
+                                  } else {
+                                    final entity = controller
+                                        .mapConfigToWizardEntity(config);
+
+                                    showInvestSettingsSheet(
+                                      Get.context!,
+                                      entity,
+                                    );
+                                  }
+                                },
+                                child: Text(
+                                  config == null
+                                      ? 'activate_auto_invest'.tr
+                                      : 'edit_auto_invest_preferences'.tr,
+                                  style: context.typography.bodyLarge.copyWith(
+                                    color: AppColors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0),
                             child: InvestmentSummaryWidget(),
@@ -173,49 +194,64 @@ class _HomeViewState extends State<HomeView> {
                                 ?.toDouble(),
                           ),
                           StartInvestWithBalance(controller: controller),
-                          controller.investmentConfigResponseModel == null
-                              ? const SizedBox()
-                              : controller.investmentConfigResponseModel?.data
-                                          ?.configured ==
-                                      false
-                                  ? PrimaryTextButton(
-                                      label: Text(
-                                        'activate_auto_invest'.tr, // ← 🔥 معرّب
-                                        style: context.typography.bodyLarge
-                                            .copyWith(color: AppColors.white),
-                                      ),
-                                      onTap: () {
-                                        Get.to(
-                                          () =>
-                                              const InvestmentOnboardingScreen(),
-                                        );
-                                      },
-                                    )
-                                  : PrimaryTextButton(
-                                      label: Text(
-                                        'edit_auto_invest_preferences'.tr,
-                                        // ← 🔥 معرّب
-                                        style: context.typography.bodyLarge
-                                            .copyWith(color: AppColors.white),
-                                      ),
-                                      onTap: () {
-                                        final config = controller
-                                            .investmentConfigResponseModel
-                                            ?.data
-                                            ?.config;
+                          if (controller.investmentConfigResponseModel != null)
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  elevation: WidgetStateProperty.all(0),
 
-                                        if (config != null) {
-                                          final entity = controller
-                                              .mapConfigToWizardEntity(config);
+                                  /// 🎨 الألوان حسب حاله الزرار
+                                  backgroundColor:
+                                      WidgetStateProperty.resolveWith((states) {
+                                    if (states.contains(WidgetState.disabled)) {
+                                      return AppColors.action_primary_normal;
+                                    }
+                                    if (states.contains(WidgetState.pressed)) {
+                                      return AppColors.action_primary_normal;
+                                    }
+                                    return AppColors.action_primary_normal;
+                                  }),
 
-                                          /// 🔥 افتح البوتوم شيت مع البيانات
-                                          showInvestSettingsSheet(
-                                            Get.context!,
-                                            entity,
-                                          );
-                                        }
-                                      },
+                                  foregroundColor:
+                                      WidgetStateProperty.all(AppColors.white),
+
+                                  /// 🔲 الشكل
+                                  shape: WidgetStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
                                     ),
+                                  ),
+
+                                  /// 📏 padding
+                                  padding: WidgetStateProperty.all(
+                                    const EdgeInsets.symmetric(vertical: 14),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  if (config == null) {
+                                    Get.to(() =>
+                                        const InvestmentOnboardingScreen());
+                                  } else {
+                                    final entity = controller
+                                        .mapConfigToWizardEntity(config);
+
+                                    showInvestSettingsSheet(
+                                      Get.context!,
+                                      entity,
+                                    );
+                                  }
+                                },
+                                child: Text(
+                                  config == null
+                                      ? 'activate_auto_invest'.tr
+                                      : 'edit_auto_invest_preferences'.tr,
+                                  style: context.typography.bodyLarge.copyWith(
+                                    color: AppColors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0, bottom: 15),
                             child: InvestmentSummaryWidget(),

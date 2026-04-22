@@ -94,8 +94,10 @@ class DashboardController extends GetxController {
       final token = LoginResponseModel().getTokenData()?.data?.accessToken;
 
       if (token != null) {
-        unawaited(_loadBackgroundData());
-        getAutoInvestData();
+        await Future.wait([
+          _loadBackgroundData(),
+          getAutoInvestDataFuture(), // 👈 نحولها future
+        ]);
       }
 
       await Future.wait([
@@ -124,13 +126,18 @@ class DashboardController extends GetxController {
   // ================================
   // 🔹 AUTO INVEST
   // ================================
-  void getAutoInvestData() {
+  Future<void> getAutoInvestDataFuture() async {
+    final completer = Completer<void>();
+
     _service.getAutoInvestment(
       voidCallBack: (data) {
         investmentConfigResponseModel = data;
         update();
+        completer.complete();
       },
     );
+
+    return completer.future;
   }
 
   // ================================

@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               /// Title
                               Center(
                                 child: Text(
-                                  "login_welcome_title".tr,
+                                  'login_welcome_title'.tr,
                                   style: context.typography.bodyStrongLarge
                                       .copyWith(
                                     color: AppColors.content_brand_secondary,
@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               SizedBox(height: 6.h),
                               Center(
                                 child: Text(
-                                  "login_welcome_subtitle".tr,
+                                  'login_welcome_subtitle'.tr,
                                   style: context.typography.bodyLarge.copyWith(
                                     color: AppColors.content_secondary,
                                   ),
@@ -129,10 +129,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 15.0),
                                 child: TextInputWidget(
-                                  title: "login_email_label".tr,
+                                  title: 'login_email_label'.tr,
                                   appTextField: AppTextField(
                                     controller: controller.emailController,
-                                    hintText: "login_email_hint".tr,
+                                    hintText: 'login_email_hint'.tr,
                                     validator: InputValidators.combine([
                                       notEmptyValidator,
                                       InputValidators.validateEmail,
@@ -151,10 +151,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   bottom: 10,
                                 ),
                                 child: TextInputWidget(
-                                  title: "login_password_label".tr,
+                                  title: 'login_password_label'.tr,
                                   appTextField: AppTextField(
                                     controller: controller.passwordController,
-                                    hintText: "login_password_hint".tr,
+                                    hintText: 'login_password_hint'.tr,
                                     validator: InputValidators.combine([
                                       notEmptyValidator,
                                       //  InputValidators.validatePassword,
@@ -193,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               GestureDetector(
                                 onTap: controller.onForgotPassword,
                                 child: Text(
-                                  "login_forgot_password".tr,
+                                  'login_forgot_password'.tr,
                                   style: context.typography.bodyLarge.copyWith(
                                     color: AppColors.primary_normal,
                                   ),
@@ -215,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         enabled: controller.canLogin,
                                         child: PrimaryTextButton(
                                           label: Text(
-                                            "login_button".tr,
+                                            'login_button'.tr,
                                             style: context.typography.bodyLarge,
                                           ),
                                           onTap: controller.canLogin
@@ -226,7 +226,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 5.w),
+                                  UserModel().getUserData()?.email != null &&
+                                          BioUserModel.getBioData()
+                                                  ?.isBiometric ==
+                                              true
+                                      ? SizedBox(width: 5.w)
+                                      : const SizedBox(
+                                          width: 0,
+                                        ),
                                   UserModel().getUserData()?.email != null &&
                                           BioUserModel.getBioData()
                                                   ?.isBiometric ==
@@ -266,7 +273,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: 0.2,
                                   ),
                                   label: Text(
-                                    "login_create_account".tr,
+                                    'login_create_account'.tr,
                                     style:
                                         context.typography.bodyMedium.copyWith(
                                       color: AppColors.action_natural_normal,
@@ -277,20 +284,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
                               InkWell(
                                 onTap: () {
-                                  print("test btn");
+                                  print('test btn');
 
                                   LoginResponseModel().deleteTokenLocal();
                                   const AccountModel().deleteAccountLocal();
                                   UserModel().deleteUserLocal();
                                   BioUserModel.deleteBioLocal();
-                                  Get.offAll(()=> MainPage(),binding: Binding());
+                                  Get.offAll(() => MainPage(),
+                                      binding: Binding());
                                 },
                                 child: SizedBox(
                                   height: 50.h,
                                   width: ScreenUtil().screenWidth,
                                   child: Center(
                                     child: Text(
-                                      "login_guest".tr,
+                                      'login_guest'.tr,
                                       textAlign: TextAlign.center,
                                       style:
                                           context.typography.bodyLarge.copyWith(
