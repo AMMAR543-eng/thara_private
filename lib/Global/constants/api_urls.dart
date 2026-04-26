@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:thara/global/localization/LocalStorage_language.dart';
+
 enum Environment { dev, prod }
 
 class ApiConstatns {
@@ -79,7 +81,15 @@ class ApiConstatns {
 
   static String _urlWithId(String path, String id) => '$Base_Url$path/$id';
 
-  static String _web(String path) => '$Base_Web$path';
+  /// Builds a website URL and automatically appends the user's selected
+  /// language as a `?locale=ar|en` query parameter so the public website
+  /// renders in the same language the user picked in the app.
+  static String _web(String path) {
+    final lang = LocalStorage_language().read();
+    final base = '$Base_Web$path';
+    final separator = base.contains('?') ? '&' : '?';
+    return '$base${separator}locale=$lang';
+  }
 
   /// =========================
   /// 🌐 API URLS

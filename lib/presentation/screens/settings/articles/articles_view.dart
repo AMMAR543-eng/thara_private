@@ -10,7 +10,7 @@ class ArticlesView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: const InnerViewAppBar(title: "مقالاتنا"),
+      appBar: InnerViewAppBar(title: "our_articles".tr),
       body: SafeArea(
         child: GetBuilder<ArticlesViewModel>(
           init: ArticlesViewModel(),
@@ -24,7 +24,7 @@ class ArticlesView extends StatelessWidget {
             if (articles.isEmpty) {
               return Center(
                 child: Text(
-                  "لا توجد مقالات متاحة حالياً",
+                  "no_articles_available".tr,
                   style: typography.bodyLarge.copyWith(
                     color: AppColors.tertiary,
                   ),
@@ -48,7 +48,7 @@ class ArticlesView extends StatelessWidget {
                         ),
                         SizedBox(height: 12.h),
                         Text(
-                          "تصفح أحدث المقالات والموضوعات التي تهم المستثمرين والمقترضين في ذُرى.",
+                          "browse_articles_intro".tr,
                           style: typography.bodyMedium.copyWith(
                             color: AppColors.content_secondary,
                             height: 1.5,
@@ -174,7 +174,7 @@ class _ArticleCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        "اقرأ المزيد",
+                        "read_more".tr,
                         style: typography.bodyMedium.copyWith(
                           color: AppColors.primary,
                           fontWeight: FontWeight.w600,

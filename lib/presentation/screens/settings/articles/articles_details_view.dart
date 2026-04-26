@@ -32,7 +32,7 @@ class _ArticlesDetailsViewState extends State<ArticlesDetailsView> {
 
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: const InnerViewAppBar(title: "تفاصيل المقال"),
+      appBar: InnerViewAppBar(title: "article_details".tr),
       body: SafeArea(
         child: GetBuilder<ArticlesViewModel>(
           init: controller,
@@ -82,7 +82,7 @@ class _ArticlesDetailsViewState extends State<ArticlesDetailsView> {
                   /// --- Publish Date (if exists)
                   if (article.publishDate != null)
                     Text(
-                      "نشر في ${article.publishDate}",
+                      "${"published_on".tr} ${article.publishDate}",
                       style: typography.bodyMedium.copyWith(
                         color: AppColors.tertiary,
                       ),
@@ -151,7 +151,7 @@ class _ArticlesDetailsViewState extends State<ArticlesDetailsView> {
                       appButtonSize: AppButtonSize.large,
                       onTap: () => Get.back(),
                       label: Text(
-                        "العودة إلى المقالات",
+                        "back_to_articles".tr,
                         style: typography.bodyLarge.copyWith(
                           color: AppColors.white,
                           fontWeight: FontWeight.w600,

@@ -262,6 +262,8 @@ class ClientSourceRepo {
       headers['Authorization'] = 'Bearer $token';
     }
 
+    debugPrint('🌐 [defaultHeaders] x-locale=$lan | X-PLATFORM=$platform');
+
     return headers;
   }
 
