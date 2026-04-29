@@ -17,10 +17,10 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.tharaco.sa"   // ✅ أهم تعديل
+    namespace = "com.tharaco.sa"
 
     compileSdk = 36
-    ndkVersion = "27.0.12077973"
+    ndkVersion = "28.2.13676358"
     buildToolsVersion = "34.0.0"
 
     compileOptions {
@@ -33,9 +33,9 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tharaco.sa"   // ✅ لازم نفس الـ namespace
+        applicationId = "com.tharaco.sa"
         minSdk = flutter.minSdkVersion.toInt()
-        targetSdk = 34
+        targetSdk = 35
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true

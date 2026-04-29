@@ -5,7 +5,7 @@
   "packages": [
     {
       "name": "thara",
-      "version": "13.0.0+5",
+      "version": "15.0.1+9",
       "dependencies": [
         "cached_network_image",
         "crypto",
