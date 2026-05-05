@@ -2,7 +2,7 @@ name: thara
 description: "phentic app"
 publish_to: 'none'
 
-version: 15.0.1+9
+version: 15.0.0+9
 
 environment:
   sdk: ">=3.3.0 <4.0.0"

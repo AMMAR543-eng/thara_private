@@ -108,7 +108,9 @@ class _MainPageState extends State<MainPage> {
         return isLight ? Animations.more : Animations.more_dark;
 
       case "transfer":
-        return isLight ? Animations.transfer_dark : Animations.transfer;
+        return isLight
+            ? Animations.transaction_icon
+            : Animations.transaction_icon_dark;
 
       case "wallet":
         return isLight ? Animations.wallet : Animations.wallet_dark;

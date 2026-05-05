@@ -17,7 +17,7 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.tharaco.sa"
+    namespace = "com.thara.thara"
 
     compileSdk = 36
     ndkVersion = "28.2.13676358"
@@ -33,7 +33,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tharaco.sa"
+        applicationId = "com.thara.thara"
         minSdk = flutter.minSdkVersion.toInt()
         targetSdk = 35
         versionCode = flutter.versionCode

@@ -1,4 +1,4 @@
-package com.tharaco.sa
+package com.thara.thara
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -13,4 +13,9 @@ class Animations {
   static const String transfer = "assets/animations/Transfer.json";
   static const String wallet = "assets/animations/wallet.json";
   static const String home = "assets/animations/home.json";
+
+  static const String transaction_icon_dark =
+      "assets/animations/Transaction_Icon.json";
+  static const String transaction_icon =
+      "assets/animations/Transaction_Icon_Light.json";
 }
