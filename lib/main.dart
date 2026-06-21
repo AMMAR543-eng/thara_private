@@ -1,27 +1,49 @@
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get_storage/get_storage.dart';
 import 'index/index_main.dart'; // Your custom imports
+import 'dart:async';
+import 'dart:ui';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 void main() {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      await GetStorage.init();
 
-      // // ✅ Check if device is rooted
-      // bool rooted = await isDeviceRooted();
-      // if (rooted) {
+      /// 🔥 INIT FIREBASE
+      await Firebase.initializeApp();
+
+      /// 🔥 CRASHLYTICS (Flutter errors)
+      FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+
+      /// 🔥 CRASHLYTICS (Dart / Platform errors)
+      PlatformDispatcher.instance.onError = (error, stack) {
+        FirebaseCrashlytics.instance.recordError(
+          error,
+          stack,
+          fatal: true,
+        );
+        return true;
+      };
+
+      await GetStorage.init();
+      await StorageService().init();
+      //
+      // // ✅ SECURITY CHECK
+      // final compromised = await isDeviceCompromised();
+      // if (compromised) {
       //   runApp(const RootBlockedApp());
       //   return;
       // }
-
-      await StorageService().init();
 
       await SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
       ]);
 
       Binding().dependencies();
+
+      /// test
+      /// ✅ ENV
+      ApiConstatns.setEnv(Environment.dev);
 
       final initializedApp = await ThemeScopeWidget.initialize(const MyApp());
 
@@ -35,8 +57,17 @@ void main() {
         ),
       );
     },
+
+    /// 🔥 GLOBAL ERROR HANDLER (fallback)
     (dynamic error, dynamic stack) {
-      print("error is ${error.toString()}");
+      FirebaseCrashlytics.instance.recordError(
+        error,
+        stack,
+        fatal: true,
+      );
+
+      debugPrint('🔥 ERROR: $error');
+      debugPrint('📍 STACK: $stack');
     },
   );
 }
@@ -44,27 +75,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // Helper function to fetch the locale from storage
   String getLocalLan() {
     final localStorage = LocalStorage_language();
     return localStorage.read();
-    // return "ar";
   }
 
   @override
   Widget build(BuildContext context) {
-    // Access the theme context
     final theme = ThemeScope.of(context);
 
-    // Return the GetMaterialApp with all necessary configurations
-    return AnnotatedRegion(
+    return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
-      // const SystemUiOverlayStyle(
-      //   statusBarBrightness: Brightness.light,
-      //   statusBarIconBrightness: Brightness.dark,
-      //   systemNavigationBarColor:  Colors.white,
-      //   systemNavigationBarIconBrightness: Brightness.dark,
-      // ),
       child: GetMaterialApp(
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,

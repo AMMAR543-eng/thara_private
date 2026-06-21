@@ -1,0 +1,45 @@
+import '../../../index/index_main.dart';
+
+class OnboardLocalCheck {
+  bool? firstOpen;
+
+  OnboardLocalCheck({
+    this.firstOpen,
+  });
+
+  factory OnboardLocalCheck.fromJson(Map<String, dynamic> json) {
+    return OnboardLocalCheck(
+      firstOpen: json['firstOpen'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'firstOpen': firstOpen,
+    };
+  }
+}
+
+extension SaveLocalData on OnboardLocalCheck {
+  Future<void> saveOnBoardLocal({Function? saveCallback}) async {
+    final isSaved = await StorageService().setData(Strings.firstOepn, toJson());
+    if (isSaved) {
+      saveCallback?.call();
+    } else {
+      Loader.showError("Not saved locally");
+    }
+  }
+
+  Future<OnboardLocalCheck?> getOnBoardData() async {
+    final productJson = await StorageService().getData(Strings.firstOepn);
+    if (productJson != null) {
+      try {
+        return OnboardLocalCheck.fromJson(productJson);
+      } catch (e) {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
+}
